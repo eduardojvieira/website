@@ -4,10 +4,11 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About Me | Eduardo Vieira',
 };
 ---
 
@@ -15,61 +16,90 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="About Me"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1581092335397-9fa73e649526?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial Automation Engineer with Control Panel',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white highlight"> Beautiful Website Templates</span>
+      Eduardo Vieira <br />
+      <span class="text-accent dark:text-white highlight">Robotics & Automation Engineer</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      With over 6 years of experience in industrial automation and control systems, I specialize in developing robust, efficient solutions that bridge the gap between hardware and software. My expertise spans PLC programming, Raspberry Pi development, web-based HMI interfaces, and mechanical engineering, allowing me to deliver comprehensive automation solutions for a wide range of industrial applications.
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics about us"
+    title="Professional Experience"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Years Experience', amount: '6+' },
+      { title: 'Completed Projects', amount: '50+' },
+      { title: 'Client Satisfaction', amount: '100%' },
+      { title: 'Countries Served', amount: '12+' },
     ]}
   />
 
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="My Background"
+    title="Engineering Excellence with a Passion for Innovation"
+    items={[
+      {
+        title: 'Education & Certifications',
+        description:
+          'Bachelor of Mechanical Engineering with specialization in Automation and Control Systems. Certified in PLC Programming, SCADA Systems, and Industrial Network Design.',
+      },
+      {
+        title: 'Industry Experience',
+        description:
+          'Over 6 years working across manufacturing, food processing, pharmaceutical, and energy sectors, providing automation solutions that increase efficiency and reduce operational costs.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Advanced Industrial Control System',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">My Approach</h3>
+      <p>I believe in creating automation solutions that are not only technically sound but also user-friendly and maintainable. My engineering philosophy combines technical excellence with practical implementation, ensuring that systems work reliably in real-world conditions.</p>
+      <br />
+      <p>With a strong foundation in both mechanical engineering and programming, I bridge the gap between hardware and software to create truly integrated systems that deliver measurable results for my clients.</p>
+    </Fragment>
+  </Content>
+  
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="Core Competencies"
+    subtitle="My diverse skill set allows me to handle all aspects of industrial automation projects, from initial concept to final implementation and support."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'PLC Programming',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'Expert in programming Allen Bradley, Siemens, and Schneider PLCs for various industrial applications, from simple control systems to complex process automation.',
+        icon: 'tabler:device-desktop-analytics',
       },
       {
-        title: 'Interior Design',
+        title: 'HMI Development',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+          'Creating intuitive, responsive human-machine interfaces that provide operators with clear visibility and control of industrial processes.',
+        icon: 'tabler:device-desktop',
       },
       {
-        title: 'Photography',
+        title: 'SCADA Systems',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+          'Designing and implementing supervisory control and data acquisition systems that enable comprehensive monitoring and management of industrial operations.',
+        icon: 'tabler:chart-dots',
       },
     ]}
   />
@@ -79,70 +109,72 @@ const metadata = {
   <Features3
     columns={3}
     isAfterContent={true}
+    title="Technical Expertise"
+    subtitle="My specialized technical skills enable me to develop comprehensive automation solutions across various platforms and technologies."
     items={[
       {
-        title: 'E-commerce',
+        title: 'Raspberry Pi Development',
         description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+          'Creating custom solutions using Raspberry Pi for industrial applications, IoT systems, and edge computing implementations.',
+        icon: 'tabler:device-laptop',
       },
       {
-        title: 'Blog',
+        title: 'Node.js & Web Technologies',
         description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
+          'Developing web-based interfaces and applications using Node.js, Angular, and other modern web technologies for industrial control systems.',
+        icon: 'tabler:brand-javascript',
       },
       {
-        title: 'Business',
+        title: 'Industrial Networks',
         description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
+          'Designing and implementing industrial communication networks using protocols such as Modbus, Profinet, EtherNet/IP, and OPC UA.',
+        icon: 'tabler:network',
       },
       {
-        title: 'Branding',
+        title: 'Data Acquisition & Analysis',
         description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
+          'Creating systems for collecting, storing, and analyzing industrial data to provide actionable insights and improve operational efficiency.',
+        icon: 'tabler:chart-bar',
       },
       {
-        title: 'Medical',
+        title: 'Mechanical Design',
         description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
+          'Utilizing SolidWorks and other CAD tools to design mechanical components and systems that integrate seamlessly with automation solutions.',
+        icon: 'tabler:3d-cube-sphere',
       },
       {
-        title: 'Fashion Design',
+        title: 'Python Programming',
         description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+          'Leveraging Python for data analysis, machine learning applications, and integration with industrial systems and processes.',
+        icon: 'tabler:brand-python',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Technical workspace with programming and automation equipment',
     }}
   />
 
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="My Core Values"
+    subtitle="These principles guide my approach to every project and client relationship, ensuring consistent quality and successful outcomes."
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Client-Focused Solutions',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'I prioritize understanding your specific needs and challenges to deliver solutions that address your unique requirements, not generic implementations.',
       },
       {
-        title: 'Constant Improvement',
+        title: 'Technical Excellence',
         description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+          'I maintain the highest standards of technical quality in all my work, staying current with the latest technologies and best practices in industrial automation.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Transparency & Communication',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'I believe in clear, open communication throughout the project lifecycle, keeping you informed and involved in all key decisions and developments.',
       },
     ]}
   />
@@ -150,29 +182,29 @@ const metadata = {
   <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    title="Professional Achievements"
+    subtitle="A track record of successful projects and satisfied clients across multiple industries and technical domains."
     isReversed={true}
     callToAction={{
-      text: 'See more',
-      href: '/',
+      text: 'View Portfolio',
+      href: '/portfolio',
     }}
     items={[
       {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
+        title: '100% Job Success Score on Upwork',
+        description: 'Maintained a perfect client satisfaction rating across all projects on Upwork, with consistent 5-star reviews.',
+        icon: 'tabler:star',
+      },
+      {
+        title: 'International Client Base',
+        description:
+          'Successfully delivered projects for clients across North America, Europe, Australia, and South America, demonstrating ability to work effectively across different time zones and cultures.',
         icon: 'tabler:globe',
       },
       {
-        title: 'Positive customer feedback and reviews',
+        title: 'Industry Recognition',
         description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
+          'Recognized for innovative solutions in industrial automation, particularly in implementing cost-effective control systems for small to medium-sized manufacturing operations.',
         icon: 'tabler:award',
       },
     ]}
@@ -181,25 +213,25 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Our locations"
-    tagline="Find us"
+    title="Industries Served"
+    tagline="Experience"
     columns={4}
     items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
+        title: 'Manufacturing',
+        description: 'Automation solutions for production lines, quality control systems, and process optimization.',
       },
       {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
+        title: 'Food Processing',
+        description: 'Control systems for food safety, batch processing, and production efficiency improvements.',
       },
       {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
+        title: 'Pharmaceuticals',
+        description: 'Validation-ready automation systems compliant with industry regulations and standards.',
       },
       {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Energy',
+        description: 'Monitoring and control systems for power generation, distribution, and energy management.',
       },
     ]}
   />

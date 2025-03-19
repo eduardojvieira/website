@@ -13,7 +13,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'Eduardo Vieira — Robotics, Automation, and Programming Engineer',
   ignoreTitleTemplate: true,
 };
 ---
@@ -25,78 +25,78 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Contact Me',
+        href: '/contact',
+        icon: 'tabler:mail',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'View Portfolio', href: '/portfolio' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: 'https://images.unsplash.com/photo-1581092921461-7d65ca45393a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', alt: 'Industrial Automation Control Panel' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white highlight"> Astro 4.0</span> + Tailwind CSS
+      Robotics, Automation, and <span class="text-accent dark:text-white highlight">Programming Engineer</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 4.0
-        + Tailwind CSS.</span
+        <span class="font-semibold">Hi, I'm Eduardo!</span> I specialize in industrial control systems, Raspberry Pi programming, PLC integration, and web-based HMIs.</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Industrial Automation Expert</span>
+      With over 6 years of experience developing and integrating industrial control systems, I create reliable, cost-effective solutions that streamline manufacturing and production processes.
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note />
+  <Note>
+    <Fragment slot="content">
+      <span class="font-bold">100% Job Success Score</span> on Upwork with consistent 5-star client ratings
+    </Fragment>
+  </Note>
 
   <!-- Features Widget *************** -->
 
   <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
+    id="skills"
+    tagline="Expertise"
+    title="Key Skills & Specializations"
+    subtitle="Leveraging a diverse technical skillset to deliver comprehensive solutions for industrial automation and control systems."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: 'Industrial Automation',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+          'End-to-end design, development, and deployment of industrial systems, including PLC integration, sensor data acquisition, and real-time process control.',
+        icon: 'tabler:robot',
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'Raspberry Pi Development',
         description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+          'Kiosk-mode applications, customized OS builds, and hardware integration for industrial environments with a focus on reliability and performance.',
+        icon: 'tabler:device-desktop',
       },
       {
-        title: 'Best Practices',
+        title: 'Web-Based HMI',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
+          'Creating intuitive, real-time interfaces for machine operation and monitoring using Node.js, Angular, and other web technologies.',
+        icon: 'tabler:device-analytics',
       },
       {
-        title: 'Excellent Page Speed',
+        title: 'MQTT / IoT',
         description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
+          'Setting up secure, low-latency IoT communication for industrial controllers, bridging data between the cloud and shop-floor devices.',
+        icon: 'tabler:cloud',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: 'Mechanical Engineering',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+          'Creating 3D models, analyzing and simulating for product development, testing designs with FEA, and creating engineering drawings for manufacturing.',
+        icon: 'tabler:tools',
       },
       {
-        title: 'Open to new ideas and contributions',
+        title: 'Programming Languages',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+          'Proficient in Python, C, MATLAB, JavaScript, and specialized in developing software applications for robotics and automation.',
+        icon: 'tabler:code',
       },
     ]}
   />
@@ -105,33 +105,33 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Professional Experience"
+    title="Concrete Curing Controller Project"
     items={[
       {
-        title: 'Built on top of Astro 4.0',
+        title: 'PLC Programming',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'Programmed PLCs to automate and control concrete curing processes with precision temperature and humidity control.',
       },
       {
-        title: 'Styled using Tailwind CSS',
+        title: 'MQTT Connectivity',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+          'Implemented MQTT connectivity to seamlessly integrate on-site equipment with AWS cloud services, enabling real-time monitoring and data exchange.',
       },
       {
-        title: 'Cross-browser compatibility',
+        title: 'Web-based HMI Interface',
         description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Developed a local, web-based HMI interface on Raspberry Pi, enhancing user interaction and system diagnostics with intuitive controls.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial Control System',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Programmer for Large-Scale Automation</h3>
+      This system has been running continuously for 18+ months with minimal downtime, providing reliable operation in a production environment.
     </Fragment>
 
     <Fragment slot="bg">
@@ -145,31 +145,31 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Proven Track Record',
+        description: 'Successfully transitioned multiple pilot projects into stable, production-level deployments in industrial settings with a focus on reliability.',
       },
       {
-        title: 'Multiple layout possibilities',
+        title: 'Clear Communication',
         description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+          'Excel at coordinating with cross-functional teams—mechanical, electrical, and software engineers—to keep projects running smoothly and on schedule.',
       },
       {
-        title: 'Fully responsive design',
+        title: 'Remote Collaboration',
         description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+          "Experienced in working remotely with teams across different time zones, ensuring effective communication and project delivery regardless of location.",
       },
       {
-        title: 'Integration of media',
+        title: 'Continuous Improvement',
         description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+          'Committed to ongoing learning and improvement, staying current with the latest technologies and best practices in industrial automation.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: 'https://images.unsplash.com/photo-1581094794329-c8112c4e25d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Engineering Workspace',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+    <Fragment slot="content">Why clients choose to work with me</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -203,8 +203,8 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial Automation Engineer Working',
     }}
   >
     <Fragment slot="content">Designed to foster growth and success.</Fragment>
@@ -217,93 +217,96 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Get your dream website up and running in no time with AstroWind."
+    title="My Approach to Industrial Automation Projects"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
+        title: 'Step 1: <span class="font-medium">Consultation</span>',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+          "I begin with a thorough consultation to understand your specific needs, challenges, and objectives. This foundation ensures the solution addresses your exact requirements and business goals.",
+        icon: 'tabler:message-circle',
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
+        title: 'Step 2: <span class="font-medium">Design & Planning</span>',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+          "Based on our consultation, I create a detailed system design and project plan. This includes hardware selection, software architecture, and integration strategies tailored to your environment.",
+        icon: 'tabler:ruler-2',
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
+        title: 'Step 3: <span class="font-medium">Implementation</span>',
         description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
+          'I develop and implement the solution according to the agreed specifications, with regular progress updates and testing at each stage to ensure quality and alignment with requirements.',
+        icon: 'tabler:code',
       },
       {
-        title: 'Ready!',
-        icon: 'tabler:check',
+        title: 'Step 4: <span class="font-medium">Training & Support</span>',
+        description:
+          "After successful deployment, I provide comprehensive training for your team and ongoing support to ensure the system continues to meet your needs as your business evolves.",
+        icon: 'tabler:headset',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: 'https://images.unsplash.com/photo-1581093196277-9f608bb3a2ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial Automation Process',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
+    title="My Project Approach"
+    subtitle="A methodical process that ensures successful delivery of industrial automation and control systems"
+    tagline="Methodology"
     items={[
       {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
+        title: 'Requirements Analysis',
+        description: "I begin by thoroughly understanding your specific needs, challenges, and objectives to create a tailored solution.",
+        icon: 'tabler:file-description',
       },
       {
-        title: 'Heros',
+        title: 'System Design',
         description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
+          "Developing comprehensive system architecture that addresses all requirements while ensuring scalability and reliability.",
+        icon: 'tabler:template',
       },
       {
-        title: 'Features',
+        title: 'Hardware Selection',
         description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
+          'Choosing the optimal components and equipment based on performance needs, environmental conditions, and budget constraints.',
+        icon: 'tabler:circuit-capacitor',
       },
       {
-        title: 'Content',
+        title: 'Software Development',
         description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
+          "Creating efficient, maintainable code for PLCs, Raspberry Pi, and web interfaces that meets all functional requirements.",
+        icon: 'tabler:devices',
       },
       {
-        title: 'Call-to-Action',
+        title: 'Integration & Testing',
         description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
+          'Thorough testing of all components individually and as a system to ensure reliable operation under various conditions.',
+        icon: 'tabler:checklist',
       },
       {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
+        title: 'Documentation',
+        description: 'Comprehensive documentation of all aspects of the system for future reference, maintenance, and training.',
+        icon: 'tabler:list-details',
       },
       {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
+        title: 'Deployment',
+        description: 'Careful implementation of the system in your production environment with minimal disruption to operations.',
+        icon: 'tabler:rocket',
       },
       {
-        title: 'Contact',
+        title: 'Training & Support',
         description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
+          'Providing training for your team and ongoing support to ensure the system continues to meet your needs over time.',
+        icon: 'tabler:headset',
       },
       {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
+        title: 'Continuous Improvement',
+        description:
+          'Regular evaluation and updates to optimize performance, add new features, and adapt to changing requirements.',
+        icon: 'tabler:database',
       },
     ]}
   >
@@ -315,10 +318,9 @@ const metadata = {
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
+    title="Latest Insights from My Blog"
+    information={`Stay updated with the latest trends and insights in industrial automation, programming, and engineering. 
+                        I regularly share technical articles, project case studies, and industry best practices to help you stay ahead in the rapidly evolving field of automation technology.
                 `}
   />
 
@@ -326,39 +328,39 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    subtitle="Common questions about my services, process, and expertise in industrial automation and engineering."
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'What types of projects do you specialize in?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          "I specialize in industrial automation projects, particularly those involving PLC programming, Raspberry Pi development, web-based HMIs, and IoT connectivity. I also have expertise in mechanical engineering and CAD design using SolidWorks.",
       },
       {
-        title: 'What do I need to start?',
+        title: 'How do you handle remote collaboration?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'I have extensive experience working remotely with clients worldwide. I use a combination of regular video meetings, detailed documentation, and collaborative tools to ensure clear communication and successful project delivery regardless of location.',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: 'What is your typical project process?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          "My process typically includes requirements analysis, solution design, implementation, testing, and deployment, followed by ongoing support. I provide regular updates throughout the project and ensure all deliverables meet the agreed specifications.",
       },
       {
-        title: "What's something that you don't understand?",
+        title: "Do you provide ongoing support after project completion?",
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+          "Yes, I offer ongoing support and maintenance services to ensure your systems continue to operate efficiently. This includes troubleshooting, updates, and improvements as needed to keep your systems running smoothly.",
       },
       {
-        title: 'What is something that you would like to try again?',
+        title: 'What programming languages and technologies do you work with?',
         description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+          "I'm proficient in Python, C, MATLAB, JavaScript, Node.js, and Angular. For industrial automation, I work with various PLC platforms, MQTT, Modbus, and other industrial protocols. I also have experience with Linux system administration and edge computing.",
       },
       {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
+        title: 'How do you ensure the reliability of industrial systems?',
         description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          "I implement robust error handling, continuous monitoring, and user-friendly update mechanisms in production environments. My systems are designed with redundancy and fault tolerance in mind, and undergo rigorous testing before deployment.",
       },
     ]}
   />
@@ -367,10 +369,10 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'Years Experience', amount: '6+' },
+      { title: 'Completed Projects', amount: '50+' },
+      { title: 'Client Satisfaction', amount: '100%' },
+      { title: '5-Star Reviews', amount: '25+' },
     ]}
   />
 
@@ -380,20 +382,22 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Contact Me',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'View Portfolio',
+        href: '/portfolio',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      Let's Work Together
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Ready to enhance your industrial automation systems? <br class="hidden md:inline" />Contact me today to discuss how I can help with your next project.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -3,21 +3,49 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Contact | Eduardo Vieira - Automation Engineer',
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText tagline="Contact" title="Let's Discuss Your Project" />
+
+  <Content
+    isReversed
+    tagline="How I Work"
+    title="A Simple Process to Get Started"
+    items={[
+      {
+        title: '1. Initial Consultation',
+        description:
+          'We begin with a free consultation to discuss your needs, challenges, and objectives. This helps me understand your specific requirements and determine how I can best assist you.',
+      },
+      {
+        title: '2. Proposal & Planning',
+        description:
+          'Based on our discussion, I will provide a detailed proposal outlining the scope, timeline, and cost of your project. Once approved, we will develop a comprehensive plan for implementation.',
+      },
+      {
+        title: '3. Development & Implementation',
+        description:
+          'I will develop your automation solution according to the agreed specifications, keeping you informed throughout the process with regular updates and progress reports.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Engineering consultation with blueprints',
+    }}
+  />
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Get In Touch"
+    subtitle="Ready to enhance your industrial automation systems? Fill out the form below to discuss your project needs. I typically respond within 24 hours."
     inputs={[
       {
         type: 'text',
@@ -29,15 +57,21 @@ const metadata = {
         name: 'email',
         label: 'Email',
       },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Company',
+      },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Project Details',
+      placeholder: 'Please describe your project, challenges, and goals.',
     }}
     disclaimer={{
       label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
+        'By submitting this contact form, you acknowledge and agree to the collection of your personal information for the purpose of responding to your inquiry.',
     }}
-    description="Our support team typically responds within 24 business hours."
+    description="I personally review all inquiries and will get back to you as soon as possible."
   />
 
   <!-- Features2 Widget ************** -->
