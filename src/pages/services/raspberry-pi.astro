@@ -1,0 +1,209 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Raspberry Pi Development Services | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Raspberry Pi Development Services"
+    subtitle="Custom Raspberry Pi solutions for industrial applications, edge computing, data acquisition, and control systems."
+    tagline="Expert Raspberry Pi Development"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Services Offered"
+    title="Comprehensive Raspberry Pi Solutions"
+    subtitle="From custom Linux builds to complete system development, I provide end-to-end Raspberry Pi services tailored to your specific industrial requirements."
+    items={[
+      {
+        title: 'Custom Linux Builds',
+        description:
+          'Optimized Linux distributions for Raspberry Pi with only the components needed for your specific application, improving performance and security.',
+        icon: 'tabler:brand-debian',
+      },
+      {
+        title: 'Industrial HMI Development',
+        description:
+          'Touch-screen interfaces and kiosk applications for industrial environments, providing intuitive control and monitoring capabilities.',
+        icon: 'tabler:device-desktop',
+      },
+      {
+        title: 'Data Acquisition Systems',
+        description:
+          'Systems for collecting, processing, and storing data from industrial sensors and equipment using Raspberry Pi as the central controller.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Edge Computing Solutions',
+        description:
+          'Processing data at the edge to reduce latency and bandwidth usage, with local decision-making capabilities and cloud integration.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Industrial Gateway Development',
+        description:
+          'Creating communication gateways between legacy industrial equipment and modern networks or cloud platforms.',
+        icon: 'tabler:router',
+      },
+      {
+        title: 'Remote Monitoring Systems',
+        description:
+          'Secure, reliable systems for remotely monitoring industrial equipment and processes from anywhere in the world.',
+        icon: 'tabler:device-analytics',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Industrial Applications"
+    title="Powerful, Cost-Effective Industrial Solutions"
+    items={[
+      {
+        title: 'Reliability',
+        description:
+          'Custom Linux builds and watchdog systems ensure continuous operation in demanding industrial environments.',
+      },
+      {
+        title: 'Flexibility',
+        description:
+          'Adaptable solutions that can be customized to interface with a wide range of industrial equipment and protocols.',
+      },
+      {
+        title: 'Cost-Effectiveness',
+        description:
+          'Leverage the power and flexibility of Raspberry Pi to create industrial-grade solutions at a fraction of the cost of traditional systems.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580983218765-f663bec07b37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Raspberry Pi industrial application',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="My Raspberry Pi Development Process"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Requirements Analysis</span>',
+        description:
+          'I begin by thoroughly understanding your specific needs, environmental constraints, and objectives to define clear requirements for the Raspberry Pi system.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">System Design</span>',
+        description:
+          'Based on the requirements, I design the overall system architecture, including hardware interfaces, software components, and communication methods.',
+        icon: 'tabler:ruler-2',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">OS Configuration</span>',
+        description:
+          'I create a custom Linux build optimized for your specific application, including only the necessary components for improved security and performance.',
+        icon: 'tabler:brand-debian',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Software Development</span>',
+        description:
+          'I develop the application software using appropriate languages and frameworks (Python, C/C++, Node.js, etc.) based on your requirements.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Step 5: <span class="font-medium">Testing & Hardening</span>',
+        description:
+          'Rigorous testing ensures the system performs reliably under various conditions, with security hardening to protect against vulnerabilities.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Step 6: <span class="font-medium">Deployment & Support</span>',
+        description:
+          'I assist with deployment and provide ongoing support to ensure your Raspberry Pi system continues to perform optimally in your industrial environment.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Raspberry Pi development process',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about Raspberry Pi development services."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Is Raspberry Pi suitable for industrial applications?',
+        description:
+          'Yes, with proper implementation, Raspberry Pi can be highly effective for many industrial applications. I implement various techniques to enhance reliability, including watchdog systems, redundant storage, proper power management, and environmental protection. While not suitable for all industrial scenarios, it offers an excellent balance of capability, flexibility, and cost for many applications.',
+      },
+      {
+        title: 'What Raspberry Pi models do you work with?',
+        description:
+          'I work with all Raspberry Pi models, from the compact Pi Zero to the powerful Pi 4 and Compute Module 4. The model selection depends on your specific requirements, considering factors like processing power, memory, connectivity options, and form factor.',
+      },
+      {
+        title: 'Can Raspberry Pi systems communicate with PLCs and other industrial equipment?',
+        description:
+          'Absolutely. I specialize in developing Raspberry Pi systems that interface with industrial equipment using various protocols such as Modbus, OPC UA, EtherNet/IP, and others. This makes Raspberry Pi an excellent choice for data acquisition, gateway applications, and HMI systems in industrial environments.',
+      },
+      {
+        title: 'How do you ensure 24/7 reliability for critical applications?',
+        description:
+          'I implement several strategies including custom watchdog systems, redundant storage solutions, proper power management with UPS integration, environmental monitoring, automatic recovery mechanisms, and thorough testing under various conditions. For mission-critical applications, I can also implement redundant systems with automatic failover.',
+      },
+      {
+        title: 'Do you provide remote management capabilities?',
+        description:
+          'Yes, I can implement secure remote management capabilities that allow you to monitor, update, and troubleshoot your Raspberry Pi systems from anywhere. This includes secure VPN access, remote desktop capabilities, and custom web interfaces for system management.',
+      },
+      {
+        title: 'What programming languages do you use for Raspberry Pi development?',
+        description:
+          'I primarily use Python for Raspberry Pi development due to its excellent library support and readability. However, I also work with C/C++ for performance-critical applications, Node.js for web interfaces, and Bash for system scripts. The language choice depends on your specific requirements and performance needs.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Me',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to leverage Raspberry Pi for your industrial application?
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Contact me today to discuss how a custom Raspberry Pi solution can help you achieve your industrial automation goals cost-effectively.
+    </Fragment>
+  </CallToAction>
+</Layout>

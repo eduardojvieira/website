@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero from '~/components/widgets/HeroCustom.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -13,7 +13,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Eduardo Vieira — Robotics, Automation, and Programming Engineer',
+  title: 'Eduardo Vieira — Industrial Automation & Embedded Systems Engineer',
   ignoreTitleTemplate: true,
 };
 ---
@@ -22,6 +22,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
+    tagline="PLC Programming | IoT Solutions | Control Systems"
     actions={[
       {
         variant: 'primary',
@@ -34,15 +35,15 @@ const metadata = {
     image={{ src: 'https://images.unsplash.com/photo-1581092921461-7d65ca45393a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80', alt: 'Industrial Automation Control Panel' }}
   >
     <Fragment slot="title">
-      Robotics, Automation, and <span class="text-accent dark:text-white highlight">Programming Engineer</span>
+      Industrial Automation & <span class="text-accent dark:text-white highlight">Embedded Systems Engineer</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Hi, I'm Eduardo!</span> I specialize in industrial control systems, Raspberry Pi programming, PLC integration, and web-based HMIs.</span
+        <span class="font-semibold">Hi, I'm Eduardo!</span> I specialize in industrial control systems, embedded software development (Arduino, ESP32, STM32), Raspberry Pi programming, PLC integration, and web-based HMIs.</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Industrial Automation Expert</span>
-      With over 6 years of experience developing and integrating industrial control systems, I create reliable, cost-effective solutions that streamline manufacturing and production processes.
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Industrial Automation & Embedded Systems Expert</span>
+      With over 6 years of experience developing and integrating industrial control systems and embedded solutions, I create reliable, cost-effective systems that streamline manufacturing and production processes.
     </Fragment>
   </Hero>
 
@@ -69,9 +70,15 @@ const metadata = {
         icon: 'tabler:robot',
       },
       {
+        title: 'Embedded Systems Development',
+        description:
+          'Designing and programming embedded systems using Arduino, ESP32, STM32, Raspberry Pi Pico, and other microcontrollers for industrial and IoT applications.',
+        icon: 'tabler:device-laptop',
+      },
+      {
         title: 'Raspberry Pi Development',
         description:
-          'Kiosk-mode applications, customized OS builds, and hardware integration for industrial environments with a focus on reliability and performance.',
+          'Kiosk-mode applications, customized Linux builds, and hardware integration for industrial environments with a focus on reliability and performance.',
         icon: 'tabler:device-desktop',
       },
       {
@@ -95,7 +102,7 @@ const metadata = {
       {
         title: 'Programming Languages',
         description:
-          'Proficient in Python, C, MATLAB, JavaScript, and specialized in developing software applications for robotics and automation.',
+          'Proficient in C/C++ for embedded systems, Python, Linux systems programming, MQTT protocol implementation, and specialized in developing firmware and software for industrial applications.',
         icon: 'tabler:code',
       },
     ]}
@@ -277,7 +284,7 @@ const metadata = {
       {
         title: 'Software Development',
         description:
-          "Creating efficient, maintainable code for PLCs, Raspberry Pi, and web interfaces that meets all functional requirements.",
+          "Creating efficient, maintainable code for PLCs, embedded systems (Arduino, ESP32, STM32, Raspberry Pi Pico), Raspberry Pi, and web interfaces that meets all functional requirements.",
         icon: 'tabler:devices',
       },
       {

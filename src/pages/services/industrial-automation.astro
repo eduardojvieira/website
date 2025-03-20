@@ -1,0 +1,209 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Industrial Automation Services | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Industrial Automation Services"
+    subtitle="Comprehensive industrial automation solutions to optimize your manufacturing processes, increase efficiency, and reduce operational costs."
+    tagline="Expert Industrial Automation"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Services Offered"
+    title="Comprehensive Industrial Automation Solutions"
+    subtitle="From initial assessment to implementation and support, I provide end-to-end industrial automation services tailored to your specific needs."
+    items={[
+      {
+        title: 'PLC Programming & Integration',
+        description:
+          'Expert programming of Allen Bradley, Siemens, and Schneider PLCs for process control, machine automation, and system integration.',
+        icon: 'tabler:device-desktop-analytics',
+      },
+      {
+        title: 'SCADA System Development',
+        description:
+          'Design and implementation of supervisory control and data acquisition systems for comprehensive monitoring and management of industrial operations.',
+        icon: 'tabler:chart-dots',
+      },
+      {
+        title: 'Process Control Systems',
+        description:
+          'Development of precise control systems for continuous and batch processes, including PID control, sequence control, and recipe management.',
+        icon: 'tabler:adjustments',
+      },
+      {
+        title: 'Industrial Network Design',
+        description:
+          'Planning and implementation of industrial communication networks using protocols such as Modbus, Profinet, EtherNet/IP, and OPC UA.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Retrofitting & Upgrades',
+        description:
+          'Modernization of legacy control systems to improve reliability, functionality, and integration with newer technologies.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Safety Systems',
+        description:
+          'Implementation of safety instrumented systems (SIS) and machine safety solutions compliant with relevant standards and regulations.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Process Optimization"
+    title="Increase Efficiency & Reduce Costs"
+    items={[
+      {
+        title: 'Production Efficiency',
+        description:
+          'Optimize production processes to increase throughput, reduce cycle times, and minimize waste.',
+      },
+      {
+        title: 'Energy Management',
+        description:
+          'Implement intelligent control strategies to reduce energy consumption and associated costs.',
+      },
+      {
+        title: 'Predictive Maintenance',
+        description:
+          'Utilize data analytics and condition monitoring to predict and prevent equipment failures before they occur.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092160562-3bd09bde6efa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial automation control room',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="My Industrial Automation Process"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Assessment & Analysis</span>',
+        description:
+          'I begin with a thorough assessment of your current processes, identifying bottlenecks, inefficiencies, and opportunities for automation.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Solution Design</span>',
+        description:
+          'Based on the assessment, I develop a comprehensive automation solution tailored to your specific requirements and constraints.',
+        icon: 'tabler:ruler-2',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Implementation</span>',
+        description:
+          'I implement the solution with minimal disruption to your operations, ensuring all components work together seamlessly.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Testing & Validation</span>',
+        description:
+          'Rigorous testing ensures the system performs as expected under various conditions and meets all specified requirements.',
+        icon: 'tabler:checklist',
+      },
+      {
+        title: 'Step 5: <span class="font-medium">Training & Handover</span>',
+        description:
+          'I provide comprehensive training for your team and complete documentation to ensure a smooth transition.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Step 6: <span class="font-medium">Ongoing Support</span>',
+        description:
+          'I offer continued support and maintenance services to ensure your automation system continues to perform optimally.',
+        icon: 'tabler:headset',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial automation process',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Find answers to common questions about industrial automation services."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'What industries do you specialize in?',
+        description:
+          'I have experience across various industries including food and beverage, pharmaceuticals, manufacturing, energy, and water treatment. My automation solutions are adaptable to the specific requirements of each industry.',
+      },
+      {
+        title: 'How long does a typical automation project take?',
+        description:
+          'Project timelines vary based on complexity and scope. A small-scale PLC programming project might take 2-4 weeks, while a comprehensive factory automation system could take several months. I provide detailed timelines during the proposal phase.',
+      },
+      {
+        title: 'Can you integrate with our existing systems?',
+        description:
+          'Yes, I specialize in integrating new automation components with existing systems. This approach often provides significant improvements without requiring a complete system replacement, saving both time and money.',
+      },
+      {
+        title: 'What PLC brands do you work with?',
+        description:
+          'I have extensive experience with Allen Bradley (Rockwell Automation), Siemens, Schneider Electric, Omron, and Mitsubishi PLCs. I can work with most major PLC platforms and adapt to your specific hardware requirements.',
+      },
+      {
+        title: 'Do you provide remote support after implementation?',
+        description:
+          'Yes, I offer remote support and troubleshooting services for all implemented systems. This allows for quick response to issues without the delay of on-site visits, although on-site support is also available when needed.',
+      },
+      {
+        title: 'How do you ensure system security?',
+        description:
+          'Security is integrated into every aspect of my automation solutions. I implement industry best practices for industrial control system security, including network segmentation, secure remote access, authentication mechanisms, and regular security updates.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Me',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to optimize your industrial processes?
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Contact me today to discuss your industrial automation needs and how I can help improve your operational efficiency.
+    </Fragment>
+  </CallToAction>
+</Layout>

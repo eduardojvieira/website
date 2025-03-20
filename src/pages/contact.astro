@@ -6,7 +6,7 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Contact | Eduardo Vieira - Automation Engineer',
+  title: 'Contact | Eduardo Vieira - Industrial Automation & Embedded Systems Engineer',
 };
 ---
 
@@ -77,35 +77,52 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="We are here to help!"
+    title="Additional Contact Information"
+    subtitle="Feel free to reach out through any of these channels"
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
         title: 'Email',
-        description: 'contact@support.com',
+        description: 'eduardo@vieira.dev',
         icon: 'tabler:mail',
       },
       {
+        title: 'LinkedIn',
+        description: 'Connect with me on LinkedIn for professional networking',
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          text: 'Connect',
+          href: 'https://www.linkedin.com/in/eduardojvieira',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Upwork',
+        description: 'View my profile and reviews on Upwork',
+        icon: 'tabler:brand-upwork',
+        callToAction: {
+          text: 'View Profile',
+          href: 'https://www.upwork.com/freelancers/~01a2a7536c4c8543b5',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'GitHub',
+        description: 'Check out my code repositories and contributions',
+        icon: 'tabler:brand-github',
+        callToAction: {
+          text: 'View Projects',
+          href: 'https://github.com/eduardojvieira',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Response Time',
+        description: 'I typically respond to all inquiries within 24 hours',
+        icon: 'tabler:clock',
+      },
+      {
         title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        description: 'Based in Brazil, working with clients worldwide',
         icon: 'tabler:map-pin',
       },
     ]}

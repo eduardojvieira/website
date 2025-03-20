@@ -18,6 +18,10 @@ export const headerData = {
           href: getPermalink('/services/industrial-automation'),
         },
         {
+          text: 'Embedded Systems Development',
+          href: getPermalink('/services/embedded-systems'),
+        },
+        {
           text: 'Raspberry Pi Development',
           href: getPermalink('/services/raspberry-pi'),
         },
@@ -53,6 +57,7 @@ export const footerData = {
       title: 'Services',
       links: [
         { text: 'Industrial Automation', href: getPermalink('/services/industrial-automation') },
+        { text: 'Embedded Systems Development', href: getPermalink('/services/embedded-systems') },
         { text: 'Raspberry Pi Development', href: getPermalink('/services/raspberry-pi') },
         { text: 'Web-Based HMI', href: getPermalink('/services/web-hmi') },
         { text: 'Mechanical Engineering', href: getPermalink('/services/mechanical-engineering') },
