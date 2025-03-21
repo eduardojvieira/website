@@ -6,6 +6,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Content from '~/components/widgets/Content.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
   title: 'About Me | Eduardo Vieira',
@@ -18,13 +19,13 @@ const metadata = {
   <Hero
     tagline="About Me"
     image={{
-      src: 'https://images.unsplash.com/photo-1581092335397-9fa73e649526?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: '~/assets/images/industrial.jpg',
       alt: 'Industrial Automation Engineer with Control Panel',
     }}
   >
     <Fragment slot="title">
       Eduardo Vieira <br />
-      <span class="text-accent dark:text-white highlight">Robotics & Automation Engineer</span>
+      <span class="text-accent dark:text-white highlight">Industrial Automation & Embedded Systems Engineer</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -38,9 +39,7 @@ const metadata = {
     title="Professional Experience"
     stats={[
       { title: 'Years Experience', amount: '6+' },
-      { title: 'Skill Areas', amount: '15+' },
       { title: 'Client Satisfaction', amount: '100%' },
-      { title: 'Industries Served', amount: '8+' },
     ]}
   />
 
@@ -54,16 +53,16 @@ const metadata = {
       {
         title: 'Education & Certifications',
         description:
-          'Bachelor of Mechanical Engineering with specialization in Automation and Control Systems. Certified in PLC Programming, SCADA Systems, and Industrial Network Design.',
+          'Bachelor of Mechanical Engineering with specialization in Automation and Control Systems. Experienced in PLC Programming, SCADA Systems, and Industrial Network Design.',
       },
       {
         title: 'Professional Background',
         description:
-          'Diverse experience across mechanical engineering, industrial automation, and embedded systems development. I combine technical expertise with creative problem-solving to deliver innovative solutions for complex engineering challenges.',
+          'Experience across mechanical engineering, industrial automation, and embedded systems development. I currently work as a PLC, IoT and Raspberry Pi Programmer at EXACT Technology, developing solutions for concrete curing process automation.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: '~/assets/images/automation.jpg',
       alt: 'Advanced Industrial Control System',
     }}
   >
@@ -86,20 +85,20 @@ const metadata = {
       {
         title: 'PLC Programming',
         description:
-          'Expert in programming Allen Bradley, Siemens, and Schneider PLCs for various industrial applications, from simple control systems to complex process automation.',
-        icon: 'tabler:device-desktop-analytics',
+          'Expert in programming PLCs for various industrial applications, from simple control systems to complex process automation with MQTT connectivity to cloud services.',
+        icon: 'tabler:device-analytics',
       },
       {
         title: 'HMI Development',
         description:
-          'Creating intuitive, responsive human-machine interfaces that provide operators with clear visibility and control of industrial processes.',
+          'Creating intuitive, responsive human-machine interfaces using web technologies (Node.js, Angular) that provide operators with clear visibility and control of industrial processes.',
         icon: 'tabler:device-desktop',
       },
       {
-        title: 'SCADA Systems',
+        title: 'Raspberry Pi Solutions',
         description:
-          'Designing and implementing supervisory control and data acquisition systems that enable comprehensive monitoring and management of industrial operations.',
-        icon: 'tabler:chart-dots',
+          'Developing reliable industrial applications on Raspberry Pi, including kiosk-mode interfaces, custom OS builds, and tight integration with industrial equipment.',
+        icon: 'tabler:circuit-board',
       },
     ]}
   />
@@ -119,34 +118,10 @@ const metadata = {
         icon: 'tabler:device-laptop',
       },
       {
-        title: 'Raspberry Pi Development',
+        title: 'IoT & MQTT Systems',
         description:
-          'Creating custom solutions using Raspberry Pi for industrial applications, IoT systems, edge computing, and Linux-based automation implementations.',
-        icon: 'tabler:device-desktop',
-      },
-      {
-        title: 'C/C++ Programming',
-        description:
-          'Developing efficient, reliable firmware and software for embedded systems, microcontrollers, and resource-constrained environments.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'MQTT & IoT Protocols',
-        description:
-          'Implementing secure, low-latency IoT communication using MQTT, REST APIs, and other protocols to connect industrial devices to cloud platforms.',
+          'Implementing secure, low-latency IoT communication using MQTT and other protocols to connect shop-floor equipment with cloud platforms like AWS.',
         icon: 'tabler:cloud',
-      },
-      {
-        title: 'Linux Systems',
-        description:
-          'Configuring and maintaining Linux-based systems for industrial applications, including custom kernel modifications and device drivers when needed.',
-        icon: 'tabler:brand-debian',
-      },
-      {
-        title: 'Node.js & Web Technologies',
-        description:
-          'Developing web-based interfaces and applications using Node.js, Angular, and other modern web technologies for industrial control systems.',
-        icon: 'tabler:brand-javascript',
       },
       {
         title: 'Industrial Networks',
@@ -155,10 +130,16 @@ const metadata = {
         icon: 'tabler:network',
       },
       {
-        title: 'Data Acquisition & Analysis',
+        title: 'Python Programming',
         description:
-          'Creating systems for collecting, storing, and analyzing industrial data to provide actionable insights and improve operational efficiency.',
-        icon: 'tabler:chart-bar',
+          'Leveraging Python for data analysis, automation scripts, and integration with industrial systems and processes.',
+        icon: 'tabler:brand-python',
+      },
+      {
+        title: 'Linux Systems',
+        description:
+          'Configuring and maintaining Linux-based systems for industrial applications, including custom configurations and system administration.',
+        icon: 'tabler:brand-debian',
       },
       {
         title: 'Mechanical Design',
@@ -166,16 +147,10 @@ const metadata = {
           'Utilizing SolidWorks and other CAD tools to design mechanical components and systems that integrate seamlessly with automation solutions.',
         icon: 'tabler:3d-cube-sphere',
       },
-      {
-        title: 'Python Programming',
-        description:
-          'Leveraging Python for data analysis, machine learning applications, and integration with industrial systems and processes.',
-        icon: 'tabler:brand-python',
-      },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Technical workspace with programming and automation equipment',
+      src: '~/assets/images/plc.jpg',
+      alt: 'PLC and automation equipment',
     }}
   />
 
@@ -215,21 +190,21 @@ const metadata = {
     }}
     items={[
       {
-        title: 'Technical Excellence',
-        description: 'Consistently delivering high-quality engineering solutions that combine innovation with reliability and practical implementation.',
-        icon: 'tabler:star',
+        title: 'Concrete Curing Controller',
+        description: 'Programmed PLCs and developed a Raspberry Pi-based HMI with MQTT connectivity to AWS cloud services, enabling real-time monitoring of concrete curing processes.',
+        icon: 'tabler:building-factory',
       },
       {
-        title: 'Diverse Project Portfolio',
+        title: 'Industrial IoT Systems',
         description:
-          'Successfully completed projects ranging from industrial automation and control systems to mechanical design, embedded solutions, and IoT implementations.',
-        icon: 'tabler:tools',
+          'Designed and implemented IoT-enabled control systems that connect shop-floor equipment to cloud platforms, providing real-time data visibility and remote management capabilities.',
+        icon: 'tabler:cloud-computing',
       },
       {
-        title: 'Problem-Solving Approach',
+        title: 'CAD Design & Mechanical Engineering',
         description:
-          'Recognized for the ability to tackle complex engineering challenges with creative solutions that optimize performance while remaining cost-effective.',
-        icon: 'tabler:bulb',
+          'Created detailed 3D models and mechanical designs using SolidWorks, with expertise in surfacing techniques for complex product development.',
+        icon: 'tabler:3d-cube-sphere',
       },
     ]}
   />
@@ -260,25 +235,33 @@ const metadata = {
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Testimonials Widget *********** -->
 
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
+  <Testimonials
+    title="Client Testimonials from Upwork"
+    subtitle="These are genuine reviews from clients on my <a href='https://www.upwork.com/freelancers/~01f21c52fa13e6a195' class='text-primary hover:underline' target='_blank'>Upwork Profile</a>, where I maintain a 100% Job Success Score."
+    testimonials={[
       {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+        testimonial: `I've worked with Eduardo several times and give him my highest recommendation! He's timely, communicates very well and always does an excellent job!`,
+        name: 'CAD Design Client',
+        job: 'Project completed February 2019',
       },
       {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+        testimonial: `Eduardo is an outstanding freelancer and easily one of the best I've ever worked with! I will continue to use him and look forward to a long term working relationship.`,
+        name: 'SolidWorks Client',
+        job: 'Project completed October 2018',
+      },
+      {
+        testimonial: `Eduardo is amazing. Understands 100% what needs to be done, and delivers. He's a bit shy about his English but I found his English communication skills to be excellent.`,
+        name: 'Programming Client',
+        job: 'Project completed April 2016',
       },
     ]}
+    callToAction={{
+      target: '_blank',
+      text: 'View my Upwork profile',
+      href: 'https://www.upwork.com/freelancers/~01f21c52fa13e6a195',
+      icon: 'tabler:external-link',
+    }}
   />
 </Layout>

@@ -21,9 +21,20 @@ const {
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
-      {bg ? <Fragment set:html={bg} /> : null}
+      {bg ? <Fragment set:html={bg} /> : 
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 dark:to-slate-950 opacity-40"></div>
+      }
     </slot>
   </div>
+  
+  <!-- Tech-inspired floating particles in the background -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+  </div>
+  
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
@@ -31,7 +42,7 @@ const {
         {
           tagline && (
             <p
-              class="text-base text-gray-700 dark:text-slate-300 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+              class="text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade tech-gradient-text"
               set:html={tagline}
             />
           )
@@ -77,21 +88,27 @@ const {
         {
           image && (
             <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  {...(image || {})}
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  layout="responsive"
-                  loading="eager"
-                />
-              )}
+              <div class="gradient-border">
+                <div>
+                  {typeof image === 'string' ? (
+                    <Fragment set:html={image} />
+                  ) : (
+                    <Image
+                      {...(image || {})}
+                      class="mx-auto w-full"
+                      widths={[400, 768, 1024, 2040]}
+                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                      loading="eager"
+                      width={1024}
+                      height={576}
+                      layout="responsive"
+                    />
+                  )}
+                </div>
+              </div>
+              
+              <!-- Glow effect under the image -->
+              <div class="absolute -bottom-6 left-0 right-0 h-12 bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl"></div>
             </div>
           )
         }
@@ -99,3 +116,70 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+  /* Tech-inspired floating particles */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--aw-color-primary), var(--aw-color-secondary));
+    opacity: 0.2;
+  }
+  
+  .particle-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
+    animation: float 20s ease-in-out infinite;
+    filter: blur(30px);
+  }
+  
+  .particle-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 10%;
+    animation: float 15s ease-in-out infinite reverse;
+    filter: blur(25px);
+  }
+  
+  .particle-3 {
+    width: 300px;
+    height: 300px;
+    bottom: -10%;
+    left: 15%;
+    animation: float 25s ease-in-out infinite;
+    filter: blur(40px);
+    background: linear-gradient(45deg, var(--aw-color-secondary), var(--aw-color-accent));
+  }
+  
+  .particle-4 {
+    width: 100px;
+    height: 100px;
+    top: 30%;
+    right: 20%;
+    animation: float 12s ease-in-out infinite;
+    filter: blur(15px);
+    background: linear-gradient(45deg, var(--aw-color-primary), var(--aw-color-accent));
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-15px) translateX(15px);
+    }
+    50% {
+      transform: translateY(15px) translateX(-15px);
+    }
+    75% {
+      transform: translateY(-15px) translateX(-15px);
+    }
+  }
+  
+  .dark .particle {
+    opacity: 0.1;
+  }
+</style>

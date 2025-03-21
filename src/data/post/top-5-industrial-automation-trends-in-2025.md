@@ -3,7 +3,7 @@ publishDate: 2025-03-19T00:00:00Z
 author: Eduardo Vieira
 title: Top 5 Industrial Automation Trends Transforming Manufacturing in 2025
 excerpt: Discover the cutting-edge technologies and approaches that are revolutionizing industrial automation and how they can benefit your manufacturing operations.
-image: https://images.unsplash.com/photo-1563770660941-10a63607a03c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+image: '~/assets/images/industrial.jpg'
 category: Industrial Automation
 tags:
   - industrial automation

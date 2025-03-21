@@ -7,7 +7,7 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Professional Services | Eduardo Vieira',
 };
 ---
 
@@ -16,73 +16,75 @@ const metadata = {
 
   <Hero
     tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
+    title="Industrial Automation & Embedded Systems Solutions"
+    subtitle="Expert engineering services for industrial automation, embedded systems development, and mechanical design to optimize your operations and accelerate innovation."
+    actions={[{ variant: 'primary', text: 'Contact me', href: '/contact' }]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
+      src: '~/assets/images/industrial-automation.jpg',
+      alt: 'Industrial Automation Engineering',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+    title="Professional Services"
+    subtitle="Comprehensive engineering solutions tailored to your industrial and technical requirements."
     columns={3}
     items={[
       {
-        title: 'Educational',
+        title: 'Industrial Automation',
         description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
+          'End-to-end design, development, and deployment of industrial control systems, including PLC integration, sensor networks, and real-time process control for manufacturing environments.',
+        icon: 'tabler:robot',
       },
       {
-        title: 'Interior Design',
+        title: 'Embedded Systems Development',
         description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
+          'Custom firmware and hardware solutions for specialized applications, from concept to production. Expertise in microcontrollers, SBCs, and IoT devices with a focus on reliability in industrial settings.',
+        icon: 'tabler:device-desktop-analytics',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
+        title: 'Raspberry Pi Solutions',
+        description: 
+          'Specialized development of industrial-grade Raspberry Pi applications including kiosk-mode interfaces, custom OS builds, and hardware integration for monitoring and control systems.',
+        icon: 'tabler:cpu',
       },
       {
-        title: 'E-commerce',
+        title: 'Web-Based HMI Development',
         description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
+          'Creation of intuitive, responsive Human-Machine Interfaces using modern web technologies (Node.js, Angular) for real-time monitoring and control of industrial equipment and processes.',
+        icon: 'tabler:device-desktop',
       },
       {
-        title: 'Blog',
+        title: 'PLC Programming & Integration',
         description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
+          'Expert programming of industrial PLCs for process automation, with integration capabilities for connecting legacy and modern equipment into cohesive control systems.',
+        icon: 'tabler:device-analytics',
       },
       {
-        title: 'Business',
+        title: 'Mechanical Engineering & Design',
         description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
+          'Comprehensive CAD design, simulation, and analysis services using SolidWorks and other tools, with expertise in 3D modeling, surface design, and manufacturing optimization.',
+        icon: 'tabler:3d-cube-sphere',
       },
       {
-        title: 'Branding',
+        title: 'IoT & MQTT Systems',
         description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
+          'Design and implementation of secure Industrial IoT architectures using MQTT and other protocols to enable seamless data flow between shop-floor equipment and cloud platforms.',
+        icon: 'tabler:cloud-computing',
       },
       {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
+        title: 'Industrial Systems Integration',
         description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
+          'Bridging legacy equipment with modern control systems, enabling data exchange between disparate platforms, and creating unified monitoring solutions across your facility.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Custom Software Development',
+        description:
+          'Development of specialized software solutions for industrial applications using Python, C, MATLAB, and JavaScript to solve unique automation and data processing challenges.',
+        icon: 'tabler:code',
       },
     ]}
   />
@@ -93,37 +95,37 @@ const metadata = {
     isReversed
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Expert Domain Knowledge',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'With over 6 years of specialized experience in industrial environments, I bring deep technical understanding and practical solutions to complex automation challenges.',
+        icon: 'tabler:certificate',
       },
       {
-        title: 'Customization Tools',
+        title: 'End-to-End Implementation',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'From initial concept and design through development, testing, and deployment, I provide comprehensive project management and execution for seamless delivery.',
+        icon: 'tabler:layout-kanban',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Cost-Effective Solutions',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
+          'Expertise in leveraging modern technologies like Raspberry Pi and open-source platforms to create robust industrial solutions at a fraction of traditional costs.',
+        icon: 'tabler:coin',
       },
       {
-        title: 'Preview and Mockup Views',
+        title: 'Reliability-Focused Design',
         description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+          'Every solution is engineered with industrial reliability in mind, including robust error handling, continuous monitoring, and fault recovery mechanisms.',
+        icon: 'tabler:shield-check',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: '~/assets/images/automation-benefits.jpg',
+      alt: 'Industrial Automation Benefits',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why Choose My Services</h3>
     </Fragment>
   </Content>
 
@@ -133,92 +135,81 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Time Savings',
+        title: 'Production Efficiency',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
-        icon: 'tabler:clock',
+          'Automated systems dramatically reduce manual intervention, minimize errors, and optimize throughput, leading to significant productivity gains.',
+        icon: 'tabler:chart-arrows',
       },
       {
-        title: 'Professional Appearance',
+        title: 'Real-time Monitoring',
         description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
+          'Gain complete visibility into your operations with customized dashboards and alerts, enabling data-driven decisions and proactive maintenance.',
+        icon: 'tabler:device-analytics',
       },
       {
-        title: 'Cost-Efficiency',
+        title: 'System Integration',
         description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
+          'Connect disparate systems and equipment into a cohesive network, breaking down data silos and enabling seamless information flow across your operation.',
+        icon: 'tabler:puzzle',
       },
       {
-        title: 'Instant Download',
+        title: 'Future-proof Architecture',
         description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
+          'Solutions designed with scalability and adaptability in mind, allowing your systems to evolve as technology advances and business needs change.',
+        icon: 'tabler:rocket',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: '~/assets/images/industrial-benefits.jpg',
+      alt: 'Benefits of Industrial Automation',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits for Your Business</h3>
     </Fragment>
   </Content>
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Words from real customers"
+    title="Client Testimonials from Upwork"
+    subtitle="These are genuine reviews from clients on my <a href='https://www.upwork.com/freelancers/~01f21c52fa13e6a195' class='text-primary hover:underline' target='_blank'>Upwork Profile</a>, where I maintain a 100% Job Success Score."
     testimonials={[
       {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
-        },
+        testimonial: `I've worked with Eduardo several times and give him my highest recommendation! He's timely, communicates very well and always does an excellent job!`,
+        name: 'CAD Design Client',
+        job: 'Project completed February 2019',
       },
       {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
+        testimonial: `Eduardo is an outstanding freelancer and easily one of the best I've ever worked with! I will continue to use him and look forward to a long term working relationship.`,
+        name: 'SolidWorks Client',
+        job: 'Project completed October 2018',
       },
       {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
-        image: {
-          src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
-        },
+        testimonial: `Eduardo is amazing. Understands 100% what needs to be done, and delivers. He's a bit shy about his English but I found his English communication skills to be excellent.`,
+        name: 'Programming Client',
+        job: 'Project completed April 2016',
       },
     ]}
     callToAction={{
       target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/onwidget/astrowind',
-      icon: 'tabler:chevron-right',
+      text: 'View my Upwork profile',
+      href: 'https://www.upwork.com/freelancers/~01f21c52fa13e6a195',
+      icon: 'tabler:external-link',
     }}
   />
 
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    title="Ready to optimize your industrial operations?"
+    subtitle="Let's discuss how my expertise in industrial automation and embedded systems can help solve your technical challenges."
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Contact me',
+        href: '/contact',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
   />
 </Layout>

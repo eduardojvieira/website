@@ -11,11 +11,13 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
   title: 'Eduardo Vieira — Industrial Automation & Embedded Systems Engineer',
   ignoreTitleTemplate: true,
 };
+
 ---
 
 <Layout metadata={metadata}>
@@ -330,14 +332,42 @@ const metadata = {
     ]}
   />
 
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="Client Testimonials from Upwork"
+    subtitle="These are genuine reviews from clients on my <a href='https://www.upwork.com/freelancers/~01f21c52fa13e6a195' class='text-primary hover:underline' target='_blank'>Upwork Profile</a>, where I maintain a 100% Job Success Score."
+    testimonials={[
+      {
+        testimonial: `I've worked with Eduardo several times and give him my highest recommendation! He's timely, communicates very well and always does an excellent job!`,
+        name: 'CAD Design Client',
+        job: 'Project completed February 2019',
+      },
+      {
+        testimonial: `Eduardo is an outstanding freelancer and easily one of the best I've ever worked with! I will continue to use him and look forward to a long term working relationship.`,
+        name: 'SolidWorks Client',
+        job: 'Project completed October 2018',
+      },
+      {
+        testimonial: `Eduardo is amazing. Understands 100% what needs to be done, and delivers. He's a bit shy about his English but I found his English communication skills to be excellent.`,
+        name: 'Programming Client',
+        job: 'Project completed April 2016',
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'View my Upwork profile',
+      href: 'https://www.upwork.com/freelancers/~01f21c52fa13e6a195',
+      icon: 'tabler:external-link',
+    }}
+  />
+
   <!-- Stats Widget ****************** -->
 
   <Stats
     stats={[
       { title: 'Years Experience', amount: '6+' },
-      { title: 'Completed Projects', amount: '50+' },
       { title: 'Client Satisfaction', amount: '100%' },
-      { title: '5-Star Reviews', amount: '25+' },
     ]}
   />
 

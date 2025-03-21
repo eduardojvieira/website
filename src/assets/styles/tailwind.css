@@ -22,34 +22,59 @@
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-xl border border-transparent bg-transparent font-medium text-center text-base leading-snug transition py-3.5 px-6 md:px-8 duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 hover:scale-105 cursor-pointer;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn font-semibold bg-gradient-to-r from-primary to-secondary text-white shadow-md hover:shadow-tech-glow-hover dark:shadow-tech-glow dark:hover:shadow-tech-glow-hover;
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply btn border border-gray-300 hover:border-gray-400 dark:border-gray-700 dark:hover:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 backdrop-blur-sm;
   }
 
   .btn-tertiary {
     @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
   }
+
+  /* Tech Cards */
+  .card-tech {
+    @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 transition hover:shadow-tech-card-hover dark:hover:shadow-tech-card-hover-dark hover:-translate-y-1;
+  }
+
+  /* Gradient borders for images */
+  .gradient-border {
+    @apply relative rounded-2xl p-[2px] overflow-hidden;
+    background: linear-gradient(45deg, var(--aw-color-primary), var(--aw-color-secondary), var(--aw-color-accent));
+    background-size: 200% 200%;
+    animation: gradientBorder 5s ease infinite;
+  }
+
+  @keyframes gradientBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .gradient-border > div {
+    @apply relative z-10 rounded-2xl overflow-hidden;
+  }
+
+  /* Glassmorphism elements */
+  .glass-panel {
+    @apply bg-white backdrop-blur-lg border border-white dark:bg-black dark:border-white rounded-2xl;
+  }
 }
 
 #header.scroll > div:first-child {
-  @apply bg-page md:bg-white/90 md:backdrop-blur-md;
+  @apply bg-white md:bg-white md:backdrop-blur-md dark:bg-page dark:md:bg-page;
   box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
 }
 .dark #header.scroll > div:first-child,
 #header.scroll.dark > div:first-child {
-  @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
-  box-shadow: none;
+  @apply bg-page md:bg-page border-b border-gray-500;
+  box-shadow: 0 0.375rem 1.5rem 0 rgba(0, 0, 0, 0.3);
 }
-/* #header.scroll > div:last-child {
-  @apply py-3;
-} */
 
 #header.expanded nav {
   position: fixed;
