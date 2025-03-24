@@ -10,7 +10,7 @@ tags:
   - fpga
   - vendor independence
 metadata:
-  canonical: https://eduardojvieira.com/custom-risc-v-industrial-controllers
+  canonical: https://eduardovieira.dev/custom-risc-v-industrial-controllers
 author: Eduardo Vieira
 publishDate: 2025-03-07
 ---

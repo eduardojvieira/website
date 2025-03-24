@@ -12,7 +12,7 @@ tags:
   - maintenance
   - reliability
 metadata:
-  canonical: https://eduardojvieira.com/plc-programming-best-practices
+  canonical: https://eduardovieira.dev/plc-programming-best-practices
 ---
 
 # 10 PLC Programming Best Practices for Maximum Reliability and Maintainability

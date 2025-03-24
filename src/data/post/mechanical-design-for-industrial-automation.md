@@ -13,7 +13,7 @@ tags:
   - mechatronics
   - design for automation
 metadata:
-  canonical: https://eduardojvieira.com/mechanical-design-for-industrial-automation
+  canonical: https://eduardovieira.dev/mechanical-design-for-industrial-automation
 ---
 
 # Mechanical Design for Industrial Automation: Bridging Physical and Digital Systems

@@ -10,7 +10,7 @@ tags:
   - industrial iot
   - sensor fusion
 metadata:
-  canonical: https://eduardojvieira.com/digital-twins-practical-maintenance
+  canonical: https://eduardovieira.dev/digital-twins-practical-maintenance
 author: Eduardo Vieira
 publishDate: 2025-03-02
 ---

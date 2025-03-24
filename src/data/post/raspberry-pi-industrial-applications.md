@@ -12,7 +12,7 @@ tags:
   - edge computing
   - cost optimization
 metadata:
-  canonical: https://eduardojvieira.com/raspberry-pi-industrial-applications
+  canonical: https://eduardovieira.dev/raspberry-pi-industrial-applications
 ---
 
 # Raspberry Pi in Industrial Automation: Cost-Effective Solutions for Modern Manufacturing

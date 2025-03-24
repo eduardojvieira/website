@@ -9,7 +9,7 @@ tags:
   - industrial iot
   - practical implementation
 metadata:
-  canonical: https://eduardojvieira.com/edge-ai-practical-implementation-guide
+  canonical: https://eduardovieira.dev/edge-ai-practical-implementation-guide
 author: Eduardo Vieira
 publishDate: 2025-03-21
 ---

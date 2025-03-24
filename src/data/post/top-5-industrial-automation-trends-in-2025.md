@@ -12,7 +12,7 @@ tags:
   - IoT
   - edge computing
 metadata:
-  canonical: https://eduardojvieira.com/top-5-industrial-automation-trends-in-2025
+  canonical: https://eduardovieira.dev/top-5-industrial-automation-trends-in-2025
 ---
 
 The industrial automation landscape is evolving at an unprecedented pace, driven by technological advancements and the increasing need for efficiency, flexibility, and resilience in manufacturing operations. As we move through 2025, several key trends are shaping the future of industrial automation and providing new opportunities for businesses to optimize their processes and gain competitive advantages.

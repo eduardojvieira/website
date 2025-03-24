@@ -14,7 +14,7 @@ tags:
   - Raspberry Pi
   - industrial control
 metadata:
-  canonical: https://eduardojvieira.com/embedded-systems-for-industrial-applications
+  canonical: https://eduardovieira.dev/embedded-systems-for-industrial-applications
 ---
 
 # Embedded Systems for Industrial Applications: Selecting the Right Platform for Your Project

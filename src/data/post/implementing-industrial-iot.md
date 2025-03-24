@@ -13,7 +13,7 @@ tags:
   - edge computing
   - cloud integration
 metadata:
-  canonical: https://eduardojvieira.com/implementing-industrial-iot
+  canonical: https://eduardovieira.dev/implementing-industrial-iot
 ---
 
 # Implementing Industrial IoT: A Practical Guide to Connecting Your Factory Floor

@@ -10,7 +10,7 @@ tags:
   - retrofit
   - ICS security
 metadata:
-  canonical: https://eduardojvieira.com/industrial-cybersecurity-retrofit
+  canonical: https://eduardovieira.dev/industrial-cybersecurity-retrofit
 author: Eduardo Vieira
 publishDate: 2025-02-28
 ---

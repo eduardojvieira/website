@@ -10,7 +10,7 @@ tags:
   - codesys
   - siemens
 metadata:
-  canonical: https://eduardojvieira.com/hybrid-plc-programming-techniques
+  canonical: https://eduardovieira.dev/hybrid-plc-programming-techniques
 author: Eduardo Vieira
 publishDate: 2025-03-15
 ---
