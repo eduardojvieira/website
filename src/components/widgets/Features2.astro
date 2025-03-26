@@ -1,8 +1,8 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import ItemGrid2 from '~/components/ui/ItemGrid2.astro';
 import Headline from '~/components/ui/Headline.astro';
-import type { Features } from '~/types';
+import ItemGrid2 from '~/components/ui/ItemGrid2.astro';
+import type { Features as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
@@ -10,77 +10,29 @@ const {
   tagline = await Astro.slots.render('tagline'),
   items = [],
   columns = 3,
+  defaultIcon,
 
   id,
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-} = Astro.props as Features;
+} = Astro.props;
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
+  <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
+  <ItemGrid2
+    items={items}
+    columns={columns}
+    defaultIcon={defaultIcon}
     classes={{
-      container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
-      title: 'text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading',
-      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
-      ...((classes?.headline as Record<string, string>) ?? {}),
+      container: 'gap-4 md:gap-6',
+      panel:
+        'rounded-lg shadow-[0_4px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur border border-[#ffffff29] bg-white dark:bg-slate-900 p-6',
+      // panel:
+      //   "text-center bg-page items-center md:text-left rtl:md:text-right md:items-start p-6 p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-800",
+      icon: 'w-12 h-12 mb-6 text-primary',
+      ...((classes?.items as Record<string, never>) ?? {}),
     }}
   />
-  <div class="mx-auto max-w-7xl">
-    <ItemGrid2
-      items={items}
-      columns={columns}
-      defaultIcon="tabler:check"
-      classes={{
-        container: `${columns === 4 ? 'md:grid-cols-2 lg:grid-cols-4' : columns === 3 ? 'md:grid-cols-3' : columns === 2 ? 'md:grid-cols-2' : ''} sm:grid-cols-1 mt-12 gap-8`,
-        panel: 'card-tech p-6 text-center hover:z-10 transition duration-300',
-        icon: 'w-12 h-12 mx-auto mb-6 text-primary',
-        ...((classes?.items as Record<string, string>) ?? {}),
-      }}
-    />
-  </div>
 </WidgetWrapper>
-
-<style>
-.card-tech {
-  position: relative;
-  border-radius: 1.2rem;
-}
-
-.dark .card-tech {
-  background-color: rgba(13, 18, 27, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-}
-
-.dark .card-tech:hover {
-  border-color: var(--aw-color-primary);
-  box-shadow: 0 0 30px rgba(var(--aw-color-primary-rgb), 0.2);
-}
-
-.card-tech:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 1.2rem;
-  padding: 1px;
-  background: linear-gradient(
-    45deg,
-    transparent 50%,
-    rgba(var(--aw-color-primary-rgb), 0.2) 100%
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.card-tech:hover:before {
-  opacity: 1;
-}
-</style>

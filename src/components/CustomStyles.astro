@@ -1,6 +1,5 @@
 ---
 import '@fontsource-variable/inter';
-import '@fontsource/space-grotesk';
 
 // 'DM Sans'
 // Nunito
@@ -16,7 +15,7 @@ import '@fontsource/space-grotesk';
 // Inconsolata
 // Raleway
 // Oswald
-// 'Inter Variable'
+// 'Space Grotesk'
 // Urbanist
 ---
 
@@ -26,20 +25,19 @@ import '@fontsource/space-grotesk';
     --aw-font-serif: 'Inter Variable';
     --aw-font-heading: 'Inter Variable';
 
-    --aw-color-primary: #0082ff;   /* Bright blue */
-    --aw-color-secondary: #3d8278; /* Bright cyan */
-    --aw-color-accent: #7c3aed;   /* Vibrant purple */
+    --aw-color-primary: rgb(1 97 239);
+    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-accent: rgb(109 40 217);
 
     --aw-color-text-heading: rgb(0 0 0);
     --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: #101010a8;
-    --aw-color-bg-page: #f9fafb;  /* Very light gray with slight blue tint */
+    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-bg-page: rgb(255 255 255);
 
-    --aw-color-bg-page-dark: #0a0f1e;  /* Deep blue-gray */
+    --aw-color-bg-page-dark: rgb(3 6 32);
 
     ::selection {
-      background-color: var(--aw-color-accent);
-      color: white;
+      background-color: lavender;
     }
   }
 
@@ -48,60 +46,18 @@ import '@fontsource/space-grotesk';
     --aw-font-serif: 'Inter Variable';
     --aw-font-heading: 'Inter Variable';
 
-    --aw-color-primary: #0082ff;   /* Bright blue */
-    --aw-color-secondary: #5bbcae; /* Bright cyan */
-    --aw-color-accent: #7c3aed;   /* Vibrant purple */
+    --aw-color-primary: rgb(1 97 239);
+    --aw-color-secondary: rgb(1 84 207);
+    --aw-color-accent: rgb(109 40 217);
 
     --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229, 236, 246);
-    --aw-color-text-muted: rgb(229, 236, 246 / 66%);
-    --aw-color-bg-page: rgb(10, 15, 30);  /* Deep blue-gray */
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: rgb(3 6 32);
 
     ::selection {
-      background-color: var(--aw-color-accent);
-      color: white;
+      background-color: black;
+      color: snow;
     }
-  }
-
-  /* Modern tech/crypto-inspired effects */
-  .tech-gradient-text {
-    background: linear-gradient(90deg, var(--aw-color-primary), var(--aw-color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-  }
-
-  .tech-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-  }
-
-  .tech-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(var(--aw-color-primary-rgb), 0.3);
-  }
-
-  .dark .tech-card {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .dark .tech-card:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(var(--aw-color-primary-rgb), 0.3);
-  }
-
-  /* Add subtle glow effect to buttons in dark mode */
-  .dark .btn-primary {
-    box-shadow: 0 0 15px rgba(var(--aw-color-primary-rgb), 0.3);
-  }
-
-  .dark .btn-primary:hover {
-    box-shadow: 0 0 25px rgba(var(--aw-color-primary-rgb), 0.5);
   }
 </style>
