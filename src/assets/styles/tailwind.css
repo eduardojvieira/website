@@ -1,92 +1,130 @@
+:root {
+  /* Enhanced HeroUI Light Theme with neon and contrast */
+  --color-background: 0 0% 100%; /* Pure white */
+  --color-foreground: 215 100% 10%; /* Very dark blue */
+  
+  --color-card: 0 0% 100%; /* Pure white */
+  --color-card-foreground: 215 100% 10%; /* Very dark blue */
+
+  --color-muted: 215 16% 47%; /* Medium blue-gray */
+  --color-muted-foreground: 215 16% 47%; /* Medium blue-gray */
+
+  /* Primary purple with neon variant */
+  --color-primary: 276 100% 60%; /* Vibrant purple */
+  --color-primary-neon: 276 100% 70%; /* Neon purple */
+  --color-primary-foreground: 0 0% 100%; /* White */
+  
+  /* Secondary cyan with neon variant */
+  --color-secondary: 190 100% 50%; /* Vibrant cyan */
+  --color-secondary-neon: 190 100% 60%; /* Neon cyan */
+  --color-secondary-foreground: 0 0% 100%; /* White */
+
+  /* Accent colors */
+  --color-accent: 190 100% 50%; /* Vibrant cyan */
+  --color-accent-neon: 190 100% 60%; /* Neon cyan */
+  --color-accent-foreground: 0 0% 100%; /* White */
+
+  --color-border: 214 32% 91%; /* Light gray */
+  --color-input: 214 32% 91%; /* Light gray */
+  --color-ring: 276 100% 60%; /* Vibrant purple */
+
+  /* Status colors */
+  --color-success: 145 100% 40%; /* Vibrant green */
+  --color-success-foreground: 0 0% 100%; /* White */
+  --color-warning: 43 100% 55%; /* Vibrant yellow */
+  --color-warning-foreground: 0 0% 0%; /* Black */
+  --color-danger: 0 100% 55%; /* Vibrant red */
+  --color-danger-foreground: 0 0% 100%; /* White */
+
+  --tech-card-bg-rgb: 255, 255, 255;
+}
+
+.dark {
+  /* Enhanced Dark Theme with deeper contrasts */
+  --color-background: 222 96% 3%; /* Very dark blue */
+  --color-foreground: 210 40% 98%; /* Off-white */
+
+  --color-card: 222 96% 3%; /* Very dark blue */
+  --color-card-foreground: 210 40% 98%; /* Off-white */
+
+  --color-muted: 215 14% 63%; /* Medium blue-gray */
+  --color-muted-foreground: 215 14% 63%; /* Medium blue-gray */
+
+  /* Primary colors - more vibrant in dark mode */
+  --color-primary: 276 80% 60%; /* Bright purple */
+  --color-primary-neon: 276 100% 70%; /* Neon purple */
+  --color-primary-foreground: 0 0% 100%; /* White */
+
+  /* Secondary colors */
+  --color-secondary: 190 100% 50%; /* Bright cyan */
+  --color-secondary-neon: 190 100% 60%; /* Neon cyan */
+  --color-secondary-foreground: 0 0% 100%; /* White */
+
+  /* Accent colors */
+  --color-accent: 190 100% 50%; /* Bright cyan */
+  --color-accent-neon: 190 100% 60%; /* Neon cyan */
+  --color-accent-foreground: 0 0% 100%; /* White */
+
+  --color-border: 215 28% 17%; /* Dark blue-gray */
+  --color-input: 215 28% 17%; /* Dark blue-gray */
+  --color-ring: 276 80% 60%; /* Bright purple */
+
+  /* Status colors */
+  --color-success: 145 100% 40%; /* Vibrant green */
+  --color-success-foreground: 0 0% 100%; /* White */
+  --color-warning: 43 100% 55%; /* Vibrant yellow */
+  --color-warning-foreground: 0 0% 0%; /* Black */
+  --color-danger: 0 100% 55%; /* Vibrant red */
+  --color-danger-foreground: 0 0% 100%; /* White */
+
+  --tech-card-bg-rgb: 0, 0, 0;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
-  .bg-page {
-    background-color: var(--aw-color-bg-page);
+  body {
+    @apply bg-background text-foreground;
   }
-  .bg-dark {
-    background-color: var(--aw-color-bg-page-dark);
+
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow: 0 0 10px hsl(var(--color-primary-neon)), 
+                0 0 20px hsl(var(--color-primary-neon));
   }
-  .bg-light {
-    background-color: var(--aw-color-bg-page);
-  }
-  .text-page {
-    color: var(--aw-color-text-page);
-  }
-  .text-muted {
-    color: var(--aw-color-text-muted);
+  
+  .neon-glow-accent {
+    box-shadow: 0 0 10px hsl(var(--color-accent-neon)),
+                0 0 20px hsl(var(--color-accent-neon));
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-full border border-border bg-transparent font-medium text-center text-base text-foreground leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:bg-muted/50 hover:border-muted cursor-pointer disabled:opacity-50 disabled:pointer-events-none;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn font-semibold bg-primary text-primary-foreground border-transparent hover:bg-primary/90 hover:border-transparent hover:neon-glow;
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply btn bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/90 hover:border-transparent hover:neon-glow-accent;
   }
 
   .btn-tertiary {
-    @apply btn border-none shadow-none text-muted hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
+    @apply btn border-none shadow-none text-muted-foreground hover:bg-transparent hover:text-foreground hover:border-transparent;
   }
 }
 
+/* Sticky Header Styles */
 #header.scroll > div:first-child {
-  @apply bg-page md:bg-white/90 md:backdrop-blur-md;
-  box-shadow: 0 0.375rem 1.5rem 0 rgb(140 152 164 / 13%);
-}
-.dark #header.scroll > div:first-child,
-#header.scroll.dark > div:first-child {
-  @apply bg-page md:bg-[#030621e6] border-b border-gray-500/20;
-  box-shadow: none;
-}
-/* #header.scroll > div:last-child {
-  @apply py-3;
-} */
-
-#header.expanded nav {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  bottom: 70px !important;
-  padding: 0 5px;
+  @apply bg-background/95 dark:bg-background/95 backdrop-blur-md;
+  box-shadow: 0 0.375rem 1.5rem 0 rgb(0 0 0 / 10%);
+  border-bottom: 1px solid hsl(var(--color-border)/0.5);
+  transition: all 0.3s ease;
 }
 
-.dropdown:focus .dropdown-menu,
-.dropdown:focus-within .dropdown-menu,
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-[astro-icon].icon-light > * {
-  stroke-width: 1.2;
-}
-
-[astro-icon].icon-bold > * {
-  stroke-width: 2.4;
-}
-
-[data-aw-toggle-menu] path {
-  @apply transition;
-}
-[data-aw-toggle-menu].expanded g > path:first-child {
-  @apply -rotate-45 translate-y-[15px] translate-x-[-3px];
-}
-
-[data-aw-toggle-menu].expanded g > path:last-child {
-  @apply rotate-45 translate-y-[-8px] translate-x-[14px];
-}
-
-/* To deprecated */
-
-.dd *:first-child {
-  margin-top: 0;
-}
+/* Rest of your existing styles... */

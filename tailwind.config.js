@@ -7,14 +7,68 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
-        default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
+        // Enhanced HeroUI Palette with more contrast
+        primary: {
+          DEFAULT: 'hsl(var(--color-primary) / <alpha-value>)',
+          foreground: 'hsl(var(--color-primary-foreground) / <alpha-value>)',
+          neon: 'hsl(var(--color-primary-neon) / <alpha-value>)', // Added neon variant
+          50: 'hsl(var(--color-primary-50) / <alpha-value>)',
+          100: 'hsl(var(--color-primary-100) / <alpha-value>)',
+          200: 'hsl(var(--color-primary-200) / <alpha-value>)',
+          300: 'hsl(var(--color-primary-300) / <alpha-value>)',
+          400: 'hsl(var(--color-primary-400) / <alpha-value>)',
+          500: 'hsl(var(--color-primary-500) / <alpha-value>)',
+          600: 'hsl(var(--color-primary-600) / <alpha-value>)',
+          700: 'hsl(var(--color-primary-700) / <alpha-value>)',
+          800: 'hsl(var(--color-primary-800) / <alpha-value>)',
+          900: 'hsl(var(--color-primary-900) / <alpha-value>)',
+          950: 'hsl(var(--color-primary-950) / <alpha-value>)',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--color-secondary) / <alpha-value>)',
+          foreground: 'hsl(var(--color-secondary-foreground) / <alpha-value>)',
+          // ... add shades 50-950 if needed
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--color-accent) / <alpha-value>)',
+          foreground: 'hsl(var(--color-accent-foreground) / <alpha-value>)',
+          neon: 'hsl(var(--color-accent-neon) / <alpha-value>)', // Added neon variant
+          // ... add shades 50-950 if needed
+        },
+        background: 'hsl(var(--color-background) / <alpha-value>)',
+        foreground: 'hsl(var(--color-foreground) / <alpha-value>)',
+        muted: {
+          DEFAULT: 'hsl(var(--color-muted) / <alpha-value>)',
+          foreground: 'hsl(var(--color-muted-foreground) / <alpha-value>)',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--color-card) / <alpha-value>)',
+          foreground: 'hsl(var(--color-card-foreground) / <alpha-value>)',
+        },
+        border: 'hsl(var(--color-border) / <alpha-value>)',
+        input: 'hsl(var(--color-input) / <alpha-value>)',
+        ring: 'hsl(var(--color-ring) / <alpha-value>)',
+        success: {
+          DEFAULT: 'hsl(var(--color-success) / <alpha-value>)',
+          foreground: 'hsl(var(--color-success-foreground) / <alpha-value>)',
+        },
+        warning: {
+          DEFAULT: 'hsl(var(--color-warning) / <alpha-value>)',
+          foreground: 'hsl(var(--color-warning-foreground) / <alpha-value>)',
+        },
+        danger: {
+          DEFAULT: 'hsl(var(--color-danger) / <alpha-value>)',
+          foreground: 'hsl(var(--color-danger-foreground) / <alpha-value>)',
+        },
+        // Keep existing custom colors if needed, or remove/migrate them
+        // 'aw-color-primary': 'var(--aw-color-primary)', // Example: Keep or remove
+        // 'aw-color-secondary': 'var(--aw-color-secondary)',
+        // 'aw-color-accent': 'var(--aw-color-accent)',
+        // 'aw-color-text-default': 'var(--aw-color-text-default)',
+        // 'aw-color-text-muted': 'var(--aw-color-text-muted)',
       },
-      backgroundColor: {
-        'tech-card': 'rgba(255, 255, 255, 0.03)',
+      backgroundColor: { // Keep or update custom background colors
+        'tech-card': 'rgba(var(--tech-card-bg-rgb) / 0.03)', // Example update using CSS vars
         'tech-card-dark': 'rgba(0, 0, 0, 0.2)',
       },
       borderColor: {
@@ -60,9 +114,10 @@ export default {
         },
       },
       backgroundImage: {
-        'tech-gradient': 'linear-gradient(90deg, var(--aw-color-primary), var(--aw-color-secondary))',
-        'tech-gradient-diagonal': 'linear-gradient(45deg, var(--aw-color-primary), var(--aw-color-secondary))',
-        'tech-gradient-purple': 'linear-gradient(90deg, var(--aw-color-primary), var(--aw-color-accent))',
+        'tech-gradient': 'linear-gradient(90deg, var(--color-primary), var(--color-secondary))',
+        'tech-gradient-diagonal': 'linear-gradient(45deg, var(--color-primary), var(--color-secondary))',
+        'tech-gradient-purple': 'linear-gradient(90deg, var(--color-primary), var(--color-accent))',
+        'neon-glow': 'linear-gradient(90deg, var(--color-primary-neon), var(--color-accent-neon))',
       },
       borderRadius: {
         'tech': '12px',

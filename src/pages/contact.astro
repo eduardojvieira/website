@@ -1,7 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 
@@ -42,38 +41,6 @@ const metadata = {
     }}
   />
 
-  <ContactUs
-    id="form"
-    title="Get In Touch"
-    subtitle="Ready to enhance your industrial automation systems? Fill out the form below to discuss your project needs. I typically respond within 24 hours."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-      {
-        type: 'text',
-        name: 'company',
-        label: 'Company',
-      },
-    ]}
-    textarea={{
-      label: 'Project Details',
-      placeholder: 'Please describe your project, challenges, and goals.',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information for the purpose of responding to your inquiry.',
-    }}
-    description="I personally review all inquiries and will get back to you as soon as possible."
-  />
-
   <!-- Features2 Widget ************** -->
 
   <Features2
@@ -82,7 +49,7 @@ const metadata = {
     items={[
       {
         title: 'Email',
-        description: 'eduardo@vieira.dev',
+        description: 'me@eduardovieira.dev',
         icon: 'tabler:mail',
       },
       {
@@ -122,7 +89,7 @@ const metadata = {
       },
       {
         title: 'Location',
-        description: 'Based in Brazil, working with clients worldwide',
+        description: 'Based in Argentina, working with clients worldwide',
         icon: 'tabler:map-pin',
       },
     ]}
