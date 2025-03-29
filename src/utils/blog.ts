@@ -124,7 +124,10 @@ export const isBlogTagRouteEnabled = APP_BLOG.tag.isEnabled;
 export const blogListRobots = APP_BLOG.list.robots;
 export const blogPostRobots = APP_BLOG.post.robots;
 export const blogCategoryRobots = APP_BLOG.category.robots;
-export const blogTagRobots = APP_BLOG.tag.robots;
+export const blogTagRobots = {
+  index: true, // Allow indexing for tag pages
+  follow: true,
+};
 
 export const blogPostsPerPage = APP_BLOG?.postsPerPage;
 

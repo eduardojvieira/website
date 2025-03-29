@@ -22,6 +22,7 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+  site: 'https://eduardovieira.dev',
   output: 'static',
 
   integrations: [
@@ -32,6 +33,7 @@ export default defineConfig({
       filter: (page) => !page.includes('/admin/') && !page.includes('/api/'),
       customPages: ['/'],
     }),
+    sitemap(),
     mdx(),
     icon({
       include: {
@@ -81,6 +83,14 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+  },
+
+  redirects: {
+    '/skills/nodejs': '/',
+    '/skills/solidworks': '/',
+    '/skills/python': '/',
+    '/skills/plc': '/',
+    '/landing/landing/click-through': '/',
   },
 
   vite: {

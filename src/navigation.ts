@@ -66,11 +66,6 @@ export const footerData = {
     {
       title: 'Skills',
       links: [
-        { text: 'PLC Programming', href: getPermalink('/skills/plc') },
-        { text: 'Node.js', href: getPermalink('/skills/nodejs') },
-        { text: 'Angular', href: getPermalink('/skills/angular') },
-        { text: 'Python', href: getPermalink('/skills/python') },
-        { text: 'SolidWorks', href: getPermalink('/skills/solidworks') },
       ],
     },
     {
@@ -93,6 +88,6 @@ export const footerData = {
     { ariaLabel: 'Upwork', icon: 'tabler:brand-upwork', href: 'https://www.upwork.com/freelancers/~01a2a7536c4c8543b5', target: '_blank' },
   ],
   footNote: `
-    © ${new Date().getFullYear()} Eduardo Vieira. All rights reserved.
+    ${new Date().getFullYear()} Eduardo Vieira. All rights reserved.
   `,
 };
