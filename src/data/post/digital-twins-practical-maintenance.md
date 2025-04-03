@@ -16,7 +16,7 @@ metadata:
   canonical: https://eduardovieira.dev/digital-twins-practical-maintenance
 author: Eduardo Vieira
 publishDate: 2025-01-22T00:00:00Z
-
+---
 ## Beyond the Hype: Achieving Practical Value with Digital Twins in Maintenance
 
 Digital twins represent a powerful convergence of data analytics, simulation, and real-world asset information, offering significant potential for optimizing industrial maintenance. While the concept has been discussed for years, advancements in sensor technology, edge computing, and analytics platforms have made practical implementations increasingly feasible. However, many digital twin initiatives still struggle, often due to overly ambitious scopes or a disconnect from tangible maintenance outcomes.
