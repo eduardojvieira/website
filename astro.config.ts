@@ -30,10 +30,14 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap({
-      filter: (page) => !page.includes('/admin/') && !page.includes('/api/'),
-      customPages: ['/'],
+      filter: (page) =>
+        !page.includes('/admin/') && // Exclude admin
+        !page.includes('/api/') && // Exclude api
+        !page.startsWith('https://eduardovieira.dev/tag/') && // Exclude tag pages
+        !/https:\/\/eduardovieira\.dev\/blog\/\d+/.test(page), // Exclude blog pagination (e.g., /blog/2)
+      customPages: ['https://eduardovieira.dev/'], // Use full URL
     }),
-    sitemap(),
+    // sitemap(), // Removed duplicate sitemap integration
     mdx(),
     icon({
       include: {
@@ -86,6 +90,7 @@ export default defineConfig({
   },
 
   redirects: {
+    '/skills/angular': '/', // Added redirect for missing page
     '/skills/nodejs': '/',
     '/skills/solidworks': '/',
     '/skills/python': '/',

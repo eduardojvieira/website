@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-02-10T00:00:00Z
+publishDate: 2025-03-05T00:00:00Z
 author: Eduardo Vieira
 title: Mechanical Design for Industrial Automation - Bridging Physical and Digital Systems
 excerpt: Discover how mechanical engineering principles must evolve to support modern industrial automation, creating designs that integrate seamlessly with sensors, actuators, and control systems.

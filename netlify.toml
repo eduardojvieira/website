@@ -3,6 +3,14 @@
   command = "npm run build"
 [build.processing.html]
   pretty_urls = false
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.eduardovieira.dev/*"
+  to = "https://eduardovieira.dev/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/_astro/*"
   [headers.values]

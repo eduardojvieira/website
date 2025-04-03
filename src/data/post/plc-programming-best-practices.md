@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-03-10T00:00:00Z
+publishDate: 2025-03-12T00:00:00Z
 author: Eduardo Vieira
 title: 10 PLC Programming Best Practices for Maximum Reliability and Maintainability
 excerpt: Learn the essential programming techniques that separate exceptional PLC code from merely functional implementations, gleaned from years of industrial automation experience.

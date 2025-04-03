@@ -12,7 +12,7 @@ tags:
 metadata:
   canonical: https://eduardovieira.dev/hybrid-plc-programming-techniques
 author: Eduardo Vieira
-publishDate: 2025-03-15
+publishDate: 2025-02-12T00:00:00Z
 ---
 
 ## The PLC Programming Paradox in 2025

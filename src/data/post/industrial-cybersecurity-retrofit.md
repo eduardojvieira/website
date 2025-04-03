@@ -12,7 +12,7 @@ tags:
 metadata:
   canonical: https://eduardovieira.dev/industrial-cybersecurity-retrofit
 author: Eduardo Vieira
-publishDate: 2025-02-28
+publishDate: 2025-02-26T00:00:00Z
 ---
 
 ## The Unseen Vulnerability: Your Legacy Industrial Systems
@@ -53,11 +53,11 @@ The first line of defense requires no changes to legacy equipment:
 
    Create a security buffer between your business network and industrial control systems:
    
-   ```
+   ```text
    [Business Network] ←→ [Industrial DMZ] ←→ [Control System Network]
    ```
    
-   This can be implemented using standard networking equipment with proper configuration.
+   This can be implemented using commercial industrial firewalls or even cost-effectively using robust open-source solutions like **pfSense** or **OPNsense** running on suitable hardware, provided they are configured and managed correctly by personnel with appropriate expertise.
 
 2. **Passive Monitoring Implementation**
 
@@ -89,7 +89,7 @@ For securing communications without replacing controllers:
 
    Install protocol converters that sit between legacy devices and the network, adding encryption and authentication:
    
-   ```
+   ```text
    [Legacy PLC] ←→ [Protocol Converter] ←→ [Network]
    ```
    
@@ -133,7 +133,7 @@ A recent project securing a refinery with DCS and PLC systems from the early 200
 The implementation followed our retrofit framework:
 
 1. **Network Segmentation**:
-   - Deployed industrial firewalls between business and control networks
+   - Deployed industrial firewalls between business and control networks (In some budget-constrained scenarios, configured instances of pfSense/OPNsense on reliable hardware were used effectively here).
    - Created protocol-specific filtering rules
    - Established a secure jump server for authorized access
 
@@ -153,6 +153,7 @@ The implementation followed our retrofit framework:
    - Implemented store-and-forward validation for critical commands
 
 **Results**:
+
 - Implementation cost: 4.7% of full replacement
 - Zero production disruptions
 - 96% reduction in identified vulnerabilities
@@ -165,7 +166,5 @@ The approach outlined above has been successfully implemented across multiple in
 By focusing on the layers surrounding legacy equipment rather than the equipment itself, substantial security improvements can be achieved without disrupting production or breaking maintenance budgets.
 
 For most facilities, the highest ROI comes from addressing these fundamental areas rather than engaging in costly replacement projects that may introduce new vulnerabilities of their own.
-
----
 
 Need guidance on securing your specific industrial systems? [Contact me for a consultation](/contact) or share your security challenges in the comments below.
