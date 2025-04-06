@@ -55,11 +55,11 @@ Working with the client, I developed a new mechanical design specifically optimi
 6. Standardized mounting patterns for sensors and actuators
 
 **Results**:
-- 98% reduction in false sensor triggers
-- 45% reduction in installation time
-- 60% reduction in wiring costs
-- 30% improvement in maintenance accessibility
-- Successful automation achieving 3x throughput of manual operation
+- Reduction in false sensor triggers
+- Reduction in installation time
+- Reduction in wiring costs
+- Improvement in maintenance accessibility
+- Successful automation achieving higher throughput of manual operation
 
 ## Key Principles for Automation-Friendly Mechanical Design
 
@@ -74,7 +74,7 @@ Automation systems require consistent, repeatable positioning to function reliab
 - **Control tolerances tightly** in areas critical to sensor performance
 
 **Practical Example**: 
-For a medical device assembly process, I replaced a traditional V-groove component guide with a precision linear rail system and tooling plate with dowel-pin locating features. This reduced position variability from ±0.5mm to ±0.05mm, enabling reliable vision system inspections that were previously impossible.
+For a medical device assembly process, I replaced a traditional V-groove component guide with a precision linear rail system and tooling plate with dowel-pin locating features. This reduced position variability, enabling reliable vision system inspections that were previously impossible.
 
 ### 2. Account for Sensor Requirements Early in Design
 
@@ -87,7 +87,7 @@ Different sensor types have specific mounting and environmental requirements:
 - **Vibration/acoustic sensors** need isolation from unrelated vibration sources
 
 **Practical Example**:
-When redesigning a metal stamping inspection station, I incorporated dedicated mounting brackets with micro-adjustment capabilities for photoelectric sensors, surrounding them with shrouds to prevent interference from ambient light. This increased detection reliability from 92% to 99.8%.
+When redesigning a metal stamping inspection station, I incorporated dedicated mounting brackets with micro-adjustment capabilities for photoelectric sensors, surrounding them with shrouds to prevent interference from ambient light. This increased detection reliability.
 
 ### 3. Plan for Control System Infrastructure
 
@@ -100,7 +100,7 @@ Control systems require significant infrastructure that must be accommodated in 
 - **Incorporate grounding points** for electrical safety and EMI reduction
 
 **Practical Example**:
-For a large packaging machine, I designed a modular frame system with integrated cable trays and dedicated control cabinet mounting zones. This approach reduced wiring time by 40% and made future modifications significantly easier compared to previous designs that treated control system infrastructure as an afterthought.
+For a large packaging machine, I designed a modular frame system with integrated cable trays and dedicated control cabinet mounting zones. This approach reduced wiring time and made future modifications significantly easier compared to previous designs that treated control system infrastructure as an afterthought.
 
 ### 4. Design for Motion Control
 
@@ -113,7 +113,7 @@ Automated systems often incorporate sophisticated motion control that imposes sp
 - **Design appropriate hard stops and limit switches** to prevent overtravel
 
 **Practical Example**:
-When automating a precision assembly process, I replaced a traditional lead screw motion system with a rigid ball screw assembly, coupled with an oversized servo motor. The mechanical redesign allowed the system to achieve positioning accuracy of ±0.01mm while moving at 5x the speed of the previous system.
+When automating a precision assembly process, I replaced a traditional lead screw motion system with a rigid ball screw assembly, coupled with an oversized servo motor. The mechanical redesign allowed the system to achieve better positioning accuracy while moving at higher speeds than the previous system.
 
 ### 5. Consider Maintenance and Serviceability
 
@@ -126,7 +126,7 @@ Automation components require regular maintenance and occasional replacement:
 - **Create dedicated access panels** for components requiring frequent attention
 
 **Practical Example**:
-For a food processing line, I redesigned the conveyor system with hinged access panels and quick-release belt mechanisms. This reduced routine cleaning time from 2 hours to 30 minutes and conveyor belt replacement time from 4 hours to 45 minutes.
+For a food processing line, I redesigned the conveyor system with hinged access panels and quick-release belt mechanisms. This reduced routine cleaning time and conveyor belt replacement time.
 
 ### 6. Implement Standards and Modularity
 
@@ -139,7 +139,7 @@ Standardized, modular designs significantly improve both implementation and long
 - **Maintain consistent design language** across similar components
 
 **Practical Example**:
-For a client with multiple production lines, I developed a standard mechanical interface specification for all equipment. This allowed them to standardize sensor types, spare parts inventory, and maintenance procedures across different machines, reducing training requirements and maintenance costs by approximately 25%.
+For a client with multiple production lines, I developed a standard mechanical interface specification for all equipment. This allowed them to standardize sensor types, spare parts inventory, and maintenance procedures across different machines, reducing training requirements and maintenance costs.
 
 ## Integration Tools and Methodologies
 
