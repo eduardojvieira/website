@@ -14,7 +14,7 @@ tags:
 metadata:
   canonical: https://eduardovieira.dev/plc-structured-text-to-plain-text-converter
 author: Eduardo Vieira
-publishDate: 2025-03-08T00:00:00Z
+publishDate: 2025-04-08T00:00:00Z
 ---
 
 ## The Missing Link in PLC Development
