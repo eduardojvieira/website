@@ -1,7 +1,7 @@
 ---
 publishDate: 2025-04-23T00:00:00Z
 author: Eduardo Vieira
-title: MQTT Principles: Publish/Subscribe, Brokers and Clients
+title: "MQTT Principles: Publish/Subscribe, Brokers and Clients"
 excerpt: Learn why MQTT is the de facto protocol for IIoT and how its publish/subscribe architecture works with brokers and clients.
 image: '~/assets/images/industrial-automation.jpg'
 category: IIoT
@@ -10,7 +10,7 @@ tags:
   - IIoT
   - publish/subscribe
 metadata:
-  canonical: https://eduardovieira.dev/mqtt-principles-pub-sub
+  canonical: "https://eduardovieira.dev/mqtt-principles-pub-sub"
 ---
 
 # MQTT Principles: Publish/Subscribe, Brokers and Clients

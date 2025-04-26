@@ -1,7 +1,7 @@
 ---
 publishDate: 2025-04-18T00:00:00Z
 author: Eduardo Vieira
-title: Modbus RTU vs Modbus TCP: Serial vs Ethernet Explained
+title: "Modbus RTU vs Modbus TCP: Serial vs Ethernet Explained"
 excerpt: Dive into the technical differences between Modbus RTU and Modbus TCP and learn when to choose each mode for your industrial network.
 image: '~/assets/images/industrial-automation.jpg'
 category: Industrial Automation
@@ -10,7 +10,7 @@ tags:
   - RTU
   - TCP
 metadata:
-  canonical: https://eduardovieira.dev/modbus-rtu-vs-modbus-tcp
+  canonical: "https://eduardovieira.dev/modbus-rtu-vs-modbus-tcp"
 ---
 
 # Modbus RTU vs Modbus TCP: Serial vs Ethernet Explained
