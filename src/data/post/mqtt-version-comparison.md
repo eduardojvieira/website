@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-05-21T00:00:00Z
+publishDate: 2025-04-21T00:00:00Z
 author: Eduardo Vieira
 title: "MQTT v3.1.1 vs MQTT v5: Diferencias y Migración"
 excerpt: "Conoce las novedades de MQTT 5 y cómo actualizar tus sistemas desde la versión 3.1.1."

@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-06-04T00:00:00Z
+publishDate: 2025-04-04T00:00:00Z
 author: Eduardo Vieira
 title: "IIoT Gateway with Raspberry Pi – Bridging Protocols"
 excerpt: "Use a Raspberry Pi with Node-RED and Python to translate industrial Modbus protocols to MQTT and vice versa."

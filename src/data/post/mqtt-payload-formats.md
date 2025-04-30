@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-05-14T00:00:00Z
+publishDate: 2025-04-14T00:00:00Z
 author: Eduardo Vieira
 title: "MQTT Payload Formats: JSON, Binary, and Protobuf for IIoT"
 excerpt: "Discover when to use JSON, binary formats, or Protobuf for your MQTT messages in industrial environments."

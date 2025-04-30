@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-06-25T00:00:00Z
+publishDate: 2025-04-30T00:00:00Z
 author: Eduardo Vieira
 title: "Connecting Mitsubishi and CODESYS PLCs to the Cloud (Modbus Focus)"
 excerpt: "Learn how to link Mitsubishi PLCs and CODESYS projects using Modbus RTU/TCP with Node-RED and Python."

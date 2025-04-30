@@ -1,5 +1,5 @@
 ---
-publishDate: 2025-05-07T00:00:00Z
+publishDate: 2025-04-07T00:00:00Z
 author: Eduardo Vieira
 title: "MQTT Quality of Service (QoS) Levels: Ensuring Delivery in IIoT"
 excerpt: "Dive deep into MQTT QoS levels and how to choose the right one for your industrial solution."
