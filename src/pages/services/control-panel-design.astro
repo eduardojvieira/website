@@ -1,0 +1,188 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Control Panel & Electrical Design | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Control Panel & Electrical Design"
+    subtitle="Comprehensive electrical engineering packages—from schematics and component selection to UL-ready documentation and commissioning support."
+    tagline="Electrical Engineering"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Services"
+    title="Design Packages Ready for Fabrication and Compliance"
+    subtitle="Detailed documentation that keeps installers, inspectors, and maintenance teams aligned."
+    items={[
+      {
+        title: 'Panel Schematics',
+        description:
+          'AutoCAD Electrical drawings with clear wire numbering, terminal assignments, and safety circuits that meet UL 508A best practices.',
+        icon: 'tabler:layout-grid',
+      },
+      {
+        title: 'Component Selection',
+        description:
+          'Specify breakers, contactors, power supplies, PLC hardware, VFDs, and safety devices matched to environmental and performance requirements.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Panel Layout & 3D',
+        description:
+          'Develop enclosure layouts, heat calculations, and 3D views to ensure serviceability and efficient fabrication.',
+        icon: 'tabler:ruler-measure',
+      },
+      {
+        title: 'Bill of Materials',
+        description: 'Complete BOMs with manufacturer part numbers, procurement alternates, and cost considerations.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Standards & Compliance',
+        description:
+          'Designs informed by UL 508A, NFPA 79, IEC standards, and customer specifications for audits and inspections.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Commissioning Support',
+        description:
+          'As-built updates, redlines, and on-call support during installation and startup to keep projects on schedule.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Workflow"
+    title="Electrical Engineering with Manufacturing Insight"
+    items={[
+      {
+        title: 'Design Collaboration',
+        description:
+          'Coordinate with mechanical, controls, and safety teams to capture requirements before drafting begins.',
+      },
+      {
+        title: 'Document Control',
+        description:
+          'Version-controlled drawing sets, revision histories, and drawing indexes simplify stakeholder reviews.',
+      },
+      {
+        title: 'Digital Delivery',
+        description:
+          'Provide native CAD files, PDFs, and exported wire lists compatible with panel shops and ERP systems.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Electrical design schematics',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Control Panel Design Process"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Requirements Capture</span>',
+        description:
+          'Gather load lists, I/O counts, safety requirements, and environmental constraints to define scope.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Drafting & Review</span>',
+        description:
+          'Develop schematics and layouts, then review with stakeholders to validate spacing, wiring, and component choices.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Final Documentation</span>',
+        description: 'Issue construction-ready drawing packages, BOMs, and panel labels for fabrication.',
+        icon: 'tabler:files',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Fabrication Support</span>',
+        description:
+          'Provide clarification, field change tracking, and as-built updates through installation and commissioning.',
+        icon: 'tabler:toolbox',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Control panel fabrication',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Details about control panel and electrical design services."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Can you design to our corporate standards?',
+        description:
+          'Yes. I adopt your title blocks, layer conventions, device tags, and documentation requirements to fit seamlessly into your workflows.',
+      },
+      {
+        title: 'Do you support UL certification?',
+        description:
+          'I create UL 508A-ready documentation and collaborate with certified panel shops to expedite approvals.',
+      },
+      {
+        title: 'Can you update existing panel drawings?',
+        description:
+          'Absolutely. I reverse engineer existing panels, update schematics, and create clean digital packages for future maintenance.',
+      },
+      {
+        title: 'Do you provide material takeoffs?',
+        description:
+          'Yes. Detailed BOMs include part numbers, quantities, and supplier recommendations to streamline purchasing.',
+      },
+      {
+        title: 'Can you coordinate with PLC programming efforts?',
+        description:
+          'As a PLC programmer, I ensure the electrical design aligns with control logic, I/O allocation, and future expansion plans.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Request a design proposal',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Need a panel design you can build from immediately?</Fragment>
+
+    <Fragment slot="subtitle">
+      Share your requirements and I’ll deliver a complete electrical package ready for fabrication and commissioning.
+    </Fragment>
+  </CallToAction>
+</Layout>

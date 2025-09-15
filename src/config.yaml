@@ -4,14 +4,14 @@ site:
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: ""
+  googleSiteVerificationId: ''
 
 # Default SEO metadata
 metadata:
   title:
-    default: 'Eduardo Vieira | Robotics, Automation & Programming Engineer'
+    default: 'Eduardo Vieira | Industrial Automation & IIoT Engineer'
     template: '%s — Eduardo Vieira'
-  description: "Robotics, Automation, and Programming Engineer specializing in industrial control systems, Raspberry Pi programming, PLC integration, and web-based HMIs."
+  description: 'Industrial Automation & IIoT engineer connecting PLCs, SCADA, MQTT, and cloud analytics to unlock Industry 4.0 insights.'
   robots:
     index: true
     follow: true

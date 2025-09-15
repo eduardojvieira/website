@@ -1,59 +1,73 @@
 ---
-publishDate: 2025-04-30T00:00:00Z
+publishDate: 2025-04-14T00:00:00Z
 author: Eduardo Vieira
-title: "MQTT Topics and Hierarchies: Best Practices for IIoT"
-excerpt: "How to design scalable, clear, and secure MQTT topics for industrial environments."
-image: '~/assets/images/mqtt-topics-hierarchies.jpg'
+title: "Designing MQTT Topic Hierarchies for Smart Factories"
+excerpt: "Structure MQTT topics to keep data organized, secure, and scalable across multiple plants, lines, and applications."
+image: '~/assets/images/industrial-automation.jpg'
 category: IIoT
 tags:
   - mqtt
   - topics
-  - hierarchies
 metadata:
   canonical: https://eduardovieira.dev/mqtt-topics-hierarchies
 ---
 
-# MQTT Topics and Hierarchies: Best Practices for IIoT
+# Designing MQTT Topic Hierarchies for Smart Factories
 
-In complex industrial environments, good MQTT topic design is key to the scalability and maintainability of your architecture.
+A thoughtful topic hierarchy turns MQTT into a reliable backbone for industrial data. Poor design, on the other hand, creates confusion and security risks. These are the conventions I use when structuring topics for multi-site deployments.
 
-## Hierarchy Structure
-- Levels are separated by `/` and define logical segments.
-  - Example: `plant/area1/machine4/sensor/temperature`
-- Start with a global prefix (`plant`, `site`, `client`) to segment large deployments.
+## 1. Establish a Naming Standard
 
-## Naming Conventions
-- Use readable names, without spaces or special characters.
-- Prefer lowercase and underscores: `sensor_temperature` instead of `SensorTemp`.
-- Define standards within your team and document them in the repository.
+A typical format I adopt is:
 
-## Using Wildcards
-- `+` (single-level wildcard): matches one level.
-  - `plant/+/machine4/#` captures `area1/machine4`, `area2/machine4`.
-- `#` (multi-level wildcard): matches all remaining levels.
-  - `plant/area1/#` captures everything under `area1`, including sublevels.
-
-## Filtering and Subscriptions
-- Specific subscriptions reduce broker load.
-  - Avoid using global `#` except for debugging or monitoring.
-- Prefer `plant/+/machine4/sensor/temperature` over `plant/area1/#` if you only need one sensor.
-
-## Security and Access Control
-- Implement ACLs in the broker (Mosquitto, EMQX) to restrict topics.
-- Assign read/write permissions per client:
-  ``` 
-  user sensor-node
-  topic read plant/area1/+/sensor/#
-  topic write plant/area1/+/actuator/#
-  ```
-
-## Practical Examples
-```yaml
-# Subscriber for all machine4 sensors
-topic: "plant/+/machine4/sensor/#"
-# Publisher for commands to a specific actuator
-topic: "plant/area2/machine4/actuator/valve"
+```
+<region>/<plant>/<area>/<line>/<asset>/<context>
 ```
 
----
-Ready for the next step? In the next installment, we'll dive deeper into Quality of Service (QoS) levels and how to choose the right one for your IIoT application.
+Example: `na/mx-mty/packaging/line01/capper/process/torque`
+
+## 2. Separate Data Domains
+
+- `process` for telemetry and KPIs.
+- `alarms` for events requiring human action.
+- `commands` for control instructions.
+- `_sys` for health and diagnostics.
+
+Keeping domains distinct simplifies access control and filtering.
+
+## 3. Use Wildcards Strategically
+
+- `+` matches one level; `#` matches remaining levels.
+- Grant permissions using wildcards, e.g., maintenance has read access to `na/+/+/+/+/process/#` but write access only to specific command topics.
+
+## 4. Versioning and Schema Updates
+
+- Include `v1`, `v2` in the hierarchy when payload structures change.
+- Support dual topics during migration to avoid breaking consumers.
+
+## 5. Multi-Language Considerations
+
+- Use English for topic names to maintain consistency across global teams.
+- Provide localized payload fields if necessary rather than duplicating topics.
+
+## 6. Example Topic Map
+
+| Topic | Purpose |
+| --- | --- |
+| `na/mx-mty/packaging/line01/capper/process/oee` | OEE metrics |
+| `na/mx-mty/packaging/line01/capper/alarms/high_torque` | Alarm notifications |
+| `na/mx-mty/packaging/line01/capper/commands/set_speed` | Command topic |
+| `na/mx-mty/packaging/line01/capper/_sys/heartbeat` | Gateway heartbeat |
+
+## 7. Security and Governance
+
+- Implement ACLs that map user roles to topic patterns.
+- Document topic ownership so teams know who maintains each namespace.
+- Audit subscriptions and publishes regularly to spot anomalies.
+
+## 8. Scaling Across Sites
+
+- Reserve the first level for region or business unit to avoid collisions (`na`, `latam`, `emea`).
+- Use consistent line and asset identifiers across MES, CMMS, and MQTT to simplify data correlation.
+
+MQTT topic hierarchies are more than naming conventions—they’re the foundation of a manageable and secure IIoT ecosystem. Invest time upfront to design them well, and every integration becomes easier.

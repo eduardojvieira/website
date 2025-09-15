@@ -14,24 +14,24 @@ export const headerData = {
       text: 'Services',
       links: [
         {
-          text: 'Industrial Automation',
-          href: getPermalink('/services/industrial-automation'),
+          text: 'PLC Programming & Industrial Control',
+          href: getPermalink('/services/plc-programming'),
         },
         {
-          text: 'Embedded Systems Development',
-          href: getPermalink('/services/embedded-systems'),
+          text: 'HMI & SCADA Development',
+          href: getPermalink('/services/hmi-scada'),
         },
         {
-          text: 'Raspberry Pi Development',
-          href: getPermalink('/services/raspberry-pi'),
-        },
-        {
-          text: 'Web-Based HMI',
+          text: 'Web HMI & Remote Dashboards',
           href: getPermalink('/services/web-hmi'),
         },
         {
-          text: 'Mechanical Engineering',
-          href: getPermalink('/services/mechanical-engineering'),
+          text: 'IIoT & Cloud Integration',
+          href: getPermalink('/services/iiot-cloud'),
+        },
+        {
+          text: 'Control Panel & Electrical Design',
+          href: getPermalink('/services/control-panel-design'),
         },
       ],
     },
@@ -56,16 +56,20 @@ export const footerData = {
     {
       title: 'Services',
       links: [
-        { text: 'Industrial Automation', href: getPermalink('/services/industrial-automation') },
-        { text: 'Embedded Systems Development', href: getPermalink('/services/embedded-systems') },
-        { text: 'Raspberry Pi Development', href: getPermalink('/services/raspberry-pi') },
-        { text: 'Web-Based HMI', href: getPermalink('/services/web-hmi') },
-        { text: 'Mechanical Engineering', href: getPermalink('/services/mechanical-engineering') },
+        { text: 'PLC Programming & Industrial Control', href: getPermalink('/services/plc-programming') },
+        { text: 'HMI & SCADA Development', href: getPermalink('/services/hmi-scada') },
+        { text: 'Web HMI & Remote Dashboards', href: getPermalink('/services/web-hmi') },
+        { text: 'IIoT & Cloud Integration', href: getPermalink('/services/iiot-cloud') },
+        { text: 'Control Panel & Electrical Design', href: getPermalink('/services/control-panel-design') },
       ],
     },
     {
       title: 'Skills',
       links: [
+        { text: 'Industrial Automation', href: getPermalink('/#skills') },
+        { text: 'Edge & Cloud Integration', href: getPermalink('/#skills') },
+        { text: 'SCADA & OT Data', href: getPermalink('/#skills') },
+        { text: 'Bilingual Collaboration', href: getPermalink('/#skills') },
       ],
     },
     {
@@ -83,9 +87,19 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/eduardojv/', target: '_blank' },
+    {
+      ariaLabel: 'LinkedIn',
+      icon: 'tabler:brand-linkedin',
+      href: 'https://www.linkedin.com/in/eduardojv/',
+      target: '_blank',
+    },
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/eduardojvieira', target: '_blank' },
-    { ariaLabel: 'Upwork', icon: 'tabler:brand-upwork', href: 'https://www.upwork.com/freelancers/eduardojv', target: '_blank' },
+    {
+      ariaLabel: 'Upwork',
+      icon: 'tabler:brand-upwork',
+      href: 'https://www.upwork.com/freelancers/eduardojv',
+      target: '_blank',
+    },
   ],
   footNote: `
     ${new Date().getFullYear()} Eduardo Vieira. All rights reserved.

@@ -1,0 +1,188 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'HMI & SCADA System Development | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="HMI & SCADA System Development"
+    subtitle="Designing operator-friendly interfaces and executive dashboards that turn live production data into actionable insight across your organization."
+    tagline="Visualization & Control"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Capabilities"
+    title="Visualization That Drives Better Decisions"
+    subtitle="Unified HMIs and SCADA systems that are intuitive, secure, and connected to your entire automation stack."
+    items={[
+      {
+        title: 'Operator-Centric Design',
+        description:
+          'Responsive layouts, clear navigation, and role-based views reduce training time and minimize operator error.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Enterprise Dashboards',
+        description:
+          'Management-level KPIs, OEE tracking, and drill-down analytics for production, maintenance, and quality teams.',
+        icon: 'tabler:chart-dots-2',
+      },
+      {
+        title: 'SCADA Platforms',
+        description:
+          'Ignition, ThingsBoard, FUXA, Node-RED, Siemens WinCC, Allen-Bradley PanelView, and Weintek EasyBuilder Pro.',
+        icon: 'tabler:device-desktop-analytics',
+      },
+      {
+        title: 'Alarm & Event Strategies',
+        description:
+          'Configurable alarm priorities, escalation workflows, and historian integrations to keep teams proactive.',
+        icon: 'tabler:alarm',
+      },
+      {
+        title: 'Secure Remote Access',
+        description:
+          'Role-based authentication, VPNs, and encrypted communications keep your data safe while enabling remote visibility.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'IIoT Integration',
+        description:
+          'Native support for MQTT, Sparkplug B, REST APIs, and databases to connect OT data with MES, ERP, and cloud analytics.',
+        icon: 'tabler:arrows-right-left',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Approach"
+    title="Interfaces Built for the Factory and the Boardroom"
+    items={[
+      {
+        title: 'User Research & Prototyping',
+        description: 'Workshops and wireframes ensure the interface reflects real workflows and user personas.',
+      },
+      {
+        title: 'Data Modeling & Contextualization',
+        description: 'Structure data models, tags, and naming conventions so information is meaningful across systems.',
+      },
+      {
+        title: 'Deployment & Training',
+        description:
+          'Roll out HMIs, SCADA servers, and mobile access with comprehensive documentation and training assets.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2070&q=80',
+      alt: 'SCADA dashboard design',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="SCADA Project Lifecycle"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Workflow Discovery</span>',
+        description:
+          'Identify critical processes, alarm priorities, and reporting needs to define screen layouts and navigation.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Design & Architecture</span>',
+        description:
+          'Create UI mockups, tag structures, security roles, and infrastructure diagrams tailored to your environment.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Development & Testing</span>',
+        description:
+          'Build screens, configure alarms, connect data sources, and test against real and simulated data sets.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Deployment & Optimization</span>',
+        description: 'Commission the system, train users, and iterate on dashboards as new requirements emerge.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c64?auto=format&fit=crop&w=2070&q=80',
+      alt: 'SCADA implementation process',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Key information about HMI and SCADA engagements."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Can you migrate our legacy HMI? ',
+        description:
+          'Yes. I migrate from legacy systems into Ignition, ThingsBoard, or modern PanelView platforms while maintaining functionality and improving usability.',
+      },
+      {
+        title: 'Do you support multi-site deployments?',
+        description:
+          'I design architectures that support multiple plants with centralized monitoring, standardized templates, and local overrides.',
+      },
+      {
+        title: 'How do you handle alarm rationalization?',
+        description:
+          'We work together to categorize alarms, set priorities, and build escalation paths that align with ISA-18.2 best practices.',
+      },
+      {
+        title: 'Can dashboards integrate with MES or BI tools?',
+        description:
+          'Yes. I expose data through MQTT, REST APIs, SQL, or data lakes so your analytics teams can build advanced reports.',
+      },
+      {
+        title: 'Do you provide ongoing support?',
+        description:
+          'I remain available for enhancements, new screen development, and training refreshers as your operations evolve.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Plan your SCADA project',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Need clearer visibility across your plant?</Fragment>
+
+    <Fragment slot="subtitle">
+      Let’s design HMIs and dashboards that empower operators and executives with the information they need in real
+      time.
+    </Fragment>
+  </CallToAction>
+</Layout>

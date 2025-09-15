@@ -5,7 +5,7 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Portfolio | Eduardo Vieira - Industrial Automation & Embedded Systems Engineer',
+  title: 'Portfolio | Eduardo Vieira - Industrial Automation & IIoT Engineer',
 };
 ---
 
@@ -13,36 +13,45 @@ const metadata = {
   <!-- HeroText Widget ******************* -->
 
   <HeroText
-    title="My Portfolio"
-    subtitle="Explore a selection of my recent projects in industrial automation, embedded systems, and control solutions."
+    title="Selected Projects"
+    subtitle="A snapshot of automation and IIoT engagements that demonstrate how I bridge PLC logic, visualization, and cloud analytics."
   />
 
   <!-- Content Widget ******************* -->
 
   <Content
     isReversed
-    tagline="Industrial Automation"
-    title="Manufacturing Process Optimization"
+    tagline="IIoT Integration"
+    title="PLC to Cloud MQTT Gateway for Process Control"
     items={[
       {
-        title: 'Challenge',
+        title: 'Problem',
         description:
-          'A food processing plant needed to improve production efficiency and reduce downtime in their packaging line.',
+          'A process manufacturer needed remote visibility into a critical production line controlled by a Mitsubishi PLC, but corporate IT had no OT connectivity.',
       },
       {
         title: 'Solution',
         description:
-          'Implemented a comprehensive PLC-based control system with real-time monitoring and predictive maintenance alerts.',
+          'Designed and deployed an edge gateway that polled the PLC via Modbus, normalized data in Python, and published structured Sparkplug B payloads to AWS IoT using MQTT.',
       },
       {
-        title: 'Results',
+        title: 'Outcome',
         description:
-          'Increased production efficiency by 28% and reduced unplanned downtime by 35% within the first three months of implementation.',
+          'Operations gained 24/7 dashboards and automated alerts, reducing on-site checks and enabling rapid response to deviations.',
+      },
+      {
+        title: 'Technologies Used',
+        description: 'Mitsubishi PLC, MQTT, Sparkplug B, Python, AWS IoT, Linux edge gateway.',
+      },
+      {
+        title: 'Testimonial',
+        description:
+          '“Fantastic work from Eduardo. His deep understanding of MQTT, industrial protocols, and edge computing was evident. Highly recommend!”',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Industrial automation control panel',
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80',
+      alt: 'PLC connected to cloud infrastructure',
     }}
   />
 
@@ -50,28 +59,37 @@ const metadata = {
 
   <Content
     isAfterContent
-    tagline="Embedded Systems"
-    title="IoT Environmental Monitoring System"
+    tagline="Safety Systems"
+    title="Mitsubishi Safety PLC Retrofit for Packaging Line"
     items={[
       {
-        title: 'Challenge',
+        title: 'Problem',
         description:
-          'A pharmaceutical company needed a reliable system to monitor environmental conditions in their storage facilities.',
+          'A packaging OEM required a safety upgrade to meet new regulations across multiple zones without halting production for extended periods.',
       },
       {
         title: 'Solution',
         description:
-          'Developed a custom IoT solution using ESP32 microcontrollers and MQTT protocol to monitor temperature, humidity, and air quality.',
+          'Re-engineered the safety architecture using Mitsubishi safety PLCs, redesigned e-stop circuits, and added diagnostic messaging to the main controller and HMI.',
       },
       {
-        title: 'Results',
+        title: 'Outcome',
         description:
-          'Provided real-time monitoring with automated alerts, ensuring compliance with regulatory requirements and preventing product loss.',
+          'Achieved compliance, reduced nuisance trips, and enabled maintenance teams to isolate faults faster through detailed alarms.',
+      },
+      {
+        title: 'Technologies Used',
+        description: 'Mitsubishi safety PLC, GX Works, safety relays, panel redesign, structured documentation.',
+      },
+      {
+        title: 'Testimonial',
+        description:
+          '“Eduardo’s attention to detail and rigorous testing meant we passed our safety audit the first time. The documentation was impeccable.”',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1580983218765-f663bec07b37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'IoT environmental monitoring system',
+      src: 'https://images.unsplash.com/photo-1581091012184-7ac3a0cfe129?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Safety PLC control panel',
     }}
   />
 
@@ -79,28 +97,37 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Web-Based HMI"
-    title="Remote Equipment Monitoring Dashboard"
+    tagline="HMI & SCADA Modernization"
+    title="Ignition & ThingsBoard Upgrade for Multi-Line Plant"
     items={[
       {
-        title: 'Challenge',
+        title: 'Problem',
         description:
-          'A manufacturing company with multiple facilities needed a centralized way to monitor equipment performance across all locations.',
+          'Legacy HMIs offered limited visibility, lacked remote access, and required high effort to update across three production lines.',
       },
       {
         title: 'Solution',
         description:
-          'Created a responsive web-based HMI using Node.js and Angular that provides real-time equipment status, performance metrics, and historical data analysis.',
+          'Rebuilt the SCADA stack in Ignition and ThingsBoard with reusable templates, multilingual support, and KPI dashboards for leadership.',
       },
       {
-        title: 'Results',
+        title: 'Outcome',
         description:
-          'Enabled remote monitoring and troubleshooting, reducing response time to issues by 65% and improving overall equipment effectiveness.',
+          'Operators adopted the new interface with minimal training and plant leadership gained a consolidated view of performance and downtime trends.',
+      },
+      {
+        title: 'Technologies Used',
+        description: 'Ignition, ThingsBoard, MQTT, PostgreSQL, Allen-Bradley PLC integration, responsive UI design.',
+      },
+      {
+        title: 'Testimonial',
+        description:
+          '“Working across English and Spanish teams, Eduardo kept everyone aligned and delivered a rock-solid SCADA upgrade. The new dashboards finally give us the insights we needed.”',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581092334247-48398112a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Web-based HMI dashboard',
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Modern SCADA dashboards on multiple devices',
     }}
   />
 
@@ -108,57 +135,37 @@ const metadata = {
 
   <Content
     isAfterContent
-    tagline="Raspberry Pi Solutions"
-    title="Smart Factory Information Kiosk"
+    tagline="Electrical Design"
+    title="AutoCAD Control Panel Package for Batch Processing System"
     items={[
       {
-        title: 'Challenge',
+        title: 'Problem',
         description:
-          'A manufacturing plant needed an easy way to display production data and KPIs to floor workers without requiring access to computers.',
+          'A process manufacturer expanding capacity needed fabrication-ready panel drawings and BOMs that aligned with corporate standards.',
       },
       {
         title: 'Solution',
         description:
-          'Developed a network of Raspberry Pi-powered information kiosks with custom Linux builds and touch interfaces displaying real-time production metrics.',
+          'Produced AutoCAD schematics, panel layouts, and wire lists covering power distribution, PLC I/O, and safety circuits, along with procurement-ready BOMs.',
       },
       {
-        title: 'Results',
+        title: 'Outcome',
         description:
-          'Improved information accessibility on the factory floor, contributing to a 15% increase in productivity and better team coordination.',
+          'Panel shop fabricated without rework and maintenance now has accurate as-built documentation for future upgrades.',
+      },
+      {
+        title: 'Technologies Used',
+        description: 'AutoCAD Electrical, UL 508A guidelines, Allen-Bradley hardware, documentation templates.',
+      },
+      {
+        title: 'Testimonial',
+        description:
+          '“Every deliverable from Eduardo is production-ready. The new control panels came with immaculate drawings, testing protocols, and training.”',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581092160562-3bd09bde6efa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Factory information kiosk',
-    }}
-  />
-
-  <!-- Content Widget ******************* -->
-
-  <Content
-    isReversed
-    tagline="Arduino/STM32 Development"
-    title="Custom Motor Control System"
-    items={[
-      {
-        title: 'Challenge',
-        description:
-          'A specialized equipment manufacturer needed a precise motor control system for a new product line with unique requirements.',
-      },
-      {
-        title: 'Solution',
-        description:
-          'Designed and programmed a custom motor control system using STM32 microcontrollers with advanced PID algorithms and safety features.',
-      },
-      {
-        title: 'Results',
-        description:
-          'Achieved precise motor control with 0.1% accuracy, enabling the client to launch their new product line on schedule and within budget.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1581092160757-a97e4b7061f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Custom motor control system',
+      src: 'https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Control panel design layout',
     }}
   />
 
@@ -174,12 +181,10 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      Ready to enhance your industrial automation systems?
-    </Fragment>
+    <Fragment slot="title">Bring your next automation idea to life</Fragment>
 
     <Fragment slot="subtitle">
-      Contact me today to discuss how I can help you improve efficiency, reduce costs, and optimize your operations with custom automation and embedded solutions.
+      Let’s map out how I can help you move from concept to production with confidence.
     </Fragment>
   </CallToAction>
 </Layout>
