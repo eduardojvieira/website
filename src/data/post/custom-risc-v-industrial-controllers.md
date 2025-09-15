@@ -1,179 +1,83 @@
 ---
-title: "RISC-V Industrial Controllers: Breaking Free from Vendor Lock-in for Customized Automation"
-excerpt: "Discover how RISC-V architecture is revolutionizing industrial automation by enabling flexible, customizable control solutions without the restrictions of proprietary systems."
-image: ~/assets/images/risc-v-industrial.jpg
-category: Embedded Systems
+publishDate: 2025-03-21T00:00:00Z
+author: Eduardo Vieira
+title: "Evaluating Custom RISC-V Industrial Controllers"
+excerpt: "What I learned after prototyping a RISC-V based industrial controller, from determinism testing to long-term maintainability."
+image: '~/assets/images/industrial-automation.jpg'
+category: Industrial Automation
 tags:
   - risc-v
-  - open hardware
-  - industrial controllers
-  - fpga
-  - vendor independence
-  - industrial automation
-  - custom controllers
+  - embedded
+  - industrial
 metadata:
   canonical: https://eduardovieira.dev/custom-risc-v-industrial-controllers
-author: Eduardo Vieira
-publishDate: 2025-01-15T00:00:00Z
 ---
 
-## Escaping Vendor Lock-in with Open Architecture Industrial Controls
+# Evaluating Custom RISC-V Industrial Controllers
 
-Industrial automation has long been dominated by a small group of major vendors with proprietary hardware and software ecosystems. This approach creates several significant challenges for manufacturers with specialized requirements:
+I was recently engaged to explore whether a custom RISC-V platform could replace aging proprietary controllers in a specialty packaging line. Below is the evaluation framework we used and the key lessons learned while prototyping the stack.
 
-1. **Forced Obsolescence**: Vendors regularly discontinue products and support based on their business needs, not yours
-2. **Feature Mismatch**: Standard controllers often include unnecessary functions while lacking critical specialized capabilities
-3. **Cost Inefficiency**: Specialized industrial controllers typically command substantial markups over their actual component costs
+## 1. Business Motivation
 
-Many industrial applications have requirements that aren't adequately addressed by off-the-shelf solutions, yet most companies accept compromised designs rather than exploring custom solutions.
+- **Cost Pressure:** OEM replacement boards cost more than $3,000 and had 16-week lead times.
+- **Flexibility:** The customer needed to adapt machine recipes frequently and wanted a platform amenable to modern toolchains (Git, CI/CD, containerized deployments).
+- **Openness:** Avoid vendor lock-in and licensing surprises when scaling internationally.
 
-## The RISC-V Advantage in Industrial Control Systems
+## 2. Hardware Selection Criteria
 
-RISC-V, an open-source Instruction Set Architecture (ISA), has fundamentally changed what's possible in industrial control design. Unlike proprietary architectures like ARM or x86, RISC-V allows complete freedom to implement, modify, and extend processor designs without licensing fees or legal constraints.
+We benchmarked three RISC-V SoMs that offered industrial temperature ratings:
 
-For industrial automation, this creates valuable opportunities:
+| Board | CPU | IO Options | Industrial Certification | Notes |
+| --- | --- | --- | --- | --- |
+| Vendor A SoM | 4-core RV64 | 2x Ethernet, 4x CAN, 1x PCIe | CE/UL pending | Strong partner support |
+| Vendor B Module | Dual-core RV32 | EtherCAT, RS-485, isolated IO | CE/UL listed | Limited RAM |
+| Vendor C Dev Kit | 8-core RV64 | Gigabit Ethernet, USB, SPI | None | Great performance but lacks certifications |
 
-- Develop application-specific controllers optimized for exact requirements
-- Eliminate planned obsolescence by controlling hardware design
-- Integrate precisely the peripherals and interfaces needed
-- Scale processing capabilities based on application requirements
-- Reduce costs by eliminating unnecessary components
+We chose **Vendor B** for pilot runs because the integrated isolated IO reduced our PCB work, even though memory was constrained.
 
-## Professional vs. DIY RISC-V Implementation Options
+## 3. Software Stack Overview
 
-Implementing RISC-V-based systems in industrial environments offers several approaches, each with distinct advantages:
+- **RTOS:** Zephyr with the Time-Sensitive Networking (TSN) add-on for deterministic Ethernet.
+- **Middleware:** FreeModbus, custom EtherCAT master, and a lightweight MQTT client.
+- **Application Layer:** Structured text translated to C using PLCopen XML exports, then compiled with GCC.
+- **Tooling:** GitLab CI pipelines cross-compile firmware, run static analysis (cppcheck), and publish artifacts to an internal registry.
 
-### Approach 1: FPGA-Based RISC-V Implementation
+## 4. Determinism and Real-Time Behavior
 
-This approach uses Field Programmable Gate Arrays to implement a RISC-V core alongside custom logic:
+I instrumented the firmware with GPIO toggles and measured jitter with a digital scope. Results:
 
-```
-[FPGA]
-├── RISC-V Core(s)
-├── Custom Logic Accelerators
-│   ├── Motion Control Pipeline
-│   ├── Real-time Signal Processing
-│   └── Protocol Handling (Modbus, PROFINET, etc.)
-├── Memory Controllers
-└── I/O Interfaces
-```
+- **Cycle Time:** 2 ms task executed within ±60 µs jitter under nominal load.
+- **Network Load:** Enabling MQTT at QoS 1 increased jitter to ±120 µs; we mitigated by offloading MQTT to a secondary core.
+- **Interrupt Latency:** Worst-case 8 µs when handling EtherCAT PDOs; acceptable for the machine’s servo loops.
 
-**Advantages**:
-- Complete customization of processor and peripherals
-- Hardware acceleration for specialized functions
-- Ability to update the entire design in the field
+## 5. Industrial Hardening Considerations
 
-**Professional Solutions**: Leading FPGA manufacturers like Xilinx (AMD) and Intel offer development platforms specifically designed for industrial applications. Companies like Microchip and Efinix now provide RISC-V soft cores optimized for their FPGA platforms, streamlining development while maintaining customizability.
+- **Enclosure:** DIN-rail carrier with conformal coating to handle humidity.
+- **Power:** Dual redundant 24 VDC inputs with reverse polarity protection.
+- **Diagnostics:** Added a dedicated UART console for maintenance and a secure bootloader supporting signed firmware updates.
+- **Cybersecurity:** TPM 2.0 module for key storage, mutual TLS for MQTT, and remote attestation integrated with Azure DPS.
 
-### Approach 2: Commercial RISC-V System-on-Chip (SoC)
+## 6. Integration with Existing Infrastructure
 
-This approach uses commercially available RISC-V SoCs as the foundation, adding custom expansion boards:
+To avoid rewriting the HMI, we exposed the same OPC UA nodeset the original controller used. A translation layer mapped internal tags to OPC UA variables, and the existing SCADA system connected without changes.
 
-```
-[RISC-V SoC] ───┐
-                │
-                ├──── [Custom I/O Board]
-                │
-[Power Supply] ──┘
-```
+## 7. Total Cost of Ownership
 
-**Advantages**:
-- Reduced development time compared to FPGA approach
-- Lower unit cost for medium-volume production
-- Still maintains software freedom and vendor independence
+| Item | Custom RISC-V | Legacy Replacement |
+| --- | --- | --- |
+| Hardware BOM | $620 | $3,050 |
+| Firmware Development (estimated) | $45k | $0 (off-the-shelf) |
+| Certification | $12k | Included |
+| Annual Support | $6k | $18k |
 
-**Professional Solutions**: Companies like SiFive and Andes Technology now offer industrial-grade RISC-V processors designed specifically for embedded applications. SiFive's Essential series and Andes' 25-Series RISC-V processors provide industrial-grade reliability with features like error correction, extended temperature ranges, and long-term availability commitments.
+Break-even occurred in year three once the customer considered spares and reduced downtime. The intangible benefit: complete control over the roadmap and the ability to patch vulnerabilities on our own schedule.
 
-### Approach 3: Linux-capable RISC-V with Containers
+## 8. Final Verdict
 
-For more complex applications requiring rich software ecosystems:
+Custom RISC-V controllers are not a drop-in answer for every factory, but they shine when:
 
-```
-[High-performance RISC-V SoC]
-├── Linux OS
-│   ├── Container Runtime
-│   │   ├── Control Application Container
-│   │   ├── OPC UA Server Container
-│   │   └── Data Processing Container
-│   └── Real-time Scheduler
-└── Deterministic I/O Subsystem
-```
+- You need specialized IO combinations or deterministic networking features.
+- The organization is ready to treat control firmware like modern software with DevOps practices.
+- Lifecycle cost and supply chain resilience outweigh the comfort of off-the-shelf PLCs.
 
-**Advantages**:
-- Rich software ecosystem availability
-- Modern development practices (containers, CI/CD)
-- Freedom to update applications independently
-
-**Professional Solutions**: StarFive's VisionFive series and the Sipeed Lichee boards provide powerful, Linux-capable RISC-V platforms suitable for industrial HMI and edge computing applications. These platforms enable modern software practices while maintaining the benefits of open architecture.
-
-## Practical Implementation Guide for Industrial RISC-V Solutions
-
-The current technology landscape suggests the following decision framework:
-
-| Application Needs | Recommended Approach | Professional Options |
-|-------------------|----------------------|---------------------|
-| Hard real-time, specialized algorithms | FPGA-based RISC-V | Xilinx Artix/Zynq UltraScale+, Intel Cyclone V, Microchip PolarFire |
-| Mixed real-time/non-real-time | RISC-V SoC | SiFive Essential 7-Series, Andes 25-Series, GreenWaves GAP9 |
-| Complex UI, data processing, connectivity | Linux-capable RISC-V | StarFive VisionFive 2, Sipeed LicheeRV, HiFive Unmatched |
-
-### Effective Development Process
-
-A structured development process for RISC-V industrial implementations includes:
-
-1. **Requirements Analysis**:
-   - Document timing constraints, I/O requirements, and specialized algorithms
-   - Define obsolescence risk tolerance and expected product lifetime
-   - Assess production volume and cost targets
-
-2. **Architecture Selection**:
-   - Choose between implementation approaches based on requirements
-   - Select specific hardware platform (FPGA family or SoC)
-   - Define software/hardware partition
-
-3. **Implementation**:
-   - For FPGA: Consider high-level design languages like SpinalHDL or Chisel for maintainability
-   - For SoC: Design custom interface boards using industry-standard EDA tools
-   - Develop firmware using industrial-grade RTOS options like FreeRTOS or Zephyr
-   - For Linux systems: Consider Yocto or Buildroot for customized, maintainable distributions
-
-4. **Validation**:
-   - Implement comprehensive testing protocols
-   - Conduct EMC compliance testing
-   - Perform reliability testing under various conditions
-   - Validate against original requirements
-
-## Industrial Application: Process Controller Replacement
-
-A manufacturing facility faced obsolescence of critical process controllers with unique requirements:
-
-- **Challenge**: Legacy controller discontinuation threatened production
-- **Constraints**: Replacement needed to match specific timing characteristics and interface with existing equipment
-- **Approach**: FPGA-based RISC-V implementation with custom peripherals
-
-**Solution Components**:
-- Platform: Industry-standard FPGA
-- RISC-V Core: Configurable core with custom instructions for specialized operations
-- Custom peripherals: Precision I/O interfaces, industrial communication protocols
-- Development approach: Modern hardware description languages, mainstream firmware tools
-
-**Outcomes**:
-- Matched required specifications, enabling seamless transition
-- Extended system lifetime through field-updateable design
-- Reduced operating costs through improved efficiency
-- Enhanced process capabilities previously impossible with vendor hardware
-- Eliminated future obsolescence risk through vendor independence
-
-## The Future of Industrial Control: Open Architecture
-
-RISC-V-based industrial controllers represent a practical path to hardware independence for companies with specialized requirements. While not appropriate for every application, they provide significant advantages for:
-
-1. Specialized applications poorly served by standard controllers
-2. Systems facing obsolescence of critical components
-3. Applications where vendor lock-in creates unacceptable business risk
-4. Projects requiring optimized performance and cost through customization
-
-The RISC-V ecosystem continues to mature rapidly, with major semiconductor companies now offering industrial-grade implementations. This evolution makes custom control solutions increasingly accessible to organizations of all sizes, not just those with extensive engineering resources.
-
----
-
-Interested in exploring how RISC-V can solve your industrial automation challenges? [Contact me for a consultation](/contact) to discuss your specific requirements and discover how custom control solutions can transform your operations.
+For broader adoption, invest early in documentation, automated testing, and training maintenance staff. With those pillars in place, RISC-V can become a competitive differentiator in industrial automation programs.

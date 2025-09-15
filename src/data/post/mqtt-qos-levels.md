@@ -1,54 +1,64 @@
 ---
-publishDate: 2025-04-07T00:00:00Z
+publishDate: 2025-04-16T00:00:00Z
 author: Eduardo Vieira
-title: "MQTT Quality of Service (QoS) Levels: Ensuring Delivery in IIoT"
-excerpt: "Dive deep into MQTT QoS levels and how to choose the right one for your industrial solution."
-image: '~/assets/images/mqtt-qos.jpg'
+title: "MQTT QoS Levels Explained for Industrial IoT"
+excerpt: "When to use QoS 0, 1, or 2 in manufacturing environments, with examples that balance reliability and performance."
+image: '~/assets/images/industrial-automation.jpg'
 category: IIoT
 tags:
   - mqtt
   - qos
-  - IIoT
 metadata:
   canonical: https://eduardovieira.dev/mqtt-qos-levels
 ---
 
-# MQTT Quality of Service (QoS) Levels: Ensuring Delivery in IIoT
+# MQTT QoS Levels Explained for Industrial IoT
 
-In IIoT environments, communications can be intermittent or critical. MQTT offers three QoS levels to balance reliability and performance.
+Quality of Service (QoS) determines how MQTT guarantees message delivery. Selecting the right level keeps your data reliable without overloading networks or PLCs. Here’s how I apply QoS in production deployments.
 
-## QoS 0: At most once
-- Fire-and-forget delivery. The message is sent once and not retried.
-- Useful for non-critical or high-frequency data (e.g., continuous telemetry).
-- Does not guarantee delivery; messages may be lost.
+## QoS 0 — At Most Once
 
-## QoS 1: At least once
-- Delivery with ACK; the publisher retries until confirmation is received.
-- May produce duplicates; the subscriber must handle idempotence.
-- Good balance between reliability and network load.
+- **Characteristics:** Fire-and-forget; no acknowledgment.
+- **Use Cases:** Non-critical telemetry (ambient sensors, dashboards updating every few seconds).
+- **Tips:** Combine with retained messages so new subscribers get the latest value instantly.
 
-## QoS 2: Exactly once
-- Four-step exchange (PUBLISH, PUBREC, PUBREL, PUBCOMP).
-- Guarantees unique delivery without duplicates.
-- Higher overhead; use only for critical transactions.
+## QoS 1 — At Least Once
 
-## Example with Paho-MQTT
-```python
-import paho.mqtt.client as mqtt
+- **Characteristics:** Publisher waits for PUBACK; messages may be delivered more than once.
+- **Use Cases:** Process values, alarms, OEE metrics, condition monitoring.
+- **Tips:** Design subscribers to handle duplicates idempotently (check timestamps or sequence numbers).
 
-client = mqtt.Client()
-client.connect("broker.local", 1883)
+## QoS 2 — Exactly Once
 
-# Publish with QoS 2
-topic = "plant/area1/sensor/temperature"
-payload = "23.5"
-client.publish(topic, payload, qos=2)
+- **Characteristics:** Four-way handshake (PUBREC/PUBREL/PUBCOMP). Highest reliability with added latency.
+- **Use Cases:** Critical commands (start/stop), recipe downloads, transactional updates to MES/ERP.
+- **Tips:** Apply sparingly; excessive QoS 2 traffic can create bottlenecks on constrained gateways.
+
+## Mixed QoS Architecture Example
+
+```mermaid
+flowchart LR
+  Sensors[Environmental Sensors] -- QoS0 --> Broker
+  PLC[Edge Gateway / PLC] -- QoS1 --> Broker((MQTT Broker))
+  MES[MES/ERP] -- QoS2 --> Broker
+  Broker --> Dashboard
+  Broker --> CMMS
 ```
 
-## How to Choose?
-- QoS 0: High-frequency, loss-tolerant data.
-- QoS 1: Important data that can tolerate duplicates.
-- QoS 2: Critical transactions (control commands, billing).
+## Performance Considerations
 
----
-In the next post, we'll explore payload formats (JSON vs. binary) and when to use them in IIoT.
+- Measure message latency and throughput during commissioning.
+- Ensure MQTT clients are configured with appropriate inflight window sizes.
+- Use persistent sessions when clients connect intermittently.
+
+## Error Handling and Retries
+
+- Implement exponential backoff for reconnection attempts.
+- Log QoS failures and monitor broker statistics to catch issues early.
+- Use Last Will messages so monitoring systems know when a client disappears unexpectedly.
+
+## Security Alignment
+
+Higher QoS does not replace security. Pair your QoS strategy with TLS encryption, ACLs, and certificate management to protect command topics from abuse.
+
+The right QoS choice balances reliability, latency, and resource usage. Map each topic to the level it needs—no more, no less—and your MQTT infrastructure will stay responsive and resilient.

@@ -1,0 +1,190 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'PLC Programming & Industrial Control | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="PLC Programming & Industrial Control"
+    subtitle="Robust, well-documented control logic for new machines, retrofits, and troubleshooting projects—engineered for uptime, safety, and maintainability."
+    tagline="PLC Expertise"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="What I Deliver"
+    title="Reliable Control for Mission-Critical Equipment"
+    subtitle="Multi-platform PLC expertise backed by mechanical engineering fundamentals and IIoT know-how."
+    items={[
+      {
+        title: 'Multi-Vendor Programming',
+        description:
+          'Siemens TIA Portal, Allen-Bradley Studio 5000, Mitsubishi GX Works, ABB, and CODESYS controllers with Ladder, Structured Text, and Function Block Diagram.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'New Machine Commissioning',
+        description:
+          'From I/O design to final acceptance testing, I develop clean logic structures, naming standards, and diagnostics that scale.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Legacy Upgrades & Migrations',
+        description:
+          'Modernize aging hardware, migrate between vendors, or convert legacy code to contemporary standards without disrupting production.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Safety & Compliance',
+        description:
+          'Design and validate safety PLC logic, e-stop circuits, and interlocks aligned with regional standards and risk assessments.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Performance Optimization',
+        description:
+          'Reduce cycle times, improve sequencing, and integrate machine feedback for predictive maintenance and advanced diagnostics.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Documentation & Training',
+        description:
+          'Deliver structured code comments, functional design specifications, wiring references, and operator training for seamless handover.',
+        icon: 'tabler:notebook',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Deliverables"
+    title="From Concept to Commissioning"
+    items={[
+      {
+        title: 'Control Strategy Design',
+        description:
+          'Functional specifications, I/O lists, and sequencing logic grounded in process requirements and safety constraints.',
+      },
+      {
+        title: 'Code Development & Simulation',
+        description:
+          'Modular code, simulation, and bench testing ensure smooth onsite commissioning and easier troubleshooting.',
+      },
+      {
+        title: 'HMI & SCADA Integration',
+        description:
+          'Seamless data exchange with operator interfaces, historians, and MES systems for complete visibility.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'PLC programming and commissioning',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="PLC Project Process"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Requirements & Standards</span>',
+        description:
+          'Collect process documentation, safety requirements, and customer standards to define architecture, naming, and testing criteria.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Design & Development</span>',
+        description:
+          'Build structured logic, alarms, and diagnostics while collaborating with mechanical and electrical teams on sequencing.',
+        icon: 'tabler:blueprint',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Testing & Commissioning</span>',
+        description:
+          'Simulate, factory-acceptance test, and support site commissioning to verify functionality and safety compliance.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Training & Support</span>',
+        description:
+          'Provide training, troubleshooting guides, and long-term support for updates, integrations, and performance improvements.',
+        icon: 'tabler:headset',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092334254-6ab6ac0f17b2?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Industrial automation workflow',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Everything you need to know about partnering with me for PLC projects."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Can you work with our existing code base?',
+        description:
+          'Yes. I routinely audit and refactor legacy logic, documenting current behavior before implementing improvements so nothing critical is lost.',
+      },
+      {
+        title: 'Do you provide remote troubleshooting support?',
+        description:
+          'Absolutely. Secure remote access allows me to diagnose and resolve issues quickly. On-site visits can be arranged when required.',
+      },
+      {
+        title: 'How do you handle version control and documentation?',
+        description:
+          'I maintain organized project repositories, change logs, and design documentation so your team always knows what was deployed and why.',
+      },
+      {
+        title: 'Can you integrate PLCs with SCADA or cloud systems?',
+        description:
+          'Yes. I routinely connect PLC logic to Ignition, ThingsBoard, Node-RED, and MQTT brokers, enabling visualization, analytics, and remote control.',
+      },
+      {
+        title: 'What about safety validation?',
+        description:
+          'I follow relevant safety standards, provide verification checklists, and collaborate with your safety officers to confirm compliance.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start your PLC project',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Need reliable PLC logic?</Fragment>
+
+    <Fragment slot="subtitle">
+      Let’s discuss your machine, process, or retrofit goals and build a control solution that your team can trust.
+    </Fragment>
+  </CallToAction>
+</Layout>

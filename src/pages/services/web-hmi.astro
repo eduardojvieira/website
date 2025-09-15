@@ -8,7 +8,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Web-Based HMI Development | Eduardo Vieira',
+  title: 'Web HMI & Remote Dashboards | Eduardo Vieira',
 };
 ---
 
@@ -16,54 +16,54 @@ const metadata = {
   <!-- HeroText Widget ******************* -->
 
   <HeroText
-    title="Web-Based HMI Development"
-    subtitle="Modern, responsive human-machine interfaces for industrial control systems, accessible from any device with a web browser."
-    tagline="Expert HMI Development"
+    title="Web HMI & Remote Dashboards"
+    subtitle="Responsive, browser-based visualizations that deliver live OT data securely to any device—empowering operators, managers, and remote teams alike."
+    tagline="Connected Visualization"
   />
 
   <!-- Features Widget *************** -->
 
   <Features
     id="features"
-    tagline="Services Offered"
-    title="Comprehensive Web-Based HMI Solutions"
-    subtitle="From simple control panels to complex SCADA interfaces, I provide end-to-end web-based HMI development services tailored to your specific industrial requirements."
+    tagline="Capabilities"
+    title="Industrial Dashboards Designed for Every Screen"
+    subtitle="Modern, secure web experiences that extend the value of your PLC and SCADA investments."
     items={[
       {
-        title: 'Responsive Control Interfaces',
+        title: 'Responsive Interfaces',
         description:
-          'Intuitive, mobile-friendly interfaces that provide consistent user experience across desktops, tablets, and smartphones.',
-        icon: 'tabler:device-desktop',
+          'Design HMIs and dashboards that adapt to desktops, tablets, and mobile devices without compromising clarity or performance.',
+        icon: 'tabler:devices',
       },
       {
-        title: 'Real-Time Data Visualization',
+        title: 'Workflow-Driven UX',
         description:
-          'Dynamic charts, gauges, and visual representations of your industrial processes with real-time updates.',
-        icon: 'tabler:chart-line',
+          'Map operator and management tasks into intuitive navigation, contextual KPIs, and multilingual interfaces.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Alarm Management Systems',
+        title: 'Real-Time Data & Alarms',
         description:
-          'Comprehensive alarm systems with prioritization, notification, and historical logging capabilities.',
-        icon: 'tabler:bell',
+          'Leverage MQTT, WebSockets, and historians to stream live values, events, and notifications to authorized users.',
+        icon: 'tabler:alarm',
       },
       {
-        title: 'Historical Data Trending',
+        title: 'Secure Remote Access',
         description:
-          'Tools for analyzing historical process data, identifying trends, and optimizing operations.',
-        icon: 'tabler:chart-area',
-      },
-      {
-        title: 'User Authentication & Access Control',
-        description:
-          'Secure role-based access control systems ensuring users can only access appropriate functions and data.',
+          'Implement VPNs, role-based permissions, and TLS encryption so remote visibility never compromises production security.',
         icon: 'tabler:lock',
       },
       {
-        title: 'PLC & Equipment Integration',
+        title: 'Edge & Cloud Deployment',
         description:
-          'Seamless communication with PLCs and other industrial equipment using appropriate protocols and interfaces.',
-        icon: 'tabler:plug',
+          'Host solutions on industrial PCs, virtual machines, or the cloud using Docker, Node-RED, Ignition Perspective, or ThingsBoard.',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'System Integrations',
+        description:
+          'Connect PLCs, historians, MES, and analytics platforms through MQTT, REST APIs, OPC UA, and SQL databases.',
+        icon: 'tabler:arrows-right-left',
       },
     ]}
   />
@@ -72,76 +72,64 @@ const metadata = {
 
   <Content
     isReversed
-    tagline="Modern Interfaces"
-    title="Intuitive Control for Complex Systems"
+    tagline="Deliverables"
+    title="Dashboards Built for Decision-Makers"
     items={[
       {
-        title: 'Accessibility',
+        title: 'UX & Visualization Design',
         description:
-          'Access your industrial systems from anywhere using standard web browsers, without the need for specialized software.',
+          'Facilitate workshops, personas, and prototypes to define screen layouts, alarm priorities, and multilingual content.',
       },
       {
-        title: 'Scalability',
+        title: 'Data Pipeline Engineering',
         description:
-          'Easily scale from simple machine interfaces to comprehensive plant-wide monitoring and control systems.',
+          'Normalize tags, contextualize data models, and implement store-and-forward logic for reliable performance.',
       },
       {
-        title: 'User Experience',
+        title: 'Deployment Playbooks',
         description:
-          'Intuitive, modern interfaces that reduce training time and minimize operator errors.',
+          'Deliver containerized builds, documentation, and knowledge transfer so your team can operate and evolve the system.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581092334247-48398112a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Web-based HMI dashboard',
+      src: 'https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Engineer reviewing industrial dashboards on multiple screens',
     }}
   />
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="My Web-Based HMI Development Process"
+    title="Web HMI Project Roadmap"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Requirements Analysis</span>',
+        title: 'Step 1: <span class="font-medium">Discovery & UX Planning</span>',
         description:
-          'I begin by thoroughly understanding your operational needs, user requirements, and the industrial systems that need to be controlled or monitored.',
-        icon: 'tabler:list-check',
+          'Interview stakeholders, document workflows, and prioritize KPIs to design experiences that match real-world tasks.',
+        icon: 'tabler:clipboard-data',
       },
       {
-        title: 'Step 2: <span class="font-medium">Interface Design</span>',
+        title: 'Step 2: <span class="font-medium">Data & Integration Architecture</span>',
         description:
-          'I create wireframes and mockups of the HMI, focusing on intuitive layout, clear information hierarchy, and efficient user workflows.',
-        icon: 'tabler:layout-dashboard',
+          'Define data models, security policies, and infrastructure—bridging PLCs, historians, and enterprise systems.',
+        icon: 'tabler:blueprint',
       },
       {
-        title: 'Step 3: <span class="font-medium">Backend Development</span>',
+        title: 'Step 3: <span class="font-medium">Development & Validation</span>',
         description:
-          'I develop the server-side components that communicate with your industrial equipment and manage data storage, processing, and security.',
-        icon: 'tabler:server',
+          'Build dashboards, configure alarm logic, and run simulations with production data for performance assurance.',
+        icon: 'tabler:device-analytics',
       },
       {
-        title: 'Step 4: <span class="font-medium">Frontend Implementation</span>',
+        title: 'Step 4: <span class="font-medium">Deployment & Enablement</span>',
         description:
-          'I build the user interface using modern web technologies (HTML5, CSS3, JavaScript, Angular/React) with responsive design for all device types.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Step 5: <span class="font-medium">Testing & Optimization</span>',
-        description:
-          'Rigorous testing ensures the HMI performs reliably under various conditions, with optimization for performance and usability.',
-        icon: 'tabler:test-pipe',
-      },
-      {
-        title: 'Step 6: <span class="font-medium">Deployment & Training</span>',
-        description:
-          'I assist with deployment and provide comprehensive training to ensure your team can effectively use and maintain the HMI system.',
-        icon: 'tabler:users',
+          'Roll out secure access, train users in English and Spanish, and establish support plans for continuous improvement.',
+        icon: 'tabler:rocket',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'HMI development process',
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Team collaborating on digital dashboards',
     }}
   />
 
@@ -149,39 +137,34 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Find answers to common questions about web-based HMI development."
+    subtitle="Answers to the most common questions about web-based HMIs and remote dashboards."
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'What technologies do you use for web-based HMIs?',
+        title: 'Do web HMIs replace our existing SCADA? ',
         description:
-          'I primarily use Node.js for backend development, with frameworks like Express for API development. For frontend development, I use modern JavaScript frameworks such as Angular or React, combined with visualization libraries like D3.js or Chart.js for data representation. The specific technology stack is selected based on your requirements and existing infrastructure.',
+          'They can complement or extend your current SCADA. I often layer web dashboards on top of existing systems to improve accessibility while maintaining your proven control infrastructure.',
       },
       {
-        title: 'How do web-based HMIs communicate with industrial equipment?',
+        title: 'Which technologies do you use for web dashboards?',
         description:
-          'Web-based HMIs typically communicate with industrial equipment through an intermediate server that implements the appropriate industrial protocols (Modbus, OPC UA, EtherNet/IP, etc.). This server acts as a bridge between the web interface and the industrial equipment, handling protocol conversion, data processing, and security.',
+          'Ignition Perspective, Node-RED, ThingsBoard, Grafana, custom React/TypeScript front-ends, and secure MQTT or REST integrations—selected to match your requirements and IT standards.',
       },
       {
-        title: 'Are web-based HMIs secure enough for industrial applications?',
+        title: 'How is security handled for remote users?',
         description:
-          'Yes, when properly implemented. I incorporate multiple security layers including HTTPS encryption, secure authentication, role-based access control, input validation, and regular security updates. For critical systems, additional security measures such as VPN access, network segregation, and intrusion detection can be implemented.',
+          'Role-based access, VPN or Zero Trust gateways, TLS certificates, and audit trails ensure only authorized personnel can interact with critical data.',
       },
       {
-        title: 'Can web-based HMIs work offline or with intermittent connectivity?',
+        title: 'Can dashboards function with intermittent connectivity?',
         description:
-          'Yes, I can implement offline capabilities using modern web technologies like Service Workers and IndexedDB. This allows the HMI to continue functioning during temporary network outages, with automatic synchronization when connectivity is restored. For applications requiring high availability, redundant communication paths can also be implemented.',
+          'Yes. I implement buffering, store-and-forward logic, and graceful fallbacks so operators maintain visibility even when networks drop.',
       },
       {
-        title: 'How do you handle real-time updates in web-based HMIs?',
+        title: 'Will our team be able to maintain the solution?',
         description:
-          'I implement real-time updates using technologies like WebSockets or Server-Sent Events, which allow for efficient, low-latency communication between the server and the browser. This ensures that operators always see the current state of the system without needing to manually refresh the interface.',
-      },
-      {
-        title: 'Can you integrate with our existing SCADA or control systems?',
-        description:
-          'Yes, I specialize in integrating web-based HMIs with existing systems. This can be done through various methods including OPC UA, database integration, API connections, or direct protocol implementation. The integration approach is selected based on your existing systems and specific requirements.',
+          'Absolutely. I provide documentation, training sessions in English and Spanish, and optional ongoing support packages.',
       },
     ]}
   />
@@ -192,18 +175,16 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Contact Me',
+        text: 'Design a web-based HMI',
         href: '/contact',
         icon: 'tabler:mail',
       },
     ]}
   >
-    <Fragment slot="title">
-      Ready to modernize your industrial interfaces?
-    </Fragment>
+    <Fragment slot="title">Ready to extend your HMI to the web?</Fragment>
 
     <Fragment slot="subtitle">
-      Contact me today to discuss how a web-based HMI can improve operator efficiency and provide better visibility into your industrial processes.
+      Let’s build secure, responsive dashboards that give every stakeholder real-time insight into your production.
     </Fragment>
   </CallToAction>
 </Layout>

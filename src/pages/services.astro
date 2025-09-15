@@ -16,8 +16,8 @@ const metadata = {
 
   <Hero
     tagline="Services"
-    title="Industrial Automation & Embedded Systems Solutions"
-    subtitle="Expert engineering services for industrial automation, embedded systems development, and mechanical design to optimize your operations and accelerate innovation."
+    title="From PLC Logic to Cloud Insights"
+    subtitle="I deliver end-to-end industrial automation and IIoT solutions—programming controllers, building HMIs, connecting edge devices, and integrating secure data pipelines to the cloud."
     actions={[{ variant: 'primary', text: 'Contact me', href: '/contact' }]}
     image={{
       src: '~/assets/images/industrial-automation.jpg',
@@ -28,63 +28,39 @@ const metadata = {
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Professional Services"
-    subtitle="Comprehensive engineering solutions tailored to your industrial and technical requirements."
-    columns={3}
+    title="How I Can Help"
+    subtitle="Five service pillars that cover the full lifecycle of smart manufacturing projects."
+    columns={2}
     items={[
       {
-        title: 'Industrial Automation',
+        title: 'PLC Programming & Industrial Control',
         description:
-          'End-to-end design, development, and deployment of industrial control systems, including PLC integration, sensor networks, and real-time process control for manufacturing environments.',
-        icon: 'tabler:robot',
-      },
-      {
-        title: 'Embedded Systems Development',
-        description:
-          'Custom firmware and hardware solutions for specialized applications, from concept to production. Expertise in microcontrollers, SBCs, and IoT devices with a focus on reliability in industrial settings.',
-        icon: 'tabler:device-desktop-analytics',
-      },
-      {
-        title: 'Raspberry Pi Solutions',
-        description: 
-          'Specialized development of industrial-grade Raspberry Pi applications including kiosk-mode interfaces, custom OS builds, and hardware integration for monitoring and control systems.',
-        icon: 'tabler:cpu',
-      },
-      {
-        title: 'Web-Based HMI Development',
-        description:
-          'Creation of intuitive, responsive Human-Machine Interfaces using modern web technologies (Node.js, Angular) for real-time monitoring and control of industrial equipment and processes.',
-        icon: 'tabler:device-desktop',
-      },
-      {
-        title: 'PLC Programming & Integration',
-        description:
-          'Expert programming of industrial PLCs for process automation, with integration capabilities for connecting legacy and modern equipment into cohesive control systems.',
+          'Design, optimization, and troubleshooting of reliable control logic for new machines or retrofits. Technologies: Siemens (TIA Portal), Allen-Bradley (Studio 5000), Mitsubishi (GX Works), CODESYS, ABB. Languages: Ladder, Structured Text, Function Block Diagram.',
         icon: 'tabler:device-analytics',
       },
       {
-        title: 'Mechanical Engineering & Design',
+        title: 'HMI & SCADA System Development',
         description:
-          'Comprehensive CAD design, simulation, and analysis services using SolidWorks and other tools, with expertise in 3D modeling, surface design, and manufacturing optimization.',
-        icon: 'tabler:3d-cube-sphere',
+          'Intuitive operator screens and executive dashboards that visualize live production KPIs. Technologies: Ignition, ThingsBoard, FUXA, Node-RED, Siemens WinCC, Allen-Bradley PanelView, Weintek EasyBuilder Pro.',
+        icon: 'tabler:layout-dashboard',
       },
       {
-        title: 'IoT & MQTT Systems',
+        title: 'Web HMI & Remote Dashboards',
         description:
-          'Design and implementation of secure Industrial IoT architectures using MQTT and other protocols to enable seamless data flow between shop-floor equipment and cloud platforms.',
+          'Responsive, browser-based experiences that deliver OT data securely to any device. Technologies: Ignition Perspective, Node-RED, ThingsBoard, Grafana, MQTT, REST APIs, secure VPN and identity management.',
+        icon: 'tabler:devices',
+      },
+      {
+        title: 'IIoT & Cloud Integration',
+        description:
+          'Secure, scalable data pipelines that move OT data to enterprise platforms. Technologies: MQTT (HiveMQ, Mosquitto), Sparkplug B, AWS IoT, Azure IoT, Google Cloud, Python, industrial edge computing with Raspberry Pi and industrial PCs.',
         icon: 'tabler:cloud-computing',
       },
       {
-        title: 'Industrial Systems Integration',
+        title: 'Control Panel & Electrical Design',
         description:
-          'Bridging legacy equipment with modern control systems, enabling data exchange between disparate platforms, and creating unified monitoring solutions across your facility.',
-        icon: 'tabler:plug-connected',
-      },
-      {
-        title: 'Custom Software Development',
-        description:
-          'Development of specialized software solutions for industrial applications using Python, C, MATLAB, and JavaScript to solve unique automation and data processing challenges.',
-        icon: 'tabler:code',
+          'Complete electrical design packages including schematics, component selection, panel layout, and BOM generation. Technologies: AutoCAD, UL 508A knowledge, industrial safety standards.',
+        icon: 'tabler:tool',
       },
     ]}
   />
@@ -95,28 +71,22 @@ const metadata = {
     isReversed
     items={[
       {
-        title: 'Expert Domain Knowledge',
+        title: 'Audit & Requirements',
         description:
-          'With over 6 years of specialized experience in industrial environments, I bring deep technical understanding and practical solutions to complex automation challenges.',
-        icon: 'tabler:certificate',
+          'We begin by understanding your processes, compliance requirements, and data goals to define a clear roadmap.',
+        icon: 'tabler:clipboard-data',
       },
       {
-        title: 'End-to-End Implementation',
+        title: 'Engineering & Implementation',
         description:
-          'From initial concept and design through development, testing, and deployment, I provide comprehensive project management and execution for seamless delivery.',
-        icon: 'tabler:layout-kanban',
+          'PLC logic, HMI layouts, edge gateways, and cloud integrations are developed in tandem, ensuring every layer works together.',
+        icon: 'tabler:blueprint',
       },
       {
-        title: 'Cost-Effective Solutions',
+        title: 'Documentation & Handover',
         description:
-          'Expertise in leveraging modern technologies like Raspberry Pi and open-source platforms to create robust industrial solutions at a fraction of traditional costs.',
-        icon: 'tabler:coin',
-      },
-      {
-        title: 'Reliability-Focused Design',
-        description:
-          'Every solution is engineered with industrial reliability in mind, including robust error handling, continuous monitoring, and fault recovery mechanisms.',
-        icon: 'tabler:shield-check',
+          'Deliverables include structured code repositories, wiring diagrams, SOPs, and training so your teams can operate and maintain with confidence.',
+        icon: 'tabler:clipboard-check',
       },
     ]}
     image={{
@@ -125,7 +95,12 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why Choose My Services</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">A proven project framework</h3>
+      <p>
+        Every engagement follows a disciplined process—starting with discovery, moving through detailed design, and
+        finishing with commissioning, training, and support. You receive a single partner who can own the entire OT to
+        IT journey.
+      </p>
     </Fragment>
   </Content>
 
@@ -135,28 +110,27 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Production Efficiency',
-        description:
-          'Automated systems dramatically reduce manual intervention, minimize errors, and optimize throughput, leading to significant productivity gains.',
-        icon: 'tabler:chart-arrows',
+        title: 'Production Visibility',
+        description: 'Real-time dashboards and alerts keep operations teams ahead of downtime and quality deviations.',
+        icon: 'tabler:eye',
       },
       {
-        title: 'Real-time Monitoring',
+        title: 'Scalable Architecture',
         description:
-          'Gain complete visibility into your operations with customized dashboards and alerts, enabling data-driven decisions and proactive maintenance.',
-        icon: 'tabler:device-analytics',
+          'Solutions are built for expansion—add new machines, sensors, or analytics tools without rebuilding your foundation.',
+        icon: 'tabler:topology-star-3',
       },
       {
-        title: 'System Integration',
+        title: 'Cybersecurity & Reliability',
         description:
-          'Connect disparate systems and equipment into a cohesive network, breaking down data silos and enabling seamless information flow across your operation.',
-        icon: 'tabler:puzzle',
+          'Defense-in-depth, structured testing, and remote support options protect your production environment.',
+        icon: 'tabler:shield-lock',
       },
       {
-        title: 'Future-proof Architecture',
+        title: 'Bilingual Collaboration',
         description:
-          'Solutions designed with scalability and adaptability in mind, allowing your systems to evolve as technology advances and business needs change.',
-        icon: 'tabler:rocket',
+          'Native Spanish speaker fluent in English, ensuring smooth coordination across multinational teams.',
+        icon: 'tabler:world',
       },
     ]}
     image={{
@@ -165,30 +139,35 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits for Your Business</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Outcomes you can measure</h3>
+      <p>
+        The goal is always clear: reduce downtime, improve throughput, and provide decision makers with trustworthy
+        data. From single-machine upgrades to plant-wide IIoT rollouts, I focus on creating solutions that generate a
+        rapid and lasting return on investment.
+      </p>
     </Fragment>
   </Content>
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Client Testimonials from Upwork"
-    subtitle="These are genuine reviews from clients on my <a href='https://www.upwork.com/freelancers/~01f21c52fa13e6a195' class='text-primary hover:underline' target='_blank'>Upwork Profile</a>, where I maintain a 100% Job Success Score."
+    title="Client Testimonials"
+    subtitle="Manufacturers who partnered with me to modernize their automation systems."
     testimonials={[
       {
-        testimonial: `I've worked with Eduardo several times and give him my highest recommendation! He's timely, communicates very well and always does an excellent job!`,
-        name: 'CAD Design Client',
-        job: 'Project completed February 2019',
+        testimonial: `Eduardo handled everything from PLC programming to dashboard deployment. We went from siloed machines to a unified SCADA system in record time.`,
+        name: 'Senior Controls Engineer',
+        job: 'Automotive Supplier',
       },
       {
-        testimonial: `Eduardo is an outstanding freelancer and easily one of the best I've ever worked with! I will continue to use him and look forward to a long term working relationship.`,
-        name: 'SolidWorks Client',
-        job: 'Project completed October 2018',
+        testimonial: `Our control panels and documentation were flawless. The UL-ready design saved weeks of review and the commissioning support was invaluable.`,
+        name: 'Engineering Manager',
+        job: 'Packaging OEM',
       },
       {
-        testimonial: `Eduardo is amazing. Understands 100% what needs to be done, and delivers. He's a bit shy about his English but I found his English communication skills to be excellent.`,
-        name: 'Programming Client',
-        job: 'Project completed April 2016',
+        testimonial: `Connecting our factory to AWS seemed daunting. Eduardo designed the MQTT architecture, trained our staff, and delivered a secure pipeline that just works.`,
+        name: 'Digital Transformation Lead',
+        job: 'Food & Beverage Manufacturer',
       },
     ]}
     callToAction={{
@@ -202,14 +181,23 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Ready to optimize your industrial operations?"
-    subtitle="Let's discuss how my expertise in industrial automation and embedded systems can help solve your technical challenges."
     actions={[
       {
         variant: 'primary',
-        text: 'Contact me',
+        text: 'Schedule a Consultation',
         href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'View Portfolio',
+        href: '/portfolio',
       },
     ]}
-  />
+  >
+    <Fragment slot="title">Ready to modernize your factory?</Fragment>
+
+    <Fragment slot="subtitle">
+      Let’s discuss your automation roadmap and map out the fastest path from PLC logic to cloud insights.
+    </Fragment>
+  </CallToAction>
 </Layout>
