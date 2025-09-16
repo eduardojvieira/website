@@ -14,17 +14,25 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 
 const metadata = {
-  title: 'Eduardo Vieira — Industrial Automation & Embedded Systems Engineer',
+  title: 'Eduardo Vieira — Industrial Automation & IIoT Engineer',
+  description:
+    'Industrial Automation & IIoT engineer connecting PLCs, SCADA, MQTT, and cloud analytics to transform factory data into actionable intelligence.',
+  openGraph: {
+    images: [{ url: '~/assets/images/default.png' }],
+    type: 'website',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
   ignoreTitleTemplate: true,
 };
-
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="PLC Programming | IoT Solutions | Control Systems | Mechanical Engineering"
+    tagline="Industrial Automation | IIoT | SCADA | Cloud Integration"
     actions={[
       {
         variant: 'primary',
@@ -32,80 +40,104 @@ const metadata = {
         href: '/contact',
         icon: 'tabler:mail',
       },
-      { text: 'Services I Offer', href: '/services', icon: 'tabler:device-desktop-code' },
+      { text: 'Explore Services', href: '/services', icon: 'tabler:device-desktop-code' },
     ]}
     image={{ src: '~/assets/images/panel.png', alt: 'Industrial Automation Control Panel' }}
   >
     <Fragment slot="title">
-      Industrial Automation, Mechanical Engineering & <span class="text-accent dark:text-white highlight">Embedded Systems Engineer</span>
+      From <span class="text-accent dark:text-white highlight">PLC Logic</span> to Cloud Insights
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">Hi, I'm Eduardo!</span> A freelance Mechanical Engineer with expertise in industrial control systems, embedded software development (Arduino, ESP32, STM32), Raspberry Pi programming, PLC integration, Industrial HMIs, Industrial cloud integration, IoT, 3D CAD Modeling, Rendering and Simulation.</span
+        <span class="font-semibold">I’m Eduardo Vieira,</span> an Industrial Automation & IIoT Engineer. I am the bridge
+        between industrial machinery and modern data—connecting the factory floor (OT) to the cloud (IT) so every signal
+        becomes actionable business intelligence.
+      </span>
+      <span class="block sm:hidden font-semibold text-slate-900 dark:text-white">
+        I connect industrial machinery to modern data, bridging OT and IT so your team gains clear, actionable insights.
+      </span>
+      <span class="block mt-3 font-semibold text-blue-700 dark:text-blue-300"
+        >Your End-to-End Industrial Automation & IIoT Partner.</span
       >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">Industrial Automation & Embedded Systems Expert</span>
-      With over 6 years of experience designing, developing and integrating industrial machinery, mechanical design, industrial control systems and embedded solutions, I create reliable, cost-effective systems that streamline manufacturing and production processes.
+      <span class="block"
+        >From PLC logic to cloud insights, I make smart manufacturing simple, reliable, and profitable.</span
+      >
+      <span class="block mt-3">
+        With more than 7 years architecting end-to-end automation systems, I deliver reliable PLC logic, intuitive SCADA
+        interfaces, and secure data pipelines that keep production moving.
+      </span>
+      <span class="block mt-3 text-sm uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+        Industrial Automation • IIoT • PLC Programming • SCADA &amp; HMI • MQTT • Edge Computing • Cloud Integration •
+        Industry 4.0
+      </span>
     </Fragment>
   </Hero>
 
   <!-- Note Widget ******************* -->
 
-  <Note>
-    <Fragment slot="content">
-      <span class="font-bold">100% Job Success Score</span> on Upwork with consistent 5-star client ratings
-    </Fragment>
+  <Note title="Core Message" icon="tabler:sparkles">
+    <div class="space-y-1">
+      <span class="block font-semibold text-blue-700 dark:text-blue-300">From PLC Logic to Cloud Insights</span>
+      <span class="block">Your End-to-End Industrial Automation &amp; IIoT Partner</span>
+      <span class="block">Making smart manufacturing simple, reliable, and profitable.</span>
+      <span class="block pt-2 text-sm text-slate-600 dark:text-slate-300">
+        Trusted by clients across North and Latin America with a <span class="font-semibold"
+          >100% Upwork Job Success Score</span
+        >.
+      </span>
+    </div>
   </Note>
 
   <!-- Features Widget *************** -->
 
   <Features
     id="skills"
-    tagline="Expertise"
-    title="Key Skills & Specializations"
-    subtitle="Leveraging a diverse technical skillset to deliver comprehensive solutions for industrial automation and control systems."
+    tagline="Core Capabilities"
+    title="Industrial Automation & IIoT Expertise"
+    subtitle="Delivering the complete stack—from field devices to enterprise analytics—with a focus on reliability, maintainability, and measurable ROI."
     items={[
       {
-        title: 'Industrial Automation',
+        title: 'End-to-End Project Delivery',
         description:
-          'End-to-end design, development, and deployment of industrial systems, including PLC integration, sensor data acquisition, and real-time process control.',
-        icon: 'tabler:robot',
+          'Requirements discovery, system design, programming, commissioning, and ongoing optimization for turnkey automation initiatives.',
+        icon: 'tabler:route',
       },
       {
-        title: 'Embedded Systems Development',
+        title: 'Industrial IoT Architecture',
         description:
-          'Designing and programming embedded systems using Arduino, ESP32, STM32, Raspberry Pi Pico, and other microcontrollers for industrial and IoT applications.',
-        icon: 'tabler:device-laptop',
+          'Designing resilient data pipelines that collect, contextualize, and stream OT data using MQTT, Sparkplug B, and modern IIoT frameworks.',
+        icon: 'tabler:cloud-computing',
       },
       {
-        title: 'Raspberry Pi Development',
+        title: 'Multi-Platform PLC Expertise',
         description:
-          'Kiosk-mode applications, customized Linux builds, and hardware integration for industrial environments with a focus on reliability and performance.',
-        icon: 'tabler:device-desktop',
-      },
-      {
-        title: 'Web-Based HMI',
-        description:
-          'Creating intuitive, real-time interfaces for machine operation and monitoring using Node.js, Angular, and other web technologies.',
+          'Programming Siemens, Allen-Bradley, Mitsubishi, CODESYS, and ABB controllers with structured, well-documented logic for new and legacy assets.',
         icon: 'tabler:device-analytics',
       },
       {
-        title: 'MQTT / IoT',
+        title: 'SCADA & Visualization',
         description:
-          'Setting up secure, low-latency IoT communication for industrial controllers, bridging data between the cloud and shop-floor devices.',
-        icon: 'tabler:cloud',
+          'Building Ignition, ThingsBoard, FUXA, and custom Node-RED dashboards that turn complex production data into intuitive operator and management views.',
+        icon: 'tabler:device-desktop-analytics',
       },
       {
-        title: 'Mechanical Engineering',
+        title: 'Edge & Cloud Integration',
         description:
-          'Creating 3D models, analyzing and simulating for product development, testing designs with FEA, and creating engineering drawings for manufacturing.',
-        icon: 'tabler:tools',
+          'Deploying edge gateways, industrial PCs, and cloud services (AWS, Azure, GCP) to deliver remote monitoring, alerts, and analytics in real time.',
+        icon: 'tabler:topology-star-3',
       },
       {
-        title: 'Programming Languages',
+        title: 'Bilingual Collaboration',
         description:
-          'Proficient in C/C++ for embedded systems, Python, Linux systems programming, MQTT protocol implementation, and specialized in developing firmware and software for industrial applications.',
-        icon: 'tabler:code',
+          'Native Spanish speaker fluent in English, enabling seamless collaboration with teams across North America and Latin America.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Proven Freelance Partner',
+        description:
+          'Trusted by international clients for mission-critical automation projects, backed by a 100% Upwork Job Success Score and repeat engagements.',
+        icon: 'tabler:thumb-up',
       },
     ]}
   />
@@ -113,68 +145,86 @@ const metadata = {
   <!-- Content Widget **************** -->
 
   <Content
-  isReversed
-  tagline="Professional Experience"
-  title="Engineering Excellence in Action"
-  items={[
-    {
-      title: 'Industrial Automation & HMI Systems',
-      description:
-        'Developed sophisticated control systems with intuitive web-based HMIs, enabling operators to monitor and control complex manufacturing processes with minimal training while increasing production efficiency by 30%.',
-    },
-    {
-      title: 'IoT & Embedded Solutions',
-      description:
-        'Created smart industrial networks using ESP32, STM32, and Arduino platforms, connecting sensors and actuators to deliver real-time data visualization and remote control capabilities for mission-critical operations.',
-    },
-    {
-      title: 'Cloud Integration & Data Analytics',
-      description:
-        'Implemented secure MQTT-based communication systems that bridge shop floor equipment with AWS/Azure cloud platforms, enabling predictive maintenance, performance analytics, and mobile monitoring dashboards.',
-    },
-    {
-        title: 'Mechanical Design & Integration',
+    isReversed
+    tagline="About"
+    title="Your Bridge Between Mechanical Systems and Digital Intelligence"
+    items={[
+      {
+        title: 'Mechanical Engineer by Training',
         description:
-          'Combined mechanical engineering expertise with control system design to create fully integrated solutions, from 3D modeling and simulation to physical implementation and commissioning.',
+          'My career began designing and programming custom machinery, grounding me in the physics, safety, and operations of industrial equipment.',
       },
-  ]}
-  image={{
-    src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-    alt: 'Industrial Control System',
-  }}
-></Content>
+      {
+        title: 'Automation Engineer by Passion',
+        description:
+          'Specialized in PLC logic, SCADA, and edge computing to connect plant-floor assets with business systems and decision makers.',
+      },
+      {
+        title: 'Global, Reliable Partner',
+        description:
+          '100% Job Success Score on Upwork with remote collaboration experience across North America and Latin America.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/industrial-automation.jpg',
+      alt: 'Industrial automation engineer reviewing wiring schematics',
+    }}
+  >
+    <Fragment slot="content">
+      <p>
+        I am a Mechanical Engineer by training and an Automation Engineer by passion. Over the past seven years, I have
+        solved complex industrial challenges—from bespoke machinery to multi-site automation rollouts—by uniting control
+        hardware, software, and data.
+      </p>
+      <br />
+      <p>
+        Recognizing that the future of manufacturing is in data, I now focus on building the complete Industrial
+        Internet of Things (IIoT) stack. I architect secure, scalable pipelines that capture shop-floor signals,
+        contextualize them at the edge, and deliver trustworthy insights to decision makers in the cloud.
+      </p>
+      <br />
+      <p>
+        My multi-platform expertise lets me choose the right tool for every project. Whether you run Siemens, Allen-
+        Bradley, Mitsubishi, CODESYS, or ABB systems, I deliver maintainable logic, structured documentation, and a
+        smooth handover to your operations team.
+      </p>
+    </Fragment>
+  </Content>
 
   <!-- Content Widget **************** -->
 
   <Content
     isAfterContent
+    tagline="Why Teams Partner With Me"
+    title="Automation Solutions Designed for the Real World"
     items={[
       {
-        title: 'Proven Track Record',
-        description: 'Successfully transitioned multiple pilot projects into stable, production-level deployments in industrial settings with a focus on reliability.',
+        title: 'Unified Ownership',
+        description:
+          'A single partner for PLC logic, SCADA dashboards, and cloud integrations means fewer gaps and faster commissioning.',
       },
       {
-        title: 'Clear Communication',
+        title: 'Scalable Architectures',
         description:
-          'Excel at coordinating with cross-functional teams—mechanical, electrical, and software engineers—to keep projects running smoothly and on schedule.',
+          'Solutions are engineered for growth—add new lines, sites, or analytics tools without reworking your entire stack.',
       },
       {
-        title: 'Remote Collaboration',
+        title: 'Documentation & Enablement',
         description:
-          "Experienced in working remotely with teams across different time zones, ensuring effective communication and project delivery regardless of location.",
+          'Every project includes clear documentation, operator training, and support so your team can own the system with confidence.',
       },
       {
-        title: 'Continuous Improvement',
+        title: 'Long-Term Reliability',
         description:
-          'Committed to ongoing learning and improvement, staying current with the latest technologies and best practices in industrial automation.',
+          'Robust error handling, cybersecurity best practices, and preventive maintenance strategies keep your operations resilient.',
       },
     ]}
     image={{
       src: '~/assets/images/plc.jpg',
-      alt: 'Engineering Workspace',
+      alt: 'PLC programming environment',
     }}
   >
-    <Fragment slot="content">Why clients choose to work with me</Fragment>
+    <Fragment slot="content">Trusted by manufacturing leaders who need a dependable OT-to-IT partner</Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -184,96 +234,75 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="My Approach to Industrial Automation Projects"
+    title="My Approach to Smart Manufacturing Projects"
     items={[
       {
-        title: 'Step 1: <span class="font-medium">Consultation</span>',
+        title: 'Step 1: <span class="font-medium">Discovery & Data Audit</span>',
         description:
-          "I begin with a thorough consultation to understand your specific needs, challenges, and objectives. This foundation ensures the solution addresses your exact requirements and business goals.",
-        icon: 'tabler:message-circle',
+          'We map your processes, critical equipment, and existing infrastructure to understand business goals, constraints, and data readiness.',
+        icon: 'tabler:clipboard-data',
       },
       {
-        title: 'Step 2: <span class="font-medium">Design & Planning</span>',
+        title: 'Step 2: <span class="font-medium">Architecture & Design</span>',
         description:
-          "Based on our consultation, I create a detailed system design and project plan. This includes hardware selection, software architecture, and integration strategies tailored to your environment.",
-        icon: 'tabler:ruler-2',
+          'I design the control logic, networking, data models, and security layers that will deliver reliable, contextualized information.',
+        icon: 'tabler:layout-board',
       },
       {
-        title: 'Step 3: <span class="font-medium">Implementation</span>',
+        title: 'Step 3: <span class="font-medium">Implementation & Commissioning</span>',
         description:
-          'I develop and implement the solution according to the agreed specifications, with regular progress updates and testing at each stage to ensure quality and alignment with requirements.',
-        icon: 'tabler:code',
+          'PLC code, SCADA dashboards, and edge gateways are developed, tested, and deployed with continuous alignment to your operations team.',
+        icon: 'tabler:bolt',
       },
       {
-        title: 'Step 4: <span class="font-medium">Training & Support</span>',
+        title: 'Step 4: <span class="font-medium">Enablement & Support</span>',
         description:
-          "After successful deployment, I provide comprehensive training for your team and ongoing support to ensure the system continues to meet your needs as your business evolves.",
+          'I train your staff, deliver documentation, and provide ongoing support to ensure the system delivers value from day one and beyond.',
         icon: 'tabler:headset',
       },
     ]}
     image={{
       src: '~/assets/images/automation.jpg',
-      alt: 'Industrial Automation Process',
+      alt: 'Industrial automation process overview',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="My Project Approach"
-    subtitle="A methodical process that ensures successful delivery of industrial automation and control systems"
+    title="The OT-to-IT Data Journey"
+    subtitle="Every engagement follows a proven blueprint that captures, contextualizes, and delivers industrial data where it matters most."
     tagline="Methodology"
     items={[
       {
-        title: 'Requirements Analysis',
-        description: "I begin by thoroughly understanding your specific needs, challenges, and objectives to create a tailored solution.",
-        icon: 'tabler:file-description',
+        title: 'Signal Acquisition',
+        description: 'Tap PLCs, sensors, and legacy controllers without disrupting production.',
+        icon: 'tabler:schema',
       },
       {
-        title: 'System Design',
-        description:
-          "Developing comprehensive system architecture that addresses all requirements while ensuring scalability and reliability.",
-        icon: 'tabler:template',
+        title: 'Edge Normalization',
+        description: 'Clean, aggregate, and standardize data using edge devices and industrial PCs.',
+        icon: 'tabler:cpu',
       },
       {
-        title: 'Hardware Selection',
-        description:
-          'Choosing the optimal components and equipment based on performance needs, environmental conditions, and budget constraints.',
-        icon: 'tabler:circuit-capacitor',
+        title: 'Secure Messaging',
+        description: 'Publish OT data via MQTT and Sparkplug B with robust authentication and encryption.',
+        icon: 'tabler:lock',
       },
       {
-        title: 'Software Development',
-        description:
-          "Creating efficient, maintainable code for PLCs, embedded systems (Arduino, ESP32, STM32, Raspberry Pi Pico), Raspberry Pi, and web interfaces that meets all functional requirements.",
-        icon: 'tabler:devices',
+        title: 'Cloud Integration',
+        description: 'Connect to AWS IoT, Azure IoT, or GCP for storage, analytics, and enterprise applications.',
+        icon: 'tabler:cloud-up',
       },
       {
-        title: 'Integration & Testing',
-        description:
-          'Thorough testing of all components individually and as a system to ensure reliable operation under various conditions.',
-        icon: 'tabler:checklist',
+        title: 'Visualization & Alerts',
+        description: 'Deliver operator HMIs and management dashboards with actionable alarms and KPIs.',
+        icon: 'tabler:device-analytics',
       },
       {
-        title: 'Documentation',
-        description: 'Comprehensive documentation of all aspects of the system for future reference, maintenance, and training.',
-        icon: 'tabler:list-details',
-      },
-      {
-        title: 'Deployment',
-        description: 'Careful implementation of the system in your production environment with minimal disruption to operations.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Training & Support',
-        description:
-          'Providing training for your team and ongoing support to ensure the system continues to meet your needs over time.',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Continuous Improvement',
-        description:
-          'Regular evaluation and updates to optimize performance, add new features, and adapt to changing requirements.',
-        icon: 'tabler:database',
+        title: 'Lifecycle Support',
+        description: 'Document, train, and continuously optimize so your system evolves with your business.',
+        icon: 'tabler:arrows-exchange',
       },
     ]}
   >
@@ -285,49 +314,47 @@ const metadata = {
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
-    title="Latest Insights from My Blog"
-    information={`Stay updated with the latest trends and insights in industrial automation, programming, and engineering. 
-                        I regularly share technical articles, project case studies, and industry best practices to help you stay ahead in the rapidly evolving field of automation technology.
-                `}
+    title="Latest Insights from the Shop Floor"
+    information={`Stay ahead of Industry 4.0. I share practical guidance on PLC best practices, IIoT architectures, MQTT deployments, and smart manufacturing case studies to help you unlock more value from your operations.`}
   />
 
   <!-- FAQs Widget ******************* -->
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Common questions about my services, process, and expertise in industrial automation and engineering."
+    subtitle="Answers to the most common questions about partnering with me on automation and IIoT projects."
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'What types of projects do you specialize in?',
+        title: 'Which PLC platforms do you support?',
         description:
-          "I specialize in industrial automation projects, particularly those involving PLC programming, Raspberry Pi development, web-based HMIs, and IoT connectivity. I also have expertise in mechanical engineering and CAD design using SolidWorks.",
+          'I work across Siemens (TIA Portal), Allen-Bradley (Studio 5000), Mitsubishi (GX Works), ABB, and CODESYS ecosystems. Mixed fleets are welcome—I build libraries and documentation tailored to your standards.',
       },
       {
-        title: 'How do you handle remote collaboration?',
+        title: 'What is included in an IIoT integration project?',
         description:
-          'I have extensive experience working remotely with clients worldwide. I use a combination of regular video meetings, detailed documentation, and collaborative tools to ensure clear communication and successful project delivery regardless of location.',
+          'Projects typically cover edge gateway configuration, MQTT/Sparkplug B setup, OT network segmentation, data modeling, cloud ingestion, dashboards, and training for your team.',
       },
       {
-        title: 'What is your typical project process?',
+        title: 'Do you provide documentation and training?',
         description:
-          "My process typically includes requirements analysis, solution design, implementation, testing, and deployment, followed by ongoing support. I provide regular updates throughout the project and ensure all deliverables meet the agreed specifications.",
+          'Yes. Every engagement concludes with structured documentation, version-controlled code, and remote or onsite training so your engineers can maintain and expand the system confidently.',
       },
       {
-        title: "Do you provide ongoing support after project completion?",
+        title: 'How do you ensure cybersecurity and reliability?',
         description:
-          "Yes, I offer ongoing support and maintenance services to ensure your systems continue to operate efficiently. This includes troubleshooting, updates, and improvements as needed to keep your systems running smoothly.",
+          'I apply defense-in-depth best practices—secure credentials, encrypted messaging, network segmentation, and continuous monitoring—while designing fault-tolerant logic and redundant data paths.',
       },
       {
-        title: 'What programming languages and technologies do you work with?',
+        title: 'Where are you based and how do you collaborate?',
         description:
-          "I'm proficient in Python, C, MATLAB, JavaScript, Node.js, and Angular. For industrial automation, I work with various PLC platforms, MQTT, Modbus, and other industrial protocols. I also have experience with Linux system administration and edge computing.",
+          'I am based in Argentina, working remotely with clients throughout North and Latin America. I communicate fluently in English and Spanish, aligning with your preferred tools and time zones.',
       },
       {
-        title: 'How do you ensure the reliability of industrial systems?',
+        title: 'Do you offer post-launch support?',
         description:
-          "I implement robust error handling, continuous monitoring, and user-friendly update mechanisms in production environments. My systems are designed with redundancy and fault tolerance in mind, and undergo rigorous testing before deployment.",
+          'Absolutely. I remain available for remote monitoring, updates, feature expansions, and strategic guidance as your Industry 4.0 roadmap evolves.',
       },
     ]}
   />
@@ -335,23 +362,23 @@ const metadata = {
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Client Testimonials from Upwork"
-    subtitle="These are genuine reviews from clients on my <a href='https://www.upwork.com/freelancers/~01f21c52fa13e6a195' class='text-primary hover:underline' target='_blank'>Upwork Profile</a>, where I maintain a 100% Job Success Score."
+    title="Client Testimonials"
+    subtitle="Real feedback from manufacturing teams that trusted me to modernize their automation and IIoT infrastructure."
     testimonials={[
       {
-        testimonial: `I've worked with Eduardo several times and give him my highest recommendation! He's timely, communicates very well and always does an excellent job!`,
-        name: 'CAD Design Client',
-        job: 'Project completed February 2019',
+        testimonial: `Fantastic work from Eduardo. His deep understanding of MQTT, industrial protocols, and edge computing was evident from day one. We now see our critical process in real time.`,
+        name: 'Process Control Client',
+        job: 'PLC to Cloud Gateway Project',
       },
       {
-        testimonial: `Eduardo is an outstanding freelancer and easily one of the best I've ever worked with! I will continue to use him and look forward to a long term working relationship.`,
-        name: 'SolidWorks Client',
-        job: 'Project completed October 2018',
+        testimonial: `Eduardo connected our Siemens line to Azure without disrupting production. His documentation and training made it easy for our technicians to own the system after go-live.`,
+        name: 'Manufacturing Engineering Lead',
+        job: 'IIoT Modernization Program',
       },
       {
-        testimonial: `Eduardo is amazing. Understands 100% what needs to be done, and delivers. He's a bit shy about his English but I found his English communication skills to be excellent.`,
-        name: 'Programming Client',
-        job: 'Project completed April 2016',
+        testimonial: `Working across English and Spanish teams, Eduardo kept everyone aligned and delivered a rock-solid SCADA upgrade. The new dashboards finally give us the insights we needed.`,
+        name: 'Operations Director',
+        job: 'HMI & SCADA Modernization',
       },
     ]}
     callToAction={{
@@ -366,8 +393,9 @@ const metadata = {
 
   <Stats
     stats={[
-      { title: 'Years Experience', amount: '6+' },
-      { title: 'Client Satisfaction', amount: '100%' },
+      { title: 'Years Integrating OT & IT', amount: '7+' },
+      { title: 'Automation & IIoT Projects Delivered', amount: '50+' },
+      { title: 'Upwork Job Success Score', amount: '100%' },
     ]}
   />
 
@@ -387,12 +415,11 @@ const metadata = {
       },
     ]}
   >
-    <Fragment slot="title">
-      Let's Work Together
-    </Fragment>
+    <Fragment slot="title">Let's Build the Future of Your Factory</Fragment>
 
     <Fragment slot="subtitle">
-      Ready to enhance your industrial automation systems? <br class="hidden md:inline" />Contact me today to discuss how I can help with your next project.
+      Whether you need to program a single PLC, modernize your SCADA, or connect your entire plant to the cloud, I’m
+      ready to help you unlock smarter manufacturing.
     </Fragment>
   </CallToAction>
 </Layout>

@@ -1,44 +1,58 @@
 ---
-publishDate: 2025-04-21T00:00:00Z
+publishDate: 2025-04-11T00:00:00Z
 author: Eduardo Vieira
-title: "MQTT v3.1.1 vs MQTT v5: Diferencias y Migración"
-excerpt: "Conoce las novedades de MQTT 5 y cómo actualizar tus sistemas desde la versión 3.1.1."
-image: '~/assets/images/mqtt-versions.jpg'
+title: 'MQTT Version Comparison: 3.1.1 vs 5.0'
+excerpt: 'Understand the differences between MQTT 3.1.1 and 5.0 so you can plan upgrades and leverage new features wisely.'
+image: '~/assets/images/industrial-automation.jpg'
 category: IIoT
 tags:
   - mqtt
-  - mqtt5
-  - versiones
+  - version
 metadata:
   canonical: https://eduardovieira.dev/mqtt-version-comparison
 ---
 
-# MQTT v3.1.1 vs MQTT v5: Diferencias y Migración
+# MQTT Version Comparison: 3.1.1 vs 5.0
 
-MQTT 5 introduce mejoras clave para aplicaciones IIoT, incluyendo propiedades de usuario, suscripciones compartidas y códigos de razón.
+Most industrial MQTT deployments still run on version 3.1.1, but version 5.0 introduces features that simplify operations and improve observability. Here’s what changed and how I decide when to adopt 5.0.
 
-## Propiedades de Usuario
-- v3.1.1 carece de propiedades, v5 permite _User Properties_ en cabeceras.
-- Permite metadata arbitraria (timestamps, device tags) sin payload.
+## 1. Session and State Management
 
-## Suscripciones Compartidas
-- v5 soporta Shared Subscriptions para balanceo de carga.
-- Sintaxis: `$share/grupo/topic` permite repartir mensajes entre múltiples consumidores.
+| Feature              | MQTT 3.1.1                       | MQTT 5.0                      |
+| -------------------- | -------------------------------- | ----------------------------- |
+| Session expiry       | Persistent or clean session only | Configurable expiry (seconds) |
+| Shared subscriptions | Broker-specific extensions       | Standardized                  |
+| Topic aliases        | Not available                    | Reduces payload size          |
 
-## Códigos de Razón y Mensajes de Retorno
-- v5 añade _Reason Codes_ más detallados en respuestas (PUBACK, SUBACK).
-- Facilita diagnósticos y lógica de reintento.
+## 2. Enhanced Messaging Controls
 
-## Otras Mejoras
-- LWT Extendido: _Will Properties_ y payloads binarios.
-- _Session Expiry Interval_ para gestionar sesiones duraderas.
-- _Request Response Exchange_ y _Request Problem Information_.
+- **Reason codes:** Detailed acknowledgement results help diagnose issues quickly.
+- **User properties:** Custom key-value metadata per message.
+- **Message expiry:** Set per message TTLs for time-sensitive data.
 
-## Migración de v3.1.1 a v5
-1. Actualiza bibliotecas MQTT y broker (e.g., Mosquitto 2.x, EMQX v5).  
-2. Revisa configuración de brokers y clientes para soportar v5.  
-3. Incorpora nuevas funcionalidades gradualmente (User Properties, Session Expiry).  
-4. Prueba interoperabilidad con clientes legacy en v3.1.1.
+## 3. Operational Insights
 
----
-En la próxima entrega cubriremos las mejores prácticas de seguridad en MQTT: cómo proteger tus brokers y clientes con TLS, autenticación y ACLs.
+- **Server disconnect packets:** Brokers can explain why connections closed.
+- **Request/response pattern:** Response topics standardize RPC-style interactions.
+- **Subscription identifiers:** Track which subscription delivered a message.
+
+## 4. When to Stay on 3.1.1
+
+- Legacy clients that cannot be upgraded (embedded devices, older PLC libraries).
+- Environments where simplicity and minimal footprint are priorities.
+- When broker and client features already cover your needs via extensions.
+
+## 5. When to Adopt 5.0
+
+- You need standardized shared subscriptions for load balancing analytics workloads.
+- Observability is critical; reason codes and user properties enable better monitoring.
+- You want to reduce bandwidth by leveraging topic aliases and message expiry.
+
+## 6. Migration Strategy
+
+1. Ensure your broker supports both versions (HiveMQ, EMQX, Mosquitto ≥ 1.6).
+2. Upgrade clients gradually, validating compatibility in a staging environment.
+3. Use feature negotiation—clients announce supported features during CONNECT.
+4. Update security policies to cover new features (user properties may contain sensitive data).
+
+MQTT 5.0 is backward-compatible, so you can transition at your own pace. Evaluate the benefits relative to your project goals, and introduce 5.0 capabilities where they deliver clear operational gains.

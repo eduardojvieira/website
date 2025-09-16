@@ -1,41 +1,59 @@
 ---
-publishDate: 2025-04-22T00:00:00Z
+publishDate: 2025-04-26T00:00:00Z
 author: Eduardo Vieira
-title: Why Modbus is Inherently Insecure and Initial Security Considerations
-excerpt: Explore the security weaknesses of Modbus and essential steps to protect your industrial network.
-image: '~/assets/images/industrial-automation.jpg'
+title: 'Securing Modbus Deployments'
+excerpt: 'Best practices to protect Modbus networks, from segmentation and encryption to monitoring and incident response.'
+image: '~/assets/images/modbus.jpg'
 category: Industrial Automation
 tags:
   - modbus
-  - security
+  - cybersecurity
 metadata:
   canonical: https://eduardovieira.dev/modbus-security-considerations
 ---
 
-# Why Modbus is Inherently Insecure and Initial Security Considerations
+# Securing Modbus Deployments
 
-## Legacy Protocol without Security
-- **No Authentication:** Masters and slaves trust any sender.
-- **Cleartext Communication:** All commands and data are unencrypted.
-- **Lack of Integrity Checks:** No digital signatures; CRC only guards against noise.
+Modbus was created in an era before cybersecurity threats. Yet it still powers millions of devices. Securing Modbus environments requires layered defenses that respect operational constraints. Here’s how I approach it.
 
-## Common Threats and Vulnerabilities
-- **Replay Attacks:** Adversary can capture and replay valid frames.
-- **Unauthorized Access:** Attackers can read/write coils and registers.
-- **Man-in-the-Middle (MitM):** Easy to intercept and modify frames on the wire.
-- **Denial of Service (DoS):** Flood the bus with invalid or repeated requests.
+## 1. Segment and Contain
 
-## Initial Mitigation Strategies
-1. **Network Segmentation**: Place Modbus devices on isolated VLANs or VPNs.
-2. **Use Gateways or Proxies**: Deploy secure Modbus gateways that enforce ACLs and rate limits.
-3. **Encapsulation in TLS/TCP**: Tunnel Modbus TCP through TLS or VPN to encrypt traffic.
-4. **Strict Access Control**: Apply firewall rules to limit IPs and ports.
+- Place Modbus devices on dedicated OT VLANs or physical segments.
+- Use industrial firewalls to enforce protocol filtering and connection limits.
+- Create DMZ zones for gateways that bridge Modbus to enterprise networks.
 
-## Best Practices for Hardening
-- **Protocol Whitelisting**: Only allow known good function codes and register ranges.
-- **Device Authentication**: Introduce mutual authentication at gateways or via secure tokens.
-- **Logging and Monitoring**: Capture Modbus traffic for anomaly detection.
-- **Regular Audits and Updates**: Test and update firmware/software to fix known vulnerabilities.
+## 2. Control Access
 
-## Conclusion
-While Modbus was not designed with security in mind, understanding its shortcomings and applying layered defenses can greatly reduce risk. Start by isolating and controlling access, then progressively add encryption, authentication, and monitoring to build a resilient industrial communication network.
+- Disable unused function codes on PLCs and RTUs (e.g., block writes if only reads are required).
+- Implement role-based access in gateways; only authorized accounts can issue write commands.
+- Replace shared credentials with individual logins tied to an identity provider.
+
+## 3. Encrypt Where Possible
+
+- Native Modbus lacks encryption, but you can encapsulate traffic inside secure tunnels (TLS VPN, IPsec).
+- Prefer MQTT Sparkplug B or OPC UA for data leaving the OT network, using Modbus only at the edge.
+- Use secure jump hosts for remote support, with multi-factor authentication and session logging.
+
+## 4. Monitor Continuously
+
+- Deploy passive network monitoring tools to detect anomalies (unexpected function codes, broadcast storms).
+- Log all writes and configuration changes with timestamps and operator IDs.
+- Set thresholds for communication failures; repeated CRC errors can signal tampering or noise.
+
+## 5. Harden Devices
+
+- Update firmware to patch known vulnerabilities.
+- Disable programming ports or secure them with keys when not in use.
+- Implement whitelisting on edge computers to prevent unauthorized applications.
+
+## 6. Incident Response Plan
+
+- Define procedures for isolating compromised devices while keeping production safe.
+- Maintain offline backups of PLC/RTU configurations.
+- Conduct tabletop exercises with OT and IT teams to rehearse response steps.
+
+## 7. Vendor Coordination
+
+Work with OEMs to understand their security roadmaps. Request vulnerability disclosures, patch timelines, and hardening guides.
+
+Modbus will remain in our plants for years. By combining segmentation, strict access control, secure tunneling, and vigilant monitoring, you can protect these legacy networks without sacrificing uptime.

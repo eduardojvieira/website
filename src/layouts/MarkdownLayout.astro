@@ -6,6 +6,7 @@ import type { MetaData } from '~/types';
 export interface Props {
   frontmatter: {
     title?: string;
+    description?: string;
   };
 }
 
@@ -13,6 +14,11 @@ const { frontmatter } = Astro.props;
 
 const metadata: MetaData = {
   title: frontmatter?.title,
+  description: frontmatter?.description,
+  openGraph: frontmatter?.description
+    ? { images: [{ url: '~/assets/images/default.png' }], type: 'article' }
+    : undefined,
+  twitter: frontmatter?.description ? { cardType: 'summary_large_image' } : undefined,
 };
 ---
 

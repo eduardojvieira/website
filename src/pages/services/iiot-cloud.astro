@@ -1,0 +1,199 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'IIoT & Cloud Integration | Eduardo Vieira',
+  description:
+    'Connect PLCs, sensors, and historians to AWS IoT, Azure IoT, or Google Cloud using secure MQTT and Sparkplug B architectures engineered by Eduardo Vieira.',
+  openGraph: {
+    images: [{ url: '~/assets/images/default.png' }],
+    type: 'article',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="IIoT & Cloud Integration"
+    subtitle="Connect your machines, sensors, and historians to the cloud with secure, scalable data pipelines built on MQTT, Sparkplug B, and leading cloud platforms."
+    tagline="From Edge to Enterprise"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Solutions"
+    title="Industrial Data Pipelines You Can Trust"
+    subtitle="End-to-end architecture and implementation that unifies OT and IT."
+    items={[
+      {
+        title: 'MQTT & Sparkplug B Experts',
+        description:
+          'Design topic structures, namespaces, and payload models that make OT data contextual and reusable across systems.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Edge Gateway Engineering',
+        description:
+          'Deploy Raspberry Pi or industrial PCs with Node-RED, Python, and containerized services for secure data collection.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Cloud Integrations',
+        description:
+          'AWS IoT Core, Azure IoT Hub, and Google Cloud solutions for storage, analytics, digital twins, and alerting.',
+        icon: 'tabler:cloud-up',
+      },
+      {
+        title: 'Protocol Bridging',
+        description:
+          'Modbus, OPC UA, Ethernet/IP, and REST API integrations that connect legacy equipment to modern applications.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Data Governance & Security',
+        description:
+          'Authentication, encryption, certificate management, and network segmentation aligned with OT cybersecurity best practices.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Analytics & Visualization',
+        description:
+          'Connect to SCADA, MES, BI platforms, or data lakes to unlock condition monitoring, predictive maintenance, and reporting.',
+        icon: 'tabler:device-analytics',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Deliverables"
+    title="A Blueprint for Connected Manufacturing"
+    items={[
+      {
+        title: 'Data Strategy',
+        description:
+          'Identify critical signals, sampling rates, and retention policies so data is useful to operations, maintenance, and leadership teams.',
+      },
+      {
+        title: 'Edge Applications',
+        description:
+          'Develop lightweight services that normalize, buffer, and secure OT data at the edge before transmission.',
+      },
+      {
+        title: 'Cloud Workflows',
+        description:
+          'Create dashboards, alerts, and integrations that deliver actionable insight across your enterprise.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/automation.jpg',
+      alt: 'Industrial IoT data pipeline illustration',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="IIoT Project Roadmap"
+    items={[
+      {
+        title: 'Step 1: <span class="font-medium">Assessment & Use Cases</span>',
+        description:
+          'Evaluate infrastructure, network readiness, and business objectives to prioritize high-value data use cases.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Architecture Design</span>',
+        description:
+          'Define edge, network, and cloud topology including security controls, redundancy, and scaling strategy.',
+        icon: 'tabler:topology-star-3',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Implementation & Testing</span>',
+        description:
+          'Configure gateways, develop data models, deploy cloud services, and validate end-to-end flow with pilot assets.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Rollout & Optimization</span>',
+        description:
+          'Scale across lines and sites, train internal teams, and iterate on analytics as new insights emerge.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/automation-benefits.jpg',
+      alt: 'Engineers reviewing connected factory roadmap',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="Common questions about IIoT and cloud integration services."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Can you work with our existing SCADA or MES systems?',
+        description:
+          'Yes. I integrate with Ignition, ThingsBoard, Wonderware, and other platforms to publish data to the cloud or synchronize with enterprise systems.',
+      },
+      {
+        title: 'How do you secure remote connectivity?',
+        description:
+          'I implement VPN tunnels, certificate-based authentication, and encrypted MQTT payloads alongside network segmentation to protect OT assets.',
+      },
+      {
+        title: 'Do you provide documentation for IT and OT teams?',
+        description:
+          'Every project includes architecture diagrams, data dictionaries, and runbooks tailored to both OT technicians and IT administrators.',
+      },
+      {
+        title: 'What if we have unreliable connectivity?',
+        description:
+          'Edge buffering, store-and-forward logic, and watchdog monitoring ensure data integrity even with intermittent networks.',
+      },
+      {
+        title: 'Can you help with analytics once data is in the cloud?',
+        description:
+          'Absolutely. I create dashboards, configure alerts, and collaborate with your data team on predictive maintenance and KPI reporting.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Discuss your IIoT roadmap',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Ready to connect OT data to the cloud?</Fragment>
+
+    <Fragment slot="subtitle">
+      Let’s architect a secure, scalable data pipeline that delivers real-time visibility and business intelligence.
+    </Fragment>
+  </CallToAction>
+</Layout>

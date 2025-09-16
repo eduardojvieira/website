@@ -26,16 +26,19 @@ pip install -r requirements.txt
 ### Simulator
 
 Run both TCP and RTU servers:
+
 ```bash
 python simulator.py
 ```
 
 Run only TCP:
+
 ```bash
 python simulator.py --mode tcp --tcp-port 5020
 ```
 
 Run only RTU:
+
 ```bash
 python simulator.py --mode rtu --rtu-port /dev/ttyUSB0 --rtu-baud 9600
 ```
@@ -43,11 +46,13 @@ python simulator.py --mode rtu --rtu-port /dev/ttyUSB0 --rtu-baud 9600
 ### Client
 
 TCP mode:
+
 ```bash
 python client.py --mode tcp --host localhost --port 5020
 ```
 
 RTU mode:
+
 ```bash
 python client.py --mode rtu --rtu-port /dev/ttyUSB0 --baud 9600 --unit 1
 ```

@@ -1,62 +1,98 @@
 ---
-publishDate: 2025-04-21T00:00:00Z
+publishDate: 2025-03-30T00:00:00Z
 author: Eduardo Vieira
-title: Modbus Addressing and Frame Structure (RTU vs TCP)
-excerpt: Learn how Modbus addresses devices and the details of RTU and TCP frame formats for reliable communication.
-image: '~/assets/images/industrial-automation.jpg'
+title: 'Understanding Modbus Addressing and Frame Structure'
+excerpt: 'A practical guide to decoding Modbus RTU and TCP frames, with tips for troubleshooting field deployments.'
+image: '~/assets/images/modbus.jpg'
 category: Industrial Automation
 tags:
   - modbus
-  - addressing
-  - frames
+  - protocol
 metadata:
-  canonical: https://eduardovieira.dev/modbus-addressing-frame-structure
+  canonical: https://eduardovieira.dev/modbus-addressing-and-frame-structure
 ---
 
-# Modbus Addressing and Frame Structure (RTU vs TCP)
+# Understanding Modbus Addressing and Frame Structure
 
-## Device Addressing
+Whether you’re integrating legacy equipment or building a new IIoT gateway, mastering Modbus framing saves hours of troubleshooting. This guide breaks down the addressing model and how RTU/TCP frames are assembled in real projects.
 
-Modbus relies on a unit identifier (slave address) to target devices:
+## 1. Logical vs. Physical Addressing
 
-- **RTU:** 1‑byte address (1–247 valid; 0 for broadcast).  
-- **TCP:** 1‑byte Unit Identifier in MBAP header (bridging to serial or routing).
+Modbus addresses are zero-based, but many vendor manuals use one-based notation. Always confirm:
 
-## RTU Frame Structure
+- **40001** (manual) equals holding register **address 0** in code.
+- **Coils** (0xxxx), **discrete inputs** (1xxxx), **input registers** (3xxxx), **holding registers** (4xxxx).
+- Unit identifiers matter on gateways bridging multiple devices.
 
-In RTU mode, frames are delimited by silent intervals (≥3.5 character times) and include:
+## 2. RTU Frame Anatomy
 
-1. **Slave Address (1 byte)**  
-2. **Function Code (1 byte)**  
-3. **Data (N bytes)**  
-4. **CRC16 Checksum (2 bytes, low‑byte first)**
+```
+| Address | Function | Data ... | CRC |
+  1 byte    1 byte   N bytes   2 bytes
+```
 
-**Example RTU Frame** (Read 10 coils from slave 1 at address 0):  
-`01 01 00 00 00 0A CRC_L CRC_H`
+Example: Reading two holding registers from slave 0x11
 
-## TCP Frame Structure (MBAP)
+```
+Request: 11 03 00 6B 00 02 CRC
+Response: 11 03 04 02 2B 00 00 CRC
+```
 
-Modbus TCP encapsulates the PDU in a 7‑byte MBAP header:
+Tips:
 
-1. **Transaction ID (2 bytes)** – Pair request/response  
-2. **Protocol ID (2 bytes)** – Always `0x0000` for Modbus  
-3. **Length (2 bytes)** – Byte count following (Unit ID + PDU)  
-4. **Unit Identifier (1 byte)** – Slave address or gateway ID  
-5. **PDU (Function Code + Data)**
+- Ensure **silent intervals** of 3.5 character times between frames.
+- Match baud rate, parity, and stop bits across all nodes.
+- Watch for CRC mismatches caused by noise; add shielding and proper grounding.
 
-**Example TCP Packet** (same read):  
-`00 01 00 00 00 06 01 01 00 00 00 0A`
+## 3. TCP Frame Anatomy
 
-## Timing and Transport Differences
+Modbus TCP wraps PDU data in an MBAP header:
 
-- **RTU:** Requires precise silent‑interval timing; half‑duplex serial link.  
-- **TCP:** Stream‑oriented; no frame timing; full‑duplex Ethernet.
+```
+| Transaction ID | Protocol ID | Length | Unit ID | Function | Data |
+      2 bytes         2 bytes     2 bytes   1 byte    1 byte    N bytes
+```
 
-## Frame Size and Limits
+- Transaction ID helps match responses in asynchronous clients.
+- Protocol ID is always `0x0000`.
+- Length covers Unit ID + Function + Data.
 
-- **RTU:** PDU + CRC ≤ 256 bytes.  
-- **TCP:** Limited by TCP/IP; typical safe PDU up to 256 bytes.
+## 4. Mapping Devices to Addresses
 
-## Conclusion
+Create a register map spreadsheet that includes:
 
-A clear grasp of addressing and frame formats for RTU and TCP is key to implementing, diagnosing, and optimizing Modbus communications.
+| Tag       | Type             | Address | Scaling | Units | Notes      |
+| --------- | ---------------- | ------- | ------- | ----- | ---------- |
+| Oven_Temp | Holding Register | 40010   | ÷10     | °C    | PLC word   |
+| Valve_CMD | Coil             | 00005   | —       | BOOL  | Write only |
+
+Keep the map version-controlled and share it with OT/IT teams.
+
+## 5. Troubleshooting Workflow
+
+1. **Verify wiring** and termination resistors (120 Ω) on RS-485 networks.
+2. **Use a protocol analyzer** (Modbus Poll, QModMaster, Wireshark) to inspect frames.
+3. **Check diagnostics**: Many PLCs expose Modbus error counters (timeout, CRC, exception).
+4. **Review exception codes** (e.g., `0x02` illegal data address) to adjust queries.
+
+## 6. Sample Python Decoder
+
+```python
+from pymodbus.client import ModbusSerialClient
+
+client = ModbusSerialClient(method="rtu", port="/dev/ttyUSB0", baudrate=9600)
+result = client.read_holding_registers(address=0, count=2, unit=17)
+if result.isError():
+    print(result)
+else:
+    print(result.registers)
+```
+
+## 7. Best Practices for Field Deployments
+
+- Group contiguous registers to reduce roundtrips.
+- Avoid mixing slow and fast devices on the same RTU segment; use repeaters if necessary.
+- Document and test fallback strategies when a device goes offline.
+- Consider migrating to MQTT Sparkplug B for structured data while maintaining Modbus at the edge.
+
+Understanding Modbus frames takes the guesswork out of commissioning and keeps data pipelines flowing smoothly.

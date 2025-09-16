@@ -34,35 +34,21 @@ Feb 2, 2018 - Mar 20, 2018
 
 "awesome dude, gets stuff done in a timely manner"
 
--   Mechanical Engineering
-    
--   SolidWorks
-    
--   3D Modeling
-    
--   MATLAB
-    
--   3D Printing
-    
--   Product Design
-    
--   Automotive Engineering
-    
--   Python
-    
--   Robotics
-    
--   Industrial Design
-    
--   Concept Design
-    
--   3D Rendering
-    
--   3D Design
-    
--   PLC
--   Internet of Things
-    
+- Mechanical Engineering
+- SolidWorks
+- 3D Modeling
+- MATLAB
+- 3D Printing
+- Product Design
+- Automotive Engineering
+- Python
+- Robotics
+- Industrial Design
+- Concept Design
+- 3D Rendering
+- 3D Design
+- PLC
+- Internet of Things
 
 ### Employment history
 

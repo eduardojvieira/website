@@ -1,6 +1,6 @@
 ---
-title: "Modernizing PLC Development: Converting Structured Text to Plain Text for Version Control and AI Programming"
-excerpt: "Learn how to bridge the gap between industrial automation programming and modern software development practices with this tool that converts PLC code to plain text files for Git version control and AI-assisted programming."
+title: 'Modernizing PLC Development: Converting Structured Text to Plain Text for Version Control and AI Programming'
+excerpt: 'Learn how to bridge the gap between industrial automation programming and modern software development practices with this tool that converts PLC code to plain text files for Git version control and AI-assisted programming.'
 image: ~/assets/images/ai_programming.png
 category: Industrial Automation
 tags:
@@ -79,6 +79,7 @@ Getting started with the converter is straightforward:
 ### Installation
 
 1. Copy the Script Commands folder to your CODESYS or Automation Builder installation:
+
    - For CODESYS: `C:\Program Files\CODESYS 3.5.20.50\CODESYS\Script Commands`
    - For Automation Builder: `C:\Program Files\ABB\AB2.8\AutomationBuilder\Script Commands`
 
@@ -101,7 +102,6 @@ Getting started with the converter is straightforward:
 Here's how to integrate the converter into your development workflow:
 
 <p><img src="https://raw.githubusercontent.com/eduardojvieira/PLC-Structured-Text-to-Plain-Text-for-Version-Control-and-AI/refs/heads/main/img/5.%20project.png" alt="New Project" class="w-full rounded-md bg-gray-400 dark:bg-gray-700"></p>
-
 
 ### Step 1: Organize Your Project Structure
 

@@ -2,7 +2,7 @@
   /* Enhanced HeroUI Light Theme with neon and contrast */
   --color-background: 0 0% 100%; /* Pure white */
   --color-foreground: 215 100% 10%; /* Very dark blue */
-  
+
   --color-card: 0 0% 100%; /* Pure white */
   --color-card-foreground: 215 100% 10%; /* Very dark blue */
 
@@ -13,7 +13,7 @@
   --color-primary: 276 100% 60%; /* Vibrant purple */
   --color-primary-neon: 276 100% 70%; /* Neon purple */
   --color-primary-foreground: 0 0% 100%; /* White */
-  
+
   /* Secondary cyan with neon variant */
   --color-secondary: 190 100% 50%; /* Vibrant cyan */
   --color-secondary-neon: 190 100% 60%; /* Neon cyan */
@@ -91,13 +91,15 @@
 
   /* Neon glow effect */
   .neon-glow {
-    box-shadow: 0 0 10px hsl(var(--color-primary-neon)), 
-                0 0 20px hsl(var(--color-primary-neon));
+    box-shadow:
+      0 0 10px hsl(var(--color-primary-neon)),
+      0 0 20px hsl(var(--color-primary-neon));
   }
-  
+
   .neon-glow-accent {
-    box-shadow: 0 0 10px hsl(var(--color-accent-neon)),
-                0 0 20px hsl(var(--color-accent-neon));
+    box-shadow:
+      0 0 10px hsl(var(--color-accent-neon)),
+      0 0 20px hsl(var(--color-accent-neon));
   }
 }
 
@@ -123,7 +125,7 @@
 #header.scroll > div:first-child {
   @apply bg-background/95 dark:bg-background/95 backdrop-blur-md;
   box-shadow: 0 0.375rem 1.5rem 0 rgb(0 0 0 / 10%);
-  border-bottom: 1px solid hsl(var(--color-border)/0.5);
+  border-bottom: 1px solid hsl(var(--color-border) / 0.5);
   transition: all 0.3s ease;
 }
 

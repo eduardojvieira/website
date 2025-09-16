@@ -1,91 +1,106 @@
 ---
-publishDate: 2025-04-04T00:00:00Z
+publishDate: 2025-03-15T00:00:00Z
 author: Eduardo Vieira
-title: "IIoT Gateway with Raspberry Pi – Bridging Protocols"
-excerpt: "Use a Raspberry Pi with Node-RED and Python to translate industrial Modbus protocols to MQTT and vice versa."
-image: '~/assets/images/rpi-gateway.jpg'
+title: 'Building a Production-Ready IIoT Gateway with Raspberry Pi'
+excerpt: 'Turn a Raspberry Pi into a hardened IIoT gateway that securely bridges PLCs, sensors, and cloud analytics.'
+image: '~/assets/images/raspberry-pi.jpg'
 category: IIoT
 tags:
+  - raspberry pi
+  - iiot
   - gateway
-  - raspberry-pi
-  - node-red
-  - mqtt
-  - modbus
 metadata:
   canonical: https://eduardovieira.dev/gateway-iiot-raspberry-pi
 ---
 
-# IIoT Gateway with Raspberry Pi – Bridging Protocols
+# Building a Production-Ready IIoT Gateway with Raspberry Pi
 
-In this course, you’ll learn how to turn a Raspberry Pi into an IIoT gateway capable of translating Modbus data to MQTT and vice versa.
+I frequently deploy Raspberry Pi-based gateways as agile companions to traditional PLC systems. With the right design, they can handle industrial workloads reliably. This guide covers the blueprint I use from hardware selection to security hardening.
 
-## Requirements
-- Raspberry Pi with Raspbian Lite (SSH enabled), Docker, and Node-RED.
-- Python 3.7+ with `pymodbus` and `paho-mqtt`.
+## 1. Hardware Foundation
 
-## Installing Node-RED
+- **Model:** Raspberry Pi 4/5 with 8 GB RAM for ample headroom.
+- **Storage:** Industrial-grade microSD or, preferably, NVMe/SSD via USB 3.0.
+- **Enclosure:** DIN-rail case with proper ventilation and optional heatsinks.
+- **Power:** 24 VDC industrial PSU with surge suppression and UPS backup.
+
+## 2. Operating System and Base Configuration
+
 ```bash
-docker run -d --name nodered -p 1880:1880 nodered/node-red
+sudo raspi-config  # enable SSH, set locale/timezone, expand filesystem
+sudo apt update && sudo apt upgrade
+sudo apt install docker.io docker-compose fail2ban unattended-upgrades
 ```
-Access `http://<RPi-IP>:1880` to design flows.
 
-## Creating Modbus → MQTT Flows
-1. Add Modbus (read/write) and MQTT nodes in Node-RED.
-2. Configure the Modbus host (IP/serial) and the MQTT broker.
-3. Design a flow that:
-   - Reads registers from a Modbus simulator and publishes every X seconds to an MQTT topic.
-   - Receives MQTT commands and writes them to the Modbus device.
+- Disable unused interfaces (Bluetooth, Wi-Fi) if not required.
+- Set static IPs on OT and IT VLANs using separate USB NICs.
+- Configure systemd-journald to forward logs to a remote syslog server.
 
-## Python Gateway (`gateway.py`)
+## 3. Containerized Services
+
+```yaml
+version: '3.8'
+services:
+  mqtt:
+    image: eclipse-mosquitto:2
+    volumes:
+      - ./mosquitto:/mosquitto
+    ports:
+      - '8883:8883'
+  node-red:
+    image: nodered/node-red:latest
+    volumes:
+      - ./data/node-red:/data
+    ports:
+      - '1880:1880'
+  collector:
+    build: ./collector
+    restart: always
+```
+
+- Keep containers lean and define resource limits (CPU shares, memory).
+- Use Watchtower or CI/CD jobs for controlled updates.
+
+## 4. Python Collector Skeleton
+
 ```python
-from pymodbus.client.sync import ModbusTcpClient
+import time, json
+from pycomm3 import LogixDriver
 from paho.mqtt.client import Client
 
-# Configuration
-tcp = ModbusTcpClient('192.168.0.20')
-mqtt = Client()
-mqtt.connect('broker.local')
+TAGS = ["Machine.Temp", "Machine.State", "Machine.Alarm"]
 
-# MQTT callback
-def on_message(client, userdata, msg):
-    # Parse payload and write to Modbus
-    tcp.write_register(10, int(msg.payload))
+client = Client(client_id="edge-gateway")
+client.tls_set("ca.pem", "gateway.pem", "gateway.key")
+client.connect("mqtt.company.com", 8883)
 
-mqtt.on_message = on_message
-mqtt.subscribe('plant/area1/command')
-
-# Main loop
-while True:
-    rr = tcp.read_holding_registers(0, 5)
-    mqtt.publish('plant/area1/data', rr.registers)
-    mqtt.loop()
+with LogixDriver("192.168.10.15/1") as plc:
+    while True:
+        values = {tag: LogixDriver(tag).value for tag in TAGS}
+        payload = json.dumps({"ts": time.time(), "data": values})
+        client.publish("plant/line1/plc", payload, qos=1)
+        time.sleep(1)
 ```
 
-## Deployment with Systemd
-```ini
-[Unit]
-Description=IIoT Gateway Service
-After=network.target
+Swap `pycomm3` for `pymodbus`, `snap7`, or any protocol client you need.
 
-[Service]
-ExecStart=/usr/bin/python3 /home/pi/gateway.py
-Restart=always
-User=pi
+## 5. Security Hardening Checklist
 
-[Install]
-WantedBy=multi-user.target
-```
-Enable and start:
-```bash
-sudo systemctl enable gateway.service
-sudo systemctl start gateway.service
-```
+- Enforce SSH key authentication and disable password logins.
+- Implement firewall rules with `ufw` or `nftables`; allow only necessary ports.
+- Use `fail2ban` to block brute-force attempts.
+- Rotate certificates automatically using a secrets manager or cron job hitting a PKI API.
 
-## Security
-- Configure UFW to restrict ports (1880, 502, 1883).
-- Use TLS on the MQTT broker and in Python (`mqtt.tls_set()`).
-- Limit access via ACLs in Node-RED.
+## 6. Observability
 
----
+- Expose metrics through Prometheus Node Exporter and cAdvisor.
+- Send logs to a central ELK/Graylog stack.
+- Configure heartbeat topics to monitor gateway health (`/system/heartbeat`).
 
-In the next post, we’ll connect Siemens S7 PLCs to the cloud using this gateway.
+## 7. Maintenance and Lifecycle
+
+- Keep a golden image with Ansible scripts to rebuild gateways quickly.
+- Document procedures for swapping SD cards or hardware in case of failure.
+- Schedule quarterly tests of UPS batteries and update cycles.
+
+With disciplined engineering practices, Raspberry Pi gateways become reliable allies for IIoT initiatives—accelerating data capture, enabling remote visibility, and extending the reach of your PLC fleet.

@@ -1,9 +1,10 @@
 ---
 title: 'Terms of Service'
+description: 'Terms of service for Eduardo Vieira’s industrial automation and IIoT website detailing acceptable use and legal commitments.'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-**Last Updated: March 29, 2025**
+**Last Updated: September 16, 2025**
 
 Welcome to Eduardo Vieira's personal website (eduardovieira.dev). These Terms of Service ("Terms") govern your access to and use of the website and its content. Please read these Terms carefully before using the website.
 
@@ -11,7 +12,7 @@ By accessing or using the website, you agree to be bound by these Terms. If you 
 
 **1. Use of Website**
 
-This website provides information about Eduardo Vieira's professional services, portfolio, and blog insights related to industrial automation, embedded systems, and engineering. The content is for informational purposes only.
+This website provides information about Eduardo Vieira's professional services, portfolio, and blog insights related to industrial automation, PLC programming, SCADA and HMI development, IIoT, MQTT, edge computing, and cloud integration. The content is for informational purposes only and does not constitute engineering advice.
 
 You agree to use the website only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the website.
 
@@ -29,15 +30,15 @@ While efforts are made to keep the information up to date and correct, Eduardo V
 
 Eduardo Vieira will not be liable to you (whether under the law of contract, the law of torts, or otherwise) in relation to the contents of, or use of, or otherwise in connection with, this website:
 
-*   for any direct loss;
-*   for any indirect, special, or consequential loss; or
-*   for any business losses, loss of revenue, income, profits, or anticipated savings, loss of contracts or business relationships, loss of reputation or goodwill, or loss or corruption of information or data.
+- for any direct loss;
+- for any indirect, special, or consequential loss; or
+- for any business losses, loss of revenue, income, profits, or anticipated savings, loss of contracts or business relationships, loss of reputation or goodwill, or loss or corruption of information or data.
 
 These limitations of liability apply even if Eduardo Vieira has been expressly advised of the potential loss.
 
 **5. Governing Law**
 
-These Terms will be governed by and construed in accordanceance with the laws of Brazil, and any disputes relating to these Terms will be subject to the exclusive jurisdiction of the courts of Brazil.
+These Terms will be governed by and construed in accordance with the laws of Argentina, and any disputes relating to these Terms will be subject to the exclusive jurisdiction of the courts located in Córdoba, Argentina.
 
 **6. Changes to These Terms**
 

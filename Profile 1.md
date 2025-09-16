@@ -48,20 +48,20 @@ Apr 22, 2016 - Apr 22, 2016
 
 ### Scripting & Automation Skills
 
--   Node.js
+- Node.js
 
 ### Scripting Languages
 
--   Python
+- Python
 
--   Edge Computing
--   Raspberry Pi
--   Troubleshooting
--   UX & UI Design
--   PLC Programming
--   Modbus
--   MQTT
--   Linux System Administration
--   Software Maintenance
--   Industrial Automation
--   Angular
+- Edge Computing
+- Raspberry Pi
+- Troubleshooting
+- UX & UI Design
+- PLC Programming
+- Modbus
+- MQTT
+- Linux System Administration
+- Software Maintenance
+- Industrial Automation
+- Angular

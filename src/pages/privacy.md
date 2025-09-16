@@ -1,5 +1,6 @@
 ---
 title: 'Privacy Policy'
+description: 'Privacy policy for Eduardo Vieira, outlining how industrial automation and IIoT client information is collected, used, and protected.'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
@@ -11,8 +12,8 @@ Your privacy is important to me. It is my policy to respect your privacy regardi
 
 ## 1. Information Collection and Use
 
-* Contact Forms: If you use the contact form on the Site, I will collect the information you provide (such as your name, email address, and message) solely for the purpose of responding to your inquiry.
-* Analytics: Like many site operators, I may use third-party services such as Google Analytics that collect, monitor, and analyze standard internet log information and details of visitor behavior patterns. This information is processed in a way that does not personally identify anyone. It is used to understand how visitors use the Site and to improve the user experience.
+- Contact Forms: If you use the contact form on the Site, I will collect the information you provide (such as your name, email address, and message) solely for the purpose of responding to your inquiry.
+- Analytics: Like many site operators, I may use third-party services such as Google Analytics that collect, monitor, and analyze standard internet log information and details of visitor behavior patterns. This information is processed in a way that does not personally identify anyone. It is used to understand how visitors use the Site and to improve the user experience.
 
 ## 2. Cookies
 

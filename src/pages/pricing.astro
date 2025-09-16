@@ -1,14 +1,14 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Prices from '~/components/widgets/Pricing.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Pricing',
+  title: 'Engagement Models & Pricing | Eduardo Vieira',
 };
 ---
 
@@ -16,180 +16,130 @@ const metadata = {
   <!-- HeroText Widget ******************* -->
 
   <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
+    tagline="Pricing & Engagement"
+    title="Engagement Models Tailored to Your Factory"
+    subtitle="Every project starts with clear outcomes, transparent estimates, and a collaboration model that fits your automation or IIoT roadmap."
   />
 
-  <!-- Pricing Widget ******************* -->
+  <!-- Content Widget ******************* -->
 
-  <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
-    prices={[
-      {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
-        items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
-    columns={2}
+  <Content
+    isReversed
+    tagline="Approach"
+    title="Pricing Built Around Measurable Outcomes"
     items={[
       {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
-        icon: 'tabler:stairs',
+        title: 'Discovery & Scoping',
+        description:
+          'We begin with a collaborative workshop to understand your processes, constraints, and success metrics before defining scope and deliverables.',
       },
       {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
-        icon: 'tabler:flip-vertical',
+        title: 'Transparent Proposals',
+        description:
+          'You receive a detailed proposal covering architecture, milestones, handover assets, and pricing so stakeholders know exactly what is included.',
       },
       {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
-        icon: 'tabler:shield-lock',
-      },
-      {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
-        icon: 'tabler:chevrons-up',
-      },
-      {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
-        icon: 'tabler:headset',
+        title: 'Documented Deliverables',
+        description:
+          'PLC projects, SCADA builds, and IIoT integrations all ship with code repositories, schematics, SOPs, and training materials for long-term ownership.',
       },
     ]}
-    classes={{ container: 'max-w-5xl' }}
+    image={{
+      src: '~/assets/images/automation-benefits.jpg',
+      alt: 'Planning industrial automation engagements',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Engagement Options"
+    subtitle="Choose the collaboration model that aligns with your scope, timeline, and internal resources."
+    columns={3}
+    items={[
+      {
+        title: 'Project-Based Delivery',
+        description:
+          'Fixed-scope implementations with milestone-based billing for PLC programming, SCADA modernization, or IIoT rollouts.',
+        icon: 'tabler:checkbox',
+      },
+      {
+        title: 'Time & Materials Support',
+        description:
+          'Flexible hourly or daily support for troubleshooting, feature additions, commissioning, and maintenance tasks.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Strategic Retainers',
+        description:
+          'Reserved hours each month dedicated to continuous improvement, analytics, and long-term automation roadmaps.',
+        icon: 'tabler:calendar-time',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isAfterContent
+    tagline="What’s Included"
+    title="Every Engagement Includes"
+    items={[
+      {
+        title: 'Engineering Artifacts',
+        description:
+          'Version-controlled code, electrical schematics, data models, and documentation tailored to your internal standards.',
+      },
+      {
+        title: 'Knowledge Transfer',
+        description:
+          'Training sessions in English or Spanish, operator handbooks, and recorded walkthroughs so teams can sustain the solution.',
+      },
+      {
+        title: 'Post-Go-Live Support',
+        description:
+          'Stabilization assistance and optional ongoing support to monitor performance, roll out enhancements, and plan the next phase.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/industrial-benefits.jpg',
+      alt: 'Deliverables for industrial automation projects',
+    }}
   />
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
-    isReversed={true}
+    title="How Pricing Is Developed"
     items={[
       {
-        title: 'Explore plans',
-        icon: 'tabler:number-1',
+        title: 'Step 1: <span class="font-medium">Discovery Call</span>',
+        description:
+          'Review your current infrastructure, business drivers, and timelines to confirm objectives and stakeholders.',
+        icon: 'tabler:clipboard-data',
       },
       {
-        title: 'Select a plan',
-        icon: 'tabler:number-2',
+        title: 'Step 2: <span class="font-medium">Architecture & Estimation</span>',
+        description:
+          'Outline the technical approach, effort, and sequencing required for each deliverable and integration point.',
+        icon: 'tabler:layout-board',
       },
       {
-        title: 'Sign Up / Log In',
-        icon: 'tabler:number-3',
+        title: 'Step 3: <span class="font-medium">Proposal Review</span>',
+        description:
+          'Walk through the proposal together, adjust scope if needed, and align on schedule, budget, and collaboration model.',
+        icon: 'tabler:clipboard-check',
       },
       {
-        title: 'Review order',
-        icon: 'tabler:number-4',
-      },
-      {
-        title: 'Enter payment details',
-        icon: 'tabler:number-5',
-      },
-      {
-        title: 'Confirmation',
-        icon: 'tabler:number-6',
-      },
-      {
-        title: 'Download and start using the template(s)',
-        icon: 'tabler:number-7',
+        title: 'Step 4: <span class="font-medium">Kickoff & Execution</span>',
+        description:
+          'Kick off the project with clear milestones, communication cadence, and change-management process.',
+        icon: 'tabler:rocket',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: '~/assets/images/automation.jpg',
+      alt: 'Industrial automation project planning',
     }}
   />
 
@@ -197,33 +147,34 @@ const metadata = {
 
   <FAQs
     title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
-    columns={1}
+    subtitle="Common questions about budgets, billing, and collaboration."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Do the plans come with customer support?',
+        title: 'Do you publish standard rates?',
         description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+          'Every engagement is scoped based on complexity, risk, and deliverables. After discovery, I share a transparent proposal with estimated hours or fixed fees.',
       },
       {
-        title: 'Is there a trial period for the different plans?',
+        title: 'Can we start with a smaller pilot?',
         description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+          'Yes. Many teams begin with a pilot line or proof of concept to validate architecture and ROI before scaling to other assets.',
       },
       {
-        title: 'Can I switch between plans?',
+        title: 'How are travel costs handled?',
         description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
+          'Most work is delivered remotely. When on-site support is required, travel expenses are pre-approved and billed at cost.',
       },
       {
-        title: 'What payment methods do you accept?',
+        title: 'Do you work with procurement or vendor portals?',
         description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
+          'I regularly collaborate with corporate procurement teams and can onboard through vendor portals, NDAs, and compliance reviews.',
       },
       {
-        title: 'Are there any hidden fees beyond the displayed cost?',
+        title: 'Can we bundle multiple services together?',
         description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+          'Absolutely. PLC, HMI, IIoT, and panel design efforts are often combined into a single roadmap with phased milestones.',
       },
     ]}
   />
@@ -231,14 +182,23 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
-        href: '/',
+        text: 'Request a proposal',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Review portfolio',
+        href: '/portfolio',
       },
     ]}
-  />
+  >
+    <Fragment slot="title">Ready to scope your next automation project?</Fragment>
+
+    <Fragment slot="subtitle">
+      Share your goals and constraints, and I’ll prepare a transparent proposal aligned with your business outcomes.
+    </Fragment>
+  </CallToAction>
 </Layout>

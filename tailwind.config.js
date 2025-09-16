@@ -67,7 +67,8 @@ export default {
         // 'aw-color-text-default': 'var(--aw-color-text-default)',
         // 'aw-color-text-muted': 'var(--aw-color-text-muted)',
       },
-      backgroundColor: { // Keep or update custom background colors
+      backgroundColor: {
+        // Keep or update custom background colors
         'tech-card': 'rgba(var(--tech-card-bg-rgb) / 0.03)', // Example update using CSS vars
         'tech-card-dark': 'rgba(0, 0, 0, 0.2)',
       },
@@ -87,7 +88,7 @@ export default {
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
       },
       backdropFilter: {
-        'tech': 'blur(8px)',
+        tech: 'blur(8px)',
       },
       animation: {
         fade: 'fadeInUp 1s both',
@@ -120,10 +121,10 @@ export default {
         'neon-glow': 'linear-gradient(90deg, var(--color-primary-neon), var(--color-accent-neon))',
       },
       borderRadius: {
-        'tech': '12px',
+        tech: '12px',
       },
       transitionProperty: {
-        'tech': 'transform, box-shadow, border-color, background-color',
+        tech: 'transform, box-shadow, border-color, background-color',
       },
     },
   },
@@ -133,21 +134,21 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
       addUtilities({
         '.tech-gradient-text': {
-          'background': 'linear-gradient(90deg, var(--aw-color-primary), var(--aw-color-secondary))',
+          background: 'linear-gradient(90deg, var(--aw-color-primary), var(--aw-color-secondary))',
           '-webkit-background-clip': 'text',
           '-webkit-text-fill-color': 'transparent',
           'background-clip': 'text',
           'text-fill-color': 'transparent',
         },
         '.tech-card': {
-          'background': 'rgba(255, 255, 255, 0.03)',
-          'border': '1px solid rgba(255, 255, 255, 0.1)',
+          background: 'rgba(255, 255, 255, 0.03)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
           'backdrop-filter': 'blur(8px)',
           'border-radius': '12px',
-          'transition': 'all 0.3s ease',
+          transition: 'all 0.3s ease',
         },
         '.tech-card-hover': {
-          'transform': 'translateY(-5px)',
+          transform: 'translateY(-5px)',
           'box-shadow': '0 10px 20px rgba(0, 0, 0, 0.1)',
         },
       });

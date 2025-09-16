@@ -5,47 +5,60 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Contact | Eduardo Vieira - Industrial Automation & Embedded Systems Engineer',
+  title: 'Contact | Eduardo Vieira - Industrial Automation & IIoT Engineer',
+  description:
+    'Get in touch to discuss PLC programming, SCADA modernization, IIoT architecture, or control panel design projects with an Industrial Automation & IIoT engineer.',
+  openGraph: {
+    images: [{ url: '~/assets/images/default.png' }],
+    type: 'website',
+  },
+  twitter: {
+    cardType: 'summary_large_image',
+  },
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Discuss Your Project" />
+  <HeroText
+    tagline="Contact"
+    title="Let's Build the Future of Your Factory"
+    subtitle="Whether you need PLC programming, SCADA modernization, or a plant-wide IIoT strategy, I’m ready to help you move from concept to production."
+  />
 
   <Content
     isReversed
-    tagline="How I Work"
-    title="A Simple Process to Get Started"
+    tagline="Getting Started"
+    title="A Clear, Collaborative Engagement Process"
     items={[
       {
-        title: '1. Initial Consultation',
+        title: '1. Discovery Call',
         description:
-          'We begin with a free consultation to discuss your needs, challenges, and objectives. This helps me understand your specific requirements and determine how I can best assist you.',
+          'We review your current systems, pain points, and desired outcomes to confirm scope and success metrics.',
       },
       {
-        title: '2. Proposal & Planning',
+        title: '2. Proposal & Architecture',
         description:
-          'Based on our discussion, I will provide a detailed proposal outlining the scope, timeline, and cost of your project. Once approved, we will develop a comprehensive plan for implementation.',
+          'You receive a detailed proposal outlining deliverables, milestones, and recommended technologies for your environment.',
       },
       {
-        title: '3. Development & Implementation',
+        title: '3. Delivery & Support',
         description:
-          'I will develop your automation solution according to the agreed specifications, keeping you informed throughout the process with regular updates and progress reports.',
+          'I execute the work with regular progress updates, documentation, and optional ongoing support packages.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Engineering consultation with blueprints',
+      src: '~/assets/images/industrial-benefits.jpg',
+      alt: 'Industrial automation consultation reviewing blueprints',
     }}
   />
 
   <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Additional Contact Information"
-    subtitle="Feel free to reach out through any of these channels"
+    title="How to Reach Me"
+    subtitle="Let’s align on your automation and IIoT priorities."
     items={[
       {
         title: 'Email',
@@ -54,7 +67,7 @@ const metadata = {
       },
       {
         title: 'LinkedIn',
-        description: 'Connect with me on LinkedIn for professional networking',
+        description: 'Connect for project discussions and updates.',
         icon: 'tabler:brand-linkedin',
         callToAction: {
           text: 'Connect',
@@ -64,7 +77,7 @@ const metadata = {
       },
       {
         title: 'Upwork',
-        description: 'View my profile and reviews on Upwork',
+        description: 'Review my 100% Job Success Score and client feedback.',
         icon: 'tabler:brand-upwork',
         callToAction: {
           text: 'View Profile',
@@ -73,24 +86,19 @@ const metadata = {
         },
       },
       {
-        title: 'GitHub',
-        description: 'Check out my code repositories and contributions',
-        icon: 'tabler:brand-github',
-        callToAction: {
-          text: 'View Projects',
-          href: 'https://github.com/eduardojvieira',
-          target: '_blank',
-        },
+        title: 'Languages',
+        description: 'Native Spanish speaker fluent in English for seamless collaboration across teams.',
+        icon: 'tabler:language',
       },
       {
-        title: 'Response Time',
-        description: 'I typically respond to all inquiries within 24 hours',
+        title: 'Time Zones',
+        description: 'Based in Argentina (UTC-3) with availability for North American and European schedules.',
         icon: 'tabler:clock',
       },
       {
-        title: 'Location',
-        description: 'Based in Argentina, working with clients worldwide',
-        icon: 'tabler:map-pin',
+        title: 'Response Time',
+        description: 'Most inquiries are answered within one business day.',
+        icon: 'tabler:message-circle',
       },
     ]}
   />

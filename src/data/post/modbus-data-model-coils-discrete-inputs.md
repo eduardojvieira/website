@@ -1,9 +1,9 @@
 ---
-publishDate: 2025-04-19T00:00:00Z
+publishDate: 2025-03-18T00:00:00Z
 author: Eduardo Vieira
-title: Modbus Data Model - Coils, Discrete Inputs, Holding Registers, Input Registers
-excerpt: A deep dive into Modbus data types, addressing, and how to interact with coils, discrete inputs, and registers in your automation systems.
-image: '~/assets/images/industrial-automation.jpg'
+title: 'Modbus Data Model: Coils and Discrete Inputs'
+excerpt: 'Learn how to map and manage Modbus coils and discrete inputs, including debouncing strategies and diagnostics.'
+image: '~/assets/images/modbus.jpg'
 category: Industrial Automation
 tags:
   - modbus
@@ -12,62 +12,66 @@ metadata:
   canonical: https://eduardovieira.dev/modbus-data-model-coils-discrete-inputs
 ---
 
-# Modbus Data Model: Coils, Discrete Inputs, Holding Registers, Input Registers
+# Modbus Data Model: Coils and Discrete Inputs
 
-## Overview
+Digital signals are the backbone of Modbus automation. Whether you’re wiring safety sensors or controlling solenoids, understanding how coils and discrete inputs behave prevents false alarms and unexpected states.
 
-Modbus defines four primary data types mapped to function codes:
+## 1. Definitions
 
-| Data Type         | Function Codes   | Access       | Size    |
-|-------------------|------------------|--------------|---------|
-| Coils             | 1 (Read), 5, 15  | Read/Write   | 1 bit   |
-| Discrete Inputs   | 2                | Read-only    | 1 bit   |
-| Holding Registers | 3 (Read), 6, 16  | Read/Write   | 16 bits |
-| Input Registers   | 4                | Read-only    | 16 bits |
+- **Coils (0xxxx):** Writable single-bit outputs, typically controlling relays or solenoids.
+- **Discrete Inputs (1xxxx):** Read-only single-bit values, often tied to sensors or interlocks.
 
-## Coils (Discrete Outputs)
+## 2. Address Planning
 
-- Represent binary outputs such as relays, LEDs, and actuators.
-- Operate with single-bit resolution.
-- Function Code 1 reads coil status; 5 writes single coil; 15 writes multiple coils.
+Group related signals to simplify polling and troubleshooting:
 
-### Example: Reading Coils
+| Range       | Example Use                                         |
+| ----------- | --------------------------------------------------- |
+| 00001–00016 | Safety outputs (e-stop relays, contactors)          |
+| 00017–00064 | Machine commands (start, stop, jog)                 |
+| 10001–10032 | Safety inputs (light curtains, door switches)       |
+| 10033–10100 | Process sensors (level switches, proximity sensors) |
 
-```python
-from pymodbus.client.sync import ModbusSerialClient
-client = ModbusSerialClient(method='rtu', port='/dev/ttyUSB0', baudrate=9600)
-result = client.read_coils(address=0, count=10, unit=1)
-print(result.bits)
-```
+## 3. Debouncing and Filtering
 
-## Discrete Inputs (Binary Inputs)
+- Implement ladder logic or edge gateway filtering to prevent noisy inputs from toggling repeatedly.
+- Use structured text timers or moving averages for sensors subject to vibration.
+- Document debounce times so analytics teams understand event timing.
 
-- Represent binary inputs like switches or sensors.
-- Function Code 2 reads discrete inputs.
+## 4. Diagnostics and Health Monitoring
 
-## Holding Registers (Read/Write 16-bit)
+Track the status of your digital network:
 
-- Store configuration parameters, setpoints, and control variables.
-- Function Code 3 reads; 6 writes single register; 16 writes multiple registers.
+- Count transitions per shift to detect failing sensors (excessive toggling).
+- Expose diagnostic bits indicating short circuits or overloads.
+- Publish heartbeats from safety circuits to verify integrity.
 
-### Example: Writing Multiple Registers
+## 5. Example: Reading and Writing Coils via Python
 
 ```python
-from pymodbus.client.sync import ModbusTcpClient
-client = ModbusTcpClient('192.168.0.10')
-client.write_registers(address=10, values=[100, 200], unit=1)
+from pymodbus.client import ModbusTcpClient
+
+client = ModbusTcpClient('192.168.1.50')
+
+# Read discrete inputs 10001–10016
+inputs = client.read_discrete_inputs(address=0, count=16, unit=1)
+print(inputs.bits)
+
+# Set coil 00005 to TRUE
+client.write_coil(address=4, value=True, unit=1)
 ```
 
-## Input Registers (Read-only 16-bit)
+## 6. Alarm Management
 
-- Represent sensor readings like temperature, pressure, or analog inputs.
-- Function Code 4 reads input registers.
+- Assign severity levels to each coil/input and integrate with your SCADA/CMMS.
+- Create state machines to detect stuck signals (e.g., start command active too long).
+- Use MQTT topics to broadcast alarm transitions with timestamp and operator acknowledgement.
 
-## Addressing
+## 7. Commissioning Checklist
 
-- Addresses start at 0 in Modbus frames but are often shown as 1-based in documentation.
-- Use unit IDs to differentiate slave devices on a shared bus.
+1. Validate wiring and label each terminal clearly.
+2. Test each coil/input through the PLC/HMI before connecting higher-level systems.
+3. Record baseline scan times to detect future performance issues.
+4. Document safe states for every coil in case of communication loss.
 
-## Conclusion
-
-Understanding the Modbus data model is foundational for effective industrial communication. Properly leveraging coils, discrete inputs, and registers enables robust control and monitoring in automation systems.
+Coils and discrete inputs may be single bits, but they carry enormous responsibility for machine safety and performance. Treat their design, documentation, and monitoring with care to keep operations running smoothly.
