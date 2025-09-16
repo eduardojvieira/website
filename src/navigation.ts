@@ -12,6 +12,7 @@ export const headerData = {
     },
     {
       text: 'Services',
+      href: getPermalink('/services'),
       links: [
         {
           text: 'PLC Programming & Industrial Control',
