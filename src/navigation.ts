@@ -13,28 +13,6 @@ export const headerData = {
     {
       text: 'Services',
       href: getPermalink('/services'),
-      links: [
-        {
-          text: 'PLC Programming & Industrial Control',
-          href: getPermalink('/services/plc-programming'),
-        },
-        {
-          text: 'HMI & SCADA Development',
-          href: getPermalink('/services/hmi-scada'),
-        },
-        {
-          text: 'Web HMI & Remote Dashboards',
-          href: getPermalink('/services/web-hmi'),
-        },
-        {
-          text: 'IIoT & Cloud Integration',
-          href: getPermalink('/services/iiot-cloud'),
-        },
-        {
-          text: 'Control Panel & Electrical Design',
-          href: getPermalink('/services/control-panel-design'),
-        },
-      ],
     },
     {
       text: 'Portfolio',
