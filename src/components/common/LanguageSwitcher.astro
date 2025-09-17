@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+import { languages, defaultLang, type Lang } from '~/i18n/ui';
+import { getLangFromUrl, useTranslatedPath } from '~/i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const to = useTranslatedPath(Astro.url);
+---
+
+<div class="relative">
+  <details class="group">
+    <summary class="list-none cursor-pointer inline-flex items-center gap-2 text-sm text-muted hover:text-link p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+      <Icon name="tabler:language" class="w-5 h-5" />
+      <span>{languages[currentLang]}</span>
+      <Icon name="tabler:chevron-down" class="w-4 h-4 transition-transform group-open:rotate-180" />
+    </summary>
+    <ul class="absolute mt-2 right-0 z-50 min-w-[180px] rounded-md backdrop-blur-md bg-white/90 dark:bg-dark drop-shadow-xl border border-gray-200 dark:border-gray-700">
+      {Object.keys(languages).map((code) => (
+        <li>
+          <a
+            class:list="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-between"
+            href={to(code as Lang)}
+          >
+            <span>{languages[code as Lang]}</span>
+            {code === currentLang ? <Icon name="tabler:check" class="w-4 h-4" /> : ''}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </details>
+  <span class="sr-only">Language</span>
+</div>
+
+

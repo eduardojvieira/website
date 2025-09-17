@@ -1,0 +1,123 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/HeroCustom.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
+const metadata = {
+  title: 'Eduardo Vieira — Automação Industrial & Engenheiro IIoT',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Automação Industrial | IIoT | SCADA | Integração em Nuvem"
+    actions={[
+      { variant: 'primary', text: 'Contato', href: '/pt/contact', icon: 'tabler:mail' },
+      { text: 'Explorar Serviços', href: '/pt/services', icon: 'tabler:device-desktop-code' }
+    ]}
+    image={{ src: '~/assets/images/panel.png', alt: 'Painel de automação industrial' }}
+  >
+    <Fragment slot="title">
+      De <span class="text-accent dark:text-white highlight">lógica PLC</span> a insights na nuvem
+    </Fragment>
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">Sou Eduardo Vieira,</span> engenheiro de Automação Industrial e IIoT. Conecto o chão de fábrica à nuvem, transformando sinais em inteligência acionável.
+      </span>
+      <span class="block mb-1 sm:hidden font-bold text-blue-600">Engenheiro de Automação Industrial e IIoT</span>
+      Mais de 7 anos entregando lógica PLC confiável, interfaces SCADA intuitivas e pipelines de dados seguros.
+    </Fragment>
+  </Hero>
+
+  <Note>
+    <Fragment slot="content">
+      <span class="font-bold">100% Job Success</span> no Upwork com parcerias nas Américas
+    </Fragment>
+  </Note>
+
+  <Features
+    id="skills"
+    tagline="Competências"
+    title="Experiência em Automação Industrial e IIoT"
+    subtitle="Da máquina ao analytics—soluções com foco em confiabilidade e ROI."
+    items={[
+      { title: 'Entrega ponta a ponta', description: 'Descoberta, design, programação e comissionamento.', icon: 'tabler:route' },
+      { title: 'Arquitetura IIoT', description: 'Pipelines resilientes com MQTT e Sparkplug B.', icon: 'tabler:cloud-computing' },
+      { title: 'Experiência multi-PLC', description: 'Siemens, Allen-Bradley, Mitsubishi, CODESYS, ABB.', icon: 'tabler:device-analytics' },
+      { title: 'SCADA & Visualização', description: 'Ignition, ThingsBoard, FUXA e dashboards claros.', icon: 'tabler:device-desktop-analytics' },
+      { title: 'Integração Borda & Nuvem', description: 'Gateways, PCs industriais e clouds (AWS, Azure, GCP).', icon: 'tabler:topology-star-3' },
+      { title: 'Colaboração Bilíngue', description: 'Espanhol nativo e inglês fluente.', icon: 'tabler:world' },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Sobre"
+    title="A ponte entre sistemas mecânicos e inteligência digital"
+    items={[
+      { title: 'Base em Engenharia Mecânica', description: 'Projeto e programação de máquinas sob medida.' },
+      { title: 'Automação por paixão', description: 'PLC, SCADA e edge com foco em valor.' },
+      { title: 'Parceiro Confiável', description: 'Experiência remota com clientes nas Américas.' },
+    ]}
+    image={{ src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2070&q=80', alt: 'Engenheiro industrial' }}
+  >
+    <Fragment slot="content">
+      <p>Construo a pilha IIoT completa: controladores, edge, MQTT e nuvem para visibilidade em tempo real.</p>
+    </Fragment>
+  </Content>
+
+  <Features2
+    title="A jornada de dados OT para IT"
+    subtitle="Um blueprint comprovado para capturar e entregar dados industriais."
+    tagline="Metodologia"
+    items={[
+      { title: 'Aquisição de sinais', description: 'PLCs, sensores e controladores legados.', icon: 'tabler:schema' },
+      { title: 'Normalização na borda', description: 'Limpar e padronizar dados.', icon: 'tabler:cpu' },
+      { title: 'Mensageria segura', description: 'MQTT e Sparkplug B com segurança.', icon: 'tabler:lock' },
+      { title: 'Integração na nuvem', description: 'AWS, Azure ou GCP.', icon: 'tabler:cloud-up' },
+      { title: 'Visualização & Alertas', description: 'KPIs e alarmes acionáveis.', icon: 'tabler:device-analytics' },
+      { title: 'Suporte contínuo', description: 'Documentar, treinar e otimizar.', icon: 'tabler:arrows-exchange' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Features2>
+
+  <BlogLatestPosts title="Últimos insights do chão de fábrica" information={`Boas práticas de PLC, arquiteturas IIoT e casos reais.`} />
+
+  <FAQs
+    title="Perguntas frequentes"
+    subtitle="Respostas às dúvidas mais comuns sobre meus serviços."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      { title: 'Quais PLCs você atende?', description: 'Siemens, Allen-Bradley, Mitsubishi, ABB, CODESYS.' },
+      { title: 'O que inclui uma integração IIoT?', description: 'Gateway, MQTT/Sparkplug, segmentação OT, modelos de dados e dashboards.' },
+      { title: 'Inclui documentação e treinamento?', description: 'Sempre. Entregáveis e capacitação para sua equipe.' },
+    ]}
+  />
+
+  <Stats stats={[{ title: 'Anos integrando OT & IT', amount: '7+' }, { title: 'Projetos', amount: '50+' }, { title: 'Upwork JSS', amount: '100%' }]} />
+
+  <CallToAction
+    actions={[
+      { variant: 'primary', text: 'Contato', href: '/pt/contact', icon: 'tabler:mail' },
+      { text: 'Ver Portfólio', href: '/pt/portfolio' },
+    ]}
+  >
+    <Fragment slot="title">Vamos construir o futuro da sua fábrica</Fragment>
+    <Fragment slot="subtitle">De um PLC à planta conectada inteira, posso ajudar.</Fragment>
+  </CallToAction>
+</Layout>
+
+
+

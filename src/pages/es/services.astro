@@ -1,0 +1,67 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = { title: 'Servicios Profesionales | Eduardo Vieira' };
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Servicios"
+    title="De la lógica PLC a insights en la nube"
+    subtitle="Soluciones de automatización e IIoT de punta a punta—controladores, HMIs, edge y nube."
+    actions={[{ variant: 'primary', text: 'Contáctame', href: '/es/contact' }]}
+    image={{ src: '~/assets/images/industrial-automation.jpg', alt: 'Ingeniería de Automatización Industrial' }}
+  />
+
+  <Features2
+    title="Cómo puedo ayudar"
+    subtitle="Cinco pilares de servicio para tu proyecto de Industria 4.0."
+    columns={2}
+    items=[
+      { title: 'Programación PLC & Control', description: 'Siemens, Allen-Bradley, Mitsubishi, CODESYS, ABB.', icon: 'tabler:device-analytics' },
+      { title: 'HMI & SCADA', description: 'Ignition, ThingsBoard, Node-RED, WinCC, PanelView.', icon: 'tabler:layout-dashboard' },
+      { title: 'Web HMI & Dashboards', description: 'Experiencias responsivas seguras.', icon: 'tabler:devices' },
+      { title: 'IIoT & Nube', description: 'MQTT, Sparkplug B, AWS, Azure, GCP.', icon: 'tabler:cloud-computing' },
+      { title: 'Paneles & Diseño Eléctrico', description: 'Planos, layout y BOM.', icon: 'tabler:tool' },
+    ]
+  />
+
+  <Content
+    isReversed
+    items=[
+      { title: 'Auditoría & Requisitos', description: 'Entendemos procesos, cumplimiento y metas.' , icon: 'tabler:clipboard-data' },
+      { title: 'Ingeniería & Implementación', description: 'Lógica PLC, HMI, edge y nube en conjunto.', icon: 'tabler:layout-board' },
+      { title: 'Documentación & Entrega', description: 'Repos, planos, SOPs y capacitación.', icon: 'tabler:clipboard-check' },
+    ]
+    image={{ src: '~/assets/images/automation-benefits.jpg', alt: 'Beneficios de la automatización' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Un marco probado</h3>
+      <p>Proceso disciplinado: descubrimiento, diseño, comisionamiento, entrenamiento y soporte.</p>
+    </Fragment>
+  </Content>
+
+  <Testimonials
+    title="Testimonios"
+    subtitle="Resultados reales con fabricantes"
+    testimonials={[{ testimonial: 'De PLC a dashboards en AWS sin interrumpir producción.', name: 'Líder de Ingeniería', job: 'Modernización IIoT' }]}
+  />
+
+  <CallToAction
+    actions=[
+      { variant: 'primary', text: 'Agendar Consulta', href: '/es/contact', icon: 'tabler:mail' },
+      { text: 'Ver Portafolio', href: '/es/portfolio' },
+    ]
+  >
+    <Fragment slot="title">¿Listo para modernizar tu planta?</Fragment>
+    <Fragment slot="subtitle">Reduzcamos tiempos muertos y habilitemos decisiones con datos confiables.</Fragment>
+  </CallToAction>
+</Layout>
+
+
+

@@ -20,7 +20,7 @@ const metadata = {
 <Layout metadata={metadata}>
   <Fragment slot="header">
     <Header
-      {...headerData}
+      {...headerData(Astro.url)}
       actions={[
         {
           variant: 'secondary',

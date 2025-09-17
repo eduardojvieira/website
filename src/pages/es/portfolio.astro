@@ -1,0 +1,27 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = { title: 'Portafolio | Eduardo Vieira' };
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Proyectos Destacados" subtitle="Muestras de automatización e IIoT que conectan PLC, visualización y nube." />
+
+  <Content
+    isReversed
+    tagline="Integración IIoT"
+    title="Gateway PLC a Nube para Control de Proceso"
+    items={[{ title: 'Problema', description: 'Visibilidad remota limitada.' }, { title: 'Solución', description: 'MQTT Sparkplug B a AWS.' }, { title: 'Resultado', description: 'Dashboards y alertas 24/7.' }]}
+    image={{ src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80', alt: 'PLC a nube' }}
+  />
+
+  <CallToAction actions={[{ variant: 'primary', text: 'Hablar del proyecto', href: '/es/contact', icon: 'tabler:mail' }]}>
+    <Fragment slot="title">Llevemos tu idea a producción</Fragment>
+  </CallToAction>
+</Layout>
+
+
+

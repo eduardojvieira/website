@@ -1,0 +1,14 @@
+---
+import { languages, defaultLang, type Lang } from '~/i18n/ui';
+import { useTranslatedPath } from '~/i18n/utils';
+
+const to = useTranslatedPath(Astro.url);
+---
+
+<link rel="alternate" hreflang="x-default" href={to(defaultLang)} />
+{Object.keys(languages).map((code) => (
+  <link rel="alternate" hreflang={code} href={to(code as Lang)} />
+))}
+
+
+

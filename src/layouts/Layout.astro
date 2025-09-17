@@ -2,12 +2,14 @@
 import '~/assets/styles/tailwind.css';
 
 import { I18N } from 'astrowind:config';
+import { getLangFromUrl } from '~/i18n/utils';
 
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
 import CustomStyles from '~/components/CustomStyles.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
+import HreflangAlternates from '~/components/common/HreflangAlternates.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
@@ -22,19 +24,51 @@ export interface Props {
 }
 
 const { metadata = {} } = Astro.props;
-const { language, textDirection } = I18N;
+const { textDirection } = I18N;
+const currentLang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={currentLang} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <CommonMeta />
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
     <Metadata {...metadata} />
+    <HreflangAlternates />
     <SiteVerification />
     <Analytics />
+
+    <!-- Redirect root to user's preferred language (client-side). English is the default (no prefix). -->
+    <script>
+      (function () {
+        try {
+          const supported = ['es', 'pt'];
+          const defaultLang = 'en';
+          const path = location.pathname || '/';
+          const first = path.split('/')[1];
+          // If the path is already localized, do nothing
+          if (supported.includes(first)) return;
+          // Only redirect from the site root to avoid breaking internal links
+          if (path !== '/' && path !== '') return;
+          const langs = navigator.languages || [navigator.language || defaultLang];
+          for (const l of langs) {
+            if (!l) continue;
+            const code = l.split('-')[0];
+            if (supported.includes(code)) {
+              // Redirect to '/es' or '/pt' (no trailing slash)
+              if (code !== defaultLang) {
+                location.replace('/' + code);
+              }
+              return;
+            }
+          }
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />

@@ -1,0 +1,78 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
+const metadata = { title: 'Sobre mí | Eduardo Vieira' };
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sobre mí"
+    image={{ src: '~/assets/images/industrial.jpg', alt: 'Ingeniero de Automatización Industrial' }}
+  >
+    <Fragment slot="title">
+      Eduardo Vieira <br />
+      <span class="text-accent dark:text-white highlight">Ingeniero de Automatización & IIoT</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Ingeniero Mecánico de formación y de Automatización por pasión. Más de siete años conectando equipos de planta con sistemas empresariales.
+    </Fragment>
+  </Hero>
+
+  <Stats title="Resumen Profesional" stats={[{ title: 'Años integrando OT & IT', amount: '7+' }, { title: 'Upwork Job Success', amount: '100%' }, { title: 'Líneas mejoradas', amount: '30+' }]} />
+
+  <Content
+    isReversed
+    tagline="Trayectoria"
+    title="De sistemas mecánicos a fábricas conectadas"
+    items=[
+      { title: 'Bases mecánicas', description: 'Diseño y programación de maquinaria a medida.' },
+      { title: 'Automatización', description: 'PLC, SCADA y optimización de control.' },
+      { title: 'Especialización IIoT', description: 'Pipelines seguros a la nube para visibilidad en tiempo real.' },
+    ]
+    image={{ src: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2070&q=80', alt: 'Ingeniero' }}
+  >
+    <Fragment slot="content">
+      <p>Construyo el flujo de datos completo desde el PLC hasta la nube, con documentación y entrenamiento.</p>
+    </Fragment>
+  </Content>
+
+  <Features3
+    title="Identidad"
+    subtitle="Lo que define mi enfoque"
+    columns={3}
+    isBeforeContent={true}
+    items=[
+      { title: 'Puente OT & IT', description: 'Traduzco entre control, IT y liderazgo.', icon: 'tabler:arrows-left-right' },
+      { title: 'Propiedad de extremo a extremo', description: 'Desde lógica PLC hasta dashboards en la nube.', icon: 'tabler:building-factory-2' },
+      { title: 'Datos accionables', description: 'KPIs y decisiones informadas.', icon: 'tabler:chart-dots-2' },
+    ]
+  />
+
+  <Features2
+    title="Tecnologías"
+    tagline="Skills"
+    columns={4}
+    items=[
+      { title: 'Automatización Industrial', description: 'PLC, motion y seguridad.' },
+      { title: 'SCADA & HMIs', description: 'Interfaces intuitivas y alarmas.' },
+      { title: 'IIoT & Datos', description: 'MQTT, Sparkplug B, AWS/Azure/GCP.' },
+      { title: 'Diseño Eléctrico', description: 'Planos, layout y BOM.' },
+    ]
+  />
+
+  <Testimonials
+    title="Testimonios"
+    subtitle="Opiniones de equipos de manufactura"
+    testimonials={[{ testimonial: 'Excelente trabajo de IIoT y MQTT.', name: 'Cliente de Control de Procesos', job: 'Gateway PLC a Nube' }]}
+  />
+</Layout>
+
+
+

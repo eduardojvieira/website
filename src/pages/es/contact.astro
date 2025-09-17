@@ -1,0 +1,29 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = { title: 'Contacto | Eduardo Vieira - Automatización & IIoT' };
+---
+
+<Layout metadata={metadata}>
+  <HeroText tagline="Contacto" title="Construyamos el futuro de tu fábrica" subtitle="PLC, SCADA o estrategia IIoT: listo para ayudarte." />
+
+  <Content
+    isReversed
+    tagline="Primeros pasos"
+    title="Un proceso claro y colaborativo"
+    items={[{ title: '1. Llamada de descubrimiento', description: 'Alcance y métricas de éxito.' }, { title: '2. Propuesta & Arquitectura', description: 'Entregables, hitos y tecnologías.' }, { title: '3. Entrega & Soporte', description: 'Actualizaciones, documentación y soporte.' }]}
+    image={{ src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2070&q=80', alt: 'Consulta de ingeniería' }}
+  />
+
+  <Features2
+    title="Cómo contactarme"
+    subtitle="Alineemos prioridades de automatización e IIoT"
+    items={[{ title: 'Email', description: 'me@eduardovieira.dev', icon: 'tabler:mail' }, { title: 'LinkedIn', description: 'Conectar para proyectos.', icon: 'tabler:brand-linkedin', callToAction: { text: 'Conectar', href: 'https://www.linkedin.com/in/eduardojv/', target: '_blank' } }, { title: 'Upwork', description: 'Ver perfil y feedback.', icon: 'tabler:brand-upwork', callToAction: { text: 'Ver Perfil', href: 'https://www.upwork.com/freelancers/eduardojv', target: '_blank' } } ]}
+  />
+</Layout>
+
+
+

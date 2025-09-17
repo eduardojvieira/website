@@ -1,0 +1,73 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+
+const metadata = { title: 'Sobre | Eduardo Vieira' };
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sobre"
+    image={{ src: '~/assets/images/industrial.jpg', alt: 'Engenheiro de Automação Industrial' }}
+  >
+    <Fragment slot="title">
+      Eduardo Vieira <br />
+      <span class="text-accent dark:text-white highlight">Engenheiro de Automação & IIoT</span>
+    </Fragment>
+    <Fragment slot="subtitle">
+      Engenheiro Mecânico por formação e de Automação por paixão. Mais de sete anos conectando o chão de fábrica à nuvem.
+    </Fragment>
+  </Hero>
+
+  <Stats title="Resumo Profissional" stats={[{ title: 'Anos integrando OT & IT', amount: '7+' }, { title: 'Upwork Job Success', amount: '100%' }, { title: 'Linhas aprimoradas', amount: '30+' }]} />
+
+  <Content
+    isReversed
+    tagline="Trajetória"
+    title="De sistemas mecânicos a fábricas conectadas"
+    items=[
+      { title: 'Bases mecânicas', description: 'Projeto e programação de máquinas sob medida.' },
+      { title: 'Automação', description: 'PLC, SCADA e otimização de controle.' },
+      { title: 'Especialização em IIoT', description: 'Pipelines seguros para a nuvem.' },
+    ]
+    image={{ src: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2070&q=80', alt: 'Engenheiro' }}
+  >
+    <Fragment slot="content">
+      <p>Construo a pilha completa de dados do PLC à nuvem com documentação e treinamento.</p>
+    </Fragment>
+  </Content>
+
+  <Features3
+    title="Identidade"
+    subtitle="O que define minha abordagem"
+    columns={3}
+    isBeforeContent={true}
+    items=[
+      { title: 'Ponte OT & IT', description: 'Tradução entre controle, TI e liderança.', icon: 'tabler:arrows-left-right' },
+      { title: 'Propriedade ponta a ponta', description: 'Da lógica PLC aos dashboards em nuvem.', icon: 'tabler:building-factory-2' },
+      { title: 'Dados acionáveis', description: 'KPIs e decisões embasadas.', icon: 'tabler:chart-dots-2' },
+    ]
+  />
+
+  <Features2
+    title="Tecnologias"
+    tagline="Skills"
+    columns={4}
+    items=[
+      { title: 'Automação Industrial', description: 'PLC, motion e segurança.' },
+      { title: 'SCADA & HMIs', description: 'Interfaces e alarmes.' },
+      { title: 'IIoT & Dados', description: 'MQTT, Sparkplug B, AWS/Azure/GCP.' },
+      { title: 'Projeto Elétrico', description: 'Esquemas, layout e BOM.' },
+    ]
+  />
+
+  <Testimonials title="Depoimentos" subtitle="Opiniões de equipes industriais" testimonials={[{ testimonial: 'Excelentes entregas em IIoT e MQTT.', name: 'Cliente de Controles', job: 'Gateway PLC-Nuvem' }]} />
+</Layout>
+
+
+
