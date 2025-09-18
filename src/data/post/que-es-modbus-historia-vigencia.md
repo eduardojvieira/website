@@ -45,7 +45,7 @@ Modbus impulsa la conectividad industrial desde 1979. A pesar del auge de protoc
 ## 5. Estrategias de modernización
 
 - Desplegar gateways industriales que conviertan Modbus a cargas estructuradas (JSON, Sparkplug B).
-- Implementar store-and-forward para manejar conectividad intermitente.
+- Implementar almacenamiento y reenvío (store-and-forward) para manejar conectividad intermitente.
 - Monitorear la salud de la comunicación y alertar por códigos de excepción o timeouts.
 - Planear migraciones graduales: mantener Modbus en el borde mientras se expone la información vía APIs modernas.
 

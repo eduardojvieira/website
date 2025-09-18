@@ -46,7 +46,7 @@ Tras cientos de proyectos—desde retrofits hasta plantas greenfield—estas pr�
 
 - Normaliza unidades y escalado antes de exponer datos a otros sistemas.
 - Usa texto estructurado o bloques de función para recetas y parsing de datos.
-- Implementa buffers o store-and-forward al enviar datos a la nube.
+- Implementa buffers o mecanismos de almacenamiento y reenvío (store-and-forward) al enviar datos a la nube.
 
 ## 6. Pruebas y simulación
 

@@ -46,7 +46,7 @@ Modbus nació antes de que la ciberseguridad fuera prioridad, pero aún gobierna
 
 - Actualiza firmware para corregir vulnerabilidades conocidas.
 - Deshabilita puertos de programación o protégelos con llaves cuando no se utilicen.
-- Implementa whitelisting en equipos perimetrales para evitar software no autorizado.
+- Implementa listas blancas en equipos perimetrales para evitar software no autorizado.
 
 ## 6. Plan de respuesta a incidentes
 
@@ -56,6 +56,6 @@ Modbus nació antes de que la ciberseguridad fuera prioridad, pero aún gobierna
 
 ## 7. Coordinación con proveedores
 
-Colabora con los OEM para conocer su roadmap de seguridad. Solicita divulgación de vulnerabilidades, tiempos de parcheo y guías de endurecimiento.
+Colabora con los OEM para conocer su hoja de ruta de seguridad. Solicita divulgación de vulnerabilidades, tiempos de parcheo y guías de endurecimiento.
 
 Modbus seguirá en nuestras plantas por años. Con segmentación, control estricto de acceso, túneles seguros y monitoreo constante, podrás proteger estas redes heredadas sin sacrificar disponibilidad.

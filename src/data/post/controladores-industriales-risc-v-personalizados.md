@@ -68,11 +68,11 @@ Para evitar reescribir el HMI expusimos el mismo conjunto de nodos OPC UA que us
 | Concepto | RISC-V personalizado | Repuesto legado |
 | --- | --- | --- |
 | BOM de hardware | USD 620 | USD 3,050 |
-| Desarrollo de firmware (estimado) | USD 45,000 | USD 0 (off-the-shelf) |
+| Desarrollo de firmware (estimado) | USD 45,000 | USD 0 (equipo comercial estándar) |
 | Certificación | USD 12,000 | Incluida |
 | Soporte anual | USD 6,000 | USD 18,000 |
 
-El punto de equilibrio llegó en el tercer año al considerar repuestos y menor tiempo de inactividad. El beneficio intangible: control total del roadmap y capacidad de corregir vulnerabilidades en nuestro propio calendario.
+El punto de equilibrio llegó en el tercer año al considerar repuestos y menor tiempo de inactividad. El beneficio intangible: control total de la hoja de ruta y capacidad de corregir vulnerabilidades en nuestro propio calendario.
 
 ## 8. Veredicto final
 

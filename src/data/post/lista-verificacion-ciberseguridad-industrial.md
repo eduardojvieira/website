@@ -36,19 +36,19 @@ Muchas plantas operan procesos críticos con PLC y HMI heredados casi sin contro
 - Deshabilita servicios y puertos no utilizados en PLC, HMI y pasarelas.
 - Cambia credenciales por defecto y aplica políticas de contraseñas robustas.
 - Aplica actualizaciones de firmware y parches siguiendo las guías del proveedor.
-- Añade protección en estaciones de ingeniería (whitelisting de aplicaciones, control de USB).
+- Añade protección en estaciones de ingeniería (listas blancas de aplicaciones, control de USB).
 
 ## 4. Asegura el acceso remoto
 
 - Sustituye credenciales compartidas por cuentas individuales integradas con el directorio de identidades.
 - Implementa MFA y grabación de sesiones para proveedores.
-- Prefiere jump servers con acceso auditado en lugar de VPN directas al entorno OT.
+- Prefiere servidores de salto (jump servers) con acceso auditado en lugar de VPN directas al entorno OT.
 
 ## 5. Monitorea y responde
 
 - Despliega monitoreo pasivo de red (Nozomi, Claroty, Zeek) para detectar anomalías.
 - Configura agregación de logs y alertas por cambios de programa en PLC o escrituras no autorizadas.
-- Define playbooks de respuesta con roles, canales de comunicación y rutas de escalamiento.
+- Define procedimientos de respuesta con roles, canales de comunicación y rutas de escalamiento.
 
 ## 6. Capacita y gobierna
 
