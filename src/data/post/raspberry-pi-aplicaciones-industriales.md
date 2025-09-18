@@ -42,7 +42,7 @@ Las placas Raspberry Pi no sustituyen a los PLC, pero son excelentes compañeras
 - Almacena código y datos en SSD/NVMe en lugar de tarjetas SD para reducir desgaste.
 - Monitorea temperatura y condiciones de throttling; añade disipadores y ventiladores cuando sea necesario.
 - Habilita temporizadores watchdog para reiniciar automáticamente ante bloqueos.
-- Implementa colas store-and-forward para caídas de red.
+- Implementa colas de almacenamiento y reenvío (store-and-forward) para caídas de red.
 
 ## 5. Seguridad
 

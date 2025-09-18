@@ -103,7 +103,7 @@ Incluye el palette `node-red-contrib-cip-ethernet-ip` solo si necesitas interacc
 ## 6. Lista de verificación de puesta en marcha
 
 - Valida nombres y tipos de datos con el ingeniero de control.
-- Ejecuta una prueba de failover desconectando la WAN y comprobando que la planta siga operando.
+- Ejecuta una prueba de conmutación por falla (failover) desconectando la WAN y comprobando que la planta siga operando.
 - Revisa las reglas de firewall para que solo queden abiertos MQTT/TLS y puertos de diagnóstico OT.
 - Capacita a los operadores en los nuevos dashboards y rutas de escalamiento.
 

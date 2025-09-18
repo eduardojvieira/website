@@ -35,7 +35,7 @@ Las plantas castigan a la electrónica. Las variaciones de temperatura, el ruido
 ## 3. Arquitectura de firmware
 
 - Usa RTOS como Zephyr o FreeRTOS para separar tareas deterministas de servicios no críticos.
-- Implementa watchdogs, detección de brownout y rutinas de estado seguro en las que confíen los operadores.
+- Implementa watchdogs, detección de caídas de tensión (brownout) y rutinas de estado seguro en las que confíen los operadores.
 - Ofrece telemetría estructurada (MQTT, OPC UA) para monitorear salud y desempeño.
 
 ## 4. Pila de comunicaciones
@@ -59,7 +59,7 @@ Un producto embebido moderno debe hablar lenguajes OT e IT:
 
 - **Ambientales:** Ciclos térmicos, pruebas de vibración y verificación de protección IP.
 - **EMC:** Ensayos de emisiones e inmunidad conducidas y radiadas según IEC 61000.
-- **Funcionales:** Simulaciones hardware-in-the-loop con bancos de prueba PLC para validar comportamiento determinista.
+- **Funcionales:** Simulaciones de hardware en el bucle (HIL) con bancos de prueba PLC para validar comportamiento determinista.
 - **Pilotos en campo:** Despliega unidades con registro diagnóstico para capturar casos reales.
 
 ## 7. Mantenibilidad y soporte

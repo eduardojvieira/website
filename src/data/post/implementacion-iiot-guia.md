@@ -3,8 +3,8 @@ publishDate: 2025-02-03T00:00:00Z
 author: Eduardo Vieira
 lang: es
 slug: es/implementacion-iiot-guia
-title: "Implementar IIoT industrial: playbook paso a paso"
-excerpt: "Del piloto al despliegue masivo, este playbook resume las fases que sigo para que las iniciativas IIoT perduren."
+title: "Implementar IIoT industrial: guía paso a paso"
+excerpt: "Del piloto al despliegue masivo, esta guía resume las fases que sigo para que las iniciativas IIoT perduren."
 image: '~/assets/images/industrial-automation.jpg'
 category: IIoT
 tags:
@@ -15,9 +15,9 @@ metadata:
   canonical: https://eduardovieira.dev/es/implementacion-iiot-guia
 ---
 
-# Implementar IIoT industrial: playbook paso a paso
+# Implementar IIoT industrial: guía paso a paso
 
-Las iniciativas IIoT prosperan cuando operaciones, TI y negocio se alinean desde el inicio. Tras liderar programas en fabricantes de toda América, este playbook es el que entrega resultados sostenibles.
+Las iniciativas IIoT prosperan cuando operaciones, TI y negocio se alinean desde el inicio. Tras liderar programas en fabricantes de toda América, esta guía es la que entrega resultados sostenibles.
 
 ## Fase 1 — Descubrir
 
@@ -33,7 +33,7 @@ Entregables: Matriz de oportunidades, casos de uso priorizados y alineación eje
 2. **Modelo de datos:** Estandariza nomenclaturas (ISA-95) y esquemas de payload.
 3. **Plan de seguridad:** Segmenta redes, define gestión de identidades y mapea requisitos normativos.
 
-Entregables: Diagramas de arquitectura, diseño de seguridad, roadmap del proyecto.
+Entregables: Diagramas de arquitectura, diseño de seguridad, hoja de ruta del proyecto.
 
 ## Fase 3 — Pilotar
 
@@ -49,7 +49,7 @@ Entregables: Piloto operando, lecciones aprendidas documentadas y modelo de ROI 
 2. **Capacitación:** Prepara a mantenimiento e ingeniería para soportar la solución.
 3. **Gestión del cambio:** Establece gobierno para nuevas solicitudes de datos y modificaciones.
 
-Entregables: Playbooks de despliegue, materiales de formación, procesos de soporte.
+Entregables: Guías de despliegue, materiales de formación, procesos de soporte.
 
 ## Fase 5 — Optimizar
 
@@ -57,7 +57,7 @@ Entregables: Playbooks de despliegue, materiales de formación, procesos de sopo
 2. **Integración:** Conecta con ERP/MES/CMMS para circuitos cerrados.
 3. **Mejora continua:** Monitorea KPIs, realiza revisiones trimestrales e itera.
 
-Entregables: Backlog de mejora continua, tableros de KPIs, roadmap de innovación.
+Entregables: Lista de pendientes de mejora continua, tableros de KPIs, hoja de ruta de innovación.
 
 ## Obstáculos comunes y cómo evitarlos
 
@@ -68,6 +68,6 @@ Entregables: Backlog de mejora continua, tableros de KPIs, roadmap de innovació
 
 ## Caso de éxito
 
-Un fabricante de bebidas siguió este playbook para desplegar IIoT en cuatro plantas. En nueve meses redujo 28% los paros no planificados y disminuyó 12% el consumo energético por unidad, al tiempo que los directivos obtenían visibilidad en tiempo real.
+Un fabricante de bebidas siguió esta guía para desplegar IIoT en cuatro plantas. En nueve meses redujo 28% los paros no planificados y disminuyó 12% el consumo energético por unidad, al tiempo que los directivos obtenían visibilidad en tiempo real.
 
 IIoT no es solo un proyecto tecnológico; es una transformación operativa. Con metas claras, ejecución disciplinada y colaboración transversal, construirás programas que perduren.
