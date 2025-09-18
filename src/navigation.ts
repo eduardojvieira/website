@@ -25,19 +25,11 @@ const serviceLinkTexts: Record<Lang, Record<keyof typeof serviceLinkHrefs, strin
     iiotCloud: 'IIoT & Integración en la Nube',
     controlPanel: 'Diseño de Tableros & Control Eléctrico',
   },
-  pt: {
-    plcProgramming: 'Programação de PLC & Controle Industrial',
-    hmiScada: 'Desenvolvimento de HMI & SCADA',
-    webHmi: 'Web HMI & Painéis Remotos',
-    iiotCloud: 'IIoT & Integração em Nuvem',
-    controlPanel: 'Projeto de Painéis & Elétrica',
-  },
 };
 
 const skillTexts: Record<Lang, string[]> = {
   en: ['Industrial Automation', 'Edge & Cloud Integration', 'SCADA & OT Data', 'Bilingual Collaboration'],
   es: ['Automatización Industrial', 'Integración Edge & Nube', 'SCADA & Datos OT', 'Colaboración Bilingüe'],
-  pt: ['Automação Industrial', 'Integração Edge & Nuvem', 'SCADA & Dados OT', 'Colaboração Bilíngue'],
 };
 
 export const headerData = (url?: URL) => {
