@@ -41,12 +41,30 @@ const _image = await findImage(props.src);
 
 let image: ImageType | undefined = undefined;
 
-if (
-  typeof _image === 'string' &&
-  (_image.startsWith('http://') || _image.startsWith('https://')) &&
-  isUnpicCompatible(_image)
-) {
-  image = await getImagesOptimized(_image, props, unpicOptimizer);
+if (typeof _image === 'string') {
+  if (_image.startsWith('http://') || _image.startsWith('https://')) {
+    if (isUnpicCompatible(_image)) {
+      image = await getImagesOptimized(_image, props, unpicOptimizer);
+    } else {
+      const excludedKeys = new Set([
+        'src',
+        'widths',
+        'layout',
+        'aspectRatio',
+        'objectPosition',
+        'format',
+        'background',
+      ]);
+
+      const attributes = Object.fromEntries(
+        Object.entries(props).filter(([key]) => !excludedKeys.has(key) && !key.includes(':'))
+      ) as HTMLAttributes<'img'>;
+
+      image = { src: _image, attributes };
+    }
+  } else if (_image) {
+    image = await getImagesOptimized(_image, props, astroAssetsOptimizer);
+  }
 } else if (_image) {
   image = await getImagesOptimized(_image, props, astroAssetsOptimizer);
 }
