@@ -1,0 +1,305 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Página SaaS de demostración',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData(Astro.url)}
+      actions={[
+        {
+          variant: 'secondary',
+          text: 'Iniciar sesión',
+          href: '#',
+        },
+        {
+          variant: 'primary',
+          text: 'Crear cuenta',
+          href: '#',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Demo web SaaS"
+    actions={[
+      { variant: 'primary', target: '_blank', text: 'Comenzar', href: 'https://github.com/onwidget/astrowind' },
+      { text: 'Saber más', href: '#features' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Imagen de héroe de AstroWind',
+    }}
+  >
+    <Fragment slot="title">
+      Simplifica el diseño web con Astrowind: <br /> tu mejor aliado para <span class="text-accent dark:text-white highlight"
+        >SaaS</span
+      ><br />
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Impulsa la creación de tu sitio con las soluciones <span class="font-semibold">AstroWind</span> para SaaS.</span
+      >
+      Combina sin esfuerzo el poder de Astro 5.0 y Tailwind CSS para crear sitios que conectan con tu marca y tu audiencia.
+    </Fragment>
+  </Hero2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="¿Por qué elegir AstroWind?"
+    subtitle="Cada una de estas características refuerza la propuesta de valor de AstroWind."
+    columns={2}
+    items={[
+      {
+        title: 'Integración de Astro 5.0 y Tailwind CSS',
+        description:
+          'Ofrece una combinación poderosa que mejora tanto el desarrollo como la experiencia de usuario. Permite crear sitios dinámicos y atractivos con un rendimiento optimizado.',
+        icon: 'tabler:layers-union',
+      },
+      {
+        title: 'Diseño versátil para startups, pymes y más',
+        description: `Adapta AstroWind con facilidad para que refleje la identidad única de tu proyecto. Su diseño flexible se ajusta a tus necesidades.`,
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Personalización sencilla para portafolios y marketing',
+        description:
+          'Con una personalización intuitiva, muestra piezas de portafolio, casos de éxito y contenido clave. Ideal para profesionales creativos y empresas que desean destacar su experiencia.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Landing pages optimizadas y blogs atractivos',
+        description: `Las páginas de destino están diseñadas para cautivar visitantes y guiar acciones concretas. Además, el blog facilita compartir conocimientos y mantener a tu audiencia comprometida.`,
+        icon: 'tabler:podium',
+      },
+      {
+        title: 'Código listo para producción y tiempos de carga rápidos',
+        description: `Astro 5.0 garantiza cargas veloces y renderizado fluido. El código sigue buenas prácticas para mejorar la experiencia, el SEO y reducir rebotes.`,
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Estructura SEO optimizada para mayor visibilidad',
+        description: `Cumple con las mejores prácticas de SEO mediante código limpio, HTML semántico y tiempos de carga excelentes. Así, AstroWind asegura que potenciales clientes encuentren tu oferta.`,
+        icon: 'tabler:eyeglass',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Casos de uso"
+    subtitle="Descubre cómo el diseño versátil de AstroWind ofrece soluciones a medida que impulsan el éxito."
+    isReversed
+    items={[
+      {
+        title: 'Descripción:',
+        description:
+          '¿Eres una startup con grandes metas? AstroWind potencia tu presencia. El template crea una experiencia online impecable, atrayendo inversionistas y clientes desde el día uno. Astro 5.0 y Tailwind CSS garantizan sitios impactantes y responsivos que dejan huella.',
+      },
+      {
+        title: 'Beneficios:',
+        description: `Permite construir sitios profesionales sin dedicar grandes recursos. <br /> Causa una primera impresión memorable con un diseño atractivo que refuerza tu propuesta de valor. <br /> Asegura que tu web luzca impecable y funcione en cualquier dispositivo. <br /> Conecta con inversionistas y clientes mediante contenido claro y navegación intuitiva.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1620558138198-cfb9b4f3c294?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1671&q=80',
+      alt: 'Imagen de startup',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Historias de startups: <br /><span class="text-2xl">Lanzamientos con AstroWind</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Descripción:',
+        description: `En negocios SaaS la experiencia de uso lo es todo. AstroWind facilita presentar tus soluciones de forma intuitiva. La integración con Astro 5.0 y Tailwind CSS asegura un sitio tan eficiente como tu software. Personaliza las páginas para comunicar el valor y resolver los retos de tus clientes.`,
+      },
+      {
+        title: 'Beneficios:',
+        description: `Garantiza un diseño coherente y centrado en el usuario. <br /> Comunica funcionalidades complejas con recursos visuales, animaciones y elementos interactivos. <br /> Prioriza necesidades y puntos de dolor con estructuras claras y navegación ordenada. <br /> Motiva a tus visitantes con CTAs estratégicos. <br /> Asegura una experiencia impecable en cualquier dispositivo.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1658&q=80',
+      alt: 'Imagen de negocio SaaS',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="flex flex-col gap-6">
+        <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+          Experiencias SaaS memorables
+        </h3>
+        <p class="text-lg text-muted-foreground">
+          Convierte las demos y el onboarding en recorridos claros, con métricas y testimonios que refuerzan la decisión de compra.
+        </p>
+      </div>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Crea tu sitio SaaS en 5 pasos"
+    subtitle="Desde la planificación hasta el lanzamiento, AstroWind acompaña cada etapa."
+    items={[
+      {
+        title: '1. Define el posicionamiento',
+        description: 'Resume la propuesta de valor y la audiencia. Esto guiará la estructura del sitio y los mensajes clave.',
+      },
+      {
+        title: '2. Personaliza el héroe',
+        description: 'Adapta el titular, subtítulo y CTA para reflejar tu solución y resaltar un beneficio tangible.',
+      },
+      {
+        title: '3. Diseña la demo del producto',
+        description: 'Usa capturas y gráficos interactivos para mostrar cómo tu software resuelve tareas críticas.',
+      },
+      {
+        title: '4. Refuerza con prueba social',
+        description: 'Añade testimonios, logotipos de clientes y métricas reales que respalden la promesa.',
+      },
+      {
+        title: '5. Lanza y optimiza',
+        description: 'Publica, mide la conversión y ajusta textos y secciones con base en datos.',
+      },
+    ]}
+  />
+
+  <!-- Pricing Widget ***************** -->
+
+  <Pricing
+    title="Planes flexibles"
+    subtitle="Estructura planes claros para usuarios, equipos y clientes empresariales."
+    prices={[
+      {
+        title: 'Inicial',
+        price: 19,
+        period: 'al mes',
+        description: 'Ideal para productos en fase beta o MVPs centrados en validación temprana.',
+        items: [
+          { title: 'Hasta 1 000 usuarios activos mensuales' },
+          { title: 'Panel de administración básico' },
+          { title: 'Integración con herramientas de soporte' },
+        ],
+        callToAction: {
+          variant: 'primary',
+          text: 'Probar gratis',
+          href: '#',
+        },
+      },
+      {
+        title: 'Crecimiento',
+        hasRibbon: true,
+        ribbonTitle: 'Más popular',
+        price: 59,
+        period: 'al mes',
+        description: 'Perfecto para equipos que requieren automatización y analítica avanzada.',
+        items: [
+          { title: 'Usuarios ilimitados' },
+          { title: 'Paneles y reportes personalizados' },
+          { title: 'Automatizaciones preconfiguradas' },
+        ],
+        callToAction: {
+          variant: 'primary',
+          text: 'Solicitar demo',
+          href: '#',
+        },
+      },
+      {
+        title: 'Empresarial',
+        price: 'Habla con nosotros',
+        description: 'Para organizaciones que necesitan seguridad avanzada y soporte dedicado.',
+        items: [
+          { title: 'SLA a medida' },
+          { title: 'Integraciones personalizadas' },
+          { title: 'Gestión de cuentas clave' },
+        ],
+        callToAction: {
+          variant: 'secondary',
+          text: 'Contactar ventas',
+          href: '#',
+        },
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************** -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Resuelve las dudas más comunes de tus usuarios antes de que contacten al equipo."
+    items={[
+      {
+        title: '¿Qué necesito para lanzar el sitio?',
+        description:
+          'Solo tu branding y la información de tu producto. AstroWind incluye componentes listos para desplegar en plataformas estáticas o en tu infraestructura preferida.',
+      },
+      {
+        title: '¿Puedo conectar mi CRM o herramienta de soporte?',
+        description:
+          'Sí. Integra formularios con HubSpot, Pipedrive o Zendesk usando endpoints personalizados o servicios de automatización.',
+      },
+      {
+        title: '¿Cómo gestiono varios idiomas?',
+        description:
+          'AstroWind incluye utilidades de internacionalización. Duplica el contenido y controla rutas personalizadas para cada idioma.',
+      },
+      {
+        title: '¿Es compatible con estrategias SEO?',
+        description:
+          'Totalmente. Define metadatos, estructura semántica y blog optimizado para mejorar tu posicionamiento orgánico.',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPosts Widget ********* -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Mantente al día con el blog de AstroWind"
+    information={`Explora nuestra colección de artículos, guías y tutoriales sobre desarrollo web, tendencias de diseño y buenas prácticas para impulsar tu SaaS con AstroWind.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+</Layout>

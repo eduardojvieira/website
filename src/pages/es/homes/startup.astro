@@ -1,0 +1,269 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'Landing page para startups',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Demo web para startups"
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Obtener plantillas',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+      { text: 'Saber más', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Potencia la presencia digital de tu <span class="hidden sm:inline">startup</span> con las plantillas
+      <span class="text-accent dark:text-white highlight">AstroWind</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Da el salto al escaparate digital con las plantillas de <span class="font-semibold">AstroWind</span>. Fortalecen la
+      credibilidad de tu startup y amplían el alcance con mensajes claros y diseño profesional.
+    </Fragment>
+
+    <Fragment slot="image">
+      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
+      <style is:inline>
+        lite-youtube {
+          margin: 0 auto;
+          max-width: 100%;
+        }
+      </style>
+    </Fragment>
+  </Hero>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Quiénes somos"
+    subtitle="Creemos en convertir grandes ideas en experiencias web memorables. Somos desarrolladores apasionados que
+    simplificamos la creación de sitios uniendo la innovación de Astro 5.0 con la flexibilidad de Tailwind CSS. Así tu marca
+    se expresa con identidad propia."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="El impacto de AstroWind"
+    subtitle="Las cifras reflejan la confianza de nuestra comunidad y los resultados que ayudamos a conseguir."
+    stats={[
+      { title: 'Descargas', amount: '182K' },
+      { title: 'Sitios lanzados', amount: '87' },
+      { title: 'Valoración de usuarios', amount: '4.8' },
+      { title: 'Clientes satisfechos', amount: '116K' },
+    ]}
+  />
+
+  <!-- Brands Widget ****************** -->
+
+  <Brands
+    title="Alianzas y colaboraciones"
+    subtitle="La co-creación impulsa la innovación. Estas marcas confían en nuestros componentes y procesos."
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
+        alt: 'Paypal',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
+        alt: 'Visa',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
+        alt: 'Ebay',
+      },
+
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+        alt: 'Youtube',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+        alt: 'Microsoft',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+        alt: 'Node JS',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+        alt: 'Google',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
+        alt: 'Meta',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
+        alt: 'Yahoo',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="¿Qué ofrecemos?"
+    subtitle="Un catálogo de plantillas para negocios, portafolios, e-commerce, blogs y mucho más, listas para lanzar con
+    tu stack preferido."
+    items={[
+      {
+        title: 'Guías de instalación',
+        description:
+          'Incluimos instrucciones claras para descargar las plantillas y desplegarlas en los principales CMS o plataformas estáticas.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Demos y vistas previas',
+        description:
+          'Explora demos interactivas para visualizar cómo se comporta la plantilla antes de invertir tiempo o presupuesto.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Soporte técnico',
+        description:
+          'Nuestro equipo responde dudas de implementación y te guía para personalizar el resultado final.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Cómo impulsamos a las startups"
+    subtitle="Componentes listos para inspirar confianza en clientes e inversionistas."
+    columns={2}
+    items={[
+      {
+        title: 'Historias de clientes',
+        description:
+          'Comparte casos de éxito y validación en medios para reforzar la tracción temprana de tu startup.',
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'Integraciones simples',
+        description:
+          'Conecta formularios y automatizaciones con Zapier, Make o APIs personalizadas sin reescribir todo el sitio.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Secciones de producto limpias',
+        description:
+          'Describe funcionalidades, screenshots y recorridos de onboarding con bloques modulares que se adaptan a tu narrativa.',
+        icon: 'tabler:layout-2',
+      },
+      {
+        title: 'Llamados a la acción efectivos',
+        description:
+          'Componentes listos para captar registros beta, solicitudes de demo o acceso anticipado.',
+        icon: 'tabler:cursor-text',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Motor creativo"
+    subtitle="Desde la idea inicial hasta el pitch final, te acompañamos con recursos visuales y contenido adaptable."
+    items={[
+      {
+        title: 'Narrativa consistente',
+        description:
+          'Mantén una voz coherente entre la landing, el pitch deck y la comunicación con inversionistas.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Experiencias inmersivas',
+        description:
+          'Añade video, animaciones o demos incrustadas para mostrar el producto en acción sin sacrificar rendimiento.',
+        icon: 'tabler:photo-video',
+      },
+      {
+        title: 'Personalización a tu ritmo',
+        description:
+          'Cambia colores, tipografías y layouts con utilidades Tailwind para experimentar rápido y validar diseños.',
+        icon: 'tabler:color-swatch',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget ************ -->
+
+  <CallToAction
+    title="Listo para lanzar"
+    subtitle="Escala tu presencia digital con plantillas optimizadas para conversiones y crecimiento."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Descargar ahora',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+      { variant: 'secondary', text: 'Solicitar asesoría', href: '#contacto' },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************** -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Respuestas rápidas para los equipos que preparan su próximo lanzamiento."
+    items={[
+      {
+        title: '¿Qué incluye la descarga?',
+        description:
+          'Acceso a componentes Astro y Tailwind, archivos de contenido de ejemplo y documentación paso a paso para personalizar.',
+      },
+      {
+        title: '¿Cómo adapto la plantilla a mi branding?',
+        description:
+          'Modifica variables de Tailwind, tipografías y assets en minutos. Puedes crear temas claros u oscuros sin romper el diseño.',
+      },
+      {
+        title: '¿Aceptan contribuciones?',
+        description:
+          'Sí. Abrimos issues en GitHub para mejoras, traducciones adicionales y nuevos componentes.',
+      },
+      {
+        title: '¿Puedo combinarla con un CMS?',
+        description:
+          'AstroWind se integra con CMS headless como Contentful, Sanity o Strapi mediante APIs y colecciones personalizadas.',
+      },
+    ]}
+  />
+</Layout>

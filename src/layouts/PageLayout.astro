@@ -5,7 +5,6 @@ import Footer from '~/components/widgets/Footer.astro';
 import Announcement from '~/components/widgets/Announcement.astro';
 
 import { headerData, footerData } from '~/navigation';
-import { getLangFromUrl } from '~/i18n/utils';
 
 import type { MetaData } from '~/types';
 
@@ -14,11 +13,12 @@ export interface Props {
 }
 
 const { metadata } = Astro.props;
+const footer = footerData(Astro.url);
 ---
 
 <Layout metadata={metadata}>
   <slot name="announcement">
-    <Announcement socialLinks={footerData.socialLinks} />
+    <Announcement socialLinks={footer.socialLinks} />
   </slot>
   <slot name="header">
     <Header {...headerData(Astro.url)} isSticky showRssFeed showToggleTheme />
@@ -27,6 +27,6 @@ const { metadata } = Astro.props;
     <slot />
   </main>
   <slot name="footer">
-    <Footer {...footerData(Astro.url)} />
+    <Footer {...footer} />
   </slot>
 </Layout>

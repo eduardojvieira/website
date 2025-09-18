@@ -1,0 +1,188 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Diseño de Tableros y Ingeniería Eléctrica | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Diseño de tableros y ingeniería eléctrica"
+    subtitle="Paquetes de ingeniería eléctrica completos: desde esquemáticos y selección de componentes hasta documentación lista para UL y soporte de puesta en marcha."
+    tagline="Ingeniería eléctrica"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Servicios"
+    title="Diseños listos para fabricación y cumplimiento"
+    subtitle="Documentación detallada que mantiene alineados a instaladores, inspectores y equipos de mantenimiento."
+    items={[
+      {
+        title: 'Esquemáticos de tableros',
+        description:
+          'Planos en AutoCAD Electrical con numeración de cables clara, asignación de terminales y circuitos de seguridad que cumplen las mejores prácticas UL 508A.',
+        icon: 'tabler:layout-grid',
+      },
+      {
+        title: 'Selección de componentes',
+        description:
+          'Especifico breakers, contactores, fuentes de poder, hardware PLC, variadores y dispositivos de seguridad acordes al entorno y al desempeño requerido.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Layout de tableros y vistas 3D',
+        description:
+          'Desarrollo layouts de gabinetes, cálculos térmicos y vistas 3D para asegurar mantenibilidad y fabricación eficiente.',
+        icon: 'tabler:ruler-measure',
+      },
+      {
+        title: 'Listas de materiales',
+        description: 'BOM completas con códigos de fabricante, alternativas de compra y consideraciones de costo.',
+        icon: 'tabler:clipboard-list',
+      },
+      {
+        title: 'Normas y cumplimiento',
+        description:
+          'Diseños informados por UL 508A, NFPA 79, estándares IEC y especificaciones del cliente para auditorías e inspecciones.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Soporte de puesta en marcha',
+        description:
+          'Actualizaciones as-built, redlines y soporte on-call durante instalación y arranque para mantener el cronograma.',
+        icon: 'tabler:headset',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Flujo de trabajo"
+    title="Ingeniería eléctrica con mirada de manufactura"
+    items={[
+      {
+        title: 'Colaboración de diseño',
+        description:
+          'Coordino con equipos mecánicos, de control y seguridad para capturar requisitos antes de iniciar los planos.',
+      },
+      {
+        title: 'Control documental',
+        description:
+          'Conjuntos de planos versionados, historial de revisiones e índices que simplifican las aprobaciones de stakeholders.',
+      },
+      {
+        title: 'Entrega digital',
+        description:
+          'Proporciono archivos CAD nativos, PDFs y listas de cables exportadas compatibles con talleres de tableros y sistemas ERP.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Esquemáticos de diseño eléctrico',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Proceso de diseño de tableros"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Captura de requerimientos</span>',
+        description:
+          'Reúno listas de cargas, conteo de IO, requisitos de seguridad y restricciones ambientales para definir el alcance.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Dibujo y revisión</span>',
+        description:
+          'Desarrollo esquemáticos y layouts, luego reviso con stakeholders para validar espacio, cableado y selección de componentes.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Documentación final</span>',
+        description: 'Emito paquetes listos para construcción, BOM y etiquetas de tablero para fabricación.',
+        icon: 'tabler:files',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">Soporte a fabricación</span>',
+        description:
+          'Brindo aclaraciones, gestiono cambios en campo y actualizaciones as-built durante la instalación y puesta en marcha.',
+        icon: 'tabler:tools',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Fabricación de tableros de control',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Detalles sobre servicios de diseño eléctrico y tableros."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Puedes diseñar siguiendo nuestros estándares corporativos?',
+        description:
+          'Sí. Adopto tus títulos, convenciones de capas, etiquetas de dispositivos y requisitos documentales para integrarme a tus flujos.',
+      },
+      {
+        title: '¿Brindas soporte para certificación UL?',
+        description:
+          'Genero documentación lista para UL 508A y colaboro con talleres certificados para agilizar aprobaciones.',
+      },
+      {
+        title: '¿Puedes actualizar planos existentes?',
+        description:
+          'Por supuesto. Reverso tableros existentes, actualizo esquemáticos y creo paquetes digitales limpios para mantenimiento futuro.',
+      },
+      {
+        title: '¿Entregas cómputos de materiales?',
+        description:
+          'Sí. Las BOM detalladas incluyen números de parte, cantidades y proveedores recomendados para agilizar compras.',
+      },
+      {
+        title: '¿Coordinas con los esfuerzos de programación PLC?',
+        description:
+          'Como programador PLC, aseguro que el diseño eléctrico se alinee con la lógica de control, asignación de IO y planes de expansión.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Solicita una propuesta de diseño',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Necesitas un tablero listo para fabricar de inmediato?</Fragment>
+
+    <Fragment slot="subtitle">
+      Comparte tus requisitos y te entregaré un paquete eléctrico completo listo para fabricación y puesta en marcha.
+    </Fragment>
+  </CallToAction>
+</Layout>

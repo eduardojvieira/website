@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Demo de landing para generación de leads',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero
+    tagline="Demo de landing de generación de leads"
+    title="Landing efectiva para captar leads: domina los fundamentos"
+    subtitle="Descubre cómo crear una landing que convierta curiosos en prospectos entusiasmados. Abre con un titular contundente que hable directamente a tu audiencia objetivo."
+    actions={[
+      { variant: 'primary', text: 'Llamada a la acción', href: '#', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Saber más', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+      alt: 'Imán atrayendo tornillos. Demo de landing para generación de leads',
+    }}
+  />
+
+  <CallToAction
+    title="Muy pronto"
+    subtitle="Estamos ultimando el contenido de estas páginas demo. ¡Muy pronto estará disponible!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Descargar plantilla',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+</Layout>

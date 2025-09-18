@@ -4,26 +4,93 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 
-const metadata = { title: 'Contacto | Eduardo Vieira - Automatización & IIoT' };
+const metadata = {
+  title: 'Contacto | Eduardo Vieira - Ingeniero de Automatización Industrial e IIoT',
+};
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline="Contacto" title="Construyamos el futuro de tu fábrica" subtitle="PLC, SCADA o estrategia IIoT: listo para ayudarte." />
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Contacto"
+    title="Construyamos el futuro de tu fábrica"
+    subtitle="Ya sea programación PLC, modernización SCADA o una estrategia IIoT para toda la planta, estoy listo para acompañarte desde el concepto hasta la producción."
+  />
 
   <Content
     isReversed
-    tagline="Primeros pasos"
+    tagline="Cómo iniciamos"
     title="Un proceso claro y colaborativo"
-    items={[{ title: '1. Llamada de descubrimiento', description: 'Alcance y métricas de éxito.' }, { title: '2. Propuesta & Arquitectura', description: 'Entregables, hitos y tecnologías.' }, { title: '3. Entrega & Soporte', description: 'Actualizaciones, documentación y soporte.' }]}
-    image={{ src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2070&q=80', alt: 'Consulta de ingeniería' }}
+    items={[
+      {
+        title: '1. Reunión de descubrimiento',
+        description:
+          'Revisamos tus sistemas actuales, puntos de dolor y objetivos para confirmar el alcance y las métricas de éxito.',
+      },
+      {
+        title: '2. Propuesta y arquitectura',
+        description:
+          'Recibes una propuesta detallada con entregables, hitos y tecnologías recomendadas para tu entorno.',
+      },
+      {
+        title: '3. Ejecución y soporte',
+        description:
+          'Desarrollo el trabajo con actualizaciones periódicas, documentación y opciones de soporte continuo.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Consultoría de ingeniería con planos',
+    }}
   />
+
+  <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Cómo contactarme"
-    subtitle="Alineemos prioridades de automatización e IIoT"
-    items={[{ title: 'Email', description: 'me@eduardovieira.dev', icon: 'tabler:mail' }, { title: 'LinkedIn', description: 'Conectar para proyectos.', icon: 'tabler:brand-linkedin', callToAction: { text: 'Conectar', href: 'https://www.linkedin.com/in/eduardojv/', target: '_blank' } }, { title: 'Upwork', description: 'Ver perfil y feedback.', icon: 'tabler:brand-upwork', callToAction: { text: 'Ver Perfil', href: 'https://www.upwork.com/freelancers/eduardojv', target: '_blank' } } ]}
+    title="Formas de contacto"
+    subtitle="Alineemos tus prioridades de automatización e IIoT."
+    items={[
+      {
+        title: 'Email',
+        description: 'me@eduardovieira.dev',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'LinkedIn',
+        description: 'Conecta para conversar sobre proyectos y novedades.',
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          text: 'Conectar',
+          href: 'https://www.linkedin.com/in/eduardojv/',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Upwork',
+        description: 'Revisa mi 100% Job Success y comentarios de clientes.',
+        icon: 'tabler:brand-upwork',
+        callToAction: {
+          text: 'Ver perfil',
+          href: 'https://www.upwork.com/freelancers/eduardojv',
+          target: '_blank',
+        },
+      },
+      {
+        title: 'Idiomas',
+        description: 'Español nativo e inglés fluido para una colaboración sin barreras entre equipos.',
+        icon: 'tabler:language',
+      },
+      {
+        title: 'Zonas horarias',
+        description: 'Con base en Argentina (UTC-3) y disponibilidad para horarios de Norteamérica y Europa.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Tiempo de respuesta',
+        description: 'La mayoría de las consultas se responden en menos de un día hábil.',
+        icon: 'tabler:message-circle',
+      },
+    ]}
   />
 </Layout>
-
-
-

@@ -1,0 +1,400 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Demo de página personal',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="announcement"></Fragment>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Inicio', href: '#' },
+        { text: 'Sobre mí', href: '#about' },
+        { text: 'Currículum', href: '#resume' },
+        { text: 'Portafolio', href: '#portfolio' },
+        { text: 'Blog', href: '#blog' },
+        { text: 'Github', href: 'https://github.com/onwidget' },
+      ]}
+      actions={[
+        {
+          text: 'Contrátame',
+          href: '#',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero
+    id="hero"
+    title="Sarah Johnson"
+    tagline="Demo web personal"
+    actions={[{ variant: 'primary', text: 'Contrátame', href: '/es/contact#form' }]}
+  >
+    <Fragment slot="subtitle">
+      Soy una diseñadora gráfica apasionada por crear historias visuales. <br /> Con cinco años de experiencia y un título de la Escuela de Diseño de la Universidad de Nueva York, doy vida a marcas y conceptos convirtiéndolos en realidades cautivadoras.
+    </Fragment>
+  </Hero>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brand-dribbble',
+        callToAction: {
+          target: '_blank',
+          text: 'Dribbble',
+          href: '#',
+        },
+      },
+      {
+        icon: 'tabler:brand-behance',
+        callToAction: {
+          target: '_blank',
+          text: 'Behance',
+          href: '#',
+        },
+      },
+      {
+        icon: 'tabler:brand-pinterest',
+        callToAction: {
+          target: '_blank',
+          text: 'Pinterest',
+          href: '#',
+        },
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Imagen colorida',
+      loading: 'eager',
+    }}
+  >
+    <Fragment slot="content">
+      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Sobre mí</h2>
+      <p>
+        Bienvenido a mi viaje creativo. Cada proyecto refleja mi compromiso por convertir ideas en experiencias visuales memorables, donde cada píxel es un trazo dentro de un lienzo imaginativo.
+      </p>
+      <br />
+      <p>
+        Encuentro inspiración en el mundo que me rodea: en las páginas de una novela, en los detalles tipográficos y en los colores vibrantes de la naturaleza.
+      </p>
+      <br />
+      <p>Si quieres conocer más de mi trabajo, sígueme en mis redes:</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Experiencia profesional"
+    items={[
+      {
+        title:
+          'Diseñadora Gráfica <br /> <span class="font-normal">ABC Design Studio, Nueva York</span> <br /> <span class="text-sm font-normal">2021 - Presente</span>',
+        description: `Colaboro con clientes para entender objetivos y requerimientos. <br /> Desarrollo soluciones de branding, incluyendo logotipos, paletas de color y guías de marca. <br /> Diseño material de marketing como folletos, pósters y recursos digitales. <br /> Creo interfaces atractivas para sitios web y aplicaciones.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Diseñadora Gráfica Junior <br /> <span class="font-normal">XYZ Creative Agency, Los Ángeles</span> <br /> <span class="text-sm font-normal">2018 - 2021</span>',
+        description: `Apoyé a diseñadores senior en la creación de conceptos y piezas visuales. <br /> Contribuí al desarrollo de identidades de marca y material promocional. <br /> Colaboré con el equipo de marketing para asegurar coherencia entre campañas. <br /> Adquirí experiencia práctica en diversos softwares y herramientas de diseño.`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Educación"
+    items={[
+      {
+        title: `Maestría en Diseño Gráfico <br /> <span class="font-normal">NYU School of Design</span> <br /> <span class="text-sm font-normal">2018 - 2020</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Licenciatura en Diseño Gráfico <br /> <span class="font-normal">NYU School of Design</span> <br /> <span class="text-sm font-normal">2014 - 2018</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Habilidades"
+    subtitle="Descubre las competencias que me permiten materializar la imaginación a través del diseño."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      {
+        title: 'Diseño gráfico',
+        description: 'Capacidad para crear piezas visuales impactantes que comunican mensajes con claridad.',
+      },
+      {
+        title: 'Branding e identidad',
+        description: 'Experta en desarrollar identidades coherentes, incluyendo logotipos y guías de marca.',
+      },
+      {
+        title: 'Diseño centrado en el usuario',
+        description: 'Experiencia en interfaces amigables y optimización de experiencias de usuario.',
+      },
+      {
+        title: 'Adobe Creative Suite',
+        description: 'Dominio de Photoshop, Illustrator e InDesign para crear y editar elementos visuales.',
+      },
+      {
+        title: 'Tipografía',
+        description: 'Habilidad para seleccionar y manipular tipografías que potencian la estética del diseño.',
+      },
+      {
+        title: 'Teoría del color',
+        description: 'Uso del color para evocar emociones y lograr armonía visual.',
+      },
+      {
+        title: 'Diseño impreso y digital',
+        description: 'Conocimiento para producir piezas tanto para materiales impresos como para plataformas digitales.',
+      },
+      {
+        title: 'Atención al detalle',
+        description: 'Cuidado extremo para mantener precisión y calidad en cada proyecto.',
+      },
+      {
+        title: 'Adaptabilidad',
+        description: 'Capacidad de adoptar nuevas tendencias, tecnologías y preferencias de clientes rápidamente.',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="portfolio"
+    title="Elevando narrativas visuales"
+    subtitle="Embárcate en un recorrido creativo que va más allá de los píxeles y da forma a historias cautivadoras."
+    isReversed
+    items={[
+      {
+        title: 'Descripción:',
+        description:
+          'Desarrollé una identidad integral para la startup Tech Innovators. El objetivo: proyectar una imagen moderna y cercana para clientes corporativos y entusiastas tecnológicos.',
+      },
+      {
+        title: 'Rol:',
+        description:
+          'Lideré el proceso completo de branding, desde la conceptualización hasta la ejecución. Creé un logotipo dinámico, definí una paleta vibrante y diseñé papelería, gráficos web y activos para redes sociales.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+      alt: 'Diseño tecnológico',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver proyecto',
+      icon: 'tabler:chevron-right',
+      href: '#',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Proyecto 1: <br /><span class="text-2xl">Identidad para Tech Innovators</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Descripción:',
+        description:
+          'Diseñé un póster llamativo para el festival de arte y música “ArtWave Fusion”, destacando la sinergia entre disciplinas.',
+      },
+      {
+        title: 'Rol:',
+        description: `Traducí el tema creativo del festival en un póster impactante. Utilicé tipografías audaces, colores vibrantes y elementos abstractos que transmiten la fusión entre arte y música.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Póster de arte y música',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver proyecto',
+      icon: 'tabler:chevron-right',
+      href: '#',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Proyecto 2: <br /><span class="text-2xl">Póster para festival de arte y música</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Descripción:',
+        description: `Rediseñé la web de e-commerce de la marca sostenible GreenVogue para alinear su presencia digital con su filosofía ecológica y mejorar la experiencia de compra.`,
+      },
+      {
+        title: 'Rol:',
+        description: `Analicé valores y audiencia de la marca para definir la dirección creativa. Creé una interfaz atractiva con navegación intuitiva, destacando materiales sostenibles e integrando un flujo de compra amigable.`,
+      },
+    ]}
+    image={{
+      src: 'https://plus.unsplash.com/premium_photo-1683288295841-782fa47e4770?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      alt: 'E-commerce de moda sostenible',
+    }}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver proyecto',
+      icon: 'tabler:chevron-right',
+      href: '#',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Proyecto 3: <br /><span class="text-2xl">Rediseño e-commerce para marca de moda</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="Testimonios de clientes"
+    subtitle="Descubre lo que dicen las marcas con las que colaboro."
+    testimonials={[
+      {
+        testimonial: `Transformó nuestro concepto inicial en una pieza visual que alinea a la perfección nuestros objetivos. Su atención al detalle y la capacidad para convertir ideas en historias impactantes superaron nuestras expectativas.`,
+        name: 'Mark Thompson',
+        job: 'Director creativo',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Foto de Mark Thompson',
+        },
+      },
+      {
+        testimonial: `Renovó nuestra identidad con maestría, capturando nuestra esencia en cada elemento. Su dedicación y talento brillan en cada entrega.`,
+        name: 'Emily Martinez',
+        job: 'CEO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
+          alt: 'Foto de Emily Martinez',
+        },
+      },
+      {
+        testimonial: `Tiene una habilidad única para comunicar emociones e historias. El logo que creó para nuestra ONG representa la causa y despierta empatía. Su profesionalismo la convierte en una diseñadora excepcional.`,
+        name: 'Laura Simmons',
+        job: 'Fundadora de ONG',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Foto de Laura Simmons',
+        },
+      },
+      {
+        testimonial: `Confiamos a Sarah la renovación de la interfaz de nuestro sitio y el resultado fue sobresaliente. Su intuición elevó la experiencia de usuario, aumentando significativamente el engagement.`,
+        name: 'Alex Foster',
+        job: 'Director de servicios web',
+        image: {
+          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Foto de Alex Foster',
+        },
+      },
+      {
+        testimonial: `Tomó nuestra visión y la elevó más allá de lo imaginado. Capturó la esencia de nuestra marca y la tradujo en diseño con resultados admirables.`,
+        name: 'Jessica Collins',
+        job: 'Product Manager',
+        image: {
+          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
+          alt: 'Foto de Jessica Collins',
+        },
+      },
+      {
+        testimonial: `Su capacidad para transformar conceptos en visuales cautivadores es extraordinaria. El póster que creó para nuestro festival capturó a la perfección su esencia.`,
+        name: 'Michael Carter',
+        job: 'Coordinador de eventos',
+        image: {
+          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Foto de Michael Carter',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="Creemos algo juntos"
+    subtitle="¿Listo para convertir tu visión en diseños irresistibles?"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contrátame',
+        href: '/es/contact',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Explora mis artículos con ideas y aprendizajes de diseño"
+    information={`Sumérgete en un espacio de inspiración creativa con consejos prácticos e historias que enriquecerán tu proceso creativo.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+</Layout>

@@ -6,62 +6,194 @@ import Hero from '~/components/widgets/Hero.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
-const metadata = { title: 'Servicios Profesionales | Eduardo Vieira' };
+const metadata = {
+  title: 'Servicios profesionales | Eduardo Vieira',
+};
 ---
 
 <Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
   <Hero
     tagline="Servicios"
-    title="De la lógica PLC a insights en la nube"
-    subtitle="Soluciones de automatización e IIoT de punta a punta—controladores, HMIs, edge y nube."
+    title="De la lógica PLC a la inteligencia en la nube"
+    subtitle="Entrego soluciones de automatización industrial e IIoT de punta a punta: programo controladores, construyo HMIs, conecto dispositivos edge e integro pipelines de datos seguros hacia la nube."
     actions={[{ variant: 'primary', text: 'Contáctame', href: '/es/contact' }]}
-    image={{ src: '~/assets/images/industrial-automation.jpg', alt: 'Ingeniería de Automatización Industrial' }}
+    image={{
+      src: '~/assets/images/industrial-automation.jpg',
+      alt: 'Ingeniería de automatización industrial',
+    }}
   />
 
+  <!-- Features2 Widget ************** -->
+
   <Features2
-    title="Cómo puedo ayudar"
-    subtitle="Cinco pilares de servicio para tu proyecto de Industria 4.0."
+    title="Cómo puedo ayudarte"
+    subtitle="Cinco pilares de servicio que cubren todo el ciclo de vida de proyectos de manufactura inteligente."
     columns={2}
-    items=[
-      { title: 'Programación PLC & Control', description: 'Siemens, Allen-Bradley, Mitsubishi, CODESYS, ABB.', icon: 'tabler:device-analytics' },
-      { title: 'HMI & SCADA', description: 'Ignition, ThingsBoard, Node-RED, WinCC, PanelView.', icon: 'tabler:layout-dashboard' },
-      { title: 'Web HMI & Dashboards', description: 'Experiencias responsivas seguras.', icon: 'tabler:devices' },
-      { title: 'IIoT & Nube', description: 'MQTT, Sparkplug B, AWS, Azure, GCP.', icon: 'tabler:cloud-computing' },
-      { title: 'Paneles & Diseño Eléctrico', description: 'Planos, layout y BOM.', icon: 'tabler:tool' },
-    ]
+    items={[
+      {
+        title: 'Programación PLC y control industrial',
+        description:
+          'Diseño, optimizo y soluciono lógica de control confiable para máquinas nuevas o retrofits. Tecnologías: Siemens (TIA Portal), Allen-Bradley (Studio 5000), Mitsubishi (GX Works), CODESYS, ABB. Lenguajes: Ladder, Structured Text, FBD.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Desarrollo de sistemas HMI y SCADA',
+        description:
+          'Pantallas intuitivas para operadores y dashboards ejecutivos con KPIs en vivo. Tecnologías: Ignition, ThingsBoard, FUXA, Node-RED, Siemens WinCC, PanelView, Weintek.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Web HMI y dashboards remotos',
+        description:
+          'Experiencias responsivas basadas en navegador que entregan datos OT de forma segura en cualquier dispositivo. Tecnologías: Ignition Perspective, Node-RED, ThingsBoard, Grafana, MQTT, APIs REST, VPN e identidad segura.',
+        icon: 'tabler:devices',
+      },
+      {
+        title: 'Integración IIoT y cloud',
+        description:
+          'Pipelines de datos seguros y escalables que llevan información OT a plataformas empresariales. Tecnologías: MQTT (HiveMQ, Mosquitto), Sparkplug B, AWS IoT, Azure IoT, Google Cloud, Python, edge computing industrial con Raspberry Pi y PCs.',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'Diseño eléctrico y tableros',
+        description:
+          'Paquetes completos de ingeniería eléctrica con esquemas, selección de componentes, layout y generación de listas de materiales. Tecnologías: AutoCAD, conocimiento UL 508A, normas de seguridad industrial.',
+        icon: 'tabler:tool',
+      },
+    ]}
   />
+
+  <!-- Content Widget **************** -->
 
   <Content
     isReversed
-    items=[
-      { title: 'Auditoría & Requisitos', description: 'Entendemos procesos, cumplimiento y metas.' , icon: 'tabler:clipboard-data' },
-      { title: 'Ingeniería & Implementación', description: 'Lógica PLC, HMI, edge y nube en conjunto.', icon: 'tabler:layout-board' },
-      { title: 'Documentación & Entrega', description: 'Repos, planos, SOPs y capacitación.', icon: 'tabler:clipboard-check' },
-    ]
-    image={{ src: '~/assets/images/automation-benefits.jpg', alt: 'Beneficios de la automatización' }}
+    items={[
+      {
+        title: 'Auditoría y requerimientos',
+        description:
+          'Comenzamos entendiendo tus procesos, requisitos normativos y metas de datos para definir una hoja de ruta clara.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Ingeniería e implementación',
+        description:
+          'Desarrollo lógica PLC, HMIs, gateways edge e integraciones cloud en paralelo, asegurando que cada capa funcione en conjunto.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Documentación y entrega',
+        description:
+          'Entrego repositorios de código estructurados, diagramas eléctricos, SOPs y capacitación para que tu equipo opere con confianza.',
+        icon: 'tabler:clipboard-check',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/automation-benefits.jpg',
+      alt: 'Beneficios de la automatización industrial',
+    }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Un marco probado</h3>
-      <p>Proceso disciplinado: descubrimiento, diseño, comisionamiento, entrenamiento y soporte.</p>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Un marco probado de proyectos</h3>
+      <p>
+        Cada servicio sigue un proceso disciplinado: iniciamos con el descubrimiento, pasamos por el diseño detallado y finalizamos con la puesta en marcha, capacitación y soporte. Recibes un único socio capaz de liderar todo el viaje OT-IT.
+      </p>
     </Fragment>
   </Content>
 
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Visibilidad de producción',
+        description: 'Dashboards y alertas en tiempo real mantienen a operaciones por delante de paradas y desvíos de calidad.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Arquitectura escalable',
+        description:
+          'Diseño soluciones listas para crecer; puedes sumar máquinas, sensores o analítica sin reconstruir la base.',
+        icon: 'tabler:topology-star-3',
+      },
+      {
+        title: 'Ciberseguridad y confiabilidad',
+        description:
+          'Defensa en profundidad, pruebas estructuradas y opciones de soporte remoto protegen tu entorno productivo.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Colaboración bilingüe',
+        description:
+          'Español nativo e inglés fluido para coordinar equipos multinacionales sin fricciones.',
+        icon: 'tabler:world',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/industrial-benefits.jpg',
+      alt: 'Beneficios de proyectos industriales',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Resultados medibles</h3>
+      <p>
+        El objetivo siempre es claro: reducir downtime, mejorar throughput y brindar a los decisores datos confiables. Desde mejoras puntuales hasta despliegues IIoT planta-completa, me enfoco en generar retorno rápido y sostenible.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Testimonials Widget *********** -->
+
   <Testimonials
-    title="Testimonios"
-    subtitle="Resultados reales con fabricantes"
-    testimonials={[{ testimonial: 'De PLC a dashboards en AWS sin interrumpir producción.', name: 'Líder de Ingeniería', job: 'Modernización IIoT' }]}
+    title="Testimonios de clientes"
+    subtitle="Fabricantes que modernizaron su automatización junto a mí"
+    testimonials={[
+      {
+        testimonial: `Eduardo se encargó de todo, desde la programación PLC hasta el despliegue de dashboards. Pasamos de máquinas aisladas a un SCADA unificado en tiempo récord.`,
+        name: 'Senior Controls Engineer',
+        job: 'Proveedor automotriz',
+      },
+      {
+        testimonial: `Nuestros tableros y documentación fueron impecables. El diseño listo para UL ahorró semanas de revisión y el soporte en puesta en marcha fue invaluable.`,
+        name: 'Engineering Manager',
+        job: 'OEM de packaging',
+      },
+      {
+        testimonial: `Conectar nuestra planta a AWS parecía desafiante. Eduardo diseñó la arquitectura MQTT, entrenó al equipo y entregó un pipeline seguro que simplemente funciona.`,
+        name: 'Líder de Transformación Digital',
+        job: 'Fabricante de alimentos y bebidas',
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver mi perfil en Upwork',
+      href: 'https://www.upwork.com/freelancers/~01f21c52fa13e6a195',
+      icon: 'tabler:external-link',
+    }}
   />
 
+  <!-- CallToAction Widget *********** -->
+
   <CallToAction
-    actions=[
-      { variant: 'primary', text: 'Agendar Consulta', href: '/es/contact', icon: 'tabler:mail' },
-      { text: 'Ver Portafolio', href: '/es/portfolio' },
-    ]
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agenda una consulta',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Ver portafolio',
+        href: '/es/portfolio',
+      },
+    ]}
   >
-    <Fragment slot="title">¿Listo para modernizar tu planta?</Fragment>
-    <Fragment slot="subtitle">Reduzcamos tiempos muertos y habilitemos decisiones con datos confiables.</Fragment>
+    <Fragment slot="title">¿Listo para modernizar tu fábrica?</Fragment>
+
+    <Fragment slot="subtitle">
+      Conversemos sobre tu hoja de ruta de automatización y definamos el camino más rápido de la lógica PLC a los insights en la nube.
+    </Fragment>
   </CallToAction>
 </Layout>
-
-
-

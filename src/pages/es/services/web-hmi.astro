@@ -1,0 +1,190 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Web HMI y Dashboards Remotos | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Web HMI y dashboards remotos"
+    subtitle="Visualizaciones responsivas basadas en navegador que entregan datos OT en vivo de forma segura a cualquier dispositivo—potenciando a operadores, gerentes y equipos remotos."
+    tagline="Visualización conectada"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Capacidades"
+    title="Dashboards industriales pensados para cada pantalla"
+    subtitle="Experiencias web modernas y seguras que amplifican el valor de tus inversiones en PLC y SCADA."
+    items={[
+      {
+        title: 'Interfaces responsivas',
+        description:
+          'Diseño HMIs y dashboards que se adaptan a escritorios, tablets y móviles sin sacrificar claridad ni rendimiento.',
+        icon: 'tabler:devices',
+      },
+      {
+        title: 'UX guiada por flujos',
+        description:
+          'Mapeo tareas de operadores y gerencia en navegación intuitiva, KPIs contextuales e interfaces multilingües.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Datos y alarmas en tiempo real',
+        description:
+          'Aprovecho MQTT, WebSockets e historiadores para transmitir valores, eventos y notificaciones a usuarios autorizados.',
+        icon: 'tabler:alarm',
+      },
+      {
+        title: 'Acceso remoto seguro',
+        description:
+          'Implemento VPNs, permisos por rol y cifrado TLS para que la visibilidad remota nunca comprometa la seguridad de producción.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Despliegue en edge y nube',
+        description:
+          'Alojo soluciones en PCs industriales, máquinas virtuales o la nube utilizando Docker, Node-RED, Ignition Perspective o ThingsBoard.',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'Integraciones de sistema',
+        description:
+          'Conecto PLCs, historiadores, MES y plataformas analíticas mediante MQTT, APIs REST, OPC UA y bases de datos SQL.',
+        icon: 'tabler:arrows-right-left',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Entregables"
+    title="Dashboards construidos para quienes toman decisiones"
+    items={[
+      {
+        title: 'Diseño UX y visualización',
+        description:
+          'Facilito workshops, desarrollo personas y prototipos para definir layout de pantallas, prioridades de alarmas y contenido multilingüe.',
+      },
+      {
+        title: 'Ingeniería de pipelines de datos',
+        description:
+          'Normalizo tags, contextualizo modelos y aplico lógica store-and-forward para garantizar desempeño confiable.',
+      },
+      {
+        title: 'Playbooks de despliegue',
+        description:
+          'Entrego builds contenedorizados, documentación y transferencia de conocimiento para que tu equipo opere y evolucione la solución.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Ingeniero revisando dashboards industriales en múltiples pantallas',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Hoja de ruta de un proyecto Web HMI"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Descubrimiento y planificación UX</span>',
+        description:
+          'Entrevisto stakeholders, documento flujos y priorizo KPIs para diseñar experiencias que reflejen tareas reales.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Arquitectura de datos e integraciones</span>',
+        description:
+          'Defino modelos, políticas de seguridad e infraestructura que conectan PLCs, historiadores y sistemas empresariales.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Desarrollo y validación</span>',
+        description:
+          'Construyo dashboards, configuro alarmas y ejecuto simulaciones con datos de producción para asegurar desempeño.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">Despliegue y habilitación</span>',
+        description:
+          'Habilito acceso seguro, capacito usuarios en español e inglés y establezco planes de soporte para mejora continua.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Equipo colaborando en dashboards digitales',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Respuestas a las dudas más comunes sobre HMIs web y dashboards remotos."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Las HMIs web reemplazan a nuestro SCADA actual?',
+        description:
+          'Pueden complementar o extender tu SCADA existente. A menudo superpongo dashboards web sobre sistemas actuales para mejorar la accesibilidad sin tocar la infraestructura de control.',
+      },
+      {
+        title: '¿Qué tecnologías utilizas para dashboards web?',
+        description:
+          'Ignition Perspective, Node-RED, ThingsBoard, Grafana, front-ends React/TypeScript personalizados e integraciones seguras MQTT o REST—seleccionadas según tus requisitos y estándares de IT.',
+      },
+      {
+        title: '¿Cómo se protege el acceso remoto?',
+        description:
+          'Permisos por rol, VPN o gateways Zero Trust, certificados TLS y trazas de auditoría aseguran que solo personal autorizado interactúe con datos críticos.',
+      },
+      {
+        title: '¿Los dashboards funcionan con conectividad intermitente?',
+        description:
+          'Sí. Implemento buffers, lógica store-and-forward y degradaciones controladas para que los operadores mantengan visibilidad incluso cuando la red cae.',
+      },
+      {
+        title: '¿Nuestro equipo podrá mantener la solución?',
+        description:
+          'Por supuesto. Entrego documentación, sesiones de capacitación en inglés y español y paquetes de soporte opcionales.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Diseña una HMI web',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Listo para llevar tu HMI a la web?</Fragment>
+
+    <Fragment slot="subtitle">
+      Construyamos dashboards seguros y responsivos que den a cada stakeholder visibilidad en tiempo real de la producción.
+    </Fragment>
+  </CallToAction>
+</Layout>

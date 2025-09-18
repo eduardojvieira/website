@@ -1,8 +1,10 @@
 ---
 publishDate: 2025-06-18T00:00:00Z
 author: Eduardo Vieira
-title: "Connecting Allen‑Bradley PLCs to the Cloud with pycomm3 and Node‑RED"
-excerpt: "A field-tested architecture for reading, buffering, and visualizing Allen‑Bradley PLC data securely in the cloud."
+lang: es
+slug: es/conectando-plcs-allen-bradley-nube
+title: "Conectando PLC Allen-Bradley a la nube con pycomm3 y Node-RED"
+excerpt: "Arquitectura probada en planta para leer, almacenar y visualizar datos de PLC Allen-Bradley de forma segura en la nube."
 image: '~/assets/images/plc-allen-bradley.jpg'
 category: IIoT
 tags:
@@ -11,36 +13,36 @@ tags:
   - ethernet-ip
   - mqtt
 metadata:
-  canonical: https://eduardovieira.dev/conectando-plcs-allen-bradley-nube
+  canonical: https://eduardovieira.dev/es/conectando-plcs-allen-bradley-nube
 ---
 
-# Connecting Allen‑Bradley PLCs to the Cloud with pycomm3 and Node‑RED
+# Conectando PLC Allen-Bradley a la nube con pycomm3 y Node-RED
 
-Allen‑Bradley controllers still sit at the heart of many brownfield plants I modernize. This article documents the production recipe I use to expose their process data in near real time without compromising control integrity. It combines **pycomm3** for deterministic tag access, **Node‑RED** for orchestration, and MQTT for secure OT/IT handoff.
+Los controladores Allen-Bradley siguen siendo el corazón de muchas plantas brownfield que modernizo. Este artículo resume la receta de producción que utilizo para exponer sus datos de proceso casi en tiempo real sin comprometer la integridad del control. La solución combina **pycomm3** para accesos deterministas a tags, **Node-RED** para la orquestación y MQTT para un traspaso seguro entre OT e IT.
 
-## 1. Project Goals and Constraints
+## 1. Objetivos y restricciones del proyecto
 
-- Maintain ControlLogix and CompactLogix scan times below 20 ms.
-- Keep the solution **vendor-agnostic** so future upgrades can reuse the data pipeline.
-- Offer operators a buffered local dashboard that keeps running if the WAN link drops.
-- Enforce TLS, certificate authentication, and role-based topic permissions before anything leaves the plant network.
+- Mantener los tiempos de escaneo de ControlLogix y CompactLogix por debajo de los 20 ms.
+- Conservar la solución **agnóstica al fabricante** para reutilizar el pipeline de datos en futuras expansiones.
+- Ofrecer a los operadores un dashboard local con buffer que continúe funcionando ante caídas del enlace WAN.
+- Aplicar TLS, autenticación por certificados y permisos por tópico antes de que cualquier dato abandone la red de planta.
 
-## 2. Architecture Overview
+## 2. Arquitectura de referencia
 
 ```mermaid
 flowchart LR
-  PLC[Allen-Bradley PLC] -- EtherNet/IP --> Edge[Industrial PC \n + pycomm3]
-  Edge -- MQTT 8883/TLS --> Broker((Central MQTT Broker))
-  Edge -- OPC-UA --> Historian[(Plant Historian)]
-  Broker --> Apps[Dashboards, Analytics, CMMS]
+  PLC[PLC Allen-Bradley] -- EtherNet/IP --> Edge[PC industrial \n + pycomm3]
+  Edge -- MQTT 8883/TLS --> Broker((Broker MQTT central))
+  Edge -- OPC-UA --> Historian[(Historian de planta)]
+  Broker --> Apps[Dashboards, analítica, CMMS]
 ```
 
-1. **Edge Collector (Python):** Polls named tags at a cadence aligned with machine takt time, applies validation, and publishes JSON payloads.
-2. **Node‑RED Runtime:** Manages buffering, retry logic, and exposes a local dashboard for operations.
-3. **MQTT Broker:** HiveMQ or EMQX with TLS offload and enterprise security policies.
-4. **Downstream Consumers:** Business intelligence dashboards, maintenance alerts, and ERP connectors.
+1. **Colector en el edge (Python):** Consulta tags nominados a una cadencia alineada al takt time de la máquina, aplica validaciones y publica cargas en JSON.
+2. **Runtime Node-RED:** Gestiona buffer, lógica de reintento y expone un dashboard local para operaciones.
+3. **Broker MQTT:** HiveMQ o EMQX con descarga de TLS y políticas de seguridad empresariales.
+4. **Consumidores aguas abajo:** Dashboards de negocio, alertas de mantenimiento y conectores ERP.
 
-## 3. Building the Edge Collector with pycomm3
+## 3. Construyendo el colector edge con pycomm3
 
 ```python
 from datetime import datetime
@@ -74,37 +76,37 @@ with LogixDriver("192.168.10.15/1") as plc:
         time.sleep(1)
 ```
 
-### Recommended Practices
+### Buenas prácticas recomendadas
 
-- **Batch reads** when possible to minimize roundtrips.
-- Use **QoS 1** for stateful process data; reserve QoS 2 for recipes or commands.
-- Segment EtherNet/IP traffic on a dedicated VLAN and rate-limit MQTT publishes to protect the controller.
+- Realiza **lecturas por lotes** siempre que sea posible para reducir viajes a la red.
+- Utiliza **QoS 1** para datos de proceso con estado; reserva QoS 2 para recetas o comandos.
+- Separa el tráfico EtherNet/IP en una VLAN dedicada y limita la tasa de publicación MQTT para proteger el controlador.
 
-## 4. Orchestrating Node‑RED Flows
+## 4. Orquestación de flujos en Node-RED
 
-My typical flow contains four swimlanes:
+Mi flujo típico contiene cuatro carriles:
 
-1. **Inbound Tags:** Receives MQTT messages and writes to InfluxDB for trending.
-2. **Operator UI:** Dashboards with SP/ PV charts, alarm lists, and OEE widgets.
-3. **Command Handling:** Authenticates remote commands, validates ranges, and sends writes back to the PLC through a pycomm3 microservice.
-4. **Health Monitoring:** Heartbeat topics, watchdog timers, and e-mail/Teams notifications when data stops flowing.
+1. **Tags entrantes:** Recibe mensajes MQTT y los escribe en InfluxDB para trending.
+2. **UI de operación:** Dashboards con gráficos SP/PV, listados de alarmas y widgets de OEE.
+3. **Gestión de comandos:** Autentica órdenes remotas, valida rangos y envía escrituras al PLC mediante un microservicio pycomm3.
+4. **Monitoreo de salud:** Tópicos de heartbeat, temporizadores watchdog y alertas por e-mail/Teams cuando cesa el flujo de datos.
 
-Include the `node-red-contrib-cip-ethernet-ip` palette only if you need direct interactions from Node‑RED; otherwise keep traffic consolidated in Python for easier unit testing.
+Incluye el palette `node-red-contrib-cip-ethernet-ip` solo si necesitas interacción directa desde Node-RED; de lo contrario, mantén el tráfico consolidado en Python para facilitar las pruebas unitarias.
 
-## 5. Security and Reliability
+## 5. Seguridad y confiabilidad
 
-- **Certificates:** Issue unique device certificates via your corporate PKI; rotate them automatically with SCEP or Vault.
-- **Offline Buffering:** Implement a local SQLite or InfluxDB cache so the edge node keeps up to one shift of data during WAN outages.
-- **Change Management:** Version-control your tag lists, payload schemas, and flow exports; treat the gateway like production software.
-- **Diagnostics:** Publish metrics (CPU, RAM, packet loss) under a `/sys` topic tree for proactive maintenance.
+- **Certificados:** Emite certificados únicos por dispositivo usando tu PKI corporativa; rota automáticamente con SCEP o Vault.
+- **Buffer fuera de línea:** Implementa una caché local en SQLite o InfluxDB para que el nodo edge conserve hasta un turno de datos durante cortes WAN.
+- **Gestión de cambios:** Versiona listas de tags, esquemas de payload y exportaciones de flujos; trata el gateway como software de producción.
+- **Diagnósticos:** Publica métricas (CPU, RAM, pérdida de paquetes) bajo un árbol de tópicos `/sys` para mantenimiento proactivo.
 
-## 6. Commissioning Checklist
+## 6. Lista de verificación de puesta en marcha
 
-- Validate tag names and data types with the controls engineer.
-- Perform a failover test by unplugging the WAN and ensuring the plant keeps running.
-- Review firewall rules so only MQTT/TLS and OT diagnostic ports are open.
-- Train operators on the new dashboards and escalation paths.
+- Valida nombres y tipos de datos con el ingeniero de control.
+- Ejecuta una prueba de failover desconectando la WAN y comprobando que la planta siga operando.
+- Revisa las reglas de firewall para que solo queden abiertos MQTT/TLS y puertos de diagnóstico OT.
+- Capacita a los operadores en los nuevos dashboards y rutas de escalamiento.
 
-## 7. Lessons Learned
+## 7. Lecciones aprendidas
 
-The most successful rollouts pair incremental deployment (one production cell at a time) with clear ownership between controls, IT, and analytics teams. By respecting scan-time budgets and treating the edge gateway as critical infrastructure, you can unlock cloud insights while keeping Allen‑Bradley PLCs rock-solid on the plant floor.
+Los despliegues más exitosos combinan una implementación incremental (una celda de producción por vez) con una clara asignación de responsabilidades entre control, IT y analítica. Al respetar los presupuestos de scan-time y tratar el gateway edge como infraestructura crítica, desbloquearás insights en la nube mientras mantienes los PLC Allen-Bradley impecables en el piso de planta.

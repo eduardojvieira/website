@@ -1,5 +1,6 @@
 import type { Lang } from './ui';
 import { defaultLang, languages } from './ui';
+import { BLOG_BASE, CATEGORY_BASE, TAG_BASE } from '~/utils/permalinks';
 
 function isLocalizablePath(pathname: string): boolean {
   const localizableRoots = [
@@ -13,6 +14,16 @@ function isLocalizablePath(pathname: string): boolean {
     '/terms',
   ];
 
+  if (BLOG_BASE) {
+    localizableRoots.push(`/${BLOG_BASE}`);
+  }
+  if (CATEGORY_BASE) {
+    localizableRoots.push(`/${CATEGORY_BASE}`);
+  }
+  if (TAG_BASE) {
+    localizableRoots.push(`/${TAG_BASE}`);
+  }
+
   if (pathname === '/') return true;
 
   // Strip any trailing slash for comparison
@@ -21,7 +32,10 @@ function isLocalizablePath(pathname: string): boolean {
     localizableRoots.includes(clean) ||
     clean.startsWith('/services/') ||
     clean.startsWith('/landing/') ||
-    clean.startsWith('/homes/')
+    clean.startsWith('/homes/') ||
+    (BLOG_BASE ? clean.startsWith(`/${BLOG_BASE}/`) : false) ||
+    (CATEGORY_BASE ? clean.startsWith(`/${CATEGORY_BASE}/`) : false) ||
+    (TAG_BASE ? clean.startsWith(`/${TAG_BASE}/`) : false)
   );
 }
 

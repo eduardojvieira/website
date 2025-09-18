@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Demo de landing de producto',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero
+    tagline="Demo de detalles de producto"
+    title="Landing de producto: destaca con precisión y emoción"
+    subtitle="Guía paso a paso para diseñar una landing que muestre cada aspecto de tu producto o servicio."
+    actions={[
+      { variant: 'primary', text: 'Llamada a la acción', href: '#', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Saber más', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2174&q=80',
+      alt: 'Destacando un producto. Demo de landing de detalles',
+    }}
+  />
+
+  <CallToAction
+    title="Muy pronto"
+    subtitle="Estamos trabajando en el contenido completo de estas páginas de demostración. ¡Lo verás muy pronto!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Descargar plantilla',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+</Layout>

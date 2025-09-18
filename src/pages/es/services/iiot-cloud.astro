@@ -1,0 +1,190 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Integración IIoT y Nube | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Integración IIoT y nube"
+    subtitle="Conecta máquinas, sensores e historiadores a la nube con pipelines de datos seguros y escalables basados en MQTT, Sparkplug B y las principales plataformas cloud."
+    tagline="Del edge a la empresa"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Soluciones"
+    title="Pipelines de datos industriales confiables"
+    subtitle="Arquitectura e implementación end-to-end que une OT e IT."
+    items={[
+      {
+        title: 'Expertos en MQTT y Sparkplug B',
+        description:
+          'Diseño estructuras de tópicos, namespaces y modelos de payload que hacen que los datos OT sean contextuales y reutilizables.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Ingeniería de gateways edge',
+        description:
+          'Despliego Raspberry Pi o PCs industriales con Node-RED, Python y servicios contenedorizados para recolección segura.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Integraciones en la nube',
+        description:
+          'Soluciones con AWS IoT Core, Azure IoT Hub y Google Cloud para almacenamiento, analítica, gemelos digitales y alertas.',
+        icon: 'tabler:cloud-up',
+      },
+      {
+        title: 'Puentes de protocolo',
+        description:
+          'Integraciones Modbus, OPC UA, Ethernet/IP y APIs REST que conectan equipos legacy con aplicaciones modernas.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Gobernanza y seguridad de datos',
+        description:
+          'Autenticación, cifrado, gestión de certificados y segmentación de red alineados con buenas prácticas de ciberseguridad OT.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Analítica y visualización',
+        description:
+          'Conecto SCADA, MES, plataformas BI o data lakes para habilitar monitoreo de condición, mantenimiento predictivo y reportes.',
+        icon: 'tabler:device-analytics',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Entregables"
+    title="Un plano para manufactura conectada"
+    items={[
+      {
+        title: 'Estrategia de datos',
+        description:
+          'Identifico señales críticas, frecuencias de muestreo y políticas de retención para que la información sirva a operaciones, mantenimiento y liderazgo.',
+      },
+      {
+        title: 'Aplicaciones edge',
+        description:
+          'Desarrollo servicios livianos que normalizan, almacenan en buffer y aseguran datos OT en el edge antes de transmitirlos.',
+      },
+      {
+        title: 'Workflows en la nube',
+        description:
+          'Creo dashboards, alertas e integraciones que entregan insights accionables a toda la organización.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Pipeline de datos IIoT',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Hoja de ruta de un proyecto IIoT"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Evaluación y casos de uso</span>',
+        description:
+          'Analizo infraestructura, preparación de red y objetivos de negocio para priorizar los casos de uso de mayor valor.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Diseño de arquitectura</span>',
+        description:
+          'Defino topología de edge, red y nube incluyendo controles de seguridad, redundancia y estrategia de escalamiento.',
+        icon: 'tabler:topology-star-3',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Implementación y pruebas</span>',
+        description:
+          'Configuro gateways, desarrollo modelos de datos, despliego servicios cloud y valido el flujo end-to-end con activos piloto.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">Despliegue y optimización</span>',
+        description:
+          'Escalo a líneas y sitios adicionales, entreno equipos internos y itero sobre analítica conforme emergen nuevos insights.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Flujo de trabajo de IoT industrial',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Consultas comunes sobre servicios de integración IIoT y nube."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Puedes trabajar con nuestros sistemas SCADA o MES actuales?',
+        description:
+          'Sí. Integro Ignition, ThingsBoard, Wonderware y otras plataformas para publicar datos en la nube o sincronizarlos con sistemas empresariales.',
+      },
+      {
+        title: '¿Cómo aseguras la conectividad remota?',
+        description:
+          'Implemento túneles VPN, autenticación con certificados y payloads MQTT cifrados junto a segmentación de red para proteger los activos OT.',
+      },
+      {
+        title: '¿Entregas documentación para equipos IT y OT?',
+        description:
+          'Cada proyecto incluye diagramas de arquitectura, diccionarios de datos y runbooks adaptados tanto a técnicos OT como a administradores IT.',
+      },
+      {
+        title: '¿Qué pasa si tenemos conectividad inestable?',
+        description:
+          'El buffer en el edge, la lógica store-and-forward y el monitoreo watchdog aseguran la integridad de datos incluso con redes intermitentes.',
+      },
+      {
+        title: '¿Puedes ayudar con analítica una vez que los datos están en la nube?',
+        description:
+          'Por supuesto. Creo dashboards, configuro alertas y colaboro con tu equipo de datos en mantenimiento predictivo y reportes de KPIs.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Conversemos sobre tu hoja de ruta IIoT',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Listo para conectar tus datos OT con la nube?</Fragment>
+
+    <Fragment slot="subtitle">
+      Diseñemos un pipeline seguro y escalable que entregue visibilidad en tiempo real e inteligencia de negocio.
+    </Fragment>
+  </CallToAction>
+</Layout>

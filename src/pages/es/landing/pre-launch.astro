@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Landing de pre-lanzamiento',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Demo de pre-lanzamiento"
+    title="Landing de pre-lanzamiento: genera expectativa antes del gran anuncio"
+    subtitle="Diseña una página de Próximamente que deje a tu audiencia contando los días para el lanzamiento."
+    actions={[
+      { variant: 'primary', text: 'Llamada a la acción', href: '#', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Saber más', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558803116-c1b4ac867b31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
+      alt: 'Tienda con letrero de Próximamente. Landing de pre-lanzamiento',
+    }}
+  />
+
+  <CallToAction
+    title="Muy pronto"
+    subtitle="Estamos preparando el contenido final de estas páginas demo. ¡Pronto estarán disponibles!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Descargar plantilla',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Demo de landing de suscripción',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Demo de landing de suscripción"
+    title="Landing de suscripción: convierte visitas casuales en miembros fieles"
+    subtitle="Descubre la fórmula para una landing de suscripción que haga que tu audiencia regrese por más."
+    actions={[
+      { variant: 'primary', text: 'Llamada a la acción', href: '#', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Saber más', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1593510987046-1f8fcfc512a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Imagen irónica sobre cancelar una suscripción. Demo de landing de suscripción',
+    }}
+  />
+
+  <CallToAction
+    title="Muy pronto"
+    subtitle="Estamos afinando el contenido de estas páginas demo. ¡Comparte tus expectativas y vuelve pronto!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Descargar plantilla',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+</Layout>

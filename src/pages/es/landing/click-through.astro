@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Demo de landing click-through',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Demo click-through"
+    title="Landing click-through: el puente perfecto hacia la conversión"
+    subtitle="Aprende a diseñar una landing click-through que guíe al visitante sin fricciones hasta tu oferta principal."
+    actions={[
+      { variant: 'primary', text: 'Llamada a la acción', href: '#', icon: 'tabler:square-rounded-arrow-right' },
+      { text: 'Saber más', href: '#' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Imagen hero para landing click-through',
+    }}
+  />
+
+  <CallToAction
+    title="Muy pronto"
+    subtitle="Estamos preparando el contenido completo de estas páginas demo. ¡Mantente atento!"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Descargar plantilla',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+</Layout>
