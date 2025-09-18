@@ -25,9 +25,7 @@ const metadata = {
   title:
     currentLang === 'es'
       ? `Entradas por etiqueta '${tag.title}'${currentPage > 1 ? ` — Página ${currentPage}` : ''}`
-      : currentLang === 'pt'
-        ? `Artigos por tag '${tag.title}'${currentPage > 1 ? ` — Página ${currentPage}` : ''}`
-        : `Posts by tag '${tag.title}'${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+      : `Posts by tag '${tag.title}'${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
     index: blogTagRobots?.index,
     follow: blogTagRobots?.follow,
@@ -37,9 +35,7 @@ const metadata = {
 const heading =
   currentLang === 'es'
     ? `Etiqueta: ${tag.title}`
-    : currentLang === 'pt'
-      ? `Tag: ${tag.title}`
-      : `Tag: ${tag.title}`;
+    : `Tag: ${tag.title}`;
 ---
 
 <Layout metadata={metadata}>

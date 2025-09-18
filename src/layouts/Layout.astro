@@ -44,7 +44,7 @@ const currentLang = getLangFromUrl(Astro.url);
     <script>
       (function () {
         try {
-          const supported = ['es', 'pt'];
+          const supported = ['es'];
           const defaultLang = 'en';
           const path = location.pathname || '/';
           const first = path.split('/')[1];
@@ -57,7 +57,7 @@ const currentLang = getLangFromUrl(Astro.url);
             if (!l) continue;
             const code = l.split('-')[0];
             if (supported.includes(code)) {
-              // Redirect to '/es' or '/pt' (no trailing slash)
+              // Redirect to '/es' (no trailing slash)
               if (code !== defaultLang) {
                 location.replace('/' + code);
               }

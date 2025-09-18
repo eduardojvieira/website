@@ -25,9 +25,7 @@ const metadata = {
   title:
     currentLang === 'es'
       ? `Categoría '${category.title}'${currentPage > 1 ? ` — Página ${currentPage}` : ''}`
-      : currentLang === 'pt'
-        ? `Categoria '${category.title}'${currentPage > 1 ? ` — Página ${currentPage}` : ''}`
-        : `Category '${category.title}'${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+      : `Category '${category.title}'${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
     index: blogCategoryRobots?.index,
     follow: blogCategoryRobots?.follow,
@@ -37,9 +35,7 @@ const metadata = {
 const heading =
   currentLang === 'es'
     ? `Categoría: ${category.title}`
-    : currentLang === 'pt'
-      ? `Categoria: ${category.title}`
-      : `Category: ${category.title}`;
+    : `Category: ${category.title}`;
 ---
 
 <Layout metadata={metadata}>
