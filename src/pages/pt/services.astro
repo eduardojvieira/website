@@ -22,22 +22,22 @@ const metadata = { title: 'Serviços Profissionais | Eduardo Vieira' };
     title="Como posso ajudar"
     subtitle="Cinco pilares de serviço para Indústria 4.0."
     columns={2}
-    items=[
+    items={[
       { title: 'Programação PLC & Controle', description: 'Siemens, Allen-Bradley, Mitsubishi, CODESYS, ABB.', icon: 'tabler:device-analytics' },
       { title: 'HMI & SCADA', description: 'Ignition, ThingsBoard, Node-RED, WinCC, PanelView.', icon: 'tabler:layout-dashboard' },
       { title: 'Web HMI & Dashboards', description: 'Experiências responsivas seguras.', icon: 'tabler:devices' },
       { title: 'IIoT & Nuvem', description: 'MQTT, Sparkplug B, AWS, Azure, GCP.', icon: 'tabler:cloud-computing' },
       { title: 'Painéis & Projeto Elétrico', description: 'Esquemas, layout e BOM.', icon: 'tabler:tool' },
-    ]
+    ]}
   />
 
   <Content
     isReversed
-    items=[
+    items={[
       { title: 'Auditoria & Requisitos', description: 'Processos, compliance e metas.', icon: 'tabler:clipboard-data' },
       { title: 'Engenharia & Implementação', description: 'PLC, HMI, edge e nuvem integrados.', icon: 'tabler:layout-board' },
       { title: 'Documentação & Entrega', description: 'Repos, esquemas, SOPs e treinamento.', icon: 'tabler:clipboard-check' },
-    ]
+    ]}
     image={{ src: '~/assets/images/automation-benefits.jpg', alt: 'Benefícios da automação' }}
   >
     <Fragment slot="content">
@@ -53,10 +53,10 @@ const metadata = { title: 'Serviços Profissionais | Eduardo Vieira' };
   />
 
   <CallToAction
-    actions=[
+    actions={[
       { variant: 'primary', text: 'Agendar Consulta', href: '/pt/contact', icon: 'tabler:mail' },
       { text: 'Ver Portfólio', href: '/pt/portfolio' },
-    ]
+    ]}
   >
     <Fragment slot="title">Pronto para modernizar sua planta?</Fragment>
     <Fragment slot="subtitle">Reduza paradas e habilite decisões com dados confiáveis.</Fragment>
