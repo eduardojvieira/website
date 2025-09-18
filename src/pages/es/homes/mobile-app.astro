@@ -1,0 +1,297 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+
+const appStoreImg = '~/assets/images/app-store.png';
+const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
+
+const googlePlayImg = '~/assets/images/google-play.png';
+const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
+
+const metadata = {
+  title: 'Demo de App Móvil',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="announcement"></Fragment>
+  <Fragment slot="header">
+    <Header
+      position="left"
+      links={[
+        { text: 'Servicios', href: '#' },
+        { text: 'Características', href: '#' },
+        { text: 'Acerca de', href: '#' },
+      ]}
+      actions={[
+        {
+          text: 'Descargar',
+          href: '#download',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Demo web de app móvil"
+    image={{
+      src: 'https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Imagen de hero AstroWind',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white highlight">AstroWind App</span>: <br /> sitios profesionales <span
+        class="hidden xl:inline">en cuestión de minutos</span
+      >
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Desata creatividad ilimitada desde la palma de tu mano: tu puerta de entrada al diseño innovador.
+      </span>
+      Descárgala ahora y eleva tus proyectos como nunca antes.
+    </Fragment>
+
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="link" href={appStoreDownloadLink}>
+        <Image src={appStoreImg} alt="Botón App Store" width={200} />
+      </Button>
+
+      <Button variant="link" href={googlePlayDownloadLink}>
+        <Image src={googlePlayImg} alt="Botón Google Play" width={200} />
+      </Button>
+    </div>
+  </Hero2>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    id="features"
+    title="¿Cómo usar nuestra app?"
+    subtitle="¿Cansado de pasar horas creando documentos desde cero? Nuestra app ofrece una solución innovadora. Con una amplia variedad de plantillas profesionales podrás crear diseños increíbles en minutos. Explora nuestras plantillas y comprueba la diferencia."
+    tagline="Guía paso a paso"
+    columns={2}
+    items={[
+      {
+        title: 'Descarga e instala la app',
+        description: `Comienza descargando nuestra app intuitiva desde la tienda de tu dispositivo o desde nuestro sitio oficial.`,
+        icon: 'tabler:square-number-1',
+      },
+      {
+        title: 'Crea tu cuenta',
+        description:
+          'Regístrate con la información necesaria para acceder a todas las funcionalidades disponibles.',
+        icon: 'tabler:square-number-2',
+      },
+      {
+        title: 'Explora las plantillas',
+        description: 'Recorre nuestra colección categorizada de plantillas para encontrar la ideal.',
+        icon: 'tabler:square-number-3',
+      },
+      {
+        title: 'Previsualiza y elige',
+        description: `Visualiza el potencial de cada plantilla y selecciona la que mejor se adapte a tu proyecto.`,
+        icon: 'tabler:square-number-4',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1521517407911-565264e7d82d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
+      alt: 'Imagen colorida',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Interfaz intuitiva',
+        description:
+          'Una interfaz fácil de navegar que permite encontrar rápidamente las plantillas adecuadas.',
+        icon: 'tabler:wand',
+      },
+      {
+        title: 'Opciones de personalización',
+        description:
+          'Incluye herramientas básicas para modificar textos, colores, imágenes y otros elementos de cada plantilla.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Componentes listos para usar',
+        description:
+          'Mejora tus diseños con gráficos, íconos y layouts prediseñados, ahorrando tiempo y aumentando el impacto visual.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Modo de vista previa',
+        description: 'Previsualiza cada plantilla antes de comprarla para asegurarte de que sea la indicada.',
+        icon: 'tabler:carousel-horizontal',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1576153192621-7a3be10b356e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
+      alt: 'Imagen colorida',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Funciones principales</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Acceso sin conexión',
+        description: 'Permite descargar las plantillas adquiridas para usarlas sin conexión.',
+        icon: 'tabler:wifi-off',
+      },
+      {
+        title: 'Almacenamiento seguro en la nube',
+        description:
+          'Ofrece almacenamiento cloud para tus plantillas compradas, asegurando acceso y respaldo desde cualquier lugar.',
+        icon: 'tabler:file-download',
+      },
+      {
+        title: 'Actualizaciones regulares',
+        description: 'Agregamos nuevas plantillas y funciones continuamente para mantener la app fresca y atractiva.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Lista de favoritos',
+        description: `Crea una lista de deseos con plantillas que te interesen para revisarlas y comprarlas más tarde.`,
+        icon: 'tabler:heart',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Imagen vintage',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Otras funciones</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Estadísticas de la app"
+    stats={[
+      { amount: '20K', icon: 'tabler:download' },
+      { amount: '18.5K', icon: 'tabler:users' },
+      { amount: '4.7', icon: 'tabler:user-star' },
+    ]}
+  />
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="¿Qué opinan nuestros usuarios?"
+    testimonials={[
+      {
+        testimonial: `Explorar y descargar plantillas nunca fue tan sencillo. La interfaz es intuitiva y encontré el diseño perfecto para mi proyecto sin complicaciones. Es una app que empodera a los usuarios.`,
+        name: 'Cary Kennedy',
+        job: 'Directora de cine',
+        image: {
+          src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Foto de Cary Kennedy',
+        },
+      },
+      {
+        testimonial: `El proceso de descarga es fluido y la navegación muy cómoda. Poder previsualizar y probar distintos diseños antes de decidirme me ahorró tiempo y garantizó el aspecto ideal para mi sitio.`,
+        name: 'Josh Wilkinson',
+        job: 'Product Manager',
+        image: {
+          src: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Foto de Josh Wilkinson',
+        },
+      },
+      {
+        testimonial:
+          'En cuestión de minutos descargué y utilicé una plantilla profesional. El proceso guiado y la interfaz amigable me permitieron crear un sitio con apariencia experta.',
+        name: 'Sidney Hansen',
+        job: 'Decoradora',
+        image: {
+          src: 'https://images.unsplash.com/photo-1512361436605-a484bdb34b5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Foto de Sidney Hansen',
+        },
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Leer más testimonios',
+      href: 'https://github.com/onwidget/astrowind',
+      icon: 'tabler:chevron-right',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="¿Aún tienes dudas?"
+    items={[
+      {
+        title: '¿Qué hace esta app?',
+        description:
+          'Ofrece una plataforma para explorar, comprar, descargar y utilizar una amplia variedad de plantillas web para tus proyectos.',
+      },
+      {
+        title: '¿Cómo resuelve mi problema?',
+        description:
+          'Simplifica la búsqueda e implementación de diseños profesionales, ahorrando tiempo y esfuerzo al crear sitios atractivos y funcionales.',
+      },
+      {
+        title: '¿Está disponible para mi dispositivo?',
+        description: `Nuestra app es compatible con múltiples dispositivos y plataformas, ya sea smartphone, tablet o computadora.`,
+      },
+      {
+        title: '¿Qué la diferencia de otras apps?',
+        description:
+          'Su interfaz amigable, la colección extensa de plantillas y la integración fluida del proceso de compra y descarga la vuelven altamente eficiente.',
+      },
+      {
+        title: '¿Tiene algún costo?',
+        description:
+          'La app puede descargarse gratis, pero algunas plantillas premium pueden tener un costo según tus preferencias y necesidades.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="download"
+    title="¡Descarga la app hoy mismo!"
+    subtitle="Accede a plantillas impactantes, simplifica tu proceso creativo y eleva tu presencia digital."
+  >
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="link" href={appStoreDownloadLink}>
+        <Image src={appStoreImg} alt="Botón App Store" width={200} />
+      </Button>
+
+      <Button variant="link" href={googlePlayDownloadLink}>
+        <Image src={googlePlayImg} alt="Botón Google Play" width={200} />
+      </Button>
+    </div>
+  </CallToAction>
+</Layout>

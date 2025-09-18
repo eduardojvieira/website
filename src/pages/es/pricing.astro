@@ -1,0 +1,212 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Planes y precios',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Precios"
+    title="Planes que acompañan cada etapa"
+    subtitle="Elige el paquete que mejor se ajusta a tus metas de automatización e IIoT."
+  />
+
+  <!-- Pricing Widget ******************* -->
+
+  <Prices
+    title="Nuestros planes"
+    subtitle="Paga solo por lo que necesitas"
+    prices={[
+      {
+        title: 'básico',
+        subtitle: 'Ideal para pruebas de concepto y equipos pequeños',
+        price: 29,
+        period: 'por hora',
+        items: [
+          { description: 'Asesoría remota para proyectos puntuales' },
+          { description: 'Revisión de lógica PLC o diagramas eléctricos' },
+          { description: 'Recomendaciones de arquitectura IIoT' },
+          { description: 'Informe con acciones priorizadas' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Solicitar',
+          href: '#',
+        },
+      },
+      {
+        title: 'pro',
+        subtitle: 'La opción preferida para modernizar líneas de producción',
+        price: 69,
+        period: 'por hora',
+        items: [
+          { description: 'Desarrollo de lógica PLC y plantillas HMI' },
+          { description: 'Integración MQTT/Sparkplug y dashboards' },
+          { description: 'Documentación y capacitación remota' },
+          { description: 'Soporte post entrega (30 días)' },
+          { description: 'Actualizaciones en inglés y español' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Solicitar',
+          href: '#',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'popular',
+      },
+      {
+        title: 'enterprise',
+        subtitle: 'Para programas multi-planta y despliegues IIoT escalables',
+        price: 199,
+        period: 'por hora',
+        items: [
+          { description: 'Arquitectura OT/IT completa y gobernanza' },
+          { description: 'Integraciones cloud (AWS, Azure, GCP)' },
+          { description: 'Diseño eléctrico UL 508A y documentación as-built' },
+          { description: 'Soporte extendido y acuerdos SLA personalizados' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Agendar llamada',
+          href: '#',
+        },
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Beneficios incluidos"
+    subtitle="Ventajas de trabajar con mis paquetes de servicios"
+    columns={2}
+    items={[
+      {
+        title: 'Planes escalonados',
+        description: 'Opciones flexibles que se adaptan al alcance de tu proyecto y presupuesto.',
+        icon: 'tabler:stairs',
+      },
+      {
+        title: 'Transparencia total',
+        description: 'Costos claros desde el inicio, sin cargos ocultos ni sorpresas en la facturación.',
+        icon: 'tabler:flip-vertical',
+      },
+      {
+        title: 'Pagos seguros',
+        description: 'Pasarelas protegidas para resguardar tu información financiera.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Acceso inmediato',
+        description: 'Comienzo a trabajar contigo en cuanto se define el alcance y el plan seleccionado.',
+        icon: 'tabler:accessible',
+      },
+      {
+        title: 'Escalamiento sencillo',
+        description: 'Puedes migrar a un plan superior para sumar funcionalidades y soporte adicional.',
+        icon: 'tabler:chevrons-up',
+      },
+      {
+        title: 'Soporte dedicado',
+        description: 'Consultas atendidas por correo, videollamada o chat según el plan contratado.',
+        icon: 'tabler:headset',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Un proceso guiado, de la idea a la entrega"
+    tagline="proceso simplificado"
+    isReversed
+    items={[
+      {
+        title: 'Paso 1: Selección de plan',
+        description: 'Elegimos juntos el plan que mejor se ajusta a tus objetivos y cronograma.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Paso 2: Kick-off y planificación',
+        description: 'Definimos alcance, hitos y accesos para iniciar el trabajo con claridad.',
+        icon: 'tabler:timeline-event',
+      },
+      {
+        title: 'Paso 3: Entrega iterativa',
+        description: 'Avances semanales con demos, documentación y ajustes según feedback.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Paso 4: Cierre y soporte',
+        description: 'Handover completo, capacitación y soporte según lo acordado en el plan.',
+        icon: 'tabler:handshake',
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Resuelve tus dudas antes de elegir un plan"
+    tagline="FAQs"
+    items={[
+      {
+        title: '¿Qué incluye cada plan?',
+        description:
+          'Todos los planes contemplan reuniones de seguimiento, entregables documentados y un repositorio compartido. La diferencia está en el alcance de ingeniería y el nivel de soporte continuo.',
+      },
+      {
+        title: '¿Puedo combinar servicios?',
+        description:
+          'Sí. Podemos iniciar con un plan básico para discovery y luego migrar a Pro o Enterprise para ejecución y soporte extendido.',
+      },
+      {
+        title: '¿Ofreces contratos por proyecto?',
+        description:
+          'Claro. Los planes sirven como referencia; preparo propuestas fijas o por hitos según tu necesidad.',
+      },
+      {
+        title: '¿Cuál es el plazo de entrega típico?',
+        description:
+          'Depende del alcance. Un diagnóstico suele tomar 1-2 semanas; proyectos de implementación van de 4 a 12 semanas.',
+      },
+      {
+        title: '¿Trabajas con clientes internacionales?',
+        description:
+          'Sí. Colaboro con empresas de Norteamérica y Europa, coordinando en inglés o español según el equipo.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Solicitar propuesta',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'Ver portafolio',
+        href: '/es/portfolio',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Listo para impulsar tu iniciativa?</Fragment>
+    <Fragment slot="subtitle">Agendemos una llamada y definamos el plan ideal para tu proyecto de automatización o IIoT.</Fragment>
+  </CallToAction>
+</Layout>

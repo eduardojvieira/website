@@ -4,24 +4,187 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-const metadata = { title: 'Portafolio | Eduardo Vieira' };
+const metadata = {
+  title: 'Portafolio | Eduardo Vieira - Ingeniero de Automatización Industrial e IIoT',
+};
 ---
 
 <Layout metadata={metadata}>
-  <HeroText title="Proyectos Destacados" subtitle="Muestras de automatización e IIoT que conectan PLC, visualización y nube." />
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Proyectos destacados"
+    subtitle="Una muestra de implementaciones de automatización e IIoT que conectan lógica PLC, visualización y analítica en la nube."
+  />
+
+  <!-- Content Widget ******************* -->
 
   <Content
     isReversed
     tagline="Integración IIoT"
-    title="Gateway PLC a Nube para Control de Proceso"
-    items={[{ title: 'Problema', description: 'Visibilidad remota limitada.' }, { title: 'Solución', description: 'MQTT Sparkplug B a AWS.' }, { title: 'Resultado', description: 'Dashboards y alertas 24/7.' }]}
-    image={{ src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80', alt: 'PLC a nube' }}
+    title="Gateway MQTT de PLC a la nube para control de procesos"
+    items={[
+      {
+        title: 'Problema',
+        description:
+          'Un fabricante de procesos necesitaba visibilidad remota sobre una línea crítica controlada por un PLC Mitsubishi, pero el área de IT corporativa no tenía conectividad OT.',
+      },
+      {
+        title: 'Solución',
+        description:
+          'Diseñé e implementé un gateway edge que consultó el PLC vía Modbus, normalizó datos en Python y publicó cargas Sparkplug B estructuradas en AWS IoT mediante MQTT.',
+      },
+      {
+        title: 'Resultado',
+        description:
+          'Operaciones obtuvo dashboards 24/7 y alertas automáticas, reduciendo visitas presenciales y acelerando la respuesta ante desvíos.',
+      },
+      {
+        title: 'Tecnologías utilizadas',
+        description: 'PLC Mitsubishi, MQTT, Sparkplug B, Python, AWS IoT, gateway industrial Linux.',
+      },
+      {
+        title: 'Testimonio',
+        description:
+          '“Excelente trabajo de Eduardo. Su dominio de MQTT, protocolos industriales y edge computing se notó desde el primer día. ¡Altamente recomendado!”',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2070&q=80',
+      alt: 'PLC conectado a infraestructura en la nube',
+    }}
   />
 
-  <CallToAction actions={[{ variant: 'primary', text: 'Hablar del proyecto', href: '/es/contact', icon: 'tabler:mail' }]}>
-    <Fragment slot="title">Llevemos tu idea a producción</Fragment>
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isAfterContent
+    tagline="Sistemas de seguridad"
+    title="Retrofit de PLC de seguridad Mitsubishi para línea de envasado"
+    items={[
+      {
+        title: 'Problema',
+        description:
+          'Un OEM de packaging debía actualizar la seguridad para cumplir nuevas normativas en múltiples zonas sin detener la producción por largos periodos.',
+      },
+      {
+        title: 'Solución',
+        description:
+          'Reingeniería de la arquitectura de seguridad con PLCs de seguridad Mitsubishi, rediseño de circuitos de paro de emergencia y mensajería diagnóstica hacia el controlador principal y la HMI.',
+      },
+      {
+        title: 'Resultado',
+        description:
+          'Se logró la conformidad normativa, se redujeron disparos innecesarios y mantenimiento puede aislar fallas rápidamente gracias a alarmas detalladas.',
+      },
+      {
+        title: 'Tecnologías utilizadas',
+        description: 'PLC de seguridad Mitsubishi, GX Works, relevadores de seguridad, rediseño de tableros, documentación estructurada.',
+      },
+      {
+        title: 'Testimonio',
+        description:
+          '“La atención al detalle y las pruebas rigurosas de Eduardo nos permitieron aprobar la auditoría de seguridad en el primer intento. La documentación fue impecable.”',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581091012184-7ac3a0cfe129?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Tablero de control con PLC de seguridad',
+    }}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Modernización HMI & SCADA"
+    title="Upgrade con Ignition y ThingsBoard para planta multi-línea"
+    items={[
+      {
+        title: 'Problema',
+        description:
+          'Las HMIs legadas ofrecían visibilidad limitada, carecían de acceso remoto y demandaban mucho esfuerzo para actualizarse en tres líneas de producción.',
+      },
+      {
+        title: 'Solución',
+        description:
+          'Reconstruí el stack SCADA en Ignition y ThingsBoard con plantillas reutilizables, soporte multilingüe y dashboards de KPIs para la dirección.',
+      },
+      {
+        title: 'Resultado',
+        description:
+          'Los operadores adoptaron la nueva interfaz con mínima capacitación y la dirección obtuvo una vista consolidada de desempeño y tendencias de paradas.',
+      },
+      {
+        title: 'Tecnologías utilizadas',
+        description: 'Ignition, ThingsBoard, MQTT, PostgreSQL, integración con PLC Allen-Bradley, diseño UI responsivo.',
+      },
+      {
+        title: 'Testimonio',
+        description:
+          '“Coordinando equipos en inglés y español, Eduardo mantuvo a todos alineados y entregó una actualización SCADA sólida. Los nuevos dashboards nos dieron la visibilidad que necesitábamos.”',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Dashboards SCADA modernos en múltiples dispositivos',
+    }}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isAfterContent
+    tagline="Diseño eléctrico"
+    title="Paquete de tableros AutoCAD para sistema batch"
+    items={[
+      {
+        title: 'Problema',
+        description:
+          'Un fabricante de procesos en expansión necesitaba planos listos para fabricación y listas de materiales alineadas a los estándares corporativos.',
+      },
+      {
+        title: 'Solución',
+        description:
+          'Produje esquemas AutoCAD, layouts de tableros y listas de cables cubriendo distribución de potencia, I/O PLC y circuitos de seguridad, junto con BOM listas para compras.',
+      },
+      {
+        title: 'Resultado',
+        description:
+          'El taller fabricó sin retrabajos y mantenimiento cuenta ahora con documentación as-built precisa para futuras mejoras.',
+      },
+      {
+        title: 'Tecnologías utilizadas',
+        description: 'AutoCAD Electrical, lineamientos UL 508A, hardware Allen-Bradley, plantillas de documentación.',
+      },
+      {
+        title: 'Testimonio',
+        description:
+          '“Cada entregable de Eduardo está listo para producción. Los nuevos tableros llegaron con planos impecables, protocolos de prueba y capacitación.”',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Diseño de tablero de control en AutoCAD',
+    }}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Hablemos de tu proyecto',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">Lleva tu próxima idea de automatización a producción</Fragment>
+
+    <Fragment slot="subtitle">
+      Diseñemos juntos cómo pasar del concepto a la ejecución con confianza.
+    </Fragment>
   </CallToAction>
 </Layout>
-
-
-

@@ -1,8 +1,10 @@
 ---
 publishDate: 2025-05-28T00:00:00Z
 author: Eduardo Vieira
-title: "Connecting Siemens PLCs to the Cloud with OPC UA and MQTT"
-excerpt: "Blueprint for exposing Siemens S7 data to analytics platforms while preserving deterministic control performance."
+lang: es
+slug: es/conectando-plcs-siemens-nube
+title: "Conectando PLC Siemens a la nube con OPC UA y MQTT"
+excerpt: "Plano para exponer datos de PLC Siemens S7 a plataformas analíticas sin sacrificar el rendimiento determinista."
 image: '~/assets/images/plc-siemens.jpg'
 category: IIoT
 tags:
@@ -11,95 +13,93 @@ tags:
   - opc-ua
   - mqtt
 metadata:
-  canonical: https://eduardovieira.dev/conectando-plcs-siemens-nube
+  canonical: https://eduardovieira.dev/es/conectando-plcs-siemens-nube
 ---
 
-# Connecting Siemens PLCs to the Cloud with OPC UA and MQTT
+# Conectando PLC Siemens a la nube con OPC UA y MQTT
 
-Siemens S7 controllers are exceptionally capable, yet many plants still treat them as closed boxes. The following workflow shows how I surface their insights using OPC UA, MQTT, and secure edge computing without rewriting existing Step 7 logic.
+Los controladores Siemens S7 son extremadamente capaces, pero muchas plantas aún los tratan como cajas cerradas. El siguiente flujo de trabajo muestra cómo libero su información usando OPC UA, MQTT y edge computing seguro sin reescribir la lógica existente en Step 7.
 
-## 1. When to Use OPC UA vs. Native DB Reads
+## 1. Cuándo usar OPC UA vs. lecturas directas de DB
 
-| Scenario | Recommended Interface |
+| Escenario | Interfaz recomendada |
 | --- | --- |
-| Modern S7-1500 firmware ≥ V2.8 | Native OPC UA server with companion specs |
-| Legacy S7-300/400 | S7comm or RFC1006 via an industrial gateway |
-| High-frequency motion data | Direct DB block reads over PROFINET |
+| Firmware S7-1500 moderno ≥ V2.8 | Servidor OPC UA nativo con companion specs |
+| S7-300/400 legado | S7comm o RFC1006 mediante un gateway industrial |
+| Datos de movimiento de alta frecuencia | Lecturas directas de bloques DB sobre PROFINET |
 
-I prefer OPC UA whenever possible because it exposes metadata (engineering units, ranges) and supports built-in security profiles.
+Prefiero OPC UA siempre que sea posible porque expone metadatos (unidades de ingeniería, rangos) y soporta perfiles de seguridad integrados.
 
-## 2. Reference Architecture
+## 2. Arquitectura de referencia
 
 ```mermaid
 flowchart LR
-  S7[Siemens S7-1500] -- OPC UA --> UAClient[Edge OPC UA Client]
-  UAClient -- MQTT --> Broker((MQTT Broker))
+  S7[Siemens S7-1500] -- OPC UA --> UAClient[Cliente OPC UA en el edge]
+  UAClient -- MQTT --> Broker((Broker MQTT))
   Broker --> Grafana[Grafana / Power BI]
-  Broker --> Alerting[Alert Manager]
-  UAClient --> Files[Local Historian]
+  Broker --> Alerting[Gestor de alertas]
 ```
 
-- **Edge Hardware:** Industrial PC running Ubuntu Core.
-- **Software Stack:** `python-opcua`, Node-RED, InfluxDB, Telegraf.
-- **Security:** Siemens certificates generated in TIA Portal, TLS mutual authentication to the broker, VPN for remote access.
+- **Capa OT:** El PLC S7-1500 publica nodos OPC UA con certificados firmados.
+- **Gateway edge:** Un industrial PC ejecuta un cliente OPC UA, aplica reglas de negocio y publica payloads MQTT.
+- **Nube/TI:** Dashboards, notificaciones y almacenamiento histórico consumen los tópicos.
 
-## 3. Browsing and Subscribing to OPC UA Nodes
+## 3. Duro vs. blando: ajustar el modelo de datos
+
+1. Define un namespace OPC UA claro: agrupa tags por celda/máquina y documenta unidades.
+2. Expone bloques DB críticos como `Structures` para evitar colecciones de bits sin contexto.
+3. Crea mapas de tópicos MQTT alineados a ISA-95 (`planta/linea/celda/variable`).
+
+## 4. Configuración de seguridad
+
+- **Certificados:** Crea certificados X.509 únicos para el PLC y el gateway; importa los trust lists en ambos extremos.
+- **Roles OPC UA:** Limita los permisos de browse/leer/escribir al usuario del gateway.
+- **MQTT:** Forza TLS 1.2+, autenticación mutuamente certificada y ACLs que restrinjan publicación/suscripción.
+
+## 5. Ejemplo de cliente OPC UA en el edge
 
 ```python
-from opcua import Client
-from paho.mqtt.client import Client as MQTT
-import json
+from asyncua import Client
+from paho.mqtt.client import Client as MqttClient
+import asyncio, json, ssl
 
-ua_client = Client("opc.tcp://192.168.2.10:4840")
-ua_client.set_user("ua_reader")
-ua_client.set_password("secret")
-ua_client.load_client_certificate("ua_client.crt")
-ua_client.load_private_key("ua_client.key")
-ua_client.connect()
-
-mqtt = MQTT("siemens-edge")
-mqtt.tls_set("ca.pem", "edge.pem", "edge.key")
-mqtt.connect("broker.plant", 8883)
-
-nodes = {
-    "temperature": ua_client.get_node("ns=4;s=Line01/Oven/Temperature"),
-    "pressure": ua_client.get_node("ns=4;s=Line01/Oven/Pressure"),
-    "state": ua_client.get_node("ns=4;s=Line01/PackML/State")
+NODES = {
+    "temperatura": "ns=4;s=Line1.Oven.Temperature", 
+    "estado": "ns=4;s=Line1.PackML.State",
+    "alarma": "ns=4;s=Line1.Oven.AlarmCode"
 }
 
-handler = ua_client.create_subscription(500, None)
+async def read_and_publish():
+    async with Client("opc.tcp://192.168.1.10:4840") as opc:
+        mqtt = MqttClient(client_id="edge-s7")
+        mqtt.tls_set(certfile="edge.pem", keyfile="edge.key", ca_certs="ca.pem", cert_reqs=ssl.CERT_REQUIRED)
+        mqtt.username_pw_set("edge-s7", "clave")
+        mqtt.connect("broker.planta", 8883)
 
-while True:
-    snapshot = {name: float(node.get_value()) for name, node in nodes.items()}
-    mqtt.publish("plant/line01/siemens", json.dumps(snapshot), qos=1)
+        while True:
+            snapshot = {}
+            for key, node_id in NODES.items():
+                node = opc.get_node(node_id)
+                snapshot[key] = await node.read_value()
+            mqtt.publish("planta/linea1/s7", json.dumps(snapshot), qos=1)
+            await asyncio.sleep(1)
+
+asyncio.run(read_and_publish())
 ```
 
-### Tips from Commissioning
+## 6. Integración con sistemas existentes
 
-- Export the OPC UA address space to CSV during FAT so analytics teams can plan dashboards early.
-- Set sampling intervals slightly higher than PLC cycle time to avoid overwhelming the CPU (e.g., 250 ms for a 120 ms cycle).
-- Use Siemens’ built-in **Rate Limiting** to ensure UA clients cannot exceed defined publish intervals.
+- **SCADA WinCC / Ignition:** Suscribe a los tópicos MQTT o al servidor OPC UA según corresponda para mantener visibilidad en planta.
+- **Historiadores:** Guarda los payloads en InfluxDB, TimescaleDB o PI System según los SLA de retención.
+- **BI y analítica:** Al reutilizar MQTT, puedes conectar Power BI, Grafana o Snowflake sin cargar al PLC.
 
-## 4. Node-RED Flow Highlights
+## 7. Puesta en marcha y monitoreo
 
-1. **MQTT In → Function:** Validates payloads, applies conversions (°C to °F), and tags events with shift information.
-2. **InfluxDB Out:** Stores 30 days of high-resolution data locally for troubleshooting.
-3. **Dashboard:** Provides OT-friendly view with alarm acknowledgements and manual override logs.
-4. **Webhook:** Forwards anomalies to Microsoft Teams with enriched context (operator, machine, recipe).
+1. Ejecuta pruebas FAT con simuladores OPC UA para validar certificados y modelos de datos.
+2. Durante el SAT, mide jitter de publicación y latencia en la red para asegurar que no interfiere con PROFINET.
+3. Configura dashboards que vigilen la salud del gateway (uso de CPU, reconexiones, errores de certificado).
+4. Documenta el flujo de datos y entrena a operaciones en cómo actuar ante alarmas y alertas MQTT.
 
-## 5. Security Hardening
+## 8. Conclusiones
 
-- **Certificates:** Use separate certificates for engineering and production clients. Revoke them instantly when contractors finish.
-- **User Management:** Map OPC UA roles to service accounts; disable anonymous access.
-- **Network:** Place the S7 PLC on an OT VLAN and expose only the edge gateway to the IT network through a stateful firewall.
-- **Audit:** Log MQTT publishes with correlation IDs to trace changes back to their source.
-
-## 6. Operational Results
-
-Once deployed, the plant team gained:
-
-- Live OEE dashboards and downtime Pareto charts updated every minute.
-- Condition monitoring rules that email maintenance when a temperature trend deviates from historical baselines.
-- The ability to replay OPC UA data in simulation mode for training new operators.
-
-By modernizing the data interface while respecting Siemens best practices, you can unlock advanced analytics without touching the control code that keeps your factory running.
+La combinación OPC UA + MQTT me permite liberar la información de los PLC Siemens sin tocar la lógica Step 7 que ya funciona. Al reforzar la seguridad, modelar los datos con intención y monitorear continuamente el gateway, obtienes visibilidad en tiempo real mientras mantienes el control determinista intacto.

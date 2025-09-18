@@ -8,6 +8,7 @@ import Pagination from '~/components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { defaultLang, type Lang } from '~/i18n/ui';
 
 export const prerender = true;
 
@@ -17,14 +18,18 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { page } = Astro.props as Props;
+const { page, lang: providedLang } = Astro.props as Props & { lang?: Lang };
+const currentLang: Lang = (providedLang ?? defaultLang) as Lang;
 const currentPage = page.currentPage ?? 1;
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
 
 const metadata = {
-  title: `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  title:
+    currentLang === 'es'
+      ? `Blog${currentPage > 1 ? ` — Página ${currentPage}` : ''}`
+      : `Blog${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
   robots: {
     index: blogListRobots?.index && currentPage === 1,
     follow: blogListRobots?.follow,
@@ -33,15 +38,31 @@ const metadata = {
     type: 'blog',
   },
 };
+
+const copy = {
+  en: {
+    heading: 'Engineering Insights',
+    subtitle:
+      'Expert insights, tutorials, and industry updates on industrial automation, embedded systems, and mechanical engineering',
+  },
+  es: {
+    heading: 'Ideas de Ingeniería',
+    subtitle:
+      'Ideas, tutoriales y novedades sobre automatización industrial, sistemas embebidos e ingeniería mecánica',
+  },
+  pt: {
+    heading: 'Insights de Engenharia',
+    subtitle:
+      'Conteúdos, tutoriais e novidades sobre automação industrial, sistemas embarcados e engenharia mecânica',
+  },
+} as const;
+
+const strings = copy[currentLang] ?? copy[defaultLang];
 ---
 
 <Layout metadata={metadata}>
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline
-      subtitle="Expert insights, tutorials, and industry updates on industrial automation, embedded systems, and mechanical engineering"
-    >
-      Engineering Insights
-    </Headline>
+    <Headline subtitle={strings.subtitle}>{strings.heading}</Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--

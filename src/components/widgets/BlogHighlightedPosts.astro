@@ -7,6 +7,8 @@ import { getBlogPermalink } from '~/utils/permalinks';
 import { findPostsByIds } from '~/utils/blog';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Widget } from '~/types';
+import { getLangFromUrl, translatePath } from '~/i18n/utils';
+import { defaultLang, type Lang } from '~/i18n/ui';
 
 export interface Props extends Widget {
   title?: string;
@@ -29,7 +31,11 @@ const {
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
-const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
+const url = Astro.url;
+const currentLang: Lang = url ? (getLangFromUrl(url) as Lang) : defaultLang;
+const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds, currentLang) : [];
+const resolvedLinkUrl =
+  typeof linkUrl === 'string' ? translatePath(linkUrl, currentLang) : (linkUrl as string | URL | undefined);
 ---
 
 {
@@ -42,10 +48,10 @@ const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
               class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2"
               set:html={title}
             />
-            {APP_BLOG.list.isEnabled && linkText && linkUrl && (
+            {APP_BLOG.list.isEnabled && linkText && resolvedLinkUrl && (
               <a
                 class="text-muted dark:text-slate-400 hover:text-primary transition ease-in duration-200 block mb-6 lg:mb-0"
-                href={linkUrl}
+                href={resolvedLinkUrl}
               >
                 {linkText} »
               </a>

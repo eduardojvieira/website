@@ -1,5 +1,7 @@
 ---
 import { getPermalink } from '~/utils/permalinks';
+import { translatePath } from '~/i18n/utils';
+import { defaultLang, type Lang } from '~/i18n/ui';
 
 import { APP_BLOG } from 'astrowind:config';
 import type { Post } from '~/types';
@@ -9,9 +11,11 @@ export interface Props {
   class?: string;
   title?: string | undefined;
   isCategory?: boolean;
+  lang?: Lang;
 }
 
-const { tags, class: className = 'text-sm', title = undefined, isCategory = false } = Astro.props;
+const { tags, class: className = 'text-sm', title = undefined, isCategory = false, lang: providedLang } = Astro.props;
+const currentLang: Lang = (providedLang ?? defaultLang) as Lang;
 ---
 
 {
@@ -29,7 +33,7 @@ const { tags, class: className = 'text-sm', title = undefined, isCategory = fals
               tag.title
             ) : (
               <a
-                href={getPermalink(tag.slug, isCategory ? 'category' : 'tag')}
+                href={translatePath(getPermalink(tag.slug, isCategory ? 'category' : 'tag'), currentLang)}
                 class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200"
               >
                 {tag.title}

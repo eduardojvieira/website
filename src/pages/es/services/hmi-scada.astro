@@ -1,0 +1,187 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Desarrollo de sistemas HMI y SCADA | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Desarrollo de sistemas HMI y SCADA"
+    subtitle="Diseño interfaces amigables para operadores y dashboards ejecutivos que convierten datos en vivo en decisiones accionables para toda tu organización."
+    tagline="Visualización y control"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Capacidades"
+    title="Visualización que impulsa mejores decisiones"
+    subtitle="HMIs y sistemas SCADA unificados, intuitivos, seguros y conectados a toda tu pila de automatización."
+    items={[
+      {
+        title: 'Diseño centrado en el operador',
+        description:
+          'Layouts responsivos, navegación clara y vistas por rol que reducen el tiempo de capacitación y minimizan errores.',
+        icon: 'tabler:layout-dashboard',
+      },
+      {
+        title: 'Dashboards ejecutivos',
+        description:
+          'KPIs para dirección, seguimiento de OEE y analítica con drill-down para producción, mantenimiento y calidad.',
+        icon: 'tabler:chart-dots-2',
+      },
+      {
+        title: 'Plataformas SCADA',
+        description:
+          'Ignition, ThingsBoard, FUXA, Node-RED, Siemens WinCC, Allen-Bradley PanelView y Weintek EasyBuilder Pro.',
+        icon: 'tabler:device-desktop-analytics',
+      },
+      {
+        title: 'Estrategias de alarmas y eventos',
+        description:
+          'Priorización configurable, flujos de escalamiento e integración con historiadores para mantener equipos proactivos.',
+        icon: 'tabler:alarm',
+      },
+      {
+        title: 'Acceso remoto seguro',
+        description:
+          'Autenticación por roles, VPNs y comunicaciones cifradas que resguardan los datos sin perder visibilidad.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'Integración IIoT',
+        description:
+          'Soporte nativo para MQTT, Sparkplug B, APIs REST y bases de datos para conectar datos OT con MES, ERP y analítica en la nube.',
+        icon: 'tabler:arrows-right-left',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Enfoque"
+    title="Interfaces pensadas para planta y dirección"
+    items={[
+      {
+        title: 'Investigación de usuarios y prototipos',
+        description: 'Workshops y wireframes aseguran que la interfaz refleje flujos reales y perfiles de usuario.',
+      },
+      {
+        title: 'Modelado y contextualización de datos',
+        description: 'Estructuro modelos, tags y convenciones de nombres para que la información tenga sentido en todos los sistemas.',
+      },
+      {
+        title: 'Despliegue y capacitación',
+        description:
+          'Implemento HMIs, servidores SCADA y acceso móvil con documentación completa y material de entrenamiento.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Diseño de dashboard SCADA',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Ciclo de vida de un proyecto SCADA"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Descubrimiento de flujos</span>',
+        description:
+          'Identifico procesos críticos, prioridades de alarmas y necesidades de reporte para definir pantallas y navegación.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Diseño y arquitectura</span>',
+        description:
+          'Creo maquetas UI, estructuras de tags, roles de seguridad y diagramas de infraestructura adaptados a tu entorno.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Desarrollo y pruebas</span>',
+        description:
+          'Construyo pantallas, configuro alarmas, conecto fuentes de datos y pruebo con datos reales y simulados.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">Despliegue y optimización</span>',
+        description: 'Pongo el sistema en marcha, capacito usuarios y ajusto dashboards conforme surgen nuevos requisitos.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c64?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Proceso de implementación SCADA',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Información clave sobre proyectos HMI y SCADA."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Puedes migrar nuestra HMI heredada?',
+        description:
+          'Sí. Migro desde sistemas legacy a Ignition, ThingsBoard o PanelView modernos manteniendo la funcionalidad y mejorando la usabilidad.',
+      },
+      {
+        title: '¿Soportas despliegues multi-planta?',
+        description:
+          'Diseño arquitecturas que soportan múltiples sitios con monitoreo centralizado, plantillas estandarizadas y controles locales.',
+      },
+      {
+        title: '¿Cómo manejas la racionalización de alarmas?',
+        description:
+          'Trabajamos juntos para categorizar alarmas, fijar prioridades y construir rutas de escalamiento alineadas a ISA-18.2.',
+      },
+      {
+        title: '¿Los dashboards se integran con MES o BI?',
+        description:
+          'Sí. Expongo datos vía MQTT, APIs REST, SQL o data lakes para que tus equipos de analítica construyan reportes avanzados.',
+      },
+      {
+        title: '¿Brindas soporte continuo?',
+        description:
+          'Permanezco disponible para mejoras, nuevas pantallas y refrescos de capacitación a medida que la operación evoluciona.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Planifica tu proyecto SCADA',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Necesitas visibilidad clara en tu planta?</Fragment>
+
+    <Fragment slot="subtitle">
+      Diseñemos HMIs y dashboards que empoderen a operadores y ejecutivos con la información que necesitan en tiempo real.
+    </Fragment>
+  </CallToAction>
+</Layout>

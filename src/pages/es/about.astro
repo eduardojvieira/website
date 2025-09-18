@@ -12,67 +12,309 @@ const metadata = { title: 'Sobre mí | Eduardo Vieira' };
 ---
 
 <Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
   <Hero
     tagline="Sobre mí"
-    image={{ src: '~/assets/images/industrial.jpg', alt: 'Ingeniero de Automatización Industrial' }}
+    image={{ src: '~/assets/images/industrial.jpg', alt: 'Ingeniero de Automatización Industrial con tablero de control' }}
   >
     <Fragment slot="title">
       Eduardo Vieira <br />
-      <span class="text-accent dark:text-white highlight">Ingeniero de Automatización & IIoT</span>
+      <span class="text-accent dark:text-white highlight">Ingeniero de Automatización Industrial e IIoT</span>
     </Fragment>
+
     <Fragment slot="subtitle">
-      Ingeniero Mecánico de formación y de Automatización por pasión. Más de siete años conectando equipos de planta con sistemas empresariales.
+      Ingeniero Mecánico de formación e Ingeniero de Automatización por pasión. Desde hace más de siete años conecto equipos de
+      planta con sistemas empresariales, transformando señales crudas en inteligencia confiable para la toma de decisiones.
     </Fragment>
   </Hero>
 
-  <Stats title="Resumen Profesional" stats={[{ title: 'Años integrando OT & IT', amount: '7+' }, { title: 'Upwork Job Success', amount: '100%' }, { title: 'Líneas mejoradas', amount: '30+' }]} />
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Resumen profesional"
+    stats={[
+      { title: 'Años integrando OT & IT', amount: '7+' },
+      { title: 'Job Success en Upwork', amount: '100%' },
+      { title: 'Líneas de producción optimizadas', amount: '30+' },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
 
   <Content
     isReversed
     tagline="Trayectoria"
     title="De sistemas mecánicos a fábricas conectadas"
-    items=[
-      { title: 'Bases mecánicas', description: 'Diseño y programación de maquinaria a medida.' },
-      { title: 'Automatización', description: 'PLC, SCADA y optimización de control.' },
-      { title: 'Especialización IIoT', description: 'Pipelines seguros a la nube para visibilidad en tiempo real.' },
-    ]
-    image={{ src: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2070&q=80', alt: 'Ingeniero' }}
+    items={[
+      {
+        title: 'Bases mecánicas sólidas',
+        description:
+          'Comencé diseñando y programando maquinaria a medida, entendiendo procesos físicos, seguridad y necesidades de los operadores.',
+      },
+      {
+        title: 'Recorrido en automatización industrial',
+        description:
+          'Expandí mi trabajo a programación PLC, desarrollo SCADA y optimización de estrategias de control para industrias discretas y de procesos.',
+      },
+      {
+        title: 'Especialización en IIoT',
+        description:
+          'Hoy diseño pipelines de datos seguros que llevan la información OT a la nube para visibilidad en tiempo real y analítica.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Ingeniero revisando equipamiento de automatización industrial',
+    }}
   >
     <Fragment slot="content">
-      <p>Construyo el flujo de datos completo desde el PLC hasta la nube, con documentación y entrenamiento.</p>
+      <p>
+        Mi carrera comenzó en el piso de planta diseñando sistemas mecánicos y desarrollando lógica PLC para maquinaria a medida.
+        Esa experiencia me enseñó de primera mano cómo operan los equipos de producción, dónde aparecen las paradas y qué se
+        necesita para entregar soluciones de control confiables.
+      </p>
+      <br />
+      <p>
+        A medida que la Industria 4.0 se aceleró, enfoqué mi trabajo en el Internet Industrial de las Cosas. Construyo la cadena
+        completa de datos: controladores, dispositivos edge, brokers MQTT y plataformas cloud para que las organizaciones
+        monitoreen operaciones, reduzcan tiempos muertos y tomen decisiones informadas.
+      </p>
+      <br />
+      <p>
+        Me desempeño cómodamente en entornos multi-plataforma. Siemens, Allen-Bradley, Mitsubishi, ABB o CODESYS: selecciono la
+        herramienta adecuada, documento cada paso y entrego sistemas que tu equipo puede mantener sin sobresaltos.
+      </p>
     </Fragment>
   </Content>
 
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    tagline="Colaboración"
+    title="Un socio confiable para equipos globales"
+    items={[
+      {
+        title: '100% Job Success',
+        description:
+          'Historial probado con clientes internacionales que confían en mí para proyectos críticos y soporte continuo.',
+      },
+      {
+        title: 'Comunicación bilingüe',
+        description:
+          'Español nativo e inglés fluido para alinear a equipos de ingeniería, operaciones y liderazgo en toda América.',
+      },
+      {
+        title: 'Entrega remota primero',
+        description:
+          'Experiencia trabajando en múltiples husos horarios con documentación clara, actualizaciones proactivas y accesos remotos seguros.',
+      },
+    ]}
+    image={{ src: '~/assets/images/plc.jpg', alt: 'Equipo de automatización colaborando' }}
+  >
+    <Fragment slot="content">
+      <p>
+        Mis clientes valoran a un socio capaz de mantener la visión general sin perder detalle. Coordino stakeholders mecánicos,
+        eléctricos e IT, traduciendo requerimientos en una hoja de ruta cohesionada y comunicando avances en cada hito.
+      </p>
+      <br />
+      <p>
+        Cada proyecto concluye con documentación estructurada, capacitación para operadores y opciones de soporte adaptadas a tus
+        capacidades internas, garantizando que la solución siga entregando valor después de la puesta en marcha.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Features3 Widget ************** -->
+
   <Features3
     title="Identidad"
-    subtitle="Lo que define mi enfoque"
+    subtitle="Los principios que guían mi enfoque de automatización e IIoT"
     columns={3}
-    isBeforeContent={true}
-    items=[
-      { title: 'Puente OT & IT', description: 'Traduzco entre control, IT y liderazgo.', icon: 'tabler:arrows-left-right' },
-      { title: 'Propiedad de extremo a extremo', description: 'Desde lógica PLC hasta dashboards en la nube.', icon: 'tabler:building-factory-2' },
-      { title: 'Datos accionables', description: 'KPIs y decisiones informadas.', icon: 'tabler:chart-dots-2' },
-    ]
+    isBeforeContent
+    items={[
+      {
+        title: 'Puente entre OT e IT',
+        description:
+          'Traduzco entre ingenieros de control, equipos IT y liderazgo para alinear objetivos, riesgos y métricas de éxito.',
+        icon: 'tabler:arrows-left-right',
+      },
+      {
+        title: 'Propiedad end-to-end',
+        description:
+          'Desde lógica PLC y validación de seguridad hasta gateways edge y dashboards en la nube, cubro todo el ciclo de vida.',
+        icon: 'tabler:building-factory-2',
+      },
+      {
+        title: 'Manufactura basada en datos',
+        description:
+          'Diseño soluciones que convierten datos de máquina en inteligencia accionable para mejorar rendimiento, calidad y disponibilidad.',
+        icon: 'tabler:chart-dots-2',
+      },
+    ]}
   />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    columns={3}
+    isAfterContent
+    title="Plataformas tecnológicas"
+    subtitle="La experiencia multi-vendor me permite entregar la mejor solución para cada entorno"
+    items={[
+      {
+        title: 'Ecosistemas PLC',
+        description:
+          'Siemens TIA Portal, Allen-Bradley Studio 5000, Mitsubishi GX Works, ABB y CODESYS con Ladder, Structured Text y FBD.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'SCADA y visualización',
+        description:
+          'Ignition, ThingsBoard, FUXA, Node-RED, Siemens WinCC, PanelView y Weintek para operadores y ejecutivos.',
+        icon: 'tabler:device-desktop-analytics',
+      },
+      {
+        title: 'IIoT y cloud',
+        description:
+          'MQTT, Sparkplug B, AWS IoT, Azure IoT, Google Cloud, PCs industriales y Python para analítica e integraciones.',
+        icon: 'tabler:cloud-computing',
+      },
+      {
+        title: 'Edge y networking',
+        description:
+          'PCs industriales, Raspberry Pi, VPN seguras, Modbus, OPC UA y Ethernet/IP diseñados para máxima disponibilidad.',
+        icon: 'tabler:topology-star-3',
+      },
+      {
+        title: 'Diseño eléctrico y tableros',
+        description:
+          'AutoCAD Electrical, UL 508A, selección de componentes, esquemas y listas de materiales listas para fabricación.',
+        icon: 'tabler:tool',
+      },
+      {
+        title: 'Software y scripting',
+        description:
+          'Automatizaciones en Python, orquestación con Node-RED y documentación estructurada para mantener equipos alineados.',
+        icon: 'tabler:code',
+      },
+    ]}
+    image={{ src: '~/assets/images/plc.jpg', alt: 'Equipamiento PLC y automatización' }}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Principios rectores"
+    subtitle="Valores que aseguran impacto sostenible en cada proyecto"
+    items={[
+      {
+        title: 'Claridad y comunicación',
+        description:
+          'Planificación transparente, checkpoints semanales y documentación visual mantienen alineados a equipos distribuidos.',
+      },
+      {
+        title: 'Confiabilidad ante todo',
+        description:
+          'Los sistemas se construyen con componentes industriales, programación defensiva y mejores prácticas de ciberseguridad.',
+      },
+      {
+        title: 'Mejora continua',
+        description:
+          'Busco oportunidades para mejorar rendimiento, ampliar funcionalidades y preparar tus operaciones para el futuro.',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Logros recientes"
+    subtitle="Cómo ayudo a los fabricantes a modernizarse y escalar"
+    isReversed
+    callToAction={{
+      text: 'Ver portafolio',
+      href: '/es/portfolio',
+    }}
+    items={[
+      {
+        title: 'Gateway MQTT de PLC a la nube',
+        description:
+          'Diseñé un gateway edge que publica datos de proceso desde PLC Mitsubishi hacia AWS IoT, habilitando visibilidad y alertas remotas.',
+        icon: 'tabler:cloud-upload',
+      },
+      {
+        title: 'Actualización de seguridad para línea de empaque',
+        description:
+          'Implementé lógica de PLC de seguridad Mitsubishi, circuitos de paro de emergencia y diagnósticos para cumplir normativas multi-zona.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Modernización SCADA',
+        description:
+          'Reemplacé pantallas HMI legadas por interfaces en Ignition y ThingsBoard, brindando control intuitivo y KPIs accionables.',
+        icon: 'tabler:layout-dashboard',
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Tecnologías"
-    tagline="Skills"
+    title="Capacidades en un vistazo"
+    tagline="Habilidades"
     columns={4}
-    items=[
-      { title: 'Automatización Industrial', description: 'PLC, motion y seguridad.' },
-      { title: 'SCADA & HMIs', description: 'Interfaces intuitivas y alarmas.' },
-      { title: 'IIoT & Datos', description: 'MQTT, Sparkplug B, AWS/Azure/GCP.' },
-      { title: 'Diseño Eléctrico', description: 'Planos, layout y BOM.' },
-    ]
+    items={[
+      {
+        title: 'Automatización industrial',
+        description: 'Programación PLC, control de movimiento e instrumentación de seguridad para procesos y discretos.',
+      },
+      {
+        title: 'SCADA y HMIs',
+        description: 'Interfaces orientadas al operador, dashboards contextuales y estrategias de alarmas efectivas.',
+      },
+      {
+        title: 'IIoT e integración de datos',
+        description: 'MQTT, Sparkplug B y servicios cloud que llevan datos OT a analítica empresarial y sistemas MES.',
+      },
+      {
+        title: 'Diseño eléctrico',
+        description: 'Esquemas de tableros, layout y listas de materiales conforme a estándares industriales.',
+      },
+    ]}
   />
+
+  <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Testimonios"
-    subtitle="Opiniones de equipos de manufactura"
-    testimonials={[{ testimonial: 'Excelente trabajo de IIoT y MQTT.', name: 'Cliente de Control de Procesos', job: 'Gateway PLC a Nube' }]}
+    title="Testimonios de clientes"
+    subtitle="Palabras de líderes de ingeniería que confían en mi trabajo"
+    testimonials={[
+      {
+        testimonial:
+          'Eduardo arquitectó nuestro despliegue IIoT, desde la lógica PLC hasta dashboards en Azure. Su atención al detalle y comunicación disciplinada mantuvieron el proyecto en tiempo en tres plantas.',
+        name: 'Gerente de Automatización',
+        job: 'Fabricante global de alimentos',
+      },
+      {
+        testimonial:
+          'Necesitábamos un socio que hablara español e inglés para unir a los equipos. Eduardo superó expectativas con documentación clara y un lanzamiento SCADA impecable.',
+        name: 'Director de Operaciones',
+        job: 'Planta de packaging en LATAM',
+      },
+      {
+        testimonial:
+          'Cada entregable de Eduardo está listo para producción. Los nuevos tableros y programas PLC incluyeron planos impecables, protocolos de prueba y entrenamiento.',
+        name: 'Líder de Ingeniería',
+        job: 'OEM de equipamiento industrial',
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Ver mi perfil en Upwork',
+      href: 'https://www.upwork.com/freelancers/~01f21c52fa13e6a195',
+      icon: 'tabler:external-link',
+    }}
   />
 </Layout>
-
-
-

@@ -24,6 +24,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     terms: 'Terms',
     privacy: 'Privacy Policy',
     language: 'Language',
+    announcement_badge: 'Free',
+    announcement_message: 'Unlock your 1‑hour consultancy—schedule your session today! »',
+    footnote_rights: 'All rights reserved.',
   },
   es: {
     home: 'Inicio',
@@ -39,6 +42,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     terms: 'Términos',
     privacy: 'Privacidad',
     language: 'Idioma',
+    announcement_badge: 'Gratis',
+    announcement_message: '¡Obtén tu consultoría de 1 hora—agenda tu sesión hoy mismo! »',
+    footnote_rights: 'Todos los derechos reservados.',
   },
   pt: {
     home: 'Início',
@@ -54,6 +60,9 @@ export const ui: Record<Lang, Record<string, string>> = {
     terms: 'Termos',
     privacy: 'Privacidade',
     language: 'Idioma',
+    announcement_badge: 'Gratuito',
+    announcement_message: 'Agende sua consultoria de 1 hora—reserve hoje mesmo! »',
+    footnote_rights: 'Todos os direitos reservados.',
   },
 };
 

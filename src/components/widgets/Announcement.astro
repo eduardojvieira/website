@@ -1,6 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, translatePath } from '~/i18n/utils';
+import { t, type Lang } from '~/i18n/ui';
 import { footerData } from '~/navigation';
+import { getPermalink } from '~/utils/permalinks';
 
 interface Link {
   text?: string;
@@ -14,7 +17,13 @@ export interface Props {
   socialLinks?: Array<Link>;
 }
 
-const { socialLinks = footerData.socialLinks } = Astro.props;
+const url = Astro.url;
+const fallbackSocialLinks = footerData(url).socialLinks;
+const { socialLinks = fallbackSocialLinks } = Astro.props;
+const lang = url ? (getLangFromUrl(url) as Lang) : ('en' as Lang);
+const contactHref = translatePath(getPermalink('/contact'), lang);
+const badgeText = t(lang, 'announcement_badge');
+const messageText = t(lang, 'announcement_message');
 ---
 
 <div
@@ -23,11 +32,9 @@ const { socialLinks = footerData.socialLinks } = Astro.props;
   <div class="flex-1 flex items-center">
     <span
       class="dark:bg-slate-700 bg-white/40 dark:text-slate-300 font-semibold px-1 py-0.5 text-xs mr-0.5 rtl:mr-0 rtl:ml-0.5 inline-block"
-      >Free</span
+      >{badgeText}</span
     >
-    <a href="/contact" class="text-muted hover:underline dark:text-slate-400 font-medium"
-      >Unlock your 1‑hour consultancy—schedule your session today! »</a
-    >
+    <a href={contactHref} class="text-muted hover:underline dark:text-slate-400 font-medium">{messageText}</a>
   </div>
   
   {

@@ -1,6 +1,8 @@
 ---
 publishDate: 2025-04-30T00:00:00Z
 author: Eduardo Vieira
+lang: es
+slug: es/conectando-plcs-mitsubishi-codesys-modbus
 title: "Conectando PLC Mitsubishi y CODESYS a la Nube con Modbus"
 excerpt: "Metodología paso a paso para unificar controladores Mitsubishi y CODESYS en una misma plataforma IIoT utilizando Modbus y MQTT."
 image: '~/assets/images/plc-mitsubishi.jpg'
@@ -11,7 +13,7 @@ tags:
   - codesys
   - modbus
 metadata:
-  canonical: https://eduardovieira.dev/connecting-mitsubishi-plcs-modbus
+  canonical: https://eduardovieira.dev/es/conectando-plcs-mitsubishi-codesys-modbus
 ---
 
 # Conectando PLC Mitsubishi y CODESYS a la Nube con Modbus

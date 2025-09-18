@@ -1,0 +1,190 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Programación PLC y Control Industrial | Eduardo Vieira',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    title="Programación PLC y Control Industrial"
+    subtitle="Lógica robusta y documentada para máquinas nuevas, retrofits y soporte: diseñada para maximizar disponibilidad, seguridad y mantenibilidad."
+    tagline="Experiencia PLC"
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Qué entrego"
+    title="Control confiable para equipos críticos"
+    subtitle="Experiencia multi-plataforma respaldada por fundamentos de ingeniería mecánica y conocimiento profundo de IIoT."
+    items={[
+      {
+        title: 'Programación multi-vendor',
+        description:
+          'Trabajo con Siemens TIA Portal, Allen-Bradley Studio 5000, Mitsubishi GX Works, ABB y CODESYS en Ladder, Structured Text y Function Block Diagram.',
+        icon: 'tabler:cpu',
+      },
+      {
+        title: 'Puesta en marcha de máquinas nuevas',
+        description:
+          'Desde el diseño de IO hasta la FAT final, desarrollo estructuras limpias de lógica, estándares de nombres y diagnósticos que escalan.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Modernización y migraciones',
+        description:
+          'Actualizo hardware legado, migro entre fabricantes o convierto código obsoleto a estándares modernos sin interrumpir producción.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Seguridad y cumplimiento',
+        description:
+          'Diseño y valido lógica de seguridad, circuitos de paro de emergencia e interlocks alineados con normativas regionales y evaluaciones de riesgo.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Optimización de rendimiento',
+        description:
+          'Reduzco tiempos de ciclo, mejoro secuencias e integro feedback de máquina para mantenimiento predictivo y diagnósticos avanzados.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Documentación y capacitación',
+        description:
+          'Entrego comentarios estructurados, especificaciones funcionales, referencias de cableado y formación para una transferencia impecable.',
+        icon: 'tabler:notebook',
+      },
+    ]}
+  />
+
+  <!-- Content Widget ******************* -->
+
+  <Content
+    isReversed
+    tagline="Entregables"
+    title="Del concepto a la puesta en marcha"
+    items={[
+      {
+        title: 'Diseño de estrategia de control',
+        description:
+          'Especificaciones funcionales, listas de IO y secuencias basadas en requisitos de proceso y seguridad.',
+      },
+      {
+        title: 'Desarrollo de código y simulación',
+        description:
+          'Código modular, simulación y pruebas en banco para facilitar la puesta en marcha en planta.',
+      },
+      {
+        title: 'Integración HMI y SCADA',
+        description:
+          'Intercambio de datos fluido con interfaces de operador, historiadores y sistemas MES para visibilidad total.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Programación y puesta en marcha de PLC',
+    }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Proceso típico de proyectos PLC"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Requerimientos y estándares</span>',
+        description:
+          'Recolecto documentación de proceso, normas de seguridad y estándares del cliente para definir arquitectura, nomenclatura y criterios de prueba.',
+        icon: 'tabler:clipboard-data',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Diseño y desarrollo</span>',
+        description:
+          'Construyo lógica estructurada, alarmas y diagnósticos mientras coordino con equipos mecánicos y eléctricos la secuencia.',
+        icon: 'tabler:layout-board',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Pruebas y puesta en marcha</span>',
+        description:
+          'Simulaciones, FAT y soporte en sitio para verificar funcionalidad y cumplimiento de seguridad.',
+        icon: 'tabler:device-analytics',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">Capacitación y soporte</span>',
+        description:
+          'Proporciono formación, guías de troubleshooting y soporte continuo para actualizaciones e integraciones futuras.',
+        icon: 'tabler:headset',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1581092334254-6ab6ac0f17b2?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Flujo de trabajo de automatización industrial',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Todo lo que necesitas saber para trabajar conmigo en proyectos PLC."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Pueden trabajar con nuestro código existente?',
+        description:
+          'Sí. Audito y refactorizo lógica heredada con frecuencia, documentando el comportamiento actual antes de implementar mejoras para no perder funcionalidades críticas.',
+      },
+      {
+        title: '¿Ofreces soporte remoto de troubleshooting?',
+        description:
+          'Claro. Con acceso remoto seguro diagnostico y resuelvo incidencias rápidamente. También puedo coordinar visitas en sitio cuando sea necesario.',
+      },
+      {
+        title: '¿Cómo gestionas la versión y documentación?',
+        description:
+          'Mantengo repositorios organizados, registros de cambios y documentación de diseño para que tu equipo sepa qué se implementó y por qué.',
+      },
+      {
+        title: '¿Integra los PLC con SCADA o sistemas en la nube?',
+        description:
+          'Por supuesto. Conecto lógica PLC con Ignition, ThingsBoard, Node-RED y brokers MQTT para habilitar visualización, analítica y control remoto.',
+      },
+      {
+        title: '¿Qué pasa con la validación de seguridad?',
+        description:
+          'Sigo las normas aplicables, preparo listas de verificación y colaboro con tus responsables de seguridad para confirmar el cumplimiento.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Inicia tu proyecto PLC',
+        href: '/es/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">¿Necesitas lógica PLC confiable?</Fragment>
+
+    <Fragment slot="subtitle">
+      Conversemos sobre tu máquina, proceso o retrofit y construyamos una solución de control en la que tu equipo pueda confiar.
+    </Fragment>
+  </CallToAction>
+</Layout>
